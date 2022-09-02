@@ -169,10 +169,10 @@ input[type=password] {
   background-repeat: no-repeat;
   font-size: 20px;
   color: white;
-  margin: 50px;
+  margin: 25px;
   padding: 50px;
-  padding-left: 10px;
-  margin-left: 100px;
+  padding-left: 50px;
+  margin-left: 75px;
   text-align: left;
 }
 
