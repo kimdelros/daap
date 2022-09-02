@@ -15,8 +15,13 @@
 
     <!-- ===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="resource/css/landingStyle.css">
     <title>Landing-Page</title>
+=======
+    <link rel="stylesheet" href="resource/css/style3.css">
+    <title>DAAP Home Page</title>
+>>>>>>> ff2eeb8156ab93e3276b8db19dc775a6405e7ecf
   </head>
   <body>
     <div class="bg-banner">
@@ -26,10 +31,10 @@
 
             <div class="social-icons">
                 <ul>
-                  <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                  <li><a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                  <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.facebook.com/theCEUofficial/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://twitter.com/centroescolaru" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.instagram.com/ceuofficial/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.youtube.com/CEUofficial" target="_blank"><i class="fa fa-youtube"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -45,12 +50,12 @@
         <img src="frontend/images/img-1.png" alt="ceu-img">
         <h1>Student Discount Application, Verification and Alumni Portal</h1>
         <div class="paragraph">
-          <p>Centro Escolar University offers the high-quality education and academic career that you deserve. By enrolling in CEU, you become a member of a community that is concerned with your total development intellectually, physically, emotionally, and spiritually.<br><br>CEU provides promising students like you with numerous opportunities for growth and development. Utilize the benefits we provide so that you can shape your life and future<br>with us.</p>
+          <p>Centro Escolar University offers the high-quality education and academic career that you deserve. By enrolling in CEU, you become a member of a community that is concerned with your total development intellectually, physically, emotionally, and spiritually.<br><br>CEU provides promising students like you with numerous opportunities for growth and development. Utilize the benefits we provide so that you can shape your life and future with us.</p>
         </div>
       </div>
       <div class="cont-btn">
         <div class="button">
-          <a href="index.php" class="btn btn-1">Apply Now!</a>
+          <a href="studentapplication.php" class="btn btn-1">Apply Now!</a>
         </div>
       </div>
     </div>
