@@ -24,7 +24,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
              <div id="form-main">
                <div id="form-div">
              <div class="header">
-               <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/Centro_Escolar_University_seal.svg/1200px-Centro_Escolar_University_seal.svg.png">
+               <img src="resource/img/CEULOGO.png">
                <h1>CENTRO ESCOLAR UNIVERSITY</h1>
                <h2>Ciencia Y Virtud</h2>
                <h3>*Please fill in required fields below.<br>
