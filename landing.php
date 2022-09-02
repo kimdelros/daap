@@ -33,20 +33,26 @@
                 </ul>
             </div>
         </div>
-        <div class="head-tag-main">
-          <h1>Student</h1>
-        </div>
-        <div class="head-tag-nxt">
-          <h1>Discount</h1>
+        <div class="head-tag">
+          <div class="head-tag-main">
+            <h1>Centro Escolar University</h1>
+          </div>
+          <div class="head-tag-nxt">
+            <h1>Manila - Makati - Malolos</h1>
+          </div>
         </div>
       <div class="header-tag">
         <img src="frontend/images/img-1.png" alt="ceu-img">
-        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
+        <h1>Student Discount Application, Verification and Alumni Portal</h1>
+        <div class="paragraph">
+          <p>Centro Escolar University offers the high-quality education and academic career that you deserve. By enrolling in CEU, you become a member of a community that is concerned with your total development intellectually, physically, emotionally, and spiritually.<br><br>CEU provides promising students like you with numerous opportunities for growth and development. Utilize the benefits we provide so that you can shape your life and future<br>with us.</p>
+        </div>
       </div>
       <div class="cont-btn">
         <div class="button">
           <a href="index.php" class="btn btn-1">Apply Now!</a>
         </div>
       </div>
+    </div>
   </body>
 </html>
