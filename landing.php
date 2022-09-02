@@ -15,7 +15,7 @@
 
     <!-- ===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="frontend/css/style.css">
+    <link rel="stylesheet" href="resource/css/style3.css">
     <title>Landing-Page</title>
   </head>
   <body>
