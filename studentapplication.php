@@ -21,25 +21,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
      <title>Student Application Form</title>
  </head>
  <body>
-     <div class="bg-banner">
-         <div class="navbar">
-             <div class="ceu-logo-white"><a href="https://www.ceu.edu.ph" target="_blank"><img src="frontend/images/logo.png" alt="ceu-logo"></a>
-             </div>
-             <div class="social-icons">
-                 <ul>
-                   <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                   <li><a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                   <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                   <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                 </ul>
-             </div>
              <div id="form-main">
                <div id="form-div">
              <div class="header">
                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/Centro_Escolar_University_seal.svg/1200px-Centro_Escolar_University_seal.svg.png">
-               <h1>Centro Escolar University</h1>
-               <h2>ciencia y virtud</h2>
-               <h3>Please fill in required fields below.<br>
+               <h1>CENTRO ESCOLAR UNIVERSITY</h1>
+               <h2>Ciencia Y Virtud</h2>
+               <h3>*Please fill in required fields below.<br>
              Upload the pdf formats of the required documents.<br>You will be contacted via your contact e-mail.</h3>
              </div>
                  <form class="form" id="form1" name="kayitformu" action="" method="post" onsubmit="return kontrol()" enctype="multipart/form-data">
