@@ -9,7 +9,7 @@
 .bg-banner {
     width: auto;
     height: 100vh;
-    background-image: url('/images/background-ceu.jpg');
+    background-image: url('../images/background-ceu.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -33,7 +33,7 @@
 .social-icons {
     position: absolute;
     right: 50px;
-    bottom: 2%; 
+    bottom: 2%;
 }
 
 .social-icons ul li {
@@ -164,4 +164,3 @@ input[type=password] {
     float: right;
     margin-right: 25px;
 }
-
