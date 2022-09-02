@@ -16,7 +16,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 
      <!-- ===== Iconscout CSS ===== -->
      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-     <link rel="stylesheet" href="resource/css/style2.css">
+     <link rel="stylesheet" href="resource/css/studAppStyle.css">
 
      <title>Student Application Form</title>
  </head>
