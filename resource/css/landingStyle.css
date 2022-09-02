@@ -153,8 +153,9 @@
 }
 .btn-1{
   overflow: hidden;
-  color: #f04e98;
+  color: white;
   border-color: #f04e98;
+  background-color: #f04e98;
   border-radius: 30px;
   font-weight: 800;
   box-shadow: 0 0 0 0 rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
