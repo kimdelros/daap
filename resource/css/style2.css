@@ -1,0 +1,188 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bg-banner {
+    width: auto;
+    height: 100vh;
+    background-image: url('frontend/images/background-ceu.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    background-color: black;
+    width: 100%;
+    margin: auto;
+    padding: 10px 0;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ceu-logo-white img{
+    width: 20%;
+    cursor: pointer;
+}
+
+.social-icons {
+    position: absolute;
+    right: 50px;
+    bottom: 2%;
+}
+
+.social-icons ul li {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.social-icons ul li a {
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 17px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.social-icons ul li a:hover {
+    background: #fff;
+    color: #000;
+}
+#button-gndr{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	width: 100%;
+	border: #fbfbfb solid 4px;
+	cursor:pointer;
+	background-color: #AF272F;
+	color:white;
+	font-size:24px;
+	padding-top:22px;
+	padding-bottom:22px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+
+#button-gndr:hover{
+	background-color: #fbfbfb;
+	color: #AF272F;
+}
+.input-field button {
+    border: none;
+    background-color: #150040;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 15px;
+}
+html{    background:url(https://pr0.nicelocal.ph/IY88sYhaH-LD4dFqTPAsqw/1120x700,q85/4px-BW84_n0QJGVPszge3NRBsKw-2VcOifrJIjPYFYkOtaCZxxXQ2RDQWjw-iXawd2H1AYFaOhz9C06YvJtuk0ykQ-H5mJBntR7TlQ-Wao4oZJXRrlMuvQ) no-repeat center center fixed;
+  background-size: cover;
+  height:100%;
+}
+
+#form-main{
+	width:100%;
+	float:left;
+	padding-top:0px;
+}
+
+#form-div {
+	background-color:rgba(72,72,72,0.5);
+	padding-left:30px;
+	padding-right:30px;
+	padding-top:25px;
+	padding-bottom:50px;
+	width: 450px;
+	float: left;
+	left: 50%;
+	position: absolute;
+  margin-top:30px;
+	margin-left: -260px;
+  border-radius: 7px;
+}
+.header{
+  text-align:center;
+  font-style: italic;
+}
+img{
+  width:170px;
+  height:150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1{
+  font-size:26px;
+  font-family: 'Montserrat', sans-serif;
+  color:white;
+}
+h2{
+  font-size:22px;
+  font-family: 'Montserrat', sans-serif;
+  color:white;
+}
+h3{
+  font-size:18px;
+  font-family: 'Montserrat', sans-serif;
+  color:pink;
+  text-align:left;
+}
+h4{
+  font-size:20px;
+  font-family: 'Montserrat', sans-serif;
+  color:white;
+}
+.form-input {
+	color:#3c3c3c;
+	font-family: 'Montserrat', sans-serif;
+  font-weight:500;
+	font-size: 18px;
+	border-radius:10px;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid #AF272F;
+}
+
+.form-input:focus{
+	background: #fff;
+	box-shadow: 0;
+	border: 3px solid #AF272F;
+	color: black;
+	outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	background-color:white;
+}
