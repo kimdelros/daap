@@ -15,18 +15,15 @@
 
     <!-- ===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="resource/css/landingStyle.css">
     <title>Landing-Page</title>
-=======
     <link rel="stylesheet" href="resource/css/style3.css">
     <title>DAAP Home Page</title>
->>>>>>> ff2eeb8156ab93e3276b8db19dc775a6405e7ecf
   </head>
   <body>
     <div class="bg-banner">
         <div class="navbar">
-            <div class="ceu-logo-white"><a href="https://www.ceu.edu.ph" target="_blank"><img src="frontend/images/logo.png" alt="ceu-logo"></a>
+            <div class="ceu-logo-white"><a href="https://www.ceu.edu.ph" target="_blank"><img src="resource/img/navbarLogoColorless.png" alt="ceu-logo"></a>
             </div>
 
             <div class="social-icons">
@@ -47,7 +44,7 @@
           </div>
         </div>
       <div class="header-tag">
-        <img src="frontend/images/img-1.png" alt="ceu-img">
+        <img src="resource/img/landingImage.png" alt="ceu-img">
         <h1>Student Discount Application, Verification and Alumni Portal</h1>
         <div class="paragraph">
           <p>Centro Escolar University offers the high-quality education and academic career that you deserve. By enrolling in CEU, you become a member of a community that is concerned with your total development intellectually, physically, emotionally, and spiritually.<br><br>CEU provides promising students like you with numerous opportunities for growth and development. Utilize the benefits we provide so that you can shape your life and future with us.</p>
