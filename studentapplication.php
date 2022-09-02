@@ -32,6 +32,11 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
                   </div>
                       <form class="form" id="form1" name="kayitformu" action="" method="post" onsubmit="return kontrol()" enctype="multipart/form-data">
 
+                        <p class="studentnumber">
+                          <h4>Student ID</h4>
+                            <input name="studentid" type="tel" class="form-input" onkeypress="return Sayi(event)" placeholder="Enter your Student ID" id="number" />
+                        </p>
+
                         <p class="first_name">
                           <h4>First Name</h4>
                             <input name="first_name" type="text" class="form-input" placeholder="First Name" id="first_name"/>
@@ -40,19 +45,9 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
                         <h4>Last Name</h4>
                           <input name="last_name" type="text" class="form-input" placeholder="Last Name" id="last_name"/>
                       </p>
-                      <p class="surname">
-                          <h4>Surname</h4>
-                            <input name="surname" type="text" class="form-input" placeholder="Surname" id="surname"/>
-                        </p>
-
                         <p class="email">
                           <h4>Email</h4>
                             <input name="email" type="email" class="form-input" id="email" placeholder="Email" />
-                        </p>
-
-                        <p class="studentnumber">
-                          <h4>Student Number</h4>
-                            <input name="studentnumber" type="tel" class="form-input" onkeypress="return Sayi(event)" placeholder="Enter your Student Number" id="number" />
                         </p>
                         <p class="gradution">
                             <h4>Graduation Document(Diploma)</h4>
@@ -69,13 +64,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
                             <input name="language" type="file" class="form-input" placeholder="Language document" id="language" />
                         </p>
 
-                        <p class="text">
-                          <h4>Why do you want to apply to our university?</h4>
-                            <textarea name="text" class="form-input" id="comment" placeholder="Why do you want to apply to our university?"></textarea>
-                        </p>
-
                         <div class="input-field button">
-                            <button type="button"><span>Submit</span><i class="fa fa-arrow-circle-o-right fa-2x"></i></button>
+                            <button type="button"><span>Submit</span></button>
                         </div>
                       </form>
                </div>
