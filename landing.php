@@ -51,7 +51,7 @@
       </div>
       <div class="cont-btn">
         <div class="button">
-          <a href="studentapplication.php" class="btn btn-1">Apply Now!</a>
+          <a href="studentapplication.php" target="_blank" class="btn btn-1">Apply Now!</a>
         </div>
       </div>
     </div>
