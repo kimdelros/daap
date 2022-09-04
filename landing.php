@@ -16,7 +16,6 @@
     <!-- ===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="resource/css/landingStyle.css">
-    <title>Landing-Page</title>
     <link rel="stylesheet" href="resource/css/style3.css">
     <title>DAAP Home Page</title>
   </head>
@@ -52,7 +51,7 @@
       </div>
       <div class="cont-btn">
         <div class="button">
-          <a href="studentapplication.php" class="btn btn-1">Apply Now!</a>
+          <a href="studentapplication.php" target="_blank" class="btn btn-1">Apply Now!</a>
         </div>
       </div>
     </div>
