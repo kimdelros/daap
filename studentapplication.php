@@ -37,14 +37,10 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
                             <input name="studentid" type="tel" class="form-input" onkeypress="return Sayi(event)" placeholder="Enter your Student ID" id="number" />
                         </p>
 
-                        <p class="first_name">
-                          <h4>First Name</h4>
-                            <input name="first_name" type="text" class="form-input" placeholder="First Name" id="first_name"/>
+                        <p class="full_name">
+                          <h4>Full Name</h4>
+                            <input name="full_name" type="text" class="form-input" placeholder="Full Name" id="full_name"/>
                         </p>
-                      <p class="last_name">
-                        <h4>Last Name</h4>
-                          <input name="last_name" type="text" class="form-input" placeholder="Last Name" id="last_name"/>
-                      </p>
                         <p class="email">
                           <h4>Email</h4>
                             <input name="email" type="email" class="form-input" id="email" placeholder="Email" />
