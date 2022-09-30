@@ -1,6 +1,7 @@
 <?php
-class apply{
-    public function verifyStudent($studentID, $studentEmail, $studentName){
+class apply extends config{
+
+    private function verifyStudent($studentID, $studentEmail, $studentName){
       if($studentID == "")
         $message = "Student Number is required!";
       else if($studentEmail == "")
@@ -12,6 +13,12 @@ class apply{
 
       echo "<script>alert('$message');</script>";
       return false;
+    }
+
+    private function applyStudent($studentID, $studentEmail, $studentName){
+      $link = config::con();
+
+      $sql =
     }
 
     public function verifyAlumni($studentID, $studentEmail, $studentName, $alumniName, $studentBC, $alumniDiploma, $alumniTOR){
@@ -28,6 +35,11 @@ class apply{
              $message = "Birth Certificate must be a pdf file!";
            else if($tor !== 'pdf')
              $message = "Transcript of Record must be a pdf file!";
+           else {
+             applyStudent($studentID, $studentEmail, $studentName);
+           }
+           echo "<script>alert('$message');</script>";
+           exit();
          }
     }
 }

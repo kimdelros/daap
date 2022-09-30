@@ -115,7 +115,7 @@
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
-                verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['alumniName'], $_FILES['studentBC'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
+                apply::verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['alumniName'], $_FILES['studentBC'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
               }
                ?>
             </div>
