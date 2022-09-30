@@ -1,6 +1,6 @@
 <?php
   require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
-
+  require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/apply.php';
  ?>
  <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -14,6 +14,7 @@
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resource/css/landingstyle.css">
+    <script src="resource/js/verify.js"></script>
     <title>DAAP Portal</title>
   </head>
   <body>
@@ -88,8 +89,8 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="studentBC" class="form-label">Birth Certificate (PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="studentBC" id="studentBC" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+                <label for="studentBC" class="form-label">Birth Certificate (PDF only)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="studentBC" id="studentBC" accept="application/pdf" autocomplete="no" onchange="return validateBC()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -114,7 +115,7 @@
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
-                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['ParentName'], $_FILES['BirthCert'], $_FILES['ParentDiploma'], $_FILES['TOR']);
+                verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['alumniName'], $_FILES['studentBC'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
               }
                ?>
             </div>
