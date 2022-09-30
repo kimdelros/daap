@@ -63,41 +63,47 @@
       <a class="close" href="">&times;</a>
       <div class="regContent">
         <div class="regForm">
-          <h2 class="text-center">REGISTER AN ACCOUNT</h2>
+          <h2 class="text-center">ALUMNI DISCOUNT FORM</h2>
           <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="StudentNumber" class="form-label">Student Number</label>
-                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2019-30647" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="FirstName" class="form-label">First name</label>
-                <input type="text" class="form-control text-center" name="FirstName" placeholder="Rigel Kent" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="FirstName" placeholder="First Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="MiddleName" class="form-label">Middle name</label>
-                <input type="text" class="form-control text-center" name="MiddleName" placeholder="Saloma" pattern="[a-zA-Z\s]*$" autocomplete="no">
+                <input type="text" class="form-control text-center" name="MiddleName" placeholder="Middle Name" pattern="[a-zA-Z\s]*$" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="LastName" class="form-label">Last name</label>
-                <input type="text" class="form-control text-center" name="LastName" placeholder="Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="LastName" placeholder="Last Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="LastName" class="form-label">Alumni Parent's Name</label>
+                <input type="text" class="form-control text-center" name="ParentName" placeholder="Parent's Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="ProfilePic" class="form-label">Profile Picture</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="image/*" autocomplete="no" onchange="return validatePP()">
+                <label for="ProfilePic" class="form-label">Parent's Diploma</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="Documents" class="form-label">Documents (PDF only)</label>
+                <label for="Documents" class="form-label">Transcript of Records (PDF only)</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="Documents" id="Documents" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
@@ -124,39 +130,41 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="StudentNumber" class="form-label">Student Number</label>
-                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2019-30647" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2019-12345" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+              </div>
+            </div>
+              <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="FullName" class="form-label">Full name</label>
+                <input type="text" class="form-control text-center" name="FullName" placeholder="Full Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="FirstName" class="form-label">First name</label>
-                <input type="text" class="form-control text-center" name="FirstName" placeholder="Rigel Kent" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <label for="Email" class="form-label">Email</label>
+                <input type="text" class="form-control text-center" name="Email" placeholder="Email Address" pattern="[a-zA-Z\s]*$" autocomplete="no">
               </div>
             </div>
-            <div class="row justify-content-center text-center">
+              <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="MiddleName" class="form-label">Middle name</label>
-                <input type="text" class="form-control text-center" name="MiddleName" placeholder="Saloma" pattern="[a-zA-Z\s]*$" autocomplete="no">
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8  pt-3">
-                <label for="LastName" class="form-label">Last name</label>
-                <input type="text" class="form-control text-center" name="LastName" placeholder="Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <label for="LastName" class="form-label">Sibling's Name</label>
+                <input type="text" class="form-control text-center" name="ParentName" placeholder="SIbling's Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="ProfilePic" class="form-label">Profile Picture</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="image/*" autocomplete="no" onchange="return validatePP()">
+                <label for="COM" class="form-label">Certificate of Matriculation(PDF)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="Certificate of Matriculation" id="COM" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="Documents" class="form-label">Documents (PDF only)</label>
+                <label for="Documents" class="form-label">Transcript of Records (PDF only)</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="Documents" id="Documents" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
+
+
             <div class="col-12 text-center">
               <input class="btn btn-primary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
@@ -177,6 +185,7 @@
       <div class="regContent">
         <div class="regForm">
           <h2 class="text-center">REGISTER AN ACCOUNT</h2>
+          <p>This application is applicable only for 1 Academic Year</p>
           <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
