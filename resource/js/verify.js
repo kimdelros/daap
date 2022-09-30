@@ -56,9 +56,9 @@ function validateCRC(){
 function validateCD(){
   var upload = document.getElementById('ceisDiploma');
   var filePath = upload.value;
-  var allowedExtensions = /(\.pdf)$/i;
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
   if (!allowedExtensions.exec(filePath)) {
-             alert('Invalid file type. Please upload PDF only.');
+             alert('Invalid file type. Please upload image files only.');
              upload.value = '';
              return false;
   }

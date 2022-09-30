@@ -102,7 +102,7 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="alumniDiploma" class="form-label">Alumni's Diploma (Image Upload)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="application/pdf" autocomplete="no" onchange="return validateAD()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*" autocomplete="no" onchange="return validateAD()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -213,7 +213,7 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="ceisDiploma" class="form-label">CEIS Diploma (Image Upload)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="application/pdf" autocomplete="no" onchange="return validateCD()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="image/*" autocomplete="no" onchange="return validateCD()">
               </div>
             </div>
             <div class="col-12 text-center">
