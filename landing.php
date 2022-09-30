@@ -159,7 +159,7 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="siblingCOM" class="form-label">Certificate of Matriculation (PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="application/pdf" autocomplete="no" onchange="return validateSCOM()">
               </div>
             </div>
 
@@ -207,13 +207,13 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="ceisRC" class="form-label">Report Card (PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisRC" id="ceisRC" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisRC" id="ceisRC" accept="application/pdf" autocomplete="no" onchange="return validateCRC()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="ceisDiploma" class="form-label">CEIS Diploma (Image Upload)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="application/pdf" autocomplete="no" onchange="return validateCD()">
               </div>
             </div>
             <div class="col-12 text-center">

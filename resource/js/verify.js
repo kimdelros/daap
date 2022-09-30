@@ -31,19 +31,30 @@ function validateATOR(){
   }
 }
 
-function validatePP(){
-  var upload = document.getElementById('ProfilePic');
+function validateSCOM(){
+  var upload = document.getElementById('siblingCOM');
   var filePath = upload.value;
-  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+  var allowedExtensions = /(\.pdf)$/i;
   if (!allowedExtensions.exec(filePath)) {
-             alert('Invalid file type. Please upload image files only.');
+             alert('Invalid file type. Please upload PDF only.');
              upload.value = '';
              return false;
   }
 }
 
-function validateDoc(){
-  var upload = document.getElementById('Documents');
+function validateCRC(){
+  var upload = document.getElementById('ceisRC');
+  var filePath = upload.value;
+  var allowedExtensions = /(\.pdf)$/i;
+  if (!allowedExtensions.exec(filePath)) {
+             alert('Invalid file type. Please upload PDF only.');
+             upload.value = '';
+             return false;
+  }
+}
+
+function validateCD(){
+  var upload = document.getElementById('ceisDiploma');
   var filePath = upload.value;
   var allowedExtensions = /(\.pdf)$/i;
   if (!allowedExtensions.exec(filePath)) {
