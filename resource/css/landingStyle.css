@@ -1,3 +1,19 @@
+body{
+  animation: transitionIn 1.5s;
+}
+@keyframes transitionIn{
+  from{
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to{
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+html{
+  scroll-behavior: smooth;
+}
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
@@ -9,174 +25,15 @@
 .bg-banner {
     width: auto;
     height: 100vh;
-    background-image: url('resource/img/background-ceu.png');
+    padding-top: 30px;
+    background-image: url('../img/background-ceu2.png');
     background-size: cover;
     background-position: center;
 }
 
-.navbar {
-    background-color: black;
-    width: 100%;
-    margin: auto;
-    padding: 10px 0;
-    padding-left: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.ceu-logo-white img{
-    width: 20%;
-    cursor: pointer;
-}
-
-.social-icons {
-    position: absolute;
-    right: 50px;
-    bottom: 2%;
-}
-
-.social-icons ul li {
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.social-icons ul li a {
-    display: block;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 17px;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.5s;
-}
-
-.social-icons ul li a:hover {
-    background: #fff;
-    color: #000;
-}
-
-.header-top {
-    padding-top: 80px;
-    text-align: center;
-    height: 30vh;
-    width: 55%;
-    position:absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.header-top h1 {
-    color: #FF47B8;
-    font-weight: 720;
-    font-size: 57px;
-    margin-bottom: -20px;
-}
-
-.header-top h2 {
-    color: white;
-    font-style: italic;
-    font-size: 100px;
-    font-weight: 600;
-    margin-bottom: -10px;
-}
-
-.header-top h5 {
-    color: #fff;
-    float: right;
-}
-
-.header-tag h1{
-  font-size: 25px;
-  color: #f04e98;
-  margin: 25px;
-  padding: 50px;
-  padding-left: 150px;
-  margin-left: 75px;
-  text-align: left;
-  font-weight: bold;
-}
-.header-tag p{
-  font-size: 22px;
-  color: white;
-  margin-top: -80px;
-  padding: 50px;
-  padding-left: 150px;
-  margin-right: 50px;
-  margin-left: 75px;
-  text-align: left;
-}
-
-.header-tag img{
-  filter: drop-shadow(0 0 45px #191919);
-  float: right;
-  width: 650px;
-  height: 650px;
-  margin-right: 180px;
-  margin-top: -100px;
-}
-.head-tag-main h1{
-  margin-bottom: 0;
-  text-transform: uppercase;
-  color: white;
-  margin-left: 280px;
-  margin-top: 100px;
-  text-align: left;
-  font-weight: bold;
-}
-.head-tag-nxt h1{
-  margin-bottom: 0;
-  text-transform: uppercase;
-  color: white;
-  margin-left: 410px;
-  text-align: left;
-  font-weight: bold;
-  font-size: 25px;
-}
-.cont-btn{
-  margin-left: 500px;
-  align-items: center;
-}
-.button{
-  display: flex;
-}
-.btn{
-  text-decoration: none;
-  padding: 20px 50px;
-  font-size: 20px;
-  position: relative;
-}
-.btn-1{
-  overflow: hidden;
-  color: white;
-  border-color: #f04e98;
-  background-color: #f04e98;
-  border-radius: 30px;
-  font-weight: 800;
-  box-shadow: 0 0 0 0 rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
-  transition: transform 0.3 ease, box-shadow 0.3 ease;
-}
-.btn-1::after{
-  content: "";
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  top: -50px;
-  left: -100px;
-  background-color: #ff3cac;
-  background-image: linear-gradient(255deg, #f9dadd 25%, #26caf8 50%, #f04e98 100%);
-  z-index: -1;
-  transition: transform 0.5s ease;
-}
-.btn-1:hover{
-  transform: translate(0, -6px);
-  box-shadow: 10px -19px 25px 0 rgba(143, 64, 248, 0.5), -10px 10px 25px 0 rgba(39, 200, 255, 0.5);
-}
-.btn-1:hover::after{
-  transform: rotate(150deg);
+.daaplogo img{
+  width: 230px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
