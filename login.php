@@ -1,63 +1,62 @@
-<?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
-
- ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registrar Portal</title>
-  <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
-  <link href="vendor/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css"  href="resource/css/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="resource/css/loginStyle.css">
+
+    <title>DAAP Login Admin</title>
 </head>
 <body>
-        <nav class="navbar navbar-dark bg-white shadow-sm slide-in-left">
-          <a class="navbar-brand " href="https://malolos.ceu.edu.ph/">
-            <img src="resource/img/logo.jpg" height="70" class="d-inline-block align-top"
-              alt="mdb logo"><h3 class="ib">
-          </a>
-             <a href="https:/www.facebook.com/theCEUofficial/"><i class="fab fa-facebook-f ceucolor"></i></a>
-             <a href="https://www.instagram.com/ceuofficial/"><i class="fab fa-instagram ceucolor"></i></a>
-             <a href="https://twitter.com/ceumalolos"><i class="fab fa-twitter ceucolor"></i></a>
-        </nav>
-           <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-8 ">
-
-
-
-                    <form class="text-center border border-light p-5 shadow puff-in-center" action="" method="post" >
-                    <p class="h4 mb-4">Sign in</p>
-                    <?php logd();?>
-                    <input type="text" id="username" class="form-control mb-4" name="username" placeholder="Enter Username" required>
-                    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Enter Password" name ="password" required>
-                    <div class="d-flex justify-content-around">
-                    </div>
-                    <input type =hidden name="token" value="<?php echo Token::generate(); ?>">
-                    <input  type="submit"  class="btn btn-dark btn-block my-4"value="Login"/>
-                    </form>
-
-
-                    <footer id="sticky-footer" class="py-4 bg-dark text-white-50 fixed-bottom slide-in-right">
-                      <div class="container text-center">
-                          <div class="row">
-                              <div class="col col-sm-5 text-left">
-                                  <small>Copyright &copy;Centro Escolar University BSIT 4th Year Student 2022</small>
-                              </div>
-                              <div class="col text-right">
-                                  <small>Created by: Rigel Kent Cruz, Jemiah Kim Del Rosario, Lawrence Ian Forbes, Paul Kenneth Heyrana</small>
-                              </div>
-                          </div>
-                      </div>
-                </div>
+    <div class="bg-banner">
+        <div class="navbar">
+            <div class="ceu-logo-white"><a href="https://www.ceu.edu.ph" target="_blank"><img src="resource/img/navbarLogoColorless.png" alt="ceu-logo"></a>
             </div>
-          </div>
-        </footer>
-        <script src="vendor/js/jquery.js"></script>
-        <script src="vendor/js/popper.js"></script>
-        <script src="vendor/js/bootstrap.min.js"></script>
-    </body>
-    </html>
+            <div class="social-icons">
+                <ul>
+                    <li><a href="https://www.facebook.com/theCEUofficial/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/centroescolaru" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/ceuofficial/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/CEUofficial" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header-top">
+            <h1>THE UNIVERSITY OF FIRST CHOICE</h1>
+            <h2>Empowers. Inspires.</h2>
+            <h5>since 1907</h5>
+        </div>
+        <div class="form">
+            <div class="form_login">
+                <h1>CENTRO ESCOLAR UNIVERSITY</h1>
+                <p>Manila - Makati - Malolos</p>
+                <h4>ADMINISTRATION OFFICE</h4>
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Password" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="input-field button">
+                        <button type="button"><span>LOGIN</span><i class="fa fa-arrow-circle-o-right fa-2x"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</body>
+</html>
