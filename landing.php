@@ -67,51 +67,51 @@
           <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="StudentNumber" class="form-label">Student Number</label>
+                <label for="StudentNumber" class="form-label">Applicant's Student Number</label>
                 <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="FirstName" class="form-label">First name</label>
-                <input type="text" class="form-control text-center" name="FirstName" placeholder="First Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <label for="EmailAdd" class="form-label">CEU Email Address</label>
+                <input type="email" class="form-control text-center" name="EmailAdd" placeholder="delacruz1900000@ceu.edu.ph" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="MiddleName" class="form-label">Middle name</label>
-                <input type="text" class="form-control text-center" name="MiddleName" placeholder="Middle Name" pattern="[a-zA-Z\s]*$" autocomplete="no">
+                <label for="FullName" class="form-label">Applicant's Full Name</label>
+                <input type="text" class="form-control text-center" name="FullName" placeholder="Dela Cruz, Juan Santos" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="LastName" class="form-label">Last name</label>
-                <input type="text" class="form-control text-center" name="LastName" placeholder="Last Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8  pt-3">
-                <label for="LastName" class="form-label">Alumni Parent's Name</label>
+                <label for="ParentName" class="form-label">Parent's Full Name (CEU Alumni)</label>
                 <input type="text" class="form-control text-center" name="ParentName" placeholder="Parent's Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="ProfilePic" class="form-label">Parent's Diploma</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+                <label for="ParentDiploma" class="form-label">Parent's Diploma (PDF)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ParentDiploma" id="ParentDiploma" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="Documents" class="form-label">Transcript of Records (PDF only)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="Documents" id="Documents" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+                <label for="YearBook" class="form-label">Parent's Yearbook (Image)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="YearBook" id="YearBook" accept="image/*" autocomplete="no" onchange="return validatePP()">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="TOR" class="form-label">Transcript of Records (PDF)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="TOR" id="TOR" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
             <div class="col-12 text-center">
-              <input class="btn btn-primary btn-lg btn-block" type="submit" name"register" value="Register"></input>
+              <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
-                validateAccount($_POST['StudentNumber'], $_POST['FirstName'], $_POST['MiddleName'], $_POST['LastName'], $_FILES['ProfilePic'], $_FILES['Documents']);
+                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['ParentName'], $_FILES['ParentDiploma'], $_FILES['YearBook'], $_FILES['TOR']);
               }
                ?>
             </div>
@@ -120,56 +120,57 @@
       </div>
     </div>
   </section>
+
   <section class="regOverlay" id="SiblingForm">
     <div class="regWrapper">
       <a class="close" href="">&times;</a>
       <div class="regContent">
         <div class="regForm">
-          <h2 class="text-center">REGISTER AN ACCOUNT</h2>
+          <h2 class="text-center">SIBLING DISCOUNT FORM</h2>
           <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="StudentNumber" class="form-label">Student Number</label>
-                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2019-12345" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
-              </div>
-            </div>
-              <div class="row justify-content-center text-center">
-              <div class="col-md-8  pt-3">
-                <label for="FullName" class="form-label">Full name</label>
-                <input type="text" class="form-control text-center" name="FullName" placeholder="Full Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <label for="StudentNumber" class="form-label">Applicant's Student Number</label>
+                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="Email" class="form-label">Email</label>
-                <input type="text" class="form-control text-center" name="Email" placeholder="Email Address" pattern="[a-zA-Z\s]*$" autocomplete="no">
-              </div>
-            </div>
-              <div class="row justify-content-center text-center">
-              <div class="col-md-8  pt-3">
-                <label for="LastName" class="form-label">Sibling's Name</label>
-                <input type="text" class="form-control text-center" name="ParentName" placeholder="SIbling's Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <label for="EmailAdd" class="form-label">CEU Email Address</label>
+                <input type="email" class="form-control text-center" name="EmailAdd" placeholder="delacruz1900000@ceu.edu.ph" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
-              <div class="col-md-8 pt-3">
-                <label for="COM" class="form-label">Certificate of Matriculation(PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="Certificate of Matriculation" id="COM" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+              <div class="col-md-8  pt-3">
+                <label for="FullName" class="form-label">Applicant's Full Name</label>
+                <input type="text" class="form-control text-center" name="FullName" placeholder="Dela Cruz, Juan Santos" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="SibFullName" class="form-label">Sibling's Full Name</label>
+                <input type="text" class="form-control text-center" name="SibFullName" placeholder="Sibling's Full Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="Documents" class="form-label">Transcript of Records (PDF only)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="Documents" id="Documents" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+                <label for="COM" class="form-label">Certificate of Matriculation (PDF)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="COM" id="COM" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="TOR" class="form-label">Transcript of Records (PDF)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="TOR" id="TOR" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
 
 
             <div class="col-12 text-center">
-              <input class="btn btn-primary btn-lg btn-block" type="submit" name"register" value="Register"></input>
+              <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
-                validateAccount($_POST['StudentNumber'], $_POST['FirstName'], $_POST['MiddleName'], $_POST['LastName'], $_FILES['ProfilePic'], $_FILES['Documents']);
+                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['SibFullName'], $_FILES['COM'], $_FILES['TOR']);
               }
                ?>
             </div>
@@ -184,50 +185,44 @@
       <a class="close" href="">&times;</a>
       <div class="regContent">
         <div class="regForm">
-          <h2 class="text-center">REGISTER AN ACCOUNT</h2>
-          <p class="text-center">This application is applicable only for 1 Academic Year</p>
+          <h2 class="text-center">CEIS DISCOUNT FORM</h2>
+          <p class="text-center">This application is applicable for 1 Academic Year ONLY.</p>
           <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
-            <div class="row justify-content-center text-center">
+          <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="StudentNumber" class="form-label">Student Number</label>
-                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2019-30647" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+                <label for="StudentNumber" class="form-label">Applicant's Student Number</label>
+                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="FirstName" class="form-label">First name</label>
-                <input type="text" class="form-control text-center" name="FirstName" placeholder="Rigel Kent" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <label for="EmailAdd" class="form-label">CEU Email Address</label>
+                <input type="email" class="form-control text-center" name="EmailAdd" placeholder="delacruz1900000@ceu.edu.ph" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="MiddleName" class="form-label">Middle name</label>
-                <input type="text" class="form-control text-center" name="MiddleName" placeholder="Saloma" pattern="[a-zA-Z\s]*$" autocomplete="no">
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8  pt-3">
-                <label for="LastName" class="form-label">Last name</label>
-                <input type="text" class="form-control text-center" name="LastName" placeholder="Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <label for="FullName" class="form-label">Applicant's Full Name</label>
+                <input type="text" class="form-control text-center" name="FullName" placeholder="Dela Cruz, Juan Santos" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="ProfilePic" class="form-label">Profile Picture</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="image/*" autocomplete="no" onchange="return validatePP()">
+                <label for="ReportCard" class="form-label">Report Card (PDF)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ReportCard" id="ReportCard" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="Documents" class="form-label">Documents (PDF only)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="Documents" id="Documents" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+                <label for="CEISDiploma" class="form-label">CEIS Diploma (PDF)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="CEISDiploma" id="CEISDiploma" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
             <div class="col-12 text-center">
-              <input class="btn btn-primary btn-lg btn-block" type="submit" name"register" value="Register"></input>
+              <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
-                validateAccount($_POST['StudentNumber'], $_POST['FirstName'], $_POST['MiddleName'], $_POST['LastName'], $_FILES['ProfilePic'], $_FILES['Documents']);
+                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['ReportCard'], $_FILES['CEISDiploma']);
               }
                ?>
             </div>
