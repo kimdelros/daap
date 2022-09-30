@@ -98,7 +98,7 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="ProfilePic" class="form-label">Parent's Diploma</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="image/*" autocomplete="no" onchange="return validatePP()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -189,6 +189,7 @@
       <div class="regContent">
         <div class="regForm">
           <h2 class="text-center">REGISTER AN ACCOUNT</h2>
+          <p>This application is applicable only for 1 Academic Year</p>
           <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
