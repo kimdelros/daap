@@ -9,7 +9,7 @@
 .bg-banner {
     width: auto;
     height: 100vh;
-    background-image: url('../img/background-ceu.jpg');
+    background-image: url('resource/img/background-ceu.png');
     background-size: cover;
     background-position: center;
 }
