@@ -25,7 +25,7 @@ html{
 .bg-banner {
     width: auto;
     height: 100vh;
-    background-image: url('background-ceu2.png');
+    background-image: url('../img/background-ceu2.png');
     background-size: cover;
     background-position: center;
 }
@@ -123,7 +123,7 @@ html{
   border-radius: 25px;
   width: 300px;
   height: 100px;
-  padding: 15px; 
+  padding: 15px;
 }
 .row .row4{
   padding-top: 180px;
@@ -139,7 +139,7 @@ html{
   border-radius: 25px;
   width: 300px;
   height: 100px;
-  padding: 15px; 
+  padding: 15px;
 }
 .row a:hover{
   background: rgba(0,0,0, 0.6);
