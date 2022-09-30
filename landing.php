@@ -76,8 +76,8 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="EmailAdd" class="form-label">CEU Email Address</label>
-                <input type="email" class="form-control text-center" name="EmailAdd" placeholder="delacruz1900000@ceu.edu.ph" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <label for="EmailAdd" class="form-label">Email Address</label>
+                <input type="email" class="form-control text-center" name="EmailAdd" placeholder="delacruz1900000@ceu.edu.ph" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -87,21 +87,21 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="BirthCert" class="form-label">Birth Certificate (PDF)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="BirthCert" id="BirthCert" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="ParentName" class="form-label">Parent's Full Name (CEU Alumni)</label>
+                <label for="ParentName" class="form-label">Alumni's Full Name</label>
                 <input type="text" class="form-control text-center" name="ParentName" placeholder="Parent's Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="ParentDiploma" class="form-label">Parent's Diploma (PDF)</label>
+                <label for="ParentDiploma" class="form-label">Alumni's Diploma (PDF)</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="ParentDiploma" id="ParentDiploma" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8 pt-3">
-                <label for="YearBook" class="form-label">Parent's Yearbook (Image)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="YearBook" id="YearBook" accept="image/*" autocomplete="no" onchange="return validatePP()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -114,7 +114,7 @@
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
-                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['ParentName'], $_FILES['ParentDiploma'], $_FILES['YearBook'], $_FILES['TOR']);
+                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['ParentName'], $_FILES['BirthCert'], $_FILES['ParentDiploma'], $_FILES['TOR']);
               }
                ?>
             </div>
@@ -139,7 +139,7 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="EmailAdd" class="form-label">CEU Email Address</label>
+                <label for="EmailAdd" class="form-label">Email Address</label>
                 <input type="email" class="form-control text-center" name="EmailAdd" placeholder="delacruz1900000@ceu.edu.ph" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
@@ -161,19 +161,13 @@
                    <input type="file" class="form-control text-center" aria-label="file example" name="COM" id="COM" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8 pt-3">
-                <label for="TOR" class="form-label">Transcript of Records (PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="TOR" id="TOR" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
-              </div>
-            </div>
 
 
             <div class="col-12 text-center">
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
-                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['SibFullName'], $_FILES['COM'], $_FILES['TOR']);
+                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['SibFullName'], $_FILES['COM'];
               }
                ?>
             </div>
@@ -199,7 +193,7 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="EmailAdd" class="form-label">CEU Email Address</label>
+                <label for="EmailAdd" class="form-label">Email Address</label>
                 <input type="email" class="form-control text-center" name="EmailAdd" placeholder="delacruz1900000@ceu.edu.ph" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
