@@ -25,11 +25,7 @@ html{
 .bg-banner {
     width: auto;
     height: 100vh;
-<<<<<<< HEAD
     background-image: url('../img/background-ceu2.png');
-=======
-    background-image: url('resource/img/background-ceu2.png');
->>>>>>> 9adfaf2edef65e355f3148fe41753590228bdb00
     background-size: cover;
     background-position: center;
 }
