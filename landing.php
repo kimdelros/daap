@@ -17,7 +17,7 @@
     <title>DAAP Portal</title>
   </head>
   <body>
-    <section class="bg-banner">
+    <section class="discount">
       <div class="container container-fluid">
         <div class="row text-center">
           <div class="daaplogo" data-aos="fade-down" data-aos-duration="2000">
@@ -31,11 +31,11 @@
               </div>
               <div class="SiblingDiscount carousel-item container container-fluid">
                 <h2>Sibling Discount</h2>
-                <a href="#AlumniForm" class='btn btn-info btn-sm'>Apply Now</a>
+                <a href="#SiblingForm" class='btn btn-info btn-sm'>Apply Now</a>
               </div>
               <div class="CEISDiscount carousel-item container container-fluid">
                 <h2>CEIS Discount</h2>
-                <a href="#AlumniForm" class='btn btn-info btn-sm'>Apply Now</a>
+                <a href="#CEISForm" class='btn btn-info btn-sm'>Apply Now</a>
               </div>
             </div>
 
@@ -50,6 +50,182 @@
           </div>
         </div>
       </div>
+  </section>
+  <section class="map">
+
+  </section>
+  <section class="tracert">
+
+  </section>
+
+  <section class="regOverlay" id="AlumniForm">
+    <div class="regWrapper">
+      <a class="close" href="">&times;</a>
+      <div class="regContent">
+        <div class="regForm">
+          <h2 class="text-center">REGISTER AN ACCOUNT</h2>
+          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="StudentNumber" class="form-label">Student Number</label>
+                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2019-30647" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="FirstName" class="form-label">First name</label>
+                <input type="text" class="form-control text-center" name="FirstName" placeholder="Rigel Kent" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="MiddleName" class="form-label">Middle name</label>
+                <input type="text" class="form-control text-center" name="MiddleName" placeholder="Saloma" pattern="[a-zA-Z\s]*$" autocomplete="no">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="LastName" class="form-label">Last name</label>
+                <input type="text" class="form-control text-center" name="LastName" placeholder="Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="ProfilePic" class="form-label">Profile Picture</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="image/*" autocomplete="no" onchange="return validatePP()">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="Documents" class="form-label">Documents (PDF only)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="Documents" id="Documents" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+              </div>
+            </div>
+            <div class="col-12 text-center">
+              <input class="btn btn-primary btn-lg btn-block" type="submit" name"register" value="Register"></input>
+              <?php
+              if($_SERVER['REQUEST_METHOD']=='POST'){
+                validateAccount($_POST['StudentNumber'], $_POST['FirstName'], $_POST['MiddleName'], $_POST['LastName'], $_FILES['ProfilePic'], $_FILES['Documents']);
+              }
+               ?>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="regOverlay" id="SiblingForm">
+    <div class="regWrapper">
+      <a class="close" href="">&times;</a>
+      <div class="regContent">
+        <div class="regForm">
+          <h2 class="text-center">REGISTER AN ACCOUNT</h2>
+          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="StudentNumber" class="form-label">Student Number</label>
+                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2019-30647" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="FirstName" class="form-label">First name</label>
+                <input type="text" class="form-control text-center" name="FirstName" placeholder="Rigel Kent" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="MiddleName" class="form-label">Middle name</label>
+                <input type="text" class="form-control text-center" name="MiddleName" placeholder="Saloma" pattern="[a-zA-Z\s]*$" autocomplete="no">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="LastName" class="form-label">Last name</label>
+                <input type="text" class="form-control text-center" name="LastName" placeholder="Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="ProfilePic" class="form-label">Profile Picture</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="image/*" autocomplete="no" onchange="return validatePP()">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="Documents" class="form-label">Documents (PDF only)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="Documents" id="Documents" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+              </div>
+            </div>
+            <div class="col-12 text-center">
+              <input class="btn btn-primary btn-lg btn-block" type="submit" name"register" value="Register"></input>
+              <?php
+              if($_SERVER['REQUEST_METHOD']=='POST'){
+                validateAccount($_POST['StudentNumber'], $_POST['FirstName'], $_POST['MiddleName'], $_POST['LastName'], $_FILES['ProfilePic'], $_FILES['Documents']);
+              }
+               ?>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="regOverlay" id="CEISForm">
+    <div class="regWrapper">
+      <a class="close" href="">&times;</a>
+      <div class="regContent">
+        <div class="regForm">
+          <h2 class="text-center">REGISTER AN ACCOUNT</h2>
+          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="StudentNumber" class="form-label">Student Number</label>
+                <input type="text" class="form-control text-center" name="StudentNumber" placeholder="2019-30647" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="FirstName" class="form-label">First name</label>
+                <input type="text" class="form-control text-center" name="FirstName" placeholder="Rigel Kent" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="MiddleName" class="form-label">Middle name</label>
+                <input type="text" class="form-control text-center" name="MiddleName" placeholder="Saloma" pattern="[a-zA-Z\s]*$" autocomplete="no">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="LastName" class="form-label">Last name</label>
+                <input type="text" class="form-control text-center" name="LastName" placeholder="Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="ProfilePic" class="form-label">Profile Picture</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="image/*" autocomplete="no" onchange="return validatePP()">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="Documents" class="form-label">Documents (PDF only)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="Documents" id="Documents" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
+              </div>
+            </div>
+            <div class="col-12 text-center">
+              <input class="btn btn-primary btn-lg btn-block" type="submit" name"register" value="Register"></input>
+              <?php
+              if($_SERVER['REQUEST_METHOD']=='POST'){
+                validateAccount($_POST['StudentNumber'], $_POST['FirstName'], $_POST['MiddleName'], $_POST['LastName'], $_FILES['ProfilePic'], $_FILES['Documents']);
+              }
+               ?>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
