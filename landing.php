@@ -100,7 +100,7 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="ParentDiploma" class="form-label">Alumni's Diploma (PDF)</label>
+                <label for="ParentDiploma" class="form-label">Alumni's Diploma (Image Upload)</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="ParentDiploma" id="ParentDiploma" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
@@ -211,7 +211,7 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="CEISDiploma" class="form-label">CEIS Diploma (PDF)</label>
+                <label for="CEISDiploma" class="form-label">CEIS Diploma (Image Upload)</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="CEISDiploma" id="CEISDiploma" accept="application/pdf" autocomplete="no" onchange="return validateDoc()">
               </div>
             </div>
