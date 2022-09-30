@@ -152,6 +152,12 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                <label for="LastName" class="form-label">Sibling's Name</label>
+                <input type="text" class="form-control text-center" name="ParentName" placeholder="Parent's Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="ProfilePic" class="form-label">Profile Picture</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="ProfilePic" id="ProfilePic" accept="image/*" autocomplete="no" onchange="return validatePP()">
