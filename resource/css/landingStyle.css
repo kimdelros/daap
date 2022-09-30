@@ -21,7 +21,9 @@ html{
 .carousel-item{
     min-height: 80vh;
     background-color: #151515;
+	margin-top: 20px;
 }
+
 
 .map {
     width: auto;
