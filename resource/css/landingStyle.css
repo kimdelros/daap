@@ -97,6 +97,7 @@ html{
 }
 .discount h2{
   color: white;
+  padding-top: 25px;
 }
 .discount a{
   font-size: 20px;
