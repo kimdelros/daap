@@ -1,16 +1,3 @@
-body{
-  animation: transitionIn 1.5s;
-}
-@keyframes transitionIn{
-  from{
-    opacity: 0;
-    transform: rotateX(-10deg);
-  }
-  to{
-    opacity: 1;
-    transform: rotateX(0);
-  }
-}
 html{
   scroll-behavior: smooth;
 }
@@ -22,7 +9,7 @@ html{
     font-family: 'Montserrat', sans-serif;
 }
 
-.bg-banner {
+.discount {
     width: auto;
     height: 100vh;
     padding-top: 30px;
@@ -31,9 +18,76 @@ html{
     background-position: center;
 }
 
-.daaplogo img{
-  width: 230px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.carousel-item{
+    min-height: 80vh;
+    background-color: #151515;
+}
+
+.map {
+    width: auto;
+    height: 100vh;
+    padding-top: 30px;
+    background-image: url('../img/background-ceu.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.tracert {
+    width: auto;
+    height: 100vh;
+    padding-top: 30px;
+    background-image: url('../img/bg-ceu.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.regOverlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+.regOverlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+.regWrapper {
+	margin: 70px auto;
+	padding: 20px;
+	background: #e7e7e7;
+	border-radius: 5px;
+	width: 30%;
+	position: relative;
+	transition: all 3s ease-in-out;
+}
+.regWrapper h2 {
+	margin-top: 0;
+	color: #333;
+}
+.regWrapper .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+.regWrapper .close:hover {
+	color: #06D85F;
+}
+.wrapregWrapperper .content {
+	max-height: 30%;
+	overflow: auto;
+}
+.regForm {
+	border-radius: 5px;
+	background-color: #e7e7e7;
+	padding: 20px 0;
 }
