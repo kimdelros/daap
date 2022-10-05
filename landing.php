@@ -151,6 +151,12 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="SiblingstudentID" class="form-label">Sibling's Student Number</label>
+                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="siblingName" class="form-label">Sibling's Full Name</label>
                 <input type="text" class="form-control text-center" name="siblingName" placeholder="Sibling's Full Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
@@ -158,7 +164,13 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="siblingCOM" class="form-label">Certificate of Matriculation (PDF)</label>
+                <label for="siblingCOM" class="form-label">Applicant's COM (PDF)</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="application/pdf" autocomplete="no" onchange="return validateSCOM()">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="siblingCOM" class="form-label">Sibling's COM (PDF)</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="application/pdf" autocomplete="no" onchange="return validateSCOM()">
               </div>
             </div>
@@ -191,7 +203,13 @@
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
                 <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
               </div>
-            </div>
+          </div>
+          <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="CEISstudentID" class="form-label">Applicant's CEIS Student Number</label>
+                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+              </div>
+          </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentEmail" class="form-label">Email Address</label>
@@ -202,12 +220,6 @@
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
                 <input type="text" class="form-control text-center" name="studentName" placeholder="Dela Cruz, Juan Santos" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8 pt-3">
-                <label for="ceisRC" class="form-label">Report Card (PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisRC" id="ceisRC" accept="application/pdf" autocomplete="no" onchange="return validateCRC()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
