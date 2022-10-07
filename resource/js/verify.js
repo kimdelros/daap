@@ -1,5 +1,5 @@
 function validateYB(){
-  var upload = document.getElementById('studentYB');
+  var upload = document.getElementById('alumniYB');
   var filePath = upload.value;
   var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.pdf)$/i;
   if (!allowedExtensions.exec(filePath)) {

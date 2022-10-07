@@ -15,6 +15,10 @@ class apply extends config{
       return false;
     }
 
+    public function fileMover(){
+
+    }
+
    public function applyStudent($studentID, $studentEmail, $studentName, $appType){
       $link = config::con();
 
@@ -28,33 +32,36 @@ class apply extends config{
       return ($lastID);
     }
 
-   public function applyAlumni($alumniName, $studentBC, $alumniDiploma, $alumniTOR, $lastID){
+   public function applyAlumni($alumniName, $alumniYB, $alumniDiploma, $alumniTOR, $lastID){
       $link = config::con();
 
-      $sql = "INSERT INTO `alumni`(`appID`, `studentBC`, `alumniName`, `alumniDiploma`, `alumniTOR`) VALUES ('$lastID', '$alumniName', '$studentBC', '$alumniDiploma', '$alumniTOR')";
+      $sql = "INSERT INTO `alumni`(`appID`, `alumniName`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES ('$lastID', '$alumniName', '$alumniYB', '$alumniDiploma', '$alumniTOR')";
 
       $link = $link->prepare($sql);
       $link->execute();
       $link->connection = null;
     }
 
-    public function verifyAlumni($studentID, $studentEmail, $studentName, $alumniName, $studentBC, $alumniDiploma, $alumniTOR){
-      $bc = pathinfo($studentBC['name'], PATHINFO_EXTENSION);
+    public function verifyAlumni($studentID, $studentEmail, $studentName, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){
+      $yb = pathinfo($alumniYB['name'], PATHINFO_EXTENSION);
       $dip = pathinfo($alumniDiploma['name'], PATHINFO_EXTENSION);
       $tor = pathinfo($alumniTOR['name'], PATHINFO_EXTENSION);
 
          if($this->verifyStudent($studentID, $studentEmail, $studentName)){
            if($alumniName == "")
              $message = "Alumni's Name is required!";
-           else if($dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif')
-             $message = "Diploma must be a image file!";
-           else if($bc !== 'pdf')
-             $message = "Birth Certificate must be a pdf file!";
-           else if($tor !== 'pdf')
-             $message = "Transcript of Record must be a pdf file!";
+           else if($dip !== '' && $dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif' && $dip !== 'pdf')
+             $message = "Diploma must be an image file or pdf only!";
+           else if($yb !== '' && $yb !== 'gif' && $yb !== 'png' && $yb !== 'jpg' && $yb !== 'jpeg' && $yb !== 'jfif' && $yb !== 'pdf')
+             $message = "Alumni's Yearbook must be an image file or pdf only!";
+           else if($tor !== '' && $tor !== 'gif' && $tor !== 'png' && $tor !== 'jpg' && $tor !== 'jpeg' && $tor !== 'jfif' && $tor !== 'pdf')
+             $message = "Transcript of Record must be an image file or pdf only!";
+           else if($yb == '' && $dip == '' && $tor == '')
+             $message = "Please upload atleast one document!";
            else {
              $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "1");
-             $this->applyAlumni($alumniName, $studentBC['name'], $alumniDiploma['name'], $alumniTOR['name'], $lastID);
+
+             $this->applyAlumni($alumniName, $alumniYB['name'], $alumniDiploma['name'], $alumniTOR['name'], $lastID);
              exit();
            }
            echo "<script>alert('$message');</script>";

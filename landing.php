@@ -93,7 +93,9 @@
                 <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
             </div>
+
             <div class="row justify-content-center text-center">
+              <h6 class="pt-4">Please upload atleast one document.</h6>
               <div class="col-md-8 pt-3">
                 <label for="alumniDiploma" class="form-label">Alumni's Diploma</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*, application/pdf" autocomplete="no" onchange="return validateAD()">
@@ -107,8 +109,8 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="studentYB" class="form-label">Alumni's Yearbook</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="studentYB" id="studentYB" accept="image/*, application/pdf" autocomplete="no" onchange="return validateYB()">
+                <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*, application/pdf" autocomplete="no" onchange="return validateYB()">
               </div>
             </div>
             <div class="col-12 text-center">
@@ -116,7 +118,7 @@
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
                 $applyClass = new apply();
-                $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['alumniName'], $_FILES['studentYB'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
+                $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['alumniName'], $_FILES['alumniYB'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
               }
                ?>
             </div>

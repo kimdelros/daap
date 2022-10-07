@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 30, 2022 at 06:55 PM
+-- Generation Time: Oct 07, 2022 at 08:05 AM
 -- Server version: 5.7.36
--- PHP Version: 7.4.26
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,13 +31,21 @@ DROP TABLE IF EXISTS `alumni`;
 CREATE TABLE IF NOT EXISTS `alumni` (
   `alumniID` int(20) NOT NULL AUTO_INCREMENT,
   `appID` int(20) NOT NULL,
-  `studentBC` varchar(512) COLLATE utf8_bin NOT NULL,
-  `alumniName` varchar(512) COLLATE utf8_bin NOT NULL,
+  `alumniName` varchar(50) COLLATE utf8_bin NOT NULL,
+  `alumniYB` varchar(512) COLLATE utf8_bin NOT NULL,
   `alumniDiploma` varchar(512) COLLATE utf8_bin NOT NULL,
   `alumniTOR` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`alumniID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `alumni`
+--
+
+INSERT INTO `alumni` (`alumniID`, `appID`, `alumniName`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES
+(4, 13, '', 'qewr', 'IPHP Activity.pdf', ''),
+(5, 14, 'qewr', '', 'IPHP Activity.pdf', '');
 
 -- --------------------------------------------------------
 
@@ -53,7 +61,16 @@ CREATE TABLE IF NOT EXISTS `applications` (
   `studentEmail` varchar(50) COLLATE utf8_bin NOT NULL,
   `appType` varchar(4) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`appID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `applications`
+--
+
+INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`, `appType`) VALUES
+(12, '1243-12345', 'qwer@gmai.com', 'qwer', '1'),
+(13, '1243-12345', 'qwer@gmai.com', 'qwer', '1'),
+(14, '1243-12345', 'qwer@gmai.com', 'qwer', '1');
 
 -- --------------------------------------------------------
 
