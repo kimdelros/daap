@@ -68,7 +68,7 @@
       <div class="regContent">
         <div class="regForm">
           <h2 class="text-center">ALUMNI DISCOUNT FORM</h2>
-          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
+          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
@@ -83,14 +83,8 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="studentName" class="form-label">Applicant's Full Name</label>
+                <label for="studentName" class="form-label">Student's Full Name</label>
                 <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8 pt-3">
-                <label for="studentBC" class="form-label">Birth Certificate (PDF only)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="studentBC" id="studentBC" accept="application/pdf" autocomplete="no" onchange="return validateBC()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -101,21 +95,28 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="alumniDiploma" class="form-label">Alumni's Diploma (Image Upload)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*" autocomplete="no" onchange="return validateAD()">
+                <label for="alumniDiploma" class="form-label">Alumni's Diploma</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*, application/pdf" autocomplete="no" onchange="return validateAD()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="alumniTOR" class="form-label">Transcript of Records (PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniTOR" id="alumniTOR" accept="application/pdf" autocomplete="no" onchange="return validateATOR()">
+                <label for="alumniTOR" class="form-label">Transcript of Records</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniTOR" id="alumniTOR" accept="image/*, application/pdf" autocomplete="no" onchange="return validateATOR()">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 pt-3">
+                <label for="studentYB" class="form-label">Alumni's Yearbook</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="studentYB" id="studentYB" accept="image/*, application/pdf" autocomplete="no" onchange="return validateYB()">
               </div>
             </div>
             <div class="col-12 text-center">
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
-                apply::verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['alumniName'], $_FILES['studentBC'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
+                $applyClass = new apply();
+                $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['alumniName'], $_FILES['studentYB'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
               }
                ?>
             </div>
