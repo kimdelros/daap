@@ -28,18 +28,18 @@
             <div class="carousel-inner">
               <div class="AlumniDiscount carousel-item active container container-fluid">
                 <h2>Alumni Discount</h2>
-                <img src="resource/img/alumni.png" alt="alumni" width="570px"><br>
-                <a href="#AlumniForm" class='btn btn'></a>
+                <img src="resource/img/alumni.png" alt="alumni" width="570px"><br><br>
+                <a href="#AlumniForm" class='btn btn'>APPLY NOW</a>
               </div>
               <div class="SiblingDiscount carousel-item container container-fluid">
                 <h2>Sibling Discount</h2>
-                <img src="resource/img/sibling.png" alt="alumni" width="570px"><br>
-                <a href="#SiblingForm" class='btn btn'></a>
+                <img src="resource/img/sibling.png" alt="alumni" width="570px"><br><br>
+                <a href="#SiblingForm" class='btn btn'>APPLY NOW</a>
               </div>
               <div class="CEISDiscount carousel-item container container-fluid">
                 <h2>CEIS Discount</h2>
-                <img src="resource/img/ceis.png" alt="alumni" width="570px"><br>
-                <a href="#CEISForm" class='btn btn'></a>
+                <img src="resource/img/ceis.png" alt="alumni" width="570px"><br><br>
+                <a href="#CEISForm" class='btn btn'>APPLY NOW</a>
               </div>
             </div>
 
