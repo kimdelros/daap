@@ -4,10 +4,16 @@ class apply extends config{
     public function verifyStudent($studentID, $studentEmail, $studentName){
       if($studentID == "")
         $message = "Student Number is required!";
+      else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $studentID))
+        $message = "Student Number is invalid!";
       else if($studentEmail == "")
         $message = "Email address is required!";
+      else if(!filter_var($studentEmail, FILTER_VALIDATE_EMAIL))
+        $message = "Email address is invalid!";
       else if($studentName == "")
         $message = "Full name is required!";
+      else if(!ctype_alpha(str_replace(' ', '', $studentName)))
+        $message = "First Name is invalid!";
       else
         return true;
 
@@ -30,13 +36,13 @@ class apply extends config{
       $file['name'] = $transID.".".$type.".".$imageFileType;
       switch ($type) {
         case "1":
-        $targetDir = "resource/documents/alumniYB";
+        $targetDir = "resource/documents/alumniYB/";
           break;
         case "2":
-        $targetDir = "resource/documents/alumniDiploma";
+        $targetDir = "resource/documents/alumniDiploma/";
           break;
         case "3":
-        $targetDir = "resource/documents/alumniTOR";
+        $targetDir = "resource/documents/alumniTOR/";
           break;
         default:
           break;
