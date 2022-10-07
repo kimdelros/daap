@@ -15,14 +15,41 @@ class apply extends config{
       return false;
     }
 
-    public function fileMover(){
-
+    public function getTransID($transID){
+      $length = 10;
+      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $charactersLength = strlen($characters);
+      for ($ctr = 0; $ctr < $length; $ctr++) {
+          $transID .= $characters[rand(0, $charactersLength - 1)];
+      }
+      return $transID;
     }
 
-   public function applyStudent($studentID, $studentEmail, $studentName, $appType){
+    public function storeFile($file, $type, $transID){
+      $imageFileType = strtolower(pathinfo($file['name'],PATHINFO_EXTENSION));
+      $file['name'] = $transID.".".$type.".".$imageFileType;
+      switch ($type) {
+        case "1":
+        $targetDir = "resource/documents/alumniYB";
+          break;
+        case "2":
+        $targetDir = "resource/documents/alumniDiploma";
+          break;
+        case "3":
+        $targetDir = "resource/documents/alumniTOR";
+          break;
+        default:
+          break;
+      }
+      $pathFile = $targetDir . $file["name"];
+      move_uploaded_file($file["tmp_name"], $pathFile);
+      return $pathFile;
+    }
+
+   public function applyStudent($studentID, $studentEmail, $studentName, $appType, $transID){
       $link = config::con();
 
-      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `appType`) VALUES ('$studentID', '$studentEmail', '$studentName', '$appType')";
+      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `appType`, `transID`) VALUES ('$studentID', '$studentEmail', '$studentName', '$appType', '$transID')";
 
       $stmt = $link->prepare($sql);
       $stmt->execute();
@@ -32,7 +59,7 @@ class apply extends config{
       return ($lastID);
     }
 
-   public function applyAlumni($alumniName, $alumniYB, $alumniDiploma, $alumniTOR, $lastID){
+   public function applyAlumni($lastID, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){
       $link = config::con();
 
       $sql = "INSERT INTO `alumni`(`appID`, `alumniName`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES ('$lastID', '$alumniName', '$alumniYB', '$alumniDiploma', '$alumniTOR')";
@@ -59,9 +86,23 @@ class apply extends config{
            else if($yb == '' && $dip == '' && $tor == '')
              $message = "Please upload atleast one document!";
            else {
-             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "1");
+             $transID = $this->getTransID('A');
+             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "1", $transID);
 
-             $this->applyAlumni($alumniName, $alumniYB['name'], $alumniDiploma['name'], $alumniTOR['name'], $lastID);
+             if($alumniYB['name'] != '')
+                $AYB = $this->storeFile($alumniYB, "1", $transID);
+             else
+                $AYB = '';
+             if($alumniDiploma['name'] != '')
+                $AD = $this->storeFile($alumniDiploma, "2", $transID);
+             else
+                $AD = '';
+             if($alumniTOR['name'] != '')
+                $ATOR = $this->storeFile($alumniTOR, "3", $transID);
+             else
+                $ATOR = '';
+
+             $this->applyAlumni($lastID, $alumniName, $AYB, $AD, $ATOR);
              exit();
            }
            echo "<script>alert('$message');</script>";
