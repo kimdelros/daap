@@ -23,7 +23,44 @@ html{
   padding-top: 25px;
 }
 
-.discount .btn {
+.AlumniDiscount{
+  background-image: url('../img/background_alumni.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.discount .btn1 {
+ background-color: lightcoral;;
+ border: none;
+ padding: 1rem;
+ font-size: 25px;
+ width: 10em;
+ border-radius: 1rem;
+ color: white;
+ box-shadow: 0 0.4rem #dfd9d9;
+ cursor: pointer;
+ margin-top: 575px;
+ margin-left: 500px;
+}
+
+.btn1:active {
+ color: white;
+ box-shadow: 0 0.2rem #dfd9d9;
+ transform: translateY(0.2rem);
+}
+
+.btn1:hover:not(:disabled) {
+ background: white;
+ color: lightcoral;
+ text-shadow: 0 0.1rem #bcb4b4;
+}
+
+.btn1:disabled {
+ cursor: auto;
+ color: grey;
+}
+
+.discount .btn2 {
  background-color: lightcoral;;
  border: none;
  padding: 1rem;
@@ -35,19 +72,48 @@ html{
  cursor: pointer;
 }
 
-.btn:active {
+.btn2:active {
  color: white;
  box-shadow: 0 0.2rem #dfd9d9;
  transform: translateY(0.2rem);
 }
 
-.btn:hover:not(:disabled) {
+.btn2:hover:not(:disabled) {
  background: white;
  color: lightcoral;
  text-shadow: 0 0.1rem #bcb4b4;
 }
 
-.btn:disabled {
+.btn2:disabled {
+ cursor: auto;
+ color: grey;
+}
+
+.discount .btn3 {
+ background-color: lightcoral;;
+ border: none;
+ padding: 1rem;
+ font-size: 25px;
+ width: 10em;
+ border-radius: 1rem;
+ color: white;
+ box-shadow: 0 0.4rem #dfd9d9;
+ cursor: pointer;
+}
+
+.btn3:active {
+ color: white;
+ box-shadow: 0 0.2rem #dfd9d9;
+ transform: translateY(0.2rem);
+}
+
+.btn3:hover:not(:disabled) {
+ background: white;
+ color: lightcoral;
+ text-shadow: 0 0.1rem #bcb4b4;
+}
+
+.btn3:disabled {
  cursor: auto;
  color: grey;
 }
