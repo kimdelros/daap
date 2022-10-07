@@ -1,7 +1,7 @@
 <?php
 class apply extends config{
 
-    public function verifyStudent($studentID, $studentEmail, $studentName){
+    private function verifyStudent($studentID, $studentEmail, $studentName){
       if($studentID == "")
         $message = "Student Number is required!";
       else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $studentID))
@@ -21,14 +21,26 @@ class apply extends config{
       return false;
     }
 
-    public function getTransID($transID){
-      $length = 10;
+    private function getTransID($transID){
+      $length = 20;
       $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
       $charactersLength = strlen($characters);
       for ($ctr = 0; $ctr < $length; $ctr++) {
           $transID .= $characters[rand(0, $charactersLength - 1)];
       }
       return $transID;
+    }
+
+    private function checkTransID($transID){
+      $link = config::con();
+
+      $sql = "SELECT * FROM `applications` WHERE `transID` = '$transID'";
+      $stmt = $link->prepare($sql);
+      $stmt->execute();
+      if($stmt->rowCount() > 0)
+        return true;
+      else
+        return false;
     }
 
     public function storeFile($file, $type, $transID){
@@ -61,7 +73,6 @@ class apply extends config{
       $stmt->execute();
       $lastID = $link->lastInsertId();
       $link->connection = null;
-
       return ($lastID);
     }
 
@@ -92,7 +103,9 @@ class apply extends config{
            else if($yb == '' && $dip == '' && $tor == '')
              $message = "Please upload atleast one document!";
            else {
-             $transID = $this->getTransID('A');
+             do{
+               $transID = $this->getTransID('A');
+             }while($this->checkTransID($transID));
              $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "1", $transID);
 
              if($alumniYB['name'] != '')
@@ -107,8 +120,8 @@ class apply extends config{
                 $ATOR = $this->storeFile($alumniTOR, "3", $transID);
              else
                 $ATOR = '';
-
              $this->applyAlumni($lastID, $alumniName, $AYB, $AD, $ATOR);
+
              exit();
            }
            echo "<script>alert('$message');</script>";
