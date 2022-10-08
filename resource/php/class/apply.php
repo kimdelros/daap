@@ -122,7 +122,7 @@ class apply extends config{
                 $ATOR = '';
              $this->applyAlumni($lastID, $alumniName, $AYB, $AD, $ATOR);
              echo "<script>alert('Your application has been submitted! Your transaction ID is: $transID');</script>";
-             header('landing.php')
+             header('landing.php');
              exit();
            }
            echo "<script>alert('$message');</script>";
