@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/sendEmail.php';
 class apply extends config{
 
     private function verifyStudent($studentID, $studentEmail, $studentName){
@@ -46,7 +47,7 @@ class apply extends config{
         return false;
     }
 
-    public function storeFile($file, $type, $transID){
+    private function storeFile($file, $type, $transID){
       $imageFileType = strtolower(pathinfo($file['name'],PATHINFO_EXTENSION));
       $file['name'] = $transID.".".$type.".".$imageFileType;
       switch ($type) {
@@ -67,7 +68,7 @@ class apply extends config{
       return $pathFile;
     }
 
-   public function applyStudent($studentID, $studentEmail, $studentName, $appType, $transID){
+   private function applyStudent($studentID, $studentEmail, $studentName, $appType, $transID){
       $link = config::con();
 
       $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `appType`, `transID`) VALUES ('$studentID', '$studentEmail', '$studentName', '$appType', '$transID')";
@@ -79,7 +80,7 @@ class apply extends config{
       return ($lastID);
     }
 
-   public function applyAlumni($lastID, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){
+   private function applyAlumni($lastID, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){
       $link = config::con();
 
       $sql = "INSERT INTO `alumni`(`appID`, `alumniName`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES ('$lastID', '$alumniName', '$alumniYB', '$alumniDiploma', '$alumniTOR')";
@@ -102,12 +103,12 @@ class apply extends config{
              $message = "Alumni's Name is required!";
            else if(!ctype_alpha($tempAName))
              $message = "Alumni's Name is invalid!";
-           else if($dip !== '' && $dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif' && $dip !== 'pdf')
-             $message = "Diploma must be an image file or pdf only!";
-           else if($yb !== '' && $yb !== 'gif' && $yb !== 'png' && $yb !== 'jpg' && $yb !== 'jpeg' && $yb !== 'jfif' && $yb !== 'pdf')
-             $message = "Alumni's Yearbook must be an image file or pdf only!";
-           else if($tor !== '' && $tor !== 'gif' && $tor !== 'png' && $tor !== 'jpg' && $tor !== 'jpeg' && $tor !== 'jfif' && $tor !== 'pdf')
-             $message = "Transcript of Record must be an image file or pdf only!";
+           else if($dip !== '' && $dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif')
+             $message = "Diploma must be an image file only!";
+           else if($yb !== '' && $yb !== 'gif' && $yb !== 'png' && $yb !== 'jpg' && $yb !== 'jpeg' && $yb !== 'jfif')
+             $message = "Alumni's Yearbook must be an image file only!";
+           else if($tor !== '' && $tor !== 'gif' && $tor !== 'png' && $tor !== 'jpg' && $tor !== 'jpeg' && $tor !== 'jfif')
+             $message = "Transcript of Record must be an image file only!";
            else if($yb == '' && $dip == '' && $tor == '')
              $message = "Please upload atleast one document!";
            else {
@@ -129,8 +130,16 @@ class apply extends config{
              else
                 $ATOR = '';
              $this->applyAlumni($lastID, $alumniName, $AYB, $AD, $ATOR);
-             echo "<script>alert('Your application has been submitted! Your transaction ID is: $transID');</script>";
-             header('landing.php');
+
+             echo "<script>
+             swal({
+                    title: \"Your application has been submitted!\",
+                    text: \"Your tracking ID is: $transID\",
+                    icon: \"success\",
+                  });
+             </script>";
+
+             // header("Location: /landing.php");
              exit();
            }
            echo "<script>alert('$message');</script>";

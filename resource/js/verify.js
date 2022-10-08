@@ -1,7 +1,7 @@
 function validateYB(){
   var upload = document.getElementById('alumniYB');
   var filePath = upload.value;
-  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.pdf)$/i;
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
   if (!allowedExtensions.exec(filePath)) {
              alert('Invalid file type. Please upload iamge files or PDF only.');
              upload.value = '';
@@ -12,7 +12,7 @@ function validateYB(){
 function validateAD(){
   var upload = document.getElementById('alumniDiploma');
   var filePath = upload.value;
-  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.pdf)$/i;
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
   if (!allowedExtensions.exec(filePath)) {
              alert('Invalid file type. Please upload image files or PDF only.');
              upload.value = '';
@@ -23,7 +23,7 @@ function validateAD(){
 function validateATOR(){
   var upload = document.getElementById('alumniTOR');
   var filePath = upload.value;
-  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.pdf)$/i;
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
   if (!allowedExtensions.exec(filePath)) {
              alert('Invalid file type. Please upload image files or PDF only.');
              upload.value = '';
