@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 07, 2022 at 08:05 AM
+-- Generation Time: Oct 08, 2022 at 01:58 AM
 -- Server version: 5.7.36
--- PHP Version: 7.1.33
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `alumni` (
   `alumniTOR` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`alumniID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `alumni`
@@ -45,7 +45,13 @@ CREATE TABLE IF NOT EXISTS `alumni` (
 
 INSERT INTO `alumni` (`alumniID`, `appID`, `alumniName`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES
 (4, 13, '', 'qewr', 'IPHP Activity.pdf', ''),
-(5, 14, 'qewr', '', 'IPHP Activity.pdf', '');
+(5, 14, 'qewr', '', 'IPHP Activity.pdf', ''),
+(6, 15, 'Dhennie Marie Cruz', '', 'resource/documents/alumniDiplomaA0o4gCtYDon.2.jpg', ''),
+(7, 16, 'Dhennie Marie Cruz', '', '', 'resource/documents/alumniTOR/Auz11Thg4Xc.3.jpg'),
+(8, 17, 'qwer', 'resource/documents/alumniYB/AEHuvD8llmcme80K7VEmk.1.pdf', '', ''),
+(9, 18, 'qwer', 'resource/documents/alumniYB/AaNEb7bTIGIyHdABdXxWR.1.pdf', '', ''),
+(10, 19, 'qwer', 'resource/documents/alumniYB/ApL6eZwVho1PiaNOfUDCE.1.pdf', '', ''),
+(11, 20, 'qwer', 'resource/documents/alumniYB/Afbt0LY1xMyqGrUioFnGf.1.pdf', '', '');
 
 -- --------------------------------------------------------
 
@@ -60,17 +66,24 @@ CREATE TABLE IF NOT EXISTS `applications` (
   `studentName` varchar(50) COLLATE utf8_bin NOT NULL,
   `studentEmail` varchar(50) COLLATE utf8_bin NOT NULL,
   `appType` varchar(4) COLLATE utf8_bin NOT NULL,
+  `transID` varchar(50) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`, `appType`) VALUES
-(12, '1243-12345', 'qwer@gmai.com', 'qwer', '1'),
-(13, '1243-12345', 'qwer@gmai.com', 'qwer', '1'),
-(14, '1243-12345', 'qwer@gmai.com', 'qwer', '1');
+INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`, `appType`, `transID`) VALUES
+(12, '1243-12345', 'qwer@gmai.com', 'qwer', '1', ''),
+(13, '1243-12345', 'qwer@gmai.com', 'qwer', '1', ''),
+(14, '1243-12345', 'qwer@gmai.com', 'qwer', '1', ''),
+(15, '2019-30647', 'cruz1930647@mls.ceu.edu.ph', 'Rigel Kent Cruz', '1', 'A0o4gCtYDon'),
+(16, '2019-12345', 'cruz1912345@mls.ceu.edu.ph', 'Rigel Kent Cruz', '1', 'Auz11Thg4Xc'),
+(17, '2019-30647', 'qwer@qwer.com', 'qwe', '1', 'AEHuvD8llmcme80K7VEmk'),
+(18, '2019-30647', 'qwer@qwer.com', 'qwe', '1', 'AaNEb7bTIGIyHdABdXxWR'),
+(19, '2019-30647', 'qwer@qwer.com', 'qwe', '1', 'ApL6eZwVho1PiaNOfUDCE'),
+(20, '2019-30647', 'qwer@qwer.com', 'qwe', '1', 'Afbt0LY1xMyqGrUioFnGf');
 
 -- --------------------------------------------------------
 
