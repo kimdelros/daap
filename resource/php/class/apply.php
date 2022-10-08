@@ -2,6 +2,9 @@
 class apply extends config{
 
     private function verifyStudent($studentID, $studentEmail, $studentName){
+      $studentName = str_replace(' ', '', $studentName);
+      $studentName = str_replace('.', '', $studentName);
+
       if($studentID == "")
         $message = "Student Number is required!";
       else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $studentID))
@@ -12,8 +15,8 @@ class apply extends config{
         $message = "Email address is invalid!";
       else if($studentName == "")
         $message = "Full name is required!";
-      else if(!preg_match("/^[a-zA-Z\.]$/", $studentName))
-        $message = "First Name is invalid!";
+      else if(!ctype_alpha($studentName))
+        $message = "Full Name is invalid!";
       else
         return true;
 
@@ -91,9 +94,14 @@ class apply extends config{
       $dip = pathinfo($alumniDiploma['name'], PATHINFO_EXTENSION);
       $tor = pathinfo($alumniTOR['name'], PATHINFO_EXTENSION);
 
+      $tempAName = str_replace(' ', '', $alumniName);
+      $tempAName = str_replace('.', '', $tempAName);
+
          if($this->verifyStudent($studentID, $studentEmail, $studentName)){
            if($alumniName == "")
              $message = "Alumni's Name is required!";
+           else if(!ctype_alpha($tempAName))
+             $message = "Alumni's Name is invalid!";
            else if($dip !== '' && $dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif' && $dip !== 'pdf')
              $message = "Diploma must be an image file or pdf only!";
            else if($yb !== '' && $yb !== 'gif' && $yb !== 'png' && $yb !== 'jpg' && $yb !== 'jpeg' && $yb !== 'jfif' && $yb !== 'pdf')

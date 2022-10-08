@@ -82,13 +82,13 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Student's Full Name</label>
-                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="alumniName" class="form-label">Alumni's Full Name</label>
-                <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
