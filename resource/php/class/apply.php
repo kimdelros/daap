@@ -12,7 +12,7 @@ class apply extends config{
         $message = "Email address is invalid!";
       else if($studentName == "")
         $message = "Full name is required!";
-      else if(!ctype_alpha(str_replace(' ', '', $studentName)))
+      else if(!preg_match("/^[a-zA-Z\.]$/", $studentName))
         $message = "First Name is invalid!";
       else
         return true;
@@ -122,6 +122,7 @@ class apply extends config{
                 $ATOR = '';
              $this->applyAlumni($lastID, $alumniName, $AYB, $AD, $ATOR);
              echo "<script>alert('Your application has been submitted! Your transaction ID is: $transID');</script>";
+             header('landing.php')
              exit();
            }
            echo "<script>alert('$message');</script>";
