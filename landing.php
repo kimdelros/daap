@@ -19,41 +19,55 @@
     <title>DAAP Portal</title>
   </head>
   <body>
-    <section class="discount">
+    <section class="discount" id="gallery">
       <div class="container container-fluid">
         <div class="row text-center">
-          <div class="daaplogo" data-aos="fade-down" data-aos-duration="2000">
-            <img src="resource/img/DAAP-transparent.png" width="230px" alt="daap-logo">
-          </div>
-          <div id="carouselWorks" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-duration="2000">
-            <div class="carousel-inner">
-              <div class="AlumniDiscount carousel-item active container container-fluid">
-                <a href="#AlumniForm" class='btn1 btn'>APPLY NOW</a>
+        <div class="daaplogo" data-aos="fade-down" data-aos-duration="2000">
+          <img src="resource/img/DAAP-transparent.png" width="230px" alt="daap-logo">
+        </div>
+        <div class="container pt-md-5">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card cardcon mt-3" data-aos="fade-up" data-aos-duration="2000">
+                <h2>Alumni Discount</h2>
+                <img src="resource/img/alumni.png" class="card-img-top"  alt="alumni"/>
+                <div class="card-body">
+                <p class="card-text text-justify">
+                  Ea eram veniam export possumus a vidisse illustriora ne offendit quo quo irure consectetur o mandaremus cillum aliquip, hic nam fore admodum ut sed tempor multos esse cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab incididunt praetermissum, aute aliquip proident qui pariatur quorum  cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab
+                </p>
+                <a href="#AlumniForm" class="btn-card">APPLY NOW</a>
               </div>
-              <div class="SiblingDiscount carousel-item container container-fluid">
-                <h2>Sibling Discount</h2>
-                <img src="resource/img/sibling.png" alt="alumni" width="570px"><br><br>
-                <a href="#SiblingForm" class='btn2 btn'>APPLY NOW</a>
-              </div>
-              <div class="CEISDiscount carousel-item container container-fluid">
-                <h2>CEIS Discount</h2>
-                <img src="resource/img/ceis.png" alt="alumni" width="570px"><br><br>
-                <a href="#CEISForm" class='btn3 btn'>APPLY NOW</a>
               </div>
             </div>
-
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselWorks" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselWorks" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+            <div class="col-md-4">
+              <div class="card cardcon mt-3" data-aos="fade-up" data-aos-duration="2000">
+                <h2>Sibling Discount</h2>
+                <img src="resource/img/sibling.png" class="card-img-top" alt="sibling"/>
+                <div class="card-body">
+                <p class="card-text text-justify">
+                  Ea eram veniam export possumus a vidisse illustriora ne offendit quo quo irure consectetur o mandaremus cillum aliquip, hic nam fore admodum ut sed tempor multos esse cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab incididunt praetermissum, aute aliquip proident qui pariatur quorum  cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab
+                </p>
+                <a href="#SiblingForm" class="btn-card">APPLY NOW</a>
+              </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card cardcon mt-3 mb-3" data-aos="fade-up" data-aos-duration="2000">
+                <h2>CEIS Discount</h2>
+                <img src="resource/img/ceis.png" class="card-img-top" alt="CEIS"/>
+                <div class="card-body">
+                <p class="card-text text-justify">
+                  Ea eram veniam export possumus a vidisse illustriora ne offendit quo quo irure consectetur o mandaremus cillum aliquip, hic nam fore admodum ut sed tempor multos esse cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab incididunt praetermissum, aute aliquip proident qui pariatur quorum  cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab
+                </p>
+                <a href="#CEISForm" class="btn-card">APPLY NOW</a>
+              </div>
+              </div>
+            </div>
           </div>
         </div>
+       </div>
       </div>
-  </section>
+    </section>
   <section class="map">
 
   </section>
