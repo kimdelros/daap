@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/sendEmail.php';
+require $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/sendEmail.php';
 class apply extends config{
 
     private function verifyStudent($studentID, $studentEmail, $studentName){
@@ -143,7 +143,7 @@ class apply extends config{
               });
              </script>";
 
-             //email
+             sendEmail::sendConfirmationEmail($studentName, "Alumni Discount", $transID);
              exit();
            }
            echo "<script>alert('$message');</script>";
