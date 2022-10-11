@@ -97,7 +97,7 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="studentName" class="form-label">Student's Full Name</label>
+                <label for="studentName" class="form-label">Applicant's Full Name</label>
                 <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
               </div>
             </div>
@@ -155,7 +155,7 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
-              <div class="col-md-8  pt-3">
+              <div class="col-md-8 pt-3">
                 <label for="studentEmail" class="form-label">Email Address</label>
                 <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
               </div>
@@ -163,7 +163,7 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
-                <input type="text" class="form-control text-center" name="studentName" placeholder="Dela Cruz, Juan Santos" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -175,13 +175,13 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="siblingName" class="form-label">Sibling's Full Name</label>
-                <input type="text" class="form-control text-center" name="siblingName" placeholder="Sibling's Full Name" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="siblingName" placeholder="Sibling's Full Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="siblingCOM" class="form-label">Applicant's COM (PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="application/pdf" autocomplete="no" onchange="return validateSCOM()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="image/*" autocomplete="no" onchange="return validateSCOM()">
               </div>
             </div>
             <div class="row justify-content-center text-center">
