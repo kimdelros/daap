@@ -21,7 +21,13 @@ class apply extends config{
       else
         return true;
 
-      echo "<script>alert('$message');</script>";
+      echo "<script>
+      Swal.fire({
+             title: \"$message\",
+             icon: \"error\",
+             width: 900
+       });
+      </script>";
       return false;
     }
 
@@ -108,7 +114,7 @@ class apply extends config{
            else if($yb !== '' && $yb !== 'gif' && $yb !== 'png' && $yb !== 'jpg' && $yb !== 'jpeg' && $yb !== 'jfif')
              $message = "Alumni's Yearbook must be an image file only!";
            else if($tor !== '' && $tor !== 'gif' && $tor !== 'png' && $tor !== 'jpg' && $tor !== 'jpeg' && $tor !== 'jfif')
-             $message = "Transcript of Record must be an image file only!";
+             $message = "Alumni's TOR must be an image file only!";
            else if($yb == '' && $dip == '' && $tor == '')
              $message = "Please upload atleast one document!";
            else {
@@ -144,7 +150,13 @@ class apply extends config{
              sendConfirmationEmail($studentName, $studentEmail, "Alumni Discount", $transID);
              exit();
            }
-           echo "<script>alert('$message');</script>";
+           echo "<script>
+           Swal.fire({
+                  title: \"$message\",
+                  icon: \"error\",
+                  width: 900
+            });
+           </script>";
            exit();
          }
     }

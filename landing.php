@@ -111,19 +111,19 @@
                 <h6 class="Reminder pt-4">Please upload atleast one document.</h6>
               <div class="col-md-8 pt-3">
                 <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no" onchange="return validateYB()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="alumniDiploma" class="form-label">Alumni's Diploma</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*" autocomplete="no" onchange="return validateAD()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="alumniTOR" class="form-label">Transcript of Records</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniTOR" id="alumniTOR" accept="image/*" autocomplete="no" onchange="return validateATOR()">
+                <label for="alumniTOR" class="form-label">Alumni's TOR</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniTOR" id="alumniTOR" accept="image/*" autocomplete="no">
               </div>
             </div>
             <div class="col-12 text-center">
@@ -168,8 +168,8 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="SiblingstudentID" class="form-label">Sibling's Student Number</label>
-                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+                <label for="siblingID" class="form-label">Sibling's Student Number</label>
+                <input type="text" class="form-control text-center" name="siblingID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -180,14 +180,14 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="siblingCOM" class="form-label">Applicant's COM (PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="image/*" autocomplete="no" onchange="return validateSCOM()">
+                <label for="applicantCOM" class="form-label">Applicant's COM</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="applicantCOM" id="applicantCOM" accept="image/*" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="siblingCOM" class="form-label">Sibling's COM (PDF)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="application/pdf" autocomplete="no" onchange="return validateSCOM()">
+                <label for="siblingCOM" class="form-label">Sibling's COM</label>
+                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="image/*" autocomplete="no">
               </div>
             </div>
 
@@ -196,8 +196,9 @@
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST'){
-                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['SibFullName'], $_FILES['COM']);
-              };
+                $applyClass = new apply();
+                $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['siblingID'], $_POST['siblingName'], $_FILES['applicantCOM'], $_FILES['siblingCOM']);
+              }
                ?>
             </div>
           </form>
@@ -241,7 +242,7 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="ceisDiploma" class="form-label">CEIS Diploma (Image Upload)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="image/*" autocomplete="no" onchange="return validateCD()">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="image/*" autocomplete="no">
               </div>
             </div>
             <div class="col-12 text-center">
