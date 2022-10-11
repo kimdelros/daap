@@ -17,7 +17,6 @@
     <script src="resource/js/verify.js"></script>
     <script src="resource/js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
     <title>DAAP Portal</title>
   </head>
   <body>

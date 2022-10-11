@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/sendEmail.php';
+require $_SERVER['DOCUMENT_ROOT'].'/daap/vendor/sendmail.php';
 class apply extends config{
 
     private function verifyStudent($studentID, $studentEmail, $studentName){
@@ -71,7 +71,7 @@ class apply extends config{
    private function applyStudent($studentID, $studentEmail, $studentName, $appType, $transID){
       $link = config::con();
 
-      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `appType`, `transID`) VALUES ('$studentID', '$studentEmail', '$studentName', '$appType', '$transID')";
+      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `appType`, `transID`) VALUES ('$studentID', '$studentName', '$studentEmail', '$appType', '$transID')";
 
       $stmt = $link->prepare($sql);
       $stmt->execute();
@@ -143,7 +143,7 @@ class apply extends config{
               });
              </script>";
 
-             sendEmail::sendConfirmationEmail($studentName, "Alumni Discount", $transID);
+             sendConfirmationEmail($studentName, $studentEmail, "Alumni Discount", $transID);
              exit();
            }
            echo "<script>alert('$message');</script>";

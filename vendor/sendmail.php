@@ -1,28 +1,23 @@
 <?php
-if(isset($open) && $open){
-  //do what it is supposed to do
-}
-else {
-  header("HTTP/1.1 403 Forbidden");
-  exit;
-}
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'autoload.php';
+
+function sendConfirmationEmail($studentName, $studentEmail, $type, $transID){
+
+
 $mail = new PHPMailer(true);
 
-$body ="<p>Dear $fullname ,</p>
+$body ="<p>Dear $studentName,</p>
 <p>Greetings of peace!</p>
-<p>You have successfully applied for the $stype.</p>
-<p>Please take note of your scholarship reference number <b>$tn</b>.</p>
-<p>You may check the status of your scholarship using our scholarship status checker at the CEU OUR Portal.</p>
+<p>Congratulations on applying for the $type.</p>
+<p>Kindly take note of your tracking ID <b>$transID</b> for your reference.</p>
+<p>We will send you an email once your application has been approved by the Office of the Registrar.<p>
+<p>You may check the status of your application using our application status checker at the CEU DAAP Portal.</p>
 <p><b>This is an auto generated email please do not reply.</b></p>
 <p>Thank you and stay safe.</p>";
-
-
-
 
 try {
     //Server settings
@@ -31,18 +26,18 @@ try {
      $mail->isSMTP();
      $mail->Host       = 'smtp.gmail.com';     //platform
      $mail->SMTPAuth   = true;
-     $mail->Username   = 'ceuscholarships@gmail.com';   //email
-     $mail->Password   = 'jgjlnpbvworttwgn';                                //password
+     $mail->Username   = 'ceu.mls.daap@gmail.com';   //email
+     $mail->Password   = 'lnmlcgfepelimbqr';                                //password
      $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
      $mail->Port       = 587;
 
      //Recipients
-     $mail->setFrom('rcbolasoc@ceu.edu.ph');       //sender
-     $mail->addAddress($email);
+     $mail->setFrom($mail->Username);       //sender
+     $mail->addAddress($studentEmail);
 
      //Content
      $mail->isHTML(true);
-     $mail->Subject = 'Entrance Scholarship Application Received -'.$tn;
+     $mail->Subject = $type.' Application Received - '.$transID;
      $mail->Body    = $body;             //content
 
      $mail->send();
@@ -50,4 +45,4 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-    //header
+}
