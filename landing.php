@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resource/css/landingStyle.css">
     <script src="resource/js/verify.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="resource/js/scripts.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <title>DAAP Portal</title>
   </head>
   <body>
@@ -207,7 +209,7 @@
 
   <section class="regOverlay" id="CEISForm">
     <div class="regWrapper">
-      <a class="close" href="">&times;</a>
+      <a class="close" href="" >&times;</a>
       <div class="regContent">
         <div class="regForm">
           <h2 class="text-center">CEIS DISCOUNT FORM</h2>

@@ -113,7 +113,7 @@ class apply extends config{
              $message = "Please upload atleast one document!";
            else {
              do{
-               $transID = $this->getTransID('A');
+               $transID = $this->getTransID('ALUM-');
              }while($this->checkTransID($transID));
              $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "1", $transID);
 
@@ -132,14 +132,18 @@ class apply extends config{
              $this->applyAlumni($lastID, $alumniName, $AYB, $AD, $ATOR);
 
              echo "<script>
-             swal({
+             Swal.fire({
                     title: \"Your application has been submitted!\",
-                    text: \"Your tracking ID is: $transID\",
+                    html: \"Your tracking ID is: <br>\" +
+                    \"<b>$transID</b>\",
                     icon: \"success\",
-                  });
+                    width: 700
+              }).then(function() {
+                    window.location = \"landing.php\";
+              });
              </script>";
 
-             // header("Location: /landing.php");
+             //email
              exit();
            }
            echo "<script>alert('$message');</script>";
