@@ -2,18 +2,16 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
 require 'autoload.php';
 
 function sendConfirmationEmail($studentName, $studentEmail, $type, $transID){
-
 
 $mail = new PHPMailer(true);
 
 $body ="<p>Dear $studentName,</p>
 <p>Greetings of peace!</p>
 <p>Congratulations on applying for the $type.</p>
-<p>Kindly take note of your tracking ID <b>$transID</b> for your reference.</p>
+<p>Kindly take note of your tracking ID: <b>$transID</b> for your reference.</p>
 <p>We will send you an email once your application has been approved by the Office of the Registrar.<p>
 <p>You may check the status of your application using our application status checker at the CEU DAAP Portal.</p>
 <p><b>This is an auto generated email please do not reply.</b></p>

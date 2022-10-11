@@ -130,7 +130,6 @@ class apply extends config{
              else
                 $ATOR = '';
              $this->applyAlumni($lastID, $alumniName, $AYB, $AD, $ATOR);
-
              echo "<script>
              Swal.fire({
                     title: \"Your application has been submitted!\",
@@ -142,7 +141,6 @@ class apply extends config{
                     window.location = \"landing.php\";
               });
              </script>";
-
              sendConfirmationEmail($studentName, $studentEmail, "Alumni Discount", $transID);
              exit();
            }
