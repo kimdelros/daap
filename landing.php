@@ -29,9 +29,8 @@
         <div class="container pt-md-5">
           <div class="row">
             <div class="col-md-4">
-              <div class="card cardcon mt-3" data-aos="fade-up" data-aos-duration="2000">
-                <h2>Alumni Discount</h2>
-                <img src="resource/img/alumni.png" class="card-img-top"  alt="alumni"/>
+              <div class="card cardcon mt-2" data-aos="fade-up" data-aos-duration="2000">
+                <img src="resource/img/lc_1.png" class="card-img-top"  alt="alumni"/>
                 <div class="card-body">
                 <p class="card-text text-justify">
                   Ea eram veniam export possumus a vidisse illustriora ne offendit quo quo irure consectetur o mandaremus cillum aliquip, hic nam fore admodum ut sed tempor multos esse cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab incididunt praetermissum, aute aliquip proident qui pariatur quorum  cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab
@@ -41,9 +40,8 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="card cardcon mt-3" data-aos="fade-up" data-aos-duration="2000">
-                <h2>Sibling Discount</h2>
-                <img src="resource/img/sibling.png" class="card-img-top" alt="sibling"/>
+              <div class="card cardcon mt-2" data-aos="fade-up" data-aos-duration="2000">
+                <img src="resource/img/lc_2.png" class="card-img-top" alt="sibling"/>
                 <div class="card-body">
                 <p class="card-text text-justify">
                   Ea eram veniam export possumus a vidisse illustriora ne offendit quo quo irure consectetur o mandaremus cillum aliquip, hic nam fore admodum ut sed tempor multos esse cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab incididunt praetermissum, aute aliquip proident qui pariatur quorum  cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab
@@ -53,9 +51,8 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="card cardcon mt-3 mb-3" data-aos="fade-up" data-aos-duration="2000">
-                <h2>CEIS Discount</h2>
-                <img src="resource/img/ceis.png" class="card-img-top" alt="CEIS"/>
+              <div class="card cardcon mt-2" data-aos="fade-up" data-aos-duration="2000">
+                <img src="resource/img/lc_3.png" class="card-img-top" alt="CEIS"/>
                 <div class="card-body">
                 <p class="card-text text-justify">
                   Ea eram veniam export possumus a vidisse illustriora ne offendit quo quo irure consectetur o mandaremus cillum aliquip, hic nam fore admodum ut sed tempor multos esse cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab incididunt praetermissum, aute aliquip proident qui pariatur quorum  cernantur, iis veniam velit e vidisse, excepteur ad dolor. Excepteur aliqua ab
