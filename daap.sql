@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 08, 2022 at 01:58 AM
+-- Generation Time: Oct 12, 2022 at 06:22 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -37,21 +37,14 @@ CREATE TABLE IF NOT EXISTS `alumni` (
   `alumniTOR` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`alumniID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `alumni`
 --
 
 INSERT INTO `alumni` (`alumniID`, `appID`, `alumniName`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES
-(4, 13, '', 'qewr', 'IPHP Activity.pdf', ''),
-(5, 14, 'qewr', '', 'IPHP Activity.pdf', ''),
-(6, 15, 'Dhennie Marie Cruz', '', 'resource/documents/alumniDiplomaA0o4gCtYDon.2.jpg', ''),
-(7, 16, 'Dhennie Marie Cruz', '', '', 'resource/documents/alumniTOR/Auz11Thg4Xc.3.jpg'),
-(8, 17, 'qwer', 'resource/documents/alumniYB/AEHuvD8llmcme80K7VEmk.1.pdf', '', ''),
-(9, 18, 'qwer', 'resource/documents/alumniYB/AaNEb7bTIGIyHdABdXxWR.1.pdf', '', ''),
-(10, 19, 'qwer', 'resource/documents/alumniYB/ApL6eZwVho1PiaNOfUDCE.1.pdf', '', ''),
-(11, 20, 'qwer', 'resource/documents/alumniYB/Afbt0LY1xMyqGrUioFnGf.1.pdf', '', '');
+(40, 39, 'qwer', 'resource/documents/alumniYB/ALUM-2GG8JLY6N66XZQKYLXCH.1.jpg', '', '');
 
 -- --------------------------------------------------------
 
@@ -67,23 +60,23 @@ CREATE TABLE IF NOT EXISTS `applications` (
   `studentEmail` varchar(50) COLLATE utf8_bin NOT NULL,
   `appType` varchar(4) COLLATE utf8_bin NOT NULL,
   `transID` varchar(50) COLLATE utf8_bin NOT NULL,
+  `isApproved` tinyint(1) NOT NULL DEFAULT '0',
+  `isDiscounted` tinyint(1) NOT NULL DEFAULT '0',
+  `dateApplied` datetime NOT NULL,
+  `dateReviewed` datetime DEFAULT NULL,
+  `dateDiscounted` datetime DEFAULT NULL,
   PRIMARY KEY (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`, `appType`, `transID`) VALUES
-(12, '1243-12345', 'qwer@gmai.com', 'qwer', '1', ''),
-(13, '1243-12345', 'qwer@gmai.com', 'qwer', '1', ''),
-(14, '1243-12345', 'qwer@gmai.com', 'qwer', '1', ''),
-(15, '2019-30647', 'cruz1930647@mls.ceu.edu.ph', 'Rigel Kent Cruz', '1', 'A0o4gCtYDon'),
-(16, '2019-12345', 'cruz1912345@mls.ceu.edu.ph', 'Rigel Kent Cruz', '1', 'Auz11Thg4Xc'),
-(17, '2019-30647', 'qwer@qwer.com', 'qwe', '1', 'AEHuvD8llmcme80K7VEmk'),
-(18, '2019-30647', 'qwer@qwer.com', 'qwe', '1', 'AaNEb7bTIGIyHdABdXxWR'),
-(19, '2019-30647', 'qwer@qwer.com', 'qwe', '1', 'ApL6eZwVho1PiaNOfUDCE'),
-(20, '2019-30647', 'qwer@qwer.com', 'qwe', '1', 'Afbt0LY1xMyqGrUioFnGf');
+INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`, `appType`, `transID`, `isApproved`, `isDiscounted`, `dateApplied`, `dateReviewed`, `dateDiscounted`) VALUES
+(39, '1234-12345', 'qwer', 'qwre@qwer.com', '1', 'ALUM-2GG8JLY6N66XZQKYLXCH', 0, 0, '2022-10-12 17:22:00', NULL, NULL),
+(40, '1234-12345', 'qwer', 'qwer@qwer.com', '2', 'SIBL-J4K0TLEBCDVNA9YPF26O', 0, 0, '2022-10-12 17:22:46', NULL, NULL),
+(41, '1234-23145', 'qwer', 'qwer@qwer.com', '3', 'CEIS-L4MMZ7KAQEBQTK3OE500', 0, 0, '2022-10-12 18:20:53', NULL, NULL),
+(42, '1234-12345', 'qwer', 'qwer@qwer.com', '3', 'CEIS-CBEGJ0N2ZSU9JIF6PZE6', 0, 0, '2022-10-12 18:21:40', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -95,11 +88,18 @@ DROP TABLE IF EXISTS `ceis`;
 CREATE TABLE IF NOT EXISTS `ceis` (
   `ceisID` int(20) NOT NULL AUTO_INCREMENT,
   `appID` int(20) NOT NULL,
-  `studentRC` varchar(512) COLLATE utf8_bin NOT NULL,
+  `studentCID` varchar(20) COLLATE utf8_bin NOT NULL,
   `studentDiploma` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ceisID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `ceis`
+--
+
+INSERT INTO `ceis` (`ceisID`, `appID`, `studentCID`, `studentDiploma`) VALUES
+(1, 42, '1234-12345', 'resource/documents/applicantDiploma/CEIS-CBEGJ0N2ZSU9JIF6PZE6.6.jpg');
 
 -- --------------------------------------------------------
 
@@ -145,11 +145,20 @@ DROP TABLE IF EXISTS `sibling`;
 CREATE TABLE IF NOT EXISTS `sibling` (
   `siblingID` int(20) NOT NULL AUTO_INCREMENT,
   `appID` int(20) NOT NULL,
+  `siblingStudentID` varchar(20) COLLATE utf8_bin NOT NULL,
   `siblingName` varchar(512) COLLATE utf8_bin NOT NULL,
+  `applicantCOM` varchar(512) COLLATE utf8_bin NOT NULL,
   `siblingCOM` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`siblingID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `sibling`
+--
+
+INSERT INTO `sibling` (`siblingID`, `appID`, `siblingStudentID`, `siblingName`, `applicantCOM`, `siblingCOM`) VALUES
+(3, 40, '1234-12345', 'qwer', 'resource/documents/applicantCOM/SIBL-J4K0TLEBCDVNA9YPF26O.4.jpg', 'resource/documents/siblingCOM/SIBL-J4K0TLEBCDVNA9YPF26O.5.jpg');
 
 -- --------------------------------------------------------
 

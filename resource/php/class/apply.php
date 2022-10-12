@@ -72,6 +72,9 @@ class apply extends config{
         case "5":
         $targetDir = "resource/documents/siblingCOM/";
           break;
+        case "6":
+        $targetDir = "resource/documents/applicantDiploma/";
+          break;
         default:
           break;
       }
@@ -213,6 +216,60 @@ class apply extends config{
              $ACM = $this->storeFile($applicantCOM, "4", $transID);
              $SCM = $this->storeFile($siblingCOM, "5", $transID);
              $this->applySibling($lastID, $siblingID, $siblingName, $ACM, $SCM);
+             echo "<script>
+             Swal.fire({
+                    title: \"Your application has been submitted!\",
+                    html: \"Your tracking ID is: <br>\" +
+                    \"<b>$transID</b>\",
+                    icon: \"success\",
+                    width: 700
+              }).then(function() {
+                    window.location = \"landing.php\";
+              });
+             </script>";
+             sendConfirmationEmail($studentName, $studentEmail, "Sibling Discount", $transID);
+             exit();
+           }
+           echo "<script>
+           Swal.fire({
+                  title: \"$message\",
+                  icon: \"error\",
+                  width: 900
+            });
+           </script>";
+           exit();
+         }
+    }
+    private function applyCEIS($lastID, $CEISstudentID, $CDIP){
+       $link = config::con();
+
+       $sql = "INSERT INTO `ceis`(`appID`, `studentCID`, `studentDiploma`) VALUES ('$lastID', '$CEISstudentID', '$CDIP')";
+
+       $link = $link->prepare($sql);
+       $link->execute();
+       $link->connection = null;
+     }
+
+    public function verifyCEIS($studentID, $CEISstudentID, $studentEmail, $studentName, $ceisDiploma){
+      $dip = pathinfo($ceisDiploma['name'], PATHINFO_EXTENSION);
+
+         if($this->verifyStudent($studentID, $studentEmail, $studentName)){
+           if($CEISstudentID == "")
+             $message = "CIES Student Number is required!";
+           else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $CEISstudentID))
+             $message = "CEIS Student Number is invalid!";
+           else if($dip == '')
+             $message = "Applicant's CEIS Diploma is required!";
+           else if($dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif')
+             $message = "Applicant's CEIS Diploma must be an image file only!";
+           else {
+             do{
+               $transID = $this->getTransID('CEIS-');
+             }while($this->checkTransID($transID));
+             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "3", $transID);
+
+             $CDIP = $this->storeFile($ceisDiploma, "6", $transID);
+             $this->applyCEIS($lastID, $CEISstudentID, $CDIP);
              echo "<script>
              Swal.fire({
                     title: \"Your application has been submitted!\",

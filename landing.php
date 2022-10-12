@@ -82,25 +82,25 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
-                <input type="text" class="form-control text-center" name="studentID" placeholder="2022-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="studentID" placeholder="2022-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentEmail" class="form-label">Email Address</label>
-                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz2200000@ceu.edu.ph" autocomplete="no" required>
+                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz2200000@ceu.edu.ph" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
-                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="alumniName" class="form-label">Alumni's Full Name</label>
-                <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -147,31 +147,31 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
-                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentEmail" class="form-label">Email Address</label>
-                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" autocomplete="no" required>
+                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
-                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="siblingID" class="form-label">Sibling's Student Number</label>
-                <input type="text" class="form-control text-center" name="siblingID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="siblingID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="siblingName" class="form-label">Sibling's Full Name</label>
-                <input type="text" class="form-control text-center" name="siblingName" placeholder="Sibling's Full Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="siblingName" placeholder="Sibling's Full Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -208,29 +208,29 @@
         <div class="regForm">
           <h2 class="text-center">CEIS DISCOUNT FORM</h2>
           <p class="text-center">This application is applicable for 1 Academic Year ONLY.</p>
-          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
+          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="">
           <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
-                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
               </div>
           </div>
           <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="CEISstudentID" class="form-label">Applicant's CEIS Student Number</label>
-                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="CEISstudentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
               </div>
           </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentEmail" class="form-label">Email Address</label>
-                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
-                <input type="text" class="form-control text-center" name="studentName" placeholder="Dela Cruz, Juan Santos" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="studentName" placeholder="Dela Cruz, Juan Santos" pattern="[a-zA-Z\s]*$" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -240,10 +240,11 @@
               </div>
             </div>
             <div class="col-12 text-center">
-              <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
+              <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyCEIS" value="Apply">
               <?php
-              if($_SERVER['REQUEST_METHOD']=='POST'){
-                validateAccount($_POST['StudentNumber'], $_POST['EmailAdd'], $_POST['FullName'], $_POST['ReportCard'], $_FILES['CEISDiploma']);
+              if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyCEIS']){
+                $applyClass = new apply();
+                $applyClass->verifyCEIS($_POST['studentID'], $_POST['CEISstudentID'], $_POST['studentEmail'], $_POST['studentName'], $_FILES['ceisDiploma']);
               }
                ?>
             </div>
