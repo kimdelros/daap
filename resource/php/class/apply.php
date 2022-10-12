@@ -281,7 +281,7 @@ class apply extends config{
                     window.location = \"landing.php\";
               });
              </script>";
-             sendConfirmationEmail($studentName, $studentEmail, "Sibling Discount", $transID);
+             sendConfirmationEmail($studentName, $studentEmail, "CEIS Graduate Discount", $transID);
              exit();
            }
            echo "<script>
