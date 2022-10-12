@@ -14,7 +14,6 @@
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resource/css/landingStyle.css">
-    <script src="resource/js/verify.js"></script>
     <script src="resource/js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>DAAP Portal</title>
@@ -79,7 +78,7 @@
       <div class="regContent">
         <div class="regForm">
           <h2 class="text-center">ALUMNI DISCOUNT FORM</h2>
-          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="">
+          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="POST" action="">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
@@ -124,9 +123,9 @@
               </div>
             </div>
             <div class="col-12 text-center">
-              <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
+              <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyAlumni" id="applyAlumni" value="Apply">
               <?php
-              if($_SERVER['REQUEST_METHOD']=='POST'){
+              if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyAlumni']){
                 $applyClass = new apply();
                 $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['alumniName'], $_FILES['alumniYB'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
               }
@@ -144,7 +143,7 @@
       <div class="regContent">
         <div class="regForm">
           <h2 class="text-center">SIBLING DISCOUNT FORM</h2>
-          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="index.php">
+          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="post" action="">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
@@ -154,7 +153,7 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentEmail" class="form-label">Email Address</label>
-                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" pattern="[a-zA-Z\s]*$" autocomplete="no" required>
+                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" autocomplete="no" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -187,12 +186,10 @@
                    <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="image/*" autocomplete="no">
               </div>
             </div>
-
-
             <div class="col-12 text-center">
-              <input class="btn btn-secondary btn-lg btn-block" type="submit" name"register" value="Register"></input>
+              <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applySibling" id="applySibling" value="Apply"></input>
               <?php
-              if($_SERVER['REQUEST_METHOD']=='POST'){
+              if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applySibling']){
                 $applyClass = new apply();
                 $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['siblingID'], $_POST['siblingName'], $_FILES['applicantCOM'], $_FILES['siblingCOM']);
               }
@@ -261,7 +258,6 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="resources/scripts/script.js"></script>
   <script src="https://kit.fontawesome.com/b04d2a2a76.js" crossorigin="anonymous"></script>
   <script>
     AOS.init();

@@ -15,9 +15,9 @@ class apply extends config{
       else if(!filter_var($studentEmail, FILTER_VALIDATE_EMAIL))
         $message = "Email address is invalid!";
       else if($studentName == "")
-        $message = "Full name is required!";
+        $message = "Applicant's name is required!";
       else if(!ctype_alpha($studentName))
-        $message = "Full Name is invalid!";
+        $message = "Applicant's Name is invalid!";
       else
         return true;
 
@@ -33,7 +33,7 @@ class apply extends config{
 
     private function getTransID($transID){
       $length = 20;
-      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       $charactersLength = strlen($characters);
       for ($ctr = 0; $ctr < $length; $ctr++) {
           $transID .= $characters[rand(0, $charactersLength - 1)];
@@ -66,6 +66,12 @@ class apply extends config{
         case "3":
         $targetDir = "resource/documents/alumniTOR/";
           break;
+        case "4":
+        $targetDir = "resource/documents/applicantCOM/";
+          break;
+        case "5":
+        $targetDir = "resource/documents/siblingCOM/";
+          break;
         default:
           break;
       }
@@ -75,9 +81,11 @@ class apply extends config{
     }
 
    private function applyStudent($studentID, $studentEmail, $studentName, $appType, $transID){
+     $dateApplied = date('Y-m-d H:i:s', time());
+
       $link = config::con();
 
-      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `appType`, `transID`) VALUES ('$studentID', '$studentName', '$studentEmail', '$appType', '$transID')";
+      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `appType`, `transID`, `dateApplied`) VALUES ('$studentID', '$studentName', '$studentEmail', '$appType', '$transID', '$dateApplied')";
 
       $stmt = $link->prepare($sql);
       $stmt->execute();
@@ -148,6 +156,75 @@ class apply extends config{
               });
              </script>";
              sendConfirmationEmail($studentName, $studentEmail, "Alumni Discount", $transID);
+             exit();
+           }
+           echo "<script>
+           Swal.fire({
+                  title: \"$message\",
+                  icon: \"error\",
+                  width: 900
+            });
+           </script>";
+           exit();
+         }
+    }
+
+    private function applySibling($lastID, $siblingID, $siblingName, $applicantCOM, $siblingCOM){
+       $link = config::con();
+
+       $sql = "INSERT INTO `sibling`(`appID`, `siblingStudentID`, `siblingName`, `applicantCOM`, `siblingCOM`) VALUES ('$lastID', '$siblingID', '$siblingName', '$applicantCOM', '$siblingCOM')";
+
+       $link = $link->prepare($sql);
+       $link->execute();
+       $link->connection = null;
+     }
+
+    public function verifySibling($studentID, $studentEmail, $studentName, $siblingID, $siblingName, $applicantCOM, $siblingCOM){
+      $acom = pathinfo($applicantCOM['name'], PATHINFO_EXTENSION);
+      $scom = pathinfo($siblingCOM['name'], PATHINFO_EXTENSION);
+
+      $tempSName = str_replace(' ', '', $siblingName);
+      $tempSName = str_replace('.', '', $tempSName);
+
+         if($this->verifyStudent($studentID, $studentEmail, $studentName)){
+           if($siblingID == "")
+             $message = "Student Number is required!";
+           else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $siblingID))
+             $message = "Student Number is invalid!";
+             else if($siblingName == "")
+             $message = "Sibling's Name is required!";
+           else if(!ctype_alpha($tempSName))
+             $message = "Sibling's Name is invalid!";
+           else if($acom == '')
+             $message = "Applicant's COM is required!";
+           else if($scom == '')
+             $message = "Sibling's COM is required!";
+           else if($acom !== 'gif' && $acom !== 'png' && $acom !== 'jpg' && $acom !== 'jpeg' && $acom !== 'jfif')
+             $message = "Applicant's COM must be an image file only!";
+           else if($scom !== 'gif' && $scom !== 'png' && $scom !== 'jpg' && $scom !== 'jpeg' && $scom !== 'jfif')
+             $message = "Sibling's COM must be an image file only!";
+           else {
+             do{
+               $transID = $this->getTransID('SIBL-');
+             }while($this->checkTransID($transID));
+             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "2", $transID);
+
+
+             $ACM = $this->storeFile($applicantCOM, "4", $transID);
+             $SCM = $this->storeFile($siblingCOM, "5", $transID);
+             $this->applySibling($lastID, $siblingID, $siblingName, $ACM, $SCM);
+             echo "<script>
+             Swal.fire({
+                    title: \"Your application has been submitted!\",
+                    html: \"Your tracking ID is: <br>\" +
+                    \"<b>$transID</b>\",
+                    icon: \"success\",
+                    width: 700
+              }).then(function() {
+                    window.location = \"landing.php\";
+              });
+             </script>";
+             sendConfirmationEmail($studentName, $studentEmail, "Sibling Discount", $transID);
              exit();
            }
            echo "<script>

@@ -38,8 +38,8 @@ try {
      $mail->Subject = $type.' Application Received - '.$transID;
      $mail->Body    = $body;             //content
 
+     $mail->SMTPDebug  = SMTP::DEBUG_OFF;
      $mail->send();
-     echo "message has been sent";
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
