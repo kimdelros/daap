@@ -23,7 +23,7 @@
       <div class="container container-fluid">
         <div class="row text-center">
         <div class="daaplogo" data-aos="fade-down" data-aos-duration="2000">
-          <img src="resource/img/DAAP-transparent.png" width="230px" alt="daap-logo">
+          <img src="resource/img/DAAPlogo-white.png" width="230px" alt="daap-logo">
         </div>
         <div class="container pt-md-5">
           <div class="row">

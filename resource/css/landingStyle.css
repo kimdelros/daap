@@ -14,7 +14,7 @@ html{
     width: auto;
     min-height: 100vh;
     padding-top: 30px;
-    background-image: url('../img/background-ceu2.png');
+    background-image: url('../img/bg-ceu-gradient-1.png');
     background-size: cover;
     background-position: center;
 }
@@ -62,7 +62,7 @@ html{
     width: auto;
     min-height: 100vh;
     padding-top: 30px;
-    background-image: url('../img/background-ceu.jpg');
+    background-image: url('../img/bg-ceu-gradient-2.png');
     background-size: cover;
     background-position: center;
 }
@@ -71,7 +71,7 @@ html{
     width: auto;
     min-height: 100vh;
     padding-top: 30px;
-    background-image: url('../img/bg-ceu.png');
+    background-image: url('../img/bg-ceu-gradient-3.png');
     background-size: cover;
     background-position: center;
 }
