@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="resource/css/landingStyle.css">
     <script src="resource/js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="resource/img/daap-icon.png">
     <title>DAAP Portal</title>
   </head>
   <body>
