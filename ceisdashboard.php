@@ -1,10 +1,10 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard/resource/php/class/core/init.php';
 isLogin();
-$view = new view;
 $user = new user();
- ?>
-
+isRegistrar($user->data()->groups);
+$view = new viewtable();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +74,13 @@ $user = new user();
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-
+                <!--search-->
+                <div class="search">
+                    <label for="">
+                        <input type="text" placeholder="Search"><ion-icon name="search-outline"></ion-icon>
+                        <span class="clear"></span>
+                    </label>
+                </div>
                 <!--user image-->
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">
@@ -96,47 +102,20 @@ $user = new user();
                     </div>
                 </div>
             </div>
-        <div class="container mt-5 puff-in-center">
-             <div class="row">
-                 <div class="col-12">
-                   <?php changeP(); ?>
-                     <h1 class="text-center">CHANGE PASSWORD</h1>
-                 </div>
+
+            <!--form types-->
+
+
+            <!-- application details -->
+            <div class="details">
+                <div class="applyDetails">
+                    <?php $view->viewRequestCEIS(); ?>
+                </div>
             </div>
-            <form action="" method="post">
-                <table class="table ">
-                    <tr>
-                        <td>
-                            <div class="row justify-content-md-center">
-                                <div class="form-group col-4">
-                                 <label for = "password_current"> Enter Current Password:</label>
-                                 <input type="password" class="form-control" name="password_current" id="password" value ="" autocomplete="off"required/>
-                                </div>
-                                <div class="form-group col-4">
-                                 <label for = "password"> Enter New Password:</label>
-                                 <input type="password" class="form-control" name="password" id="password" value ="" autocomplete="off"required/>
-                                </div>
-                                <div class="form-group col-4">
-                                 <label for = "ConfirmPassword"> Confirm New Password:</label>
-                                 <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value ="" autocomplete="off"required/>
-                                </div>
-                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="row justify-content-center">
-                                <div class="form-group col-7">
-                                    <label  >&nbsp;</label>
-                                <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
-                                 <input type="submit" value="Change password" class=" form-control btn btn-primary" />
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-             </form>
-         </div>
+        </div>
+
+
+    </div>
 
     <!--Scripts-->
 

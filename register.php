@@ -10,7 +10,8 @@ $view = new view;
  <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Registrar Portal</title>
+   <link rel="icon" href="resource/img/daap-icon.png">
+   <title>DAAP Dashboard</title>
    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
    <link href="vendor/css/all.css" rel="stylesheet">
    <link rel="stylesheet" type="text/css"  href="resource/css/styles.css">
@@ -20,7 +21,7 @@ $view = new view;
  <body>
          <nav class="navbar navbar-dark bg-white shadow-sm slide-in-left">
            <a class="navbar-brand" href="https://malolos.ceu.edu.ph/">
-             <img src="resource/img/logo.jpg" height="70" class="d-inline-block align-top"
+             <img src="resource/img/DAAPlogo.png" height="65" class="d-inline-block align-top"
                alt="mdb logo"><h3 class="ib">
            </a>
            <a href="exportTableAdmin.php"><i class="fas fa-table ceucolor"></i></a>
@@ -29,16 +30,13 @@ $view = new view;
            <a href="verificationAdmin.php"><i class="fas fa-user-graduate ceucolor"></i></a>
            <a href="viewAlumniAdmin.php"><i class="fa fa-graduation-cap ceucolor"></i></a>
            <a href="nTransactionAdmin.php"><i class="fas fa-file-upload ceucolor"></i></a>
-           <a href="view_pending_requests.php"><i class="fas fa-home ceucolor"></i></a>
-           <a href="https:/www.facebook.com/theCEUofficial/"><i class="fab fa-facebook-f ceucolor"></i></a>
-           <a href="https://www.instagram.com/ceuofficial/"><i class="fab fa-instagram ceucolor"></i></a>
-           <a href="https://twitter.com/ceumalolos"><i class="fab fa-twitter ceucolor"></i></a>
+           <a href="registrar.php"><i class="fas fa-home ceucolor"></i></a>
          </nav>
 
          <div class="container mt-4 puff-in-center">
              <div class="row">
                  <div class="col-12">
-                     <h1 class="text-center">Register New Student Records Assistant</h1>
+                     <h1 class="text-center">Register New Admin Account</h1>
                  </div>
             </div>
             <?php
@@ -90,7 +88,7 @@ $view = new view;
                                 <div class="form-group col-7">
                                     <label  >&nbsp;</label>
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
-                                 <input type="submit" value="Register New SRA" class=" form-control btn btn-primary" />
+                                 <input type="submit" value="Register New SRA" class=" form-control btn btn-success" />
                                 </div>
                             </div>
                         </td>
@@ -103,10 +101,10 @@ $view = new view;
    <div class="container text-center">
        <div class="row">
            <div class="col col-sm-5 text-left">
-               <small>Copyright &copy;Centro Escolar University     Office of the Registrar 2019</small>
+               <small>Copyright &copy; Discount Application and Alumni Portal</small>
            </div>
            <div class="col text-right">
-               <small>Created by: Reymart Bolasoc, Amelia Valencia , James Mangalile, Kenneth De Leon , Pamela Reyes , Ellen Mijares</small>
+               <small>Created by: Jemiah Kim Del Rosario, Rigel Kent Cruz, Lawrence Ian Forbes, Paul Kenneth Heyrana</small>
            </div>
        </div>
    </div>

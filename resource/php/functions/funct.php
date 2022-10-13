@@ -136,12 +136,12 @@ function vald(){
                         $remember = (Input::get('remember') ==='on') ? true :false;
                         $login = $user->login(Input::get('username'),Input::get('password'),$remember);
                         if($login){
-                            if($user->data()->groups == 1){
-                                 Redirect::to('template.php');
-                                echo $user->data()->groups;
+                          if($user->data()->groups == 1){
+                                 Redirect::to('registrar.php');
+                            }elseif($user->data()->groups == 2){
+                                 Redirect::to('accounting.php');
                             }else{
                                  Redirect::to('template.php');
-                                echo $user->data()->groups;
                             }
                         }else{
                             loginError();
@@ -159,6 +159,26 @@ function vald(){
             $user = new user();
             if(!$user->isLoggedIn()){
                 Redirect::to('login.php');
+            }
+        }
+
+        function isRegistrar($user){
+            if($user === "1"){
+
+            }
+            else{
+                header("HTTP/1.1 403 Forbidden");
+                exit;
+            }
+        }
+
+        function isAccounting($user){
+            if($user === "2"){
+
+            }
+            else{
+                header("HTTP/1.1 403 Forbidden");
+                exit;
             }
         }
 
