@@ -105,7 +105,7 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
-                <h6 class="Reminder pt-4">Please upload atleast one document.</h6>
+                <h6 class="Reminder pt-4">*Please upload atleast one document (image file).</h6>
               <div class="col-md-8 pt-3">
                 <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no">
@@ -187,6 +187,7 @@
                    <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="image/*" autocomplete="no">
               </div>
             </div>
+            <p class="text-center">*Kindly convert your COM into an image file.</p>
             <div class="col-12 text-center">
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applySibling" id="applySibling" value="Apply"></input>
               <?php
