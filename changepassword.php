@@ -75,6 +75,10 @@ $user = new user();
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
+                <div class="username">
+                <a><?php echo $user->data()->username ?> </a>
+                </div>
+
                 <!--user image-->
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">

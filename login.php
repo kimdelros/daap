@@ -47,7 +47,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
         </div>
         <div class="form-inner">
           <form action="" class="login" method="post">
-          <?php logd() ?>
+          <?php logd(); ?>
             <div class="field">
               <input type="text" name="username" placeholder="Username" required>
             </div>

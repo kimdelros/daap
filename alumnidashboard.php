@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard/resource/php/class/core/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 isLogin();
 $user = new user();
 isRegistrar($user->data()->groups);
@@ -81,6 +81,11 @@ $view = new viewtable();
                         <span class="clear"></span>
                     </label>
                 </div>
+                
+                <div class="username">
+                <a><?php echo $user->data()->username ?> </a>
+                </div>
+
                 <!--user image-->
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">

@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard/resource/php/class/core/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 isLogin();
 $user = new user();
 isRegistrar($user->data()->groups);
@@ -75,6 +75,9 @@ $view = new viewtable();
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
                 <!--user image-->
+                <div class="username">
+                <a><?php echo $user->data()->username ?> </a>
+                </div>
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupporteContent" aria-expanded="false" aria-label="Toggle navigation">

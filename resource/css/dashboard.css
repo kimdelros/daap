@@ -197,6 +197,14 @@ body {
     font-size: 1.2em;
 }
 
+.username {
+    position: absolute;
+    top: 18px;
+    right: 60px;
+    font-weight: bold;
+}
+
+
 .user {
     position: relative;
     width: 40px;

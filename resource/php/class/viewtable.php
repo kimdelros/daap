@@ -30,10 +30,10 @@ class viewtable extends config{
     echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[appType]</td>";
-    echo "<td class='d-none d-sm-table-cell' ><a href='editES.php?tn=' class='btn btn-secondary btn-sm col-12 mt-1'><i class='fa fa-edit'></i>View</a></td>";
+    echo "<td class='d-none d-sm-table-cell' ><a href='editES.php?tn=' class='btn btn-secondary btn-sm col-12 mt-1'><i class='fa fa-edit'></i>View Document</a></td>";
     echo "<td>
-              <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Discounts</a>
-              <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Discount</a>
+              <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
+              <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
           </td>";
     echo "</tr>";
     }
@@ -66,10 +66,10 @@ class viewtable extends config{
     echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[appType]</td>";
-    echo "<td class='d-none d-sm-table-cell' ><a href='editES.php?tn=' class='btn btn-secondary btn-sm col-12 mt-1'><i class='fa fa-edit'></i>View</a></td>";
+    echo "<td class='d-none d-sm-table-cell' ><a href='editES.php?tn=' class='btn btn-secondary btn-sm col-12 mt-1'><i class='fa fa-edit'></i>View Document</a></td>";
     echo "<td>
-              <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Discounts</a>
-              <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Discount</a>
+              <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
+              <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
           </td>";
     echo "</tr>";
     }
@@ -102,10 +102,10 @@ class viewtable extends config{
     echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[appType]</td>";
-    echo "<td class='d-none d-sm-table-cell' ><a href='editES.php?tn=' class='btn btn-secondary btn-sm col-12 mt-1'><i class='fa fa-edit'></i>View</a></td>";
+    echo "<td class='d-none d-sm-table-cell' ><a href='editES.php?tn=' class='btn btn-secondary btn-sm col-12 mt-1'><i class='fa fa-edit'></i>View Document</a></td>";
     echo "<td>
-              <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Discounts</a>
-              <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Discount</a>
+              <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
+              <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
           </td>";
     echo "</tr>";
     }

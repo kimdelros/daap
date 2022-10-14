@@ -1,8 +1,8 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard/resource/php/class/core/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 isLogin();
 $user = new user();
-isRegistrar($user->data()->groups);
+isAccounting($user->data()->groups);
 $view = new viewtable();
 ?>
 
