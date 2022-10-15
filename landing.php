@@ -66,12 +66,12 @@
        </div>
       </div>
     </section>
-  <section class="map">
+  <!-- <section class="map">
 
   </section>
   <section class="tracert">
 
-  </section>
+  </section> -->
 
   <section class="regOverlay" id="AlumniForm">
     <div class="regWrapper">

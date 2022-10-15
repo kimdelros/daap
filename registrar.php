@@ -92,39 +92,41 @@ $view = new viewtable();
 
             <!--form types-->
             <div class="cardBox">
-                <div class="card">
+                <a href="alumnidashboard.php"><div class="card">
                     <div>
-                        <div class="numbers"><?php //echo $alumni->totalAlumni(); ?></div>
+                        <div class="numbers"><?php echo $view->viewSummaryCard("1"); ?></div>
                         <div class="cardName">Alumni Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="diamond-outline"></ion-icon>
                     </div>
-                </div>
-
-                <div class="card">
+                </div></a>
+                
+                <a href="siblingdashboard.php"><div class="card">
                     <div>
-                        <div class="numbers">2,000</div>
+                        <div class="numbers"><?php echo $view->viewSummaryCard("2"); ?></div>
                         <div class="cardName">Sibling Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="people-outline"></ion-icon>
                     </div>
-                </div>
-
+                </div></a>
+                
+                <a href="ceisdashboard.php">
                 <div class="card">
                     <div>
-                        <div class="numbers">2,000</div>
+                        <div class="numbers"><?php echo $view->viewSummaryCard("3"); ?></div>
                         <div class="cardName">CEIS Graduate</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="school-outline"></ion-icon>
                     </div>
                 </div>
+                </a>
 
                 <div class="card">
                     <div>
-                        <div class="numbers">2,000</div>
+                        <div class="numbers"><?php echo $view->viewSummaryCard("4"); ?></div>
                         <div class="cardName">Total Applications</div>
                     </div>
                     <div class="iconDisplay">

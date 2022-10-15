@@ -4,14 +4,84 @@ require_once 'config.php';
 
 class viewtable extends config{
 
-
-  public function viewRequestAlumni(){
+  public function viewSummaryCard($appType){
     $con = $this->con();
-    $sql = "SELECT * FROM `applications` WHERE `isApproved`= 0 AND `appType` = 1";
+    switch($appType){
+      case "1": case "2": case "3":
+        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 0 AND `appType` = '$appType'";
+        break;
+      case "4":
+        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 0";
+        break;
+      default: break;
+    }
+    
+    $data= $con->prepare($sql);
+    $data->execute();
+    $rows = $data->fetchColumn();
+    return $rows;
+  }
+
+  public function viewDocuments($appID, $appType){
+    $con = $this->con();
+    switch($appType){
+      case "1":
+        $sql = "SELECT * FROM `alumni` WHERE `appID`= '$appID'";
+        break;
+      case "2":
+        $sql = "SELECT * FROM `sibling` WHERE `appID`= '$appID'";
+        break;
+      case "3":
+        $sql = "SELECT * FROM `ceis` WHERE `appID`= '$appID'";
+        break;
+      default: break;
+    }
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetch(PDO::FETCH_ASSOC);
+    
+    echo"<td class='d-none d-sm-table-cell' >";
+    if($appType == "1"){
+      if($result['alumniYB'] != "")
+        echo "<a href='?document=$result[alumniYB]#viewDoc'><img src='$result[alumniYB]' alt='' width=100></a><p>Year Book</p>";
+      if($result['alumniDiploma'] != "")
+        echo "<a href='?document=$result[alumniDiploma]#viewDoc'><img src='$result[alumniDiploma]' alt='' width=100></a><p>Diploma</p>";
+      if($result['alumniTOR'] != "")
+        echo "<a href='?document=$result[alumniTOR]#viewDoc'><img src='$result[alumniTOR]' alt='' width=100></a><p>TOR</p>";
+    } 
+    else if($appType == "2"){
+      if($result['applicantCOM'] != "")
+        echo "<a href='?document=$result[applicantCOM]#viewDoc'><img src='$result[applicantCOM]' alt='' width=100></a><p>Applicant COM</p>";
+      if($result['siblingCOM'] != "")
+        echo "<a href='?document=$result[siblingCOM]#viewDoc'><img src='$result[siblingCOM]' alt='' width=100></a><p>Sibling COM</p>";
+    }  
+    else if($appType == "3"){
+      if($result['studentDiploma'] != "")
+        echo "<a href='?document=$result[studentDiploma]#viewDoc'><img src='$result[studentDiploma]' alt='' width=100></a><p>Student Diploma</p>";
+    }
+    echo "</td>";
+  }
+
+
+  public function viewRequests($appType){
+    $con = $this->con();
+    $sql = "SELECT * FROM `applications` WHERE `isApproved`= 0 AND `appType` = '$appType'";
     $data= $con->prepare($sql);
     $data->execute();
     $result = $data->fetchAll(PDO::FETCH_ASSOC);
-    echo "<h3 class='text-center'> Entrance Grant Application </h3>";
+    switch($appType){
+      case "1":
+        echo "<h3 class='text-center'> Entrance Grant Application (Alumni) </h3>";
+        break;
+      case "2":
+        echo "<h3 class='text-center'> Entrance Grant Application (Sibling) </h3>";
+        break;
+      case "3":
+        echo "<h3 class='text-center'> Entrance Grant Application (CEIS) </h3>";
+        break;
+        break;
+      default: break;
+    }
     echo "<div class='table-responsive'>";
     echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
     echo "<thead class='thead-dark'>";
@@ -28,7 +98,7 @@ class viewtable extends config{
     echo "<td class='d-none d-sm-table-cell' >$data[studentID]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
-    echo "<td class='d-none d-sm-table-cell' ><a href='#' class='btn btn-secondary btn-sm col-12 mt-1'><i class='fa fa-edit'></i>View</a></td>";
+    $this->viewDocuments($data['appID'], $data['appType']);
     echo "<td>
               <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
               <a href='editES.php?tn=' class='btn btn-warning btn-sm col-12 mt-1'><i class='fa fa-edit'></i>On-Hold</a>
@@ -39,76 +109,5 @@ class viewtable extends config{
     echo "</table>";
 
   }
-
-  public function viewRequestCEIS(){
-    $con = $this->con();
-    $sql = "SELECT * FROM `applications` WHERE `isApproved`= 0 AND `appType` = 3";
-    $data= $con->prepare($sql);
-    $data->execute();
-    $result = $data->fetchAll(PDO::FETCH_ASSOC);
-    echo "<h3 class='text-center'> Entrance Grant Application </h3>";
-    echo "<div class='table-responsive'>";
-    echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
-    echo "<thead class='thead-dark'>";
-    echo "<th class='d-none d-sm-table-cell'>Application ID</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Number</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Name</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Email</th>";
-    echo "<th class='d-none d-sm-table-cell'>View Document</th>";
-    echo "<th style='font-size: 85%;'>Actions</th>";
-    echo "</thead>";
-    foreach ($result as $data) {
-    echo "<tr>";
-    echo "<td class='d-none d-sm-table-cell' >$data[appID]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentID]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
-    echo "<td class='d-none d-sm-table-cell' ><a href='#' class='btn btn-secondary btn-sm col-12 mt-1'><i class='fa fa-edit'></i>View</a></td>";
-    echo "<td>
-              <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
-              <a href='editES.php?tn=' class='btn btn-warning btn-sm col-12 mt-1'><i class='fa fa-edit'></i>On-Hold</a>
-              <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
-          </td>";
-    echo "</tr>";
-    }
-    echo "</table>";
-
-  }
-
-  public function viewRequestSibling(){
-    $con = $this->con();
-    $sql = "SELECT * FROM `applications` WHERE `isApproved`= 0 AND `appType` = 2";
-    $data= $con->prepare($sql);
-    $data->execute();
-    $result = $data->fetchAll(PDO::FETCH_ASSOC);
-    echo "<h3 class='text-center'> Entrance Grant Application </h3>";
-    echo "<div class='table-responsive'>";
-    echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
-    echo "<thead class='thead-dark'>";
-    echo "<th class='d-none d-sm-table-cell'>Application ID</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Number</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Name</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Email</th>";
-    echo "<th class='d-none d-sm-table-cell'>View Document</th>";
-    echo "<th style='font-size: 85%;'>Actions</th>";
-    echo "</thead>";
-    foreach ($result as $data) {
-    echo "<tr>";
-    echo "<td class='d-none d-sm-table-cell' >$data[appID]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentID]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
-    echo "<td class='d-none d-sm-table-cell' ><a href='#' class='btn btn-secondary btn-sm col-12 mt-1'><i class='fa fa-edit'></i>View</a></td>";
-    echo "<td>
-              <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
-              <a href='editES.php?tn=' class='btn btn-warning btn-sm col-12 mt-1'><i class='fa fa-edit'></i>On-Hold</a>
-              <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
-          </td>";
-    echo "</tr>";
-    }
-    echo "</table>";
-
-  }
-
 
 }
