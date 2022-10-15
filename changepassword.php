@@ -60,6 +60,12 @@ $user = new user();
                     </a>
                 </li>
                 <li>
+                    <a href="updateprofile.php">
+                        <span class="icon"><ion-icon name="options-outline"></ion-icon></span>
+                        <span class="title">Update Profile</span>
+                    </a>
+                </li>
+                <li>
                     <a href="logout.php">
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                         <span class="title">Log out</span>
@@ -82,22 +88,6 @@ $user = new user();
                 <!--user image-->
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupporteContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav  ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i> <?php echo $user->data()->username ?>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="changepassword.php" class="dropdown-item">Setting</a></li>
-                                <li><a href="logout.php" class="dropdown-item">Logout</a></li>
-                            </ul>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         <div class="container mt-5 puff-in-center">

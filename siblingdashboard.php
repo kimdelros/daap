@@ -60,6 +60,12 @@ $view = new viewtable();
                     </a>
                 </li>
                 <li>
+                    <a href="updateprofile.php">
+                        <span class="icon"><ion-icon name="options-outline"></ion-icon></span>
+                        <span class="title">Update Profile</span>
+                    </a>
+                </li>
+                <li>
                     <a href="logout.php">
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                         <span class="title">Log out</span>
