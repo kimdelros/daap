@@ -138,9 +138,11 @@ function vald(){
                         if($login){
                           if($user->data()->groups == 1){
                                  Redirect::to('registrar.php');
-                            }elseif($user->data()->groups == 2){
+                            }
+                            elseif($user->data()->groups == 2){
                                  Redirect::to('accounting.php');
-                            }else{
+                            }
+                            else{
                                  Redirect::to('template.php');
                             }
                         }else{
