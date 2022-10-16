@@ -7,17 +7,17 @@ class apply extends config{
       $studentName = str_replace('.', '', $studentName);
 
       if($studentID == "")
-        $message = "Student Number is required!";
+        $message = "Student Number is required.";
       else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $studentID))
-        $message = "Student Number is invalid!";
+        $message = "Student Number is invalid.";
       else if($studentEmail == "")
-        $message = "Email address is required!";
+        $message = "Email address is required.";
       else if(!filter_var($studentEmail, FILTER_VALIDATE_EMAIL))
-        $message = "Email address is invalid!";
+        $message = "Email address is invalid.";
       else if($studentName == "")
-        $message = "Applicant's name is required!";
+        $message = "Applicant's name is required.";
       else if(!ctype_alpha($studentName))
-        $message = "Applicant's Name is invalid!";
+        $message = "Applicant's Name is invalid.";
       else
         return true;
 
@@ -117,17 +117,17 @@ class apply extends config{
 
          if($this->verifyStudent($studentID, $studentEmail, $studentName)){
            if($alumniName == "")
-             $message = "Alumni's Name is required!";
+             $message = "Alumni's Name is required.";
            else if(!ctype_alpha($tempAName))
-             $message = "Alumni's Name is invalid!";
+             $message = "Alumni's Name is invalid.";
            else if($dip !== '' && $dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif')
-             $message = "Diploma must be an image file only!";
+             $message = "Diploma must be an image file only.";
            else if($yb !== '' && $yb !== 'gif' && $yb !== 'png' && $yb !== 'jpg' && $yb !== 'jpeg' && $yb !== 'jfif')
              $message = "Alumni's Yearbook must be an image file only!";
            else if($tor !== '' && $tor !== 'gif' && $tor !== 'png' && $tor !== 'jpg' && $tor !== 'jpeg' && $tor !== 'jfif')
-             $message = "Alumni's TOR must be an image file only!";
+             $message = "Alumni's TOR must be an image file only.";
            else if($yb == '' && $dip == '' && $tor == '')
-             $message = "Please upload atleast one document!";
+             $message = "Please upload atleast one document.";
            else {
              do{
                $transID = $this->getTransID('ALUM-');
@@ -191,17 +191,17 @@ class apply extends config{
 
          if($this->verifyStudent($studentID, $studentEmail, $studentName)){
            if($siblingID == "")
-             $message = "Student Number is required!";
+             $message = "Student Number is required.";
            else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $siblingID))
-             $message = "Student Number is invalid!";
+             $message = "Student Number is invalid.";
              else if($siblingName == "")
-             $message = "Sibling's Name is required!";
+             $message = "Sibling's Name is required.";
            else if(!ctype_alpha($tempSName))
-             $message = "Sibling's Name is invalid!";
+             $message = "Sibling's Name is invalid.";
            else if($acom == '')
-             $message = "Applicant's COM is required!";
+             $message = "Applicant's COM is required.";
            else if($scom == '')
-             $message = "Sibling's COM is required!";
+             $message = "Sibling's COM is required.";
            else if($acom !== 'gif' && $acom !== 'png' && $acom !== 'jpg' && $acom !== 'jpeg' && $acom !== 'jfif')
              $message = "Applicant's COM must be an image file only!";
            else if($scom !== 'gif' && $scom !== 'png' && $scom !== 'jpg' && $scom !== 'jpeg' && $scom !== 'jfif')
@@ -255,13 +255,13 @@ class apply extends config{
 
          if($this->verifyStudent($studentID, $studentEmail, $studentName)){
            if($CEISstudentID == "")
-             $message = "CIES Student Number is required!";
+             $message = "CIES Student Number is required.";
            else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $CEISstudentID))
-             $message = "CEIS Student Number is invalid!";
+             $message = "CEIS Student Number is invalid.";
            else if($dip == '')
-             $message = "Applicant's CEIS Diploma is required!";
+             $message = "Applicant's CEIS Diploma is required.";
            else if($dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif')
-             $message = "Applicant's CEIS Diploma must be an image file only!";
+             $message = "Applicant's CEIS Diploma must be an image file only.";
            else {
              do{
                $transID = $this->getTransID('CEIS-');
