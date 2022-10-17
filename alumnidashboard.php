@@ -65,7 +65,7 @@ $view = new viewtable();
                     </a>
                 </li>
                 <li>
-                    <a href="updateprofile.php">
+                    <a href="updateprof.php">
                         <span class="icon"><ion-icon name="options-outline"></ion-icon></span>
                         <span class="title">Update Profile</span>
                     </a>

@@ -1,24 +1,27 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 isLogin();
+$view = new view;
 $user = new user();
-isRegistrar($user->data()->groups);
-$view = new viewtable();
-?>
+ ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
+    <link href="vendor/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"  href="resource/css/styles.css">
+    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap-select.min.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="resource/css/dashboard.css">
-    <link rel="stylesheet" href="resource/css/viewStyle.css">
+    <link rel="stylesheet" type="text/css" href="resource/css/dashboard.css">
     <link rel="icon" href="resource/img/daap-icon.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+    
     <title>DAAP Dashboard</title>
 </head>
 <body>
@@ -92,63 +95,61 @@ $view = new viewtable();
                 <!--user image-->
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupporteContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav  ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i> <?php echo $user->data()->username ?>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="changepassword.php" class="dropdown-item">Setting</a></li>
-                                <li><a href="logout.php" class="dropdown-item">Logout</a></li>
-                            </ul>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
-
-            <!--form types-->
-
-
-            <!-- application details -->
-            <div class="details">
-                <div class="applyDetails">
-                    <?php $view->viewRequests("2"); ?>
-                </div>
+        
+            <div class="container mt-5  pt-5 puff-in-center">
+             <div class="row">
+                 <div class="col-12">
+                     <h1 class="text-center">UPDATE YOUR ACCOUNT</h1>
+                 </div>
             </div>
-        </div>
+            <form action="" method="post">
+                <table class="table ">
+                    <tr>
+                        <td>
+                            <div class="row justify-content-center">
+                                <div class="form-group col-4">
+                                 <label for = "username" class=""> Username:</label>
+                                 <input class="form-control"  type = "text" name="username" id="username" value ="<?php echo escape($user->data()->username); ?>" autocomplete="off"  />
+                                </div>
+                                <div class="form-group col-4">
+                                 <label for = "fullName" class=""> Full Name</label>
+                                 <input class="form-control"  type = "text" name="fullName" id="fullName" value ="<?php echo escape($user->data()->name); ?>"/required>
+                                </div>
+                                <div class="form-group col-4">
+                                 <label for = "email" class=""> Email Address</label>
+                                 <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo escape($user->data()->email); ?>"/required>
+                                </div>
+                             </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row justify-content-center">
+                                <div class="form-group col-5">
+                                  <label for="College" >College/s to handle</label>
+                                      <select id="College" name="College[]" class="selectpicker form-control" data-live-search="true" multiple required>
+                                        <?php $view->collegeSP2();?>
+                                      </select>
+                                </div>
+                                <div class="form-group col-5">
+                                    <label  >&nbsp;</label>
+                                <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
+                                 <input type="submit" value="Update your profile" class=" form-control btn btn-primary" />
+                                </div>
+                             </div>
+                        </td>
+                    </tr>
+                </table>
+             </form>
 
+             
+        </div>
+    </div>
     </div>
 
-    <section class="regOverlay" id="viewDoc">
-    <div class="regWrapper">
-      <a class="close" href="" >&times;</a>
-      <div class="regContent">
-        <div class="regForm">
-          <img src="<?php echo $_GET['document'];?>" alt="" width=100%>
-        </div>
-      </div>
-    </div>
-    </section>  
-    
     <!--Scripts-->
-    <script>
-        $(document).ready(function () {
-        $('#scholartable').dataTable({
-            select: {
-            style: 'multi',
-            selector: 'td:first-child'
-            }
-        });
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
