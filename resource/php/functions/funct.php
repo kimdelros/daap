@@ -206,18 +206,17 @@ function updateProfile(){
             'username'=>array(
                 'required'=>'true',
                 'min'=>4,
-                'max'=>20,
-                'unique'=>'tbl_accounts'
+                'max'=>20
             ),
             'fullName'=>array(
                 'required'=>'true',
                 'min'=>2,
-                'max'=>50,
+                'max'=>50
             ),
             'email'=>array(
                 'required'=>'true',
                 'min'=>5,
-                'max'=>50,
+                'max'=>50
             ),
             'College'=>array(
                 'required'=>'true'
@@ -236,7 +235,7 @@ function updateProfile(){
                 } catch (Exception $e) {
                     die($e->getMessage());
                 }
-                Redirect::to('template.php');
+                Redirect::to('registrar.php');
             }else{
                 foreach ($validate->errors()as $error) {
                 pError($error);
@@ -277,7 +276,7 @@ function changeP(){
                     } catch (Exception $e) {
                         die($e->getMessage());
                     }
-                    Redirect::to('template.php');
+                    Redirect::to('registrar.php');
                 }
             }else{
                 foreach ($validate->errors()as $error) {

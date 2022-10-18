@@ -60,7 +60,7 @@ $user = new user();
                     </a>
                 </li>
                 <li>
-                    <a href="updateprof.php">
+                    <a href="update.php">
                         <span class="icon"><ion-icon name="options-outline"></ion-icon></span>
                         <span class="title">Update Profile</span>
                     </a>
@@ -97,6 +97,7 @@ $user = new user();
                      <h1 class="text-center">CHANGE PASSWORD</h1>
                  </div>
             </div>
+            <?php changeP(); ?>
             <form action="" method="post">
                 <table class="table ">
                     <tr>
@@ -123,7 +124,7 @@ $user = new user();
                                 <div class="form-group col-7">
                                     <label  >&nbsp;</label>
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
-                                 <input type="submit" value="Change password" class=" form-control btn btn-primary" />
+                                 <input type="submit" value="Change Password" class=" form-control btn btn-primary" />
                                 </div>
                             </div>
                         </td>

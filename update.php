@@ -13,8 +13,7 @@ $user = new user();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
-    <link href="vendor/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"  href="resource/css/styles.css">
+    <link href="vendor/css/all.css" rel="stylesheet">   
     <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap-select.min.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -67,7 +66,7 @@ $user = new user();
                     </a>
                 </li>
                 <li>
-                    <a href="updateprof.php">
+                    <a href="update.php">
                         <span class="icon"><ion-icon name="options-outline"></ion-icon></span>
                         <span class="title">Update Profile</span>
                     </a>
@@ -104,6 +103,7 @@ $user = new user();
                      <h1 class="text-center">UPDATE YOUR ACCOUNT</h1>
                  </div>
             </div>
+            <?php updateProfile(); ?>
             <form action="" method="post">
                 <table class="table ">
                     <tr>
@@ -129,7 +129,7 @@ $user = new user();
                             <div class="row justify-content-center">
                                 <div class="form-group col-5">
                                   <label for="College" >College/s to handle</label>
-                                      <select id="College" name="College[]" class="selectpicker form-control" data-live-search="true" multiple required>
+                                      <select id="College" name="College[]" class="form-select form-control" data-live-search="true" required>
                                         <?php $view->collegeSP2();?>
                                       </select>
                                 </div>
