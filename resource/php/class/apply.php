@@ -155,7 +155,7 @@ class apply extends config{
                     icon: \"success\",
                     width: 700
               }).then(function() {
-                    window.location = \"landing.php\";
+                    window.location = \"index.php\";
               });
              </script>";
              sendConfirmationEmail($studentName, $studentEmail, "Alumni Discount", $transID);
@@ -224,7 +224,7 @@ class apply extends config{
                     icon: \"success\",
                     width: 700
               }).then(function() {
-                    window.location = \"landing.php\";
+                    window.location = \"index.php\";
               });
              </script>";
              sendConfirmationEmail($studentName, $studentEmail, "Sibling Discount", $transID);
@@ -278,7 +278,7 @@ class apply extends config{
                     icon: \"success\",
                     width: 700
               }).then(function() {
-                    window.location = \"landing.php\";
+                    window.location = \"index.php\";
               });
              </script>";
              sendConfirmationEmail($studentName, $studentEmail, "CEIS Graduate Discount", $transID);

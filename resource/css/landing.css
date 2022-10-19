@@ -36,8 +36,9 @@ html{
 }
 
 .card p{
-  font-size: 80%;
+  font-size: 95%;
   color: white;
+  margin-bottom: 20px;
 }
 
 .btn-card:link,

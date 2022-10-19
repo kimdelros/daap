@@ -97,7 +97,7 @@ $user = new user();
                 </div>
             </div>
         
-            <div class="container mt-5  pt-5 puff-in-center">
+            <div class="container mt-5 puff-in-center">
              <div class="row">
                  <div class="col-12">
                      <h1 class="text-center">UPDATE YOUR ACCOUNT</h1>
