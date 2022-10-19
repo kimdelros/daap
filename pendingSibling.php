@@ -40,19 +40,19 @@ $view = new viewtable();
                     </a>
                 </li>
                 <li>
-                    <a href="alumnidashboard.php">
-                        <span class="icon"><ion-icon name="diamond-outline"></ion-icon></span>
-                        <span class="title">Alumni</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="siblingdashboard.php">
-                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-                        <span class="title">Sibling</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="ceisdashboard.php">
+                  <a href="pendingAlumni.php">
+                      <span class="icon"><ion-icon name="diamond-outline"></ion-icon></span>
+                      <span class="title">Alumni</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="pendingSibling.php">
+                      <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                      <span class="title">Sibling</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="pendingCeis.php">
                         <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
                         <span class="title">CEIS</span>
                     </a>
@@ -92,6 +92,22 @@ $view = new viewtable();
                 <!--user image-->
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupporteContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i> <?php echo $user->data()->username ?>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a href="changepassword.php" class="dropdown-item">Setting</a></li>
+                                <li><a href="logout.php" class="dropdown-item">Logout</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -101,11 +117,10 @@ $view = new viewtable();
             <!-- application details -->
             <div class="details">
                 <div class="applyDetails">
-                    <?php $view->viewRequests("3"); ?>
+                    <?php $view->viewRequests("2"); ?>
                 </div>
             </div>
         </div>
-
 
     </div>
 
@@ -118,7 +133,8 @@ $view = new viewtable();
         </div>
       </div>
     </div>
-    </section>  
+    </section>
+
     <!--Scripts-->
     <script>
         $(document).ready(function () {
@@ -137,6 +153,7 @@ $view = new viewtable();
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="resource/js/script.js"></script>
+    <script src="resource/js/pendingActions.js"></script>
 
 </body>
 </html>

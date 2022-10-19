@@ -4,7 +4,7 @@ require_once 'config.php';
 
 class viewtable extends config{
 
-  public function viewSummaryCard($appType){
+  public function viewPendingSummaryCard($appType){
     $con = $this->con();
     switch($appType){
       case "1": case "2": case "3":
@@ -15,7 +15,25 @@ class viewtable extends config{
         break;
       default: break;
     }
-    
+
+    $data= $con->prepare($sql);
+    $data->execute();
+    $rows = $data->fetchColumn();
+    return $rows;
+  }
+
+  public function viewApprovedSummaryCard($appType){
+    $con = $this->con();
+    switch($appType){
+      case "1": case "2": case "3":
+        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 1 AND `appType` = '$appType'";
+        break;
+      case "4":
+        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 1";
+        break;
+      default: break;
+    }
+
     $data= $con->prepare($sql);
     $data->execute();
     $rows = $data->fetchColumn();
@@ -39,25 +57,25 @@ class viewtable extends config{
     $data= $con->prepare($sql);
     $data->execute();
     $result = $data->fetch(PDO::FETCH_ASSOC);
-    
+
     echo"<td class='d-none d-sm-table-cell' >";
     if($appType == "1"){
       if($result['alumniYB'] != "")
-        echo "<a href='?document=$result[alumniYB]#viewDoc'><img src='$result[alumniYB]' alt='' width=100></a><p>Year Book</p>";
+        echo "<a href='?document=$result[alumniYB]#viewDoc'>View Year Book</a><br>";
       if($result['alumniDiploma'] != "")
-        echo "<a href='?document=$result[alumniDiploma]#viewDoc'><img src='$result[alumniDiploma]' alt='' width=100></a><p>Diploma</p>";
+        echo "<a href='?document=$result[alumniDiploma]#viewDoc'>View Diploma</a><br>";
       if($result['alumniTOR'] != "")
-        echo "<a href='?document=$result[alumniTOR]#viewDoc'><img src='$result[alumniTOR]' alt='' width=100></a><p>TOR</p>";
-    } 
+        echo "<a href='?document=$result[alumniTOR]#viewDoc'>View TOR</a><br>";
+    }
     else if($appType == "2"){
       if($result['applicantCOM'] != "")
-        echo "<a href='?document=$result[applicantCOM]#viewDoc'><img src='$result[applicantCOM]' alt='' width=100></a><p>Applicant COM</p>";
+        echo "<a href='?document=$result[applicantCOM]#viewDoc'>View Applicant COM</a><br>";
       if($result['siblingCOM'] != "")
-        echo "<a href='?document=$result[siblingCOM]#viewDoc'><img src='$result[siblingCOM]' alt='' width=100></a><p>Sibling COM</p>";
-    }  
+        echo "<a href='?document=$result[siblingCOM]#viewDoc'>View Sibling COM</a><br>";
+    }
     else if($appType == "3"){
       if($result['studentDiploma'] != "")
-        echo "<a href='?document=$result[studentDiploma]#viewDoc'><img src='$result[studentDiploma]' alt='' width=100></a><p>Student Diploma</p>";
+        echo "<a href='?document=$result[studentDiploma]#viewDoc'>View Student Diploma</a><br>";
     }
     echo "</td>";
   }

@@ -36,19 +36,19 @@ $view = new viewtable();
                     </a>
                 </li>
                 <li>
-                    <a href="alumnidashboard.php">
+                    <a href="pendingAlumni.php">
                         <span class="icon"><ion-icon name="diamond-outline"></ion-icon></span>
                         <span class="title">Alumni</span>
                     </a>
                 </li>
                 <li>
-                    <a href="siblingdashboard.php">
+                    <a href="pendingSibling.php">
                         <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class="title">Sibling</span>
                     </a>
                 </li>
                 <li>
-                    <a href="ceisdashboard.php">
+                    <a href="pendingCeis.php">
                         <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
                         <span class="title">CEIS</span>
                     </a>
@@ -92,30 +92,30 @@ $view = new viewtable();
 
             <!--form types-->
             <div class="cardBox">
-                <a href="alumnidashboard.php"><div class="card">
+                <a href="pendingAlumni.php"><div class="card">
                     <div>
-                        <div class="numbers"><?php echo $view->viewSummaryCard("1"); ?></div>
+                        <div class="numbers"><?php echo $view->viewPendingSummaryCard("1"); ?></div>
                         <div class="cardName">Alumni Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="diamond-outline"></ion-icon>
                     </div>
                 </div></a>
-                
-                <a href="siblingdashboard.php"><div class="card">
+
+                <a href="pendingSibling.php"><div class="card">
                     <div>
-                        <div class="numbers"><?php echo $view->viewSummaryCard("2"); ?></div>
+                        <div class="numbers"><?php echo $view->viewPendingSummaryCard("2"); ?></div>
                         <div class="cardName">Sibling Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="people-outline"></ion-icon>
                     </div>
                 </div></a>
-                
-                <a href="ceisdashboard.php">
+
+                <a href="pendingCeis.php">
                 <div class="card">
                     <div>
-                        <div class="numbers"><?php echo $view->viewSummaryCard("3"); ?></div>
+                        <div class="numbers"><?php echo $view->viewPendingSummaryCard("3"); ?></div>
                         <div class="cardName">CEIS Graduate</div>
                     </div>
                     <div class="iconDisplay">
@@ -126,7 +126,7 @@ $view = new viewtable();
 
                 <div class="card">
                     <div>
-                        <div class="numbers"><?php echo $view->viewSummaryCard("4"); ?></div>
+                        <div class="numbers"><?php echo $view->viewPendingSummaryCard("4"); ?></div>
                         <div class="cardName">Total Applications</div>
                     </div>
                     <div class="iconDisplay">
@@ -140,7 +140,7 @@ $view = new viewtable();
                 <div class="box">
                     <canvas id="myChart"></canvas>
                 </div>
-                
+
             </div>
         </div>
 
@@ -154,6 +154,7 @@ $view = new viewtable();
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script src="resource/js/script.js"></script>
     <script src="resource/js/mychart.js"></script>
+    <script src="resource/js/pendingActions.js"></script>
 
 </body>
 </html>
