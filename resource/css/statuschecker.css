@@ -39,7 +39,7 @@ body{
   width: 850px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
-  margin-top: 50px;
+  margin-top: 220px;
   box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
 }
 
@@ -71,7 +71,7 @@ body{
   font-size: 17px;
   padding-left: 20px;
   border: 1px solid lightgrey;
-  border-radius: 25px;
+  border-radius: 15px;
   transition: all 0.3s ease;
 }
 
@@ -92,6 +92,10 @@ form .field input:valid{
   transition: all 0.3s ease;
 }
 
+form .field h5 {
+  text-align: center;
+}
+
 form .field input[type="submit"]{
   color: #fff;
   border: none;
@@ -107,10 +111,11 @@ form .field input[type="submit"]{
 /* media screen */
 @media only screen and (max-width: 992px) {
   .wrapper{
-    max-width: 600px;
+    max-width: 700px;
   }
   .wrapper .title{
-    padding: 15px 0;
+    padding: 0 15px;
+    font-size: 33px;
   }
 }
 
@@ -119,7 +124,8 @@ form .field input[type="submit"]{
     max-width: 600px;
   }
   .wrapper .title{
-    padding: 15px 0;
+    padding: 0 15px;
+    font-size: 31px;
   }
 }
 
@@ -128,14 +134,29 @@ form .field input[type="submit"]{
     max-width: 500px;
   }
   .wrapper .title{
-    padding: 15px 0;
+    padding: 0 15px;
+    font-size: 28px;
   }
 }
 @media only screen and (max-width: 635px) {
   .wrapper{
-    max-width: 300px;
+    max-width: 400px;
   }
   .wrapper .title{
-    padding: 15px 0;
+    padding: 0 15px;
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 595px) {
+  .wrapper{
+    max-width: 350px;
+  }
+  .wrapper .title{
+    padding: 0 15px;
+    font-size: 23px;
+  }
+  .wrapper form .field{
+    margin-bottom: 45px;
   }
 }

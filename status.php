@@ -17,7 +17,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="resource/css/status.css">
+    <link rel="stylesheet" href="resource/css/statuschecker.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark">
@@ -28,7 +28,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
          <div class="title">
             Discount Application and Alumni Portal <br> Status Checker
          </div>
-         <form action="" method="post">
+         <form action="index.php" method="post">
             <div class="field">
                 <h5>Please enter your transaction ID below</h5>
                <input type="text" placeholder="Your Transaction ID" required>

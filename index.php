@@ -13,7 +13,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="resource/css/landing.css">
+    <link rel="stylesheet" href="resource/css/landingApp.css">
     <script src="resource/js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="resource/img/daap-icon.png">
@@ -66,10 +66,26 @@
        </div>
       </div>
     </section>
-  <!-- <section class="map">
+
+    <!-- status checker -->
+    <section class="statusCheck" id="statusCheck">
+      <div class="max-width">
+          <h2 class="title">Discount Application and Alumni Portal <br> Status Checker</h2>
+          <form action="index.php" method="post">
+            <div class="field">
+                <h5>*Please enter your transaction ID below</h5>
+               <input type="text" placeholder="Your Transaction ID" required>
+            </div>
+            <div class="field">
+               <input type="submit" value="Check Status">
+            </div>
+         </form>
+      </div>
+    </section>
+  <section class="map">
 
   </section>
-  <section class="tracert">
+  <!--<section class="tracert">
 
   </section> -->
 
@@ -266,14 +282,14 @@
     AOS.init();
   </script>
   </body>
-  <footer id="sticky-footer" class="py-4 bg-dark text-white-50 fixed-bottom">
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
    <div class="container text-center">
        <div class="row">
            <div class="col col-sm-5 text-left">
                <small>Copyright &copy; Discount Application and Alumni Portal</small>
            </div>
            <div class="col text-right">
-               <small>Del Rosario, JK. | Cruz, RC. | Forbes, LI. | Heyrana, PK. | Bolasoc, R. -- 2022</small>
+               <small>Del Rosario, JK. | Cruz, RC. | Forbes, LI. | Heyrana, PK. | Bolasoc, R. (2022)</small>
            </div>
        </div>
    </div>
