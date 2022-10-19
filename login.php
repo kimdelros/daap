@@ -17,7 +17,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="resource/css/login.css">
+    <link rel="stylesheet" href="resource/css/adminlogin.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark">
@@ -42,8 +42,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
       <div class="form-container">
         <div class="slide-controls">
           <input type="radio" name="slide" id="login" checked>
-          <label class="slide login">Administration Office</label>
-          <div class="slider-tab"></div>
+          <label class="slide login">ADMINISTRATION OFFICE</label>
         </div>
         <div class="form-inner">
           <form action="" class="login" method="post">
@@ -54,13 +53,10 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
             <div class="field">
               <input type="password" name="password" placeholder="Password" required>
             </div>
-            <div class="pass-link"><a href="#">Forgot password?</a></div>
-            <div class="field btn">
-              <div class="btn-layer"></div>
-              <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-              <input type="submit" value="Login">
-
-              </div>
+            <br>
+            <div class="field">
+                <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+                <input type="submit" value="Login to Continue">
             </div>
           </form>
         </div>

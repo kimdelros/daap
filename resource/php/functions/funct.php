@@ -285,4 +285,14 @@ function changeP(){
         }
     }
 }
+
+function approveApplication(){
+    if(!empty($_GET['approve'])){
+        $approve = new approve($_GET['approve']);
+        if($approve->approveApplication()){
+        } else {
+            echo "Error in Approving";
+        }
+    }
+}
  ?>

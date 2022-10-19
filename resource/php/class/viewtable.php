@@ -100,9 +100,56 @@ class viewtable extends config{
     echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
     $this->viewDocuments($data['appID'], $data['appType']);
     echo "<td>
-              <a href='editES.php?tn=' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
+              <a href='approveApplication.php?approve=$data[appID]' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
               <a href='editES.php?tn=' class='btn btn-warning btn-sm col-12 mt-1'><i class='fa fa-edit'></i>On-Hold</a>
               <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
+          </td>";
+    echo "</tr>";
+    }
+    echo "</table>";
+
+  }
+
+  public function viewRequestsAccounting($appType){
+    $con = $this->con();
+    $sql = "SELECT * FROM `applications` WHERE `isDiscounted`= 0 AND `isApproved` = 1 AND `appType` = '$appType'";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    switch($appType){
+      case "1":
+        echo "<h3 class='text-center'> Entrance Grant Application (Alumni) </h3>";
+        break;
+      case "2":
+        echo "<h3 class='text-center'> Entrance Grant Application (Sibling) </h3>";
+        break;
+      case "3":
+        echo "<h3 class='text-center'> Entrance Grant Application (CEIS) </h3>";
+        break;
+        break;
+      default: break;
+    }
+    echo "<div class='table-responsive'>";
+    echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
+    echo "<thead class='thead-dark'>";
+    echo "<th class='d-none d-sm-table-cell'>Application ID</th>";
+    echo "<th class='d-none d-sm-table-cell'>Student Number</th>";
+    echo "<th class='d-none d-sm-table-cell'>Student Name</th>";
+    echo "<th class='d-none d-sm-table-cell'>Student Email</th>";
+    echo "<th class='d-none d-sm-table-cell'>View Document</th>";
+    echo "<th style='font-size: 85%;'>Actions</th>";
+    echo "</thead>";
+    foreach ($result as $data) {
+    echo "<tr>";
+    echo "<td class='d-none d-sm-table-cell' >$data[appID]</td>";
+    echo "<td class='d-none d-sm-table-cell' >$data[studentID]</td>";
+    echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
+    echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
+    $this->viewDocuments($data['appID'], $data['appType']);
+    echo "<td>
+              <a href='#' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
+              <a href='#' class='btn btn-warning btn-sm col-12 mt-1'><i class='fa fa-edit'></i>On-Hold</a>
+              <a href='#' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
           </td>";
     echo "</tr>";
     }

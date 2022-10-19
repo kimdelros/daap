@@ -114,6 +114,15 @@ form .field input[type="submit"]{
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .wrapper{
+    max-width: 600px;
+  }
+  .wrapper .title{
+    padding: 15px 0;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .wrapper{
     max-width: 500px;

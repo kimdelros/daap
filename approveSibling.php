@@ -117,7 +117,7 @@ $view = new viewtable();
             <!-- application details -->
             <div class="details">
                 <div class="applyDetails">
-                    <?php $view->viewRequests("2"); ?>
+                    <?php $view->viewRequestsAccounting("2"); ?>
                 </div>
             </div>
         </div>
