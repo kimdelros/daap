@@ -26,10 +26,10 @@ class viewtable extends config{
     $con = $this->con();
     switch($appType){
       case "1": case "2": case "3":
-        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 1 AND `appType` = '$appType'";
+        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 1 AND `appType` = '$appType' AND `isDiscounted`= 0";
         break;
       case "4":
-        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 1";
+        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 1 AND `isDiscounted`= 0";
         break;
       default: break;
     }
@@ -118,15 +118,24 @@ class viewtable extends config{
     echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
     $this->viewDocuments($data['appID'], $data['appType']);
     echo "<td>
-              <a href='approveApplication.php?approve=$data[appID]' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
-              <a href='editES.php?tn=' class='btn btn-warning btn-sm col-12 mt-1'><i class='fa fa-edit'></i>On-Hold</a>
-              <a href='admesreject.php?tn=' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
+          <form method='POST' action=''>
+            <input class='btn btn-success btn-sm col-12 mt-1' type='submit' name='approve $data[transID]' id='approve' value='Approve Application' />
+            <input class='btn btn-warning btn-sm col-12 mt-1' type='submit' name='hold $data[transID]' id='hold' value='On-Hold' />
+            <input class='btn btn-danger btn-sm col-12 mt-1' type='submit' name='reject $data[transID]' id='reject' value='Reject Application' />
+          </form>
           </td>";
     echo "</tr>";
     }
-    echo "</table>";
-
+    echo "</table>";    
   }
+  // <button class='btn btn-success btn-sm col-12 mt-1' onclick='approve' ><i class='fa fa-edit'></i>Approve Application</button>
+  // <button class='btn btn-warning btn-sm col-12 mt-1' onclick='hold' ><i class='fa fa-edit'></i>On-Hold</button>
+  // <button class='btn btn-danger btn-sm col-lg-12 mt-1' onclick='reject' ><i class='fa fa-trash'></i>Reject Application</button>
+  // <a href='' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
+  // <a href='' class='btn btn-warning btn-sm col-12 mt-1'><i class='fa fa-edit'></i>On-Hold</a>
+  // <a href='' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
+
+
 
   public function viewRequestsAccounting($appType){
     $con = $this->con();
@@ -165,7 +174,7 @@ class viewtable extends config{
     echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
     $this->viewDocuments($data['appID'], $data['appType']);
     echo "<td>
-              <a href='#' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Approve Application</a>
+              <a href='#' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Finish Application</a>
               <a href='#' class='btn btn-warning btn-sm col-12 mt-1'><i class='fa fa-edit'></i>On-Hold</a>
               <a href='#' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
           </td>";

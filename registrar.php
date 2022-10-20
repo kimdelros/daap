@@ -95,7 +95,7 @@ $view = new viewtable();
                 <a href="pendingAlumni.php"><div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewPendingSummaryCard("1"); ?></div>
-                        <div class="cardName">Alumni Discount</div>
+                        <div class="cardName">Pending Alumni Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="diamond-outline"></ion-icon>
@@ -105,7 +105,7 @@ $view = new viewtable();
                 <a href="pendingSibling.php"><div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewPendingSummaryCard("2"); ?></div>
-                        <div class="cardName">Sibling Discount</div>
+                        <div class="cardName">Pending Sibling Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="people-outline"></ion-icon>
@@ -116,7 +116,7 @@ $view = new viewtable();
                 <div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewPendingSummaryCard("3"); ?></div>
-                        <div class="cardName">CEIS Graduate</div>
+                        <div class="cardName">Pending CEIS Graduate</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="school-outline"></ion-icon>
@@ -127,7 +127,7 @@ $view = new viewtable();
                 <div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewPendingSummaryCard("4"); ?></div>
-                        <div class="cardName">Total Applications</div>
+                        <div class="cardName">Total Pending Applications</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="information-outline"></ion-icon>

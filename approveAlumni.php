@@ -85,7 +85,7 @@ $view = new viewtable();
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-                
+
                 <div class="username">
                 <a><?php echo $user->data()->username ?> </a>
                 </div>
@@ -102,7 +102,7 @@ $view = new viewtable();
             <!-- application details -->
             <div class="details">
                 <div class="applyDetails">
-                    <?php $view->viewRequestsAccounting("1"); ?>
+                    <?php $view->viewRequestsAccounting("1");?>
                 </div>
             </div>
         </div>
@@ -119,7 +119,7 @@ $view = new viewtable();
     </div>
     </section>
 
-    
+
 
     <!--Scripts-->
     <script>
@@ -139,6 +139,6 @@ $view = new viewtable();
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="resource/js/script.js"></script>
     <script src="resource/js/scripts.js"></script>
-    
+
 </body>
 </html>

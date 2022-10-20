@@ -30,7 +30,7 @@ $view = new viewtable();
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="accounting.php">
                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class="title">Dashboard</span>
                     </a>
@@ -80,14 +80,10 @@ $view = new viewtable();
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-                <!--search-->
-                <div class="search">
-                    <label for="">
-                        <input type="text" placeholder="Search"><ion-icon name="search-outline"></ion-icon>
-                        <span class="clear"></span>
-                    </label>
-                </div>
                 <!--user image-->
+                <div class="username">
+                <a><?php echo $user->data()->username ?> </a>
+                </div>
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">
                 </div>
@@ -95,39 +91,39 @@ $view = new viewtable();
 
             <!--form types-->
             <div class="cardBox">
-                <div class="card">
+                <a href="approveAlumni.php"><div class="card">
                     <div>
-                        <div class="numbers"><?php //echo $alumni->totalAlumni(); ?></div>
+                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("1"); ?></div>
                         <div class="cardName">Alumni Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="diamond-outline"></ion-icon>
                     </div>
-                </div>
+                </div></a>
 
-                <div class="card">
+                <a href="approveSibling.php"><div class="card">
                     <div>
-                        <div class="numbers">2,000</div>
+                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("2"); ?></div>
                         <div class="cardName">Sibling Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="people-outline"></ion-icon>
                     </div>
-                </div>
+                </div></a>
 
-                <div class="card">
+                <a href="approveCeis.php"><div class="card">
                     <div>
-                        <div class="numbers">2,000</div>
+                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("3"); ?></div>
                         <div class="cardName">CEIS Graduate</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="school-outline"></ion-icon>
                     </div>
-                </div>
+                </div></a>
 
                 <div class="card">
                     <div>
-                        <div class="numbers">2,000</div>
+                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("4"); ?></div>
                         <div class="cardName">Total Applications</div>
                     </div>
                     <div class="iconDisplay">
