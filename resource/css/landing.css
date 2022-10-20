@@ -63,7 +63,7 @@ html{
 
 @keyframes arrow-down {
   0% {
-      transform: translateY(0); 
+      transform: translateY(0);
   }
   30% {
       transform: translateY(10px);
@@ -136,7 +136,7 @@ section.discount .row .daaplogo h2 {
 
 .map {
     width: auto;
-    min-height: 100vh;
+    min-height: 92vh;
     padding-top: 30px;
     background-image: url('../img/bg-ceu-gradient-2.png');
     background-size: cover;
