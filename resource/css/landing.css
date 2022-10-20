@@ -11,14 +11,86 @@ html{
     font-family: 'Montserrat', sans-serif;
 }
 
+/*home style*/
+.home {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('../img/bg-ceu-gradient.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  background-attachment: fixed;
+}
+
+.home img {
+  width: 300px;
+  text-align: center;
+}
+
+.home .info h2{
+  margin-top: 10px;
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 70px;
+}
+
+.home .info p {
+  padding-top: 10px;
+  font-weight: 600;
+  line-height: 35px;
+  text-align: center;
+  font-size: 1.3em;
+  margin: 0 150px;
+  color:#b3b3b3;
+}
+
+.scroll {
+  margin-top: 35px;
+}
+
+.home .scroll-down {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home .scroll-down i {
+  color: white;
+  font-size: 1.2em;
+  animation: arrow-down ease 2s infinite;
+  padding-left: 10px;
+}
+
+@keyframes arrow-down {
+  0% {
+      transform: translateY(0); 
+  }
+  30% {
+      transform: translateY(10px);
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*discount style*/
+
 .discount{
-    width: auto;
-    min-height: 100vh;
-    padding-top: 30px;
-    background-image: url('../img/bg-ceu-gradient-1.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  width: auto;
+  min-height: 100vh;
+  padding-top: 30px;
+  background-image: url('../img/bg-ceu-gradient-1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+section.discount .row .daaplogo h2 {
+  color: white;
+  font-weight: 800;
+  font-size: 45px;
 }
 
 .cardcon{

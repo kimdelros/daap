@@ -12,7 +12,7 @@ body{
   height: 100%;
   width: 100%;
   place-items: center;
-  background: url('../img/bg-ceu-gradient-1.png') no-repeat;
+  background: url('../img/bg-ceu-gradient-1.jpg') no-repeat;
 }
 ::selection{
   background: #fa4299;
@@ -45,7 +45,7 @@ body{
 
 .wrapper .title{
   font-size: 35px;
-  font-weight: 600;
+  font-weight: 800;
   text-align: center;
   color: #fff;
   padding: 15px 0;

@@ -13,18 +13,33 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="resource/css/landingApp.css">
+    <link rel="stylesheet" href="resource/css/landing.css">
     <script src="resource/js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="resource/img/daap-icon.png">
     <title>DAAP Portal</title>
   </head>
   <body>
+    <section class="home flex-center" id="home">
+      <div class="text-center">
+        <div class="daaplogo" data-aos="fade-down" data-aos-duration="2000">
+          <img src="resource/img/DAAPlogo-white.png" alt="daap-logo">
+            <div class="info">
+                <h2>Welcome, Escolarian!</h2>
+                <p>DAAP or Discount Application and Alumni Portal is a proposed system for Centro Escolar University wherein the students can apply for the student discount provided by the University called Entrance Grant Benefits. And the Alumni can also register and provide information so they can view the latest events of the University and the success of their co-Escolarians.</p>
+            </div>
+          </div>
+          <div class="scroll" data-aos="fade-up" data-aos-duration="2000">
+            <a href="#gallery" class="scroll-down">Scroll Down <i class="fas fa-arrow-down"></i></a>
+          </div>
+      </div>
+    </section>
+
     <section class="discount" id="gallery">
       <div class="container container-fluid">
         <div class="row text-center">
         <div class="daaplogo" data-aos="fade-down" data-aos-duration="2000">
-          <img src="resource/img/DAAPlogo-white.png" width="230px" alt="daap-logo">
+          <h2 class="mt-5">Discount Application and Alumni Portal</h2>
         </div>
         <div class="container pt-md-5">
           <div class="row">
@@ -67,7 +82,7 @@
       </div>
     </section>
 
-    <!-- status checker -->
+    <!-- status checker
     <section class="statusCheck" id="statusCheck">
       <div class="max-width">
           <h2 class="title">Discount Application and Alumni Portal <br> Status Checker</h2>
@@ -81,7 +96,7 @@
             </div>
          </form>
       </div>
-    </section>
+    </section> -->
   <section class="map">
 
   </section>
@@ -286,7 +301,7 @@
    <div class="container text-center">
        <div class="row">
            <div class="col col-sm-5 text-left">
-               <small>Copyright &copy; Discount Application and Alumni Portal</small>
+               <small>Copyright &copy; Discount Application & Alumni Portal</small>
            </div>
            <div class="col text-right">
                <small>Del Rosario, JK. | Cruz, RC. | Forbes, LI. | Heyrana, PK. | Bolasoc, R. (2022)</small>
