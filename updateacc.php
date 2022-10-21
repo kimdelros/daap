@@ -1,20 +1,26 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 isLogin();
+$view = new view;
 $user = new user();
-isAccounting($user->data()->groups);
-$view = new viewtable();
-?>
+ ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
+    <link href="vendor/css/all.css" rel="stylesheet">   
+    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap-select.min.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="resource/css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="resource/css/dashboard.css">
     <link rel="icon" href="resource/img/daap-icon.png">
+
+    
     <title>DAAP Dashboard</title>
 </head>
 <body>
@@ -80,64 +86,65 @@ $view = new viewtable();
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-                <!--user image-->
+
                 <div class="username">
                 <a><?php echo $user->data()->username ?> </a>
                 </div>
+
+                <!--user image-->
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">
                 </div>
             </div>
-
-            <!--form types-->
-            <div class="cardBox">
-                <a href="approveAlumni.php"><div class="card">
-                    <div>
-                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("1"); ?></div>
-                        <div class="cardName">Alumni Discount</div>
-                    </div>
-                    <div class="iconDisplay">
-                        <ion-icon name="diamond-outline"></ion-icon>
-                    </div>
-                </div></a>
-
-                <a href="approveSibling.php"><div class="card">
-                    <div>
-                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("2"); ?></div>
-                        <div class="cardName">Sibling Discount</div>
-                    </div>
-                    <div class="iconDisplay">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </div>
-                </div></a>
-
-                <a href="approveCeis.php"><div class="card">
-                    <div>
-                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("3"); ?></div>
-                        <div class="cardName">CEIS Graduate</div>
-                    </div>
-                    <div class="iconDisplay">
-                        <ion-icon name="school-outline"></ion-icon>
-                    </div>
-                </div></a>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("4"); ?></div>
-                        <div class="cardName">Total Applications</div>
-                    </div>
-                    <div class="iconDisplay">
-                        <ion-icon name="information-outline"></ion-icon>
+        
+            <div class="container mt-5 puff-in-center">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center">UPDATE YOUR ACCOUNT</h1>
                     </div>
                 </div>
-            </div>
-
-            <!-- application details -->
-            <div class="details">
-            </div>
+            <?php updateProfile(); ?>
+            <form action="" method="post">
+                <table class="table ">
+                    <tr>
+                        <td>
+                            <div class="row justify-content-center">
+                                <div class="form-group col-4">
+                                 <label for = "username" class=""> Username:</label>
+                                 <input class="form-control"  type = "text" name="username" id="username" value ="<?php echo escape($user->data()->username); ?>" autocomplete="off"  />
+                                </div>
+                                <div class="form-group col-4">
+                                 <label for = "fullName" class=""> Full Name</label>
+                                 <input class="form-control"  type = "text" name="fullName" id="fullName" value ="<?php echo escape($user->data()->name); ?>"/required>
+                                </div>
+                                <div class="form-group col-4">
+                                 <label for = "email" class=""> Email Address</label>
+                                 <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo escape($user->data()->email); ?>"/required>
+                                </div>
+                             </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row justify-content-center">
+                                <div class="form-group col-5">
+                                  <label for="College" >College/s to handle</label>
+                                      <select id="College" name="College[]" class="form-select form-control" data-live-search="true" required>
+                                        <?php $view->collegeSP2();?>
+                                      </select>
+                                </div>
+                                <div class="form-group col-5">
+                                    <label  >&nbsp;</label>
+                                <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
+                                 <input type="submit" value="Update your profile" class=" form-control btn btn-primary" />
+                                </div>
+                             </div>
+                        </td>
+                    </tr>
+                </table>
+             </form>          
         </div>
-
-
+    </div>
     </div>
 
     <!--Scripts-->

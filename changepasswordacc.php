@@ -1,10 +1,10 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 isLogin();
+$view = new view;
 $user = new user();
-isAccounting($user->data()->groups);
-$view = new viewtable();
-?>
+ ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@ $view = new viewtable();
                     </a>
                 </li>
                 <li>
-                    <a href="accounting.php">
+                    <a href="registrar.php">
                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class="title">Dashboard</span>
                     </a>
@@ -80,65 +80,58 @@ $view = new viewtable();
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-                <!--user image-->
+
                 <div class="username">
                 <a><?php echo $user->data()->username ?> </a>
                 </div>
+
+                <!--user image-->
                 <div class="user">
                     <img src="resource/img/user.jpg" alt="">
                 </div>
             </div>
-
-            <!--form types-->
-            <div class="cardBox">
-                <a href="approveAlumni.php"><div class="card">
-                    <div>
-                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("1"); ?></div>
-                        <div class="cardName">Alumni Discount</div>
-                    </div>
-                    <div class="iconDisplay">
-                        <ion-icon name="diamond-outline"></ion-icon>
-                    </div>
-                </div></a>
-
-                <a href="approveSibling.php"><div class="card">
-                    <div>
-                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("2"); ?></div>
-                        <div class="cardName">Sibling Discount</div>
-                    </div>
-                    <div class="iconDisplay">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </div>
-                </div></a>
-
-                <a href="approveCeis.php"><div class="card">
-                    <div>
-                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("3"); ?></div>
-                        <div class="cardName">CEIS Graduate</div>
-                    </div>
-                    <div class="iconDisplay">
-                        <ion-icon name="school-outline"></ion-icon>
-                    </div>
-                </div></a>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers"><?php echo $view->viewApprovedSummaryCard("4"); ?></div>
-                        <div class="cardName">Total Applications</div>
-                    </div>
-                    <div class="iconDisplay">
-                        <ion-icon name="information-outline"></ion-icon>
-                    </div>
-                </div>
+        <div class="container mt-5 puff-in-center">
+             <div class="row">
+                 <div class="col-12">
+                   <?php changeP(); ?>
+                     <h1 class="text-center">CHANGE PASSWORD</h1>
+                 </div>
             </div>
-
-            <!-- application details -->
-            <div class="details">
-            </div>
-        </div>
-
-
-    </div>
+            <?php changeP(); ?>
+            <form action="" method="post">
+                <table class="table ">
+                    <tr>
+                        <td>
+                            <div class="row justify-content-md-center">
+                                <div class="form-group col-4">
+                                 <label for = "password_current"> Enter Current Password:</label>
+                                 <input type="password" class="form-control" name="password_current" id="password" value ="" autocomplete="off"required/>
+                                </div>
+                                <div class="form-group col-4">
+                                 <label for = "password"> Enter New Password:</label>
+                                 <input type="password" class="form-control" name="password" id="password" value ="" autocomplete="off"required/>
+                                </div>
+                                <div class="form-group col-4">
+                                 <label for = "ConfirmPassword"> Confirm New Password:</label>
+                                 <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value ="" autocomplete="off"required/>
+                                </div>
+                             </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row justify-content-center">
+                                <div class="form-group col-7">
+                                    <label  >&nbsp;</label>
+                                <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
+                                 <input type="submit" value="Change Password" class=" form-control btn btn-primary" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+             </form>
+         </div>
 
     <!--Scripts-->
 

@@ -58,13 +58,13 @@ $view = new viewtable();
                     </a>
                 </li>
                 <li>
-                    <a href="changepassword.php">
+                    <a href="changepasswordacc.php">
                         <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
                         <span class="title">Change Password</span>
                     </a>
                 </li>
                 <li>
-                    <a href="update.php">
+                    <a href="updateacc.php">
                         <span class="icon"><ion-icon name="options-outline"></ion-icon></span>
                         <span class="title">Update Profile</span>
                     </a>
