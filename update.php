@@ -42,19 +42,19 @@ $user = new user();
                     </a>
                 </li>
                 <li>
-                    <a href="alumnidashboard.php">
+                    <a href="pendingAlumni.php">
                         <span class="icon"><ion-icon name="diamond-outline"></ion-icon></span>
                         <span class="title">Alumni</span>
                     </a>
                 </li>
                 <li>
-                    <a href="siblingdashboard.php">
+                    <a href="pendingSibling.php">
                         <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class="title">Sibling</span>
                     </a>
                 </li>
                 <li>
-                    <a href="ceisdashboard.php">
+                    <a href="pendingCeis.php">
                         <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
                         <span class="title">CEIS</span>
                     </a>
@@ -98,11 +98,11 @@ $user = new user();
             </div>
         
             <div class="container mt-5 puff-in-center">
-             <div class="row">
-                 <div class="col-12">
-                     <h1 class="text-center">UPDATE YOUR ACCOUNT</h1>
-                 </div>
-            </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center">UPDATE YOUR ACCOUNT</h1>
+                    </div>
+                </div>
             <?php updateProfile(); ?>
             <form action="" method="post">
                 <table class="table ">
@@ -142,9 +142,7 @@ $user = new user();
                         </td>
                     </tr>
                 </table>
-             </form>
-
-             
+             </form>          
         </div>
     </div>
     </div>
