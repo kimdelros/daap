@@ -85,6 +85,7 @@ html{
   background-image: url('../img/bg-ceu-gradient-1.png');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
 section.discount .row .daaplogo h2 {
@@ -136,7 +137,7 @@ section.discount .row .daaplogo h2 {
 
 .map {
     width: auto;
-    min-height: 92vh;
+    min-height: 93vh;
     padding-top: 30px;
     background-image: url('../img/bg-ceu-gradient-2.png');
     background-size: cover;

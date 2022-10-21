@@ -13,7 +13,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="resource/css/landing.css">
+    <link rel="stylesheet" href="resource/css/landingpage.css">
     <script src="resource/js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="resource/img/daap-icon.png">
@@ -45,7 +45,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card cardcon mt-2" data-aos="fade-up" data-aos-duration="2000">
-                <img src="resource/img/lc_1.png" class="card-img-top"  alt="alumni"/>
+                <img src="resource/img/lc-alumni.jpg" class="card-img-top"  alt="alumni"/>
                 <div class="card-body">
                 <p class="card-text text-justify">
                   CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. Here in Alumni Discount, an Alumni and their children will be granted a 5% discount on their tuition fee (maximum of 4 children) if their application will be approved by the Admin.
@@ -56,7 +56,7 @@
             </div>
             <div class="col-md-4">
               <div class="card cardcon mt-2" data-aos="fade-up" data-aos-duration="2000">
-                <img src="resource/img/lc_2.png" class="card-img-top" alt="sibling"/>
+                <img src="resource/img/lc-sibling.jpg" class="card-img-top" alt="sibling"/>
                 <div class="card-body">
                 <p class="card-text text-justify">
                   CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. Here in Sibling Discount, as long as they are enrolled at the same year, they will be granted a 5% discount on their tuition fee (maximum of 4 siblings) if their application will be approved by the Admin.
@@ -67,7 +67,7 @@
             </div>
             <div class="col-md-4">
               <div class="card cardcon mt-2" data-aos="fade-up" data-aos-duration="2000">
-                <img src="resource/img/lc_3.png" class="card-img-top" alt="CEIS"/>
+                <img src="resource/img/lc-ceis.jpg" class="card-img-top" alt="CEIS"/>
                 <div class="card-body">
                 <p class="card-text text-justify">
                 CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. If the freshman student graduated from CEIS, he/she shall be entitled to 10% discount in tuition fee only upon enrollment in college. This application is only applicable on the FIRST YEAR of college only. 
@@ -263,7 +263,7 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
-                <input type="text" class="form-control text-center" name="studentName" placeholder="Dela Cruz, Juan Santos" pattern="[a-zA-Z\s]*$" autocomplete="no">
+                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
