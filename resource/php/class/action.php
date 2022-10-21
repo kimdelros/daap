@@ -10,18 +10,22 @@ class action extends config{
       $strArray = explode('_',$data);
       $action = $strArray[0];
       $transID = $strArray[1];
-
       switch($action){
         case "approve":
         echo "<script>
         Swal.fire({
                title: \"Are you sure?\",
+               text: \"Approving Application: $transID\",
                icon: \"question\",
                showDenyButton: true,
                confirmButtonText: \"Yes\",
-               denyButtonText: \"No\"
+               denyButtonText: \"No\",
+               width: 600
          }).then((result) => {
-            if (result.isConfirmed) {        
+            if (result.isConfirmed) {
+                window.location = \"resource/php/class/approve.php?id=$transID\";
+            }else if(result.isDenied){
+                window.location = \"\";
             }
           });
         </script>";

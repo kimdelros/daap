@@ -19,6 +19,7 @@ $view = new viewtable();
     <link rel="icon" href="resource/img/daap-icon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>DAAP Dashboard</title>
 </head>
 <body>
@@ -117,7 +118,11 @@ $view = new viewtable();
             <!-- application details -->
             <div class="details">
                 <div class="applyDetails">
-                    <?php $view->viewRequests("2"); ?>
+                    <?php $view->viewRequests("2");
+                    if($_SERVER['REQUEST_METHOD']=='POST'){
+                      $action = new action();
+                      $action->execute();
+                    }?>
                 </div>
             </div>
         </div>

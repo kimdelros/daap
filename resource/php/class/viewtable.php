@@ -103,7 +103,7 @@ class viewtable extends config{
     echo "<div class='table-responsive'>";
     echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
     echo "<thead class='thead-dark'>";
-    echo "<th class='d-none d-sm-table-cell'>Application ID</th>";
+    echo "<th class='d-none d-sm-table-cell'>Transaction ID</th>";
     echo "<th class='d-none d-sm-table-cell'>Student Number</th>";
     echo "<th class='d-none d-sm-table-cell'>Student Name</th>";
     echo "<th class='d-none d-sm-table-cell'>Student Email</th>";
@@ -112,7 +112,7 @@ class viewtable extends config{
     echo "</thead>";
     foreach ($result as $data) {
     echo "<tr>";
-    echo "<td class='d-none d-sm-table-cell' >$data[appID]</td>";
+    echo "<td class='d-none d-sm-table-cell' >$data[transID]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[studentID]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
     echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
@@ -126,7 +126,7 @@ class viewtable extends config{
           </td>";
     echo "</tr>";
     }
-    echo "</table>";    
+    echo "</table>";
   }
   // <button class='btn btn-success btn-sm col-12 mt-1' onclick='approve' ><i class='fa fa-edit'></i>Approve Application</button>
   // <button class='btn btn-warning btn-sm col-12 mt-1' onclick='hold' ><i class='fa fa-edit'></i>On-Hold</button>
