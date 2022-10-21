@@ -83,7 +83,7 @@ class viewtable extends config{
 
   public function viewRequests($appType){
     $con = $this->con();
-    $sql = "SELECT * FROM `applications` WHERE `isApproved`= 0 AND `appType` = '$appType'";
+    $sql = "SELECT * FROM `applications` WHERE `isApproved`= 0 AND `isHold`= 0 AND `isRejected`= 0 AND `appType` = '$appType'";
     $data= $con->prepare($sql);
     $data->execute();
     $result = $data->fetchAll(PDO::FETCH_ASSOC);

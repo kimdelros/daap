@@ -5,7 +5,7 @@ $db = new config();
 $con = $db->con();
 
 $transID = $_GET['id'];
-$sql = "UPDATE `applications` SET `isApproved` = '1' WHERE `transID` = '$transID'";
+$sql = "UPDATE `applications` SET `isRejected` = '1' WHERE `transID` = '$transID'";
 $data= $con->prepare($sql);
 $data->execute();
 

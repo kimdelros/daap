@@ -31,10 +31,44 @@ class action extends config{
         </script>";
         break;
         case "hold":
+        echo "<script>
+        (async () => {
+        const { value: reason } = await Swal.fire({
+          input: 'select',
+          inputOptions: {
+            'Reason': {
+              blurry: 'Blurry Document',
+              unviewable: 'Unviewable Document'
+            }
+          },
+          inputPlaceholder: 'Select a Reason',
+          showCancelButton: true
+        })
 
+        if (reason) {
+          window.location = \"resource/php/class/hold.php?id=$transID&reason=\"+reason;
+        }
+        })()
+        </script>";
         break;
         case "reject":
-
+        echo "<script>
+        Swal.fire({
+               title: \"Are you sure?\",
+               text: \"Rejecting Application: $transID\",
+               icon: \"question\",
+               showDenyButton: true,
+               confirmButtonText: \"Yes\",
+               denyButtonText: \"No\",
+               width: 600
+         }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = \"resource/php/class/reject.php?id=$transID\";
+            }else if(result.isDenied){
+                window.location = \"\";
+            }
+          });
+        </script>";
         break;
         default: break;
       }
