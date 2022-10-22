@@ -45,10 +45,10 @@ function pError($error){
     }
 
 function vald(){
-     if(input::exists()){
+     if(Input::exists()){
       if(Token::check(Input::get('Token'))){
          if(!empty($_POST['College'])){
-             $_POST['College'] = implode(',',input::get('College'));
+             $_POST['College'] = implode(',',Input::get('College'));
          }else{
             $_POST['College'] ="";
          }
@@ -85,26 +85,26 @@ function vald(){
                 $salt = Hash::salt(32);
                 try {
                     $user->create(array(
-                        'username'=>input::get('username'),
-                        'password'=>Hash::make(input::get('password'),$salt),
+                        'username'=>Input::get('username'),
+                        'password'=>Hash::make(Input::get('password'),$salt),
                         'salt'=>$salt,
-                        'name'=> input::get('fullName'),
+                        'name'=> Input::get('fullName'),
                         'joined'=>date('Y-m-d H:i:s'),
                         'groups'=>1,
-                        'colleges'=> input::get('College'),
-                        'email'=> input::get('email'),
+                        'colleges'=> Input::get('College'),
+                        'email'=> Input::get('email'),
                     ));
 
                     $user->createC(array(
-                        'checker'=> input::get('fullName'),
+                        'checker'=> Input::get('fullName'),
 
                     ));
                     $user->createV(array(
-                        'verifier'=> input::get('fullName'),
+                        'verifier'=> Input::get('fullName'),
                     ));
 
                     $user->createR(array(
-                        'releasedby'=> input::get('fullName'),
+                        'releasedby'=> Input::get('fullName'),
 
                     ));
                 } catch (Exception $e) {
@@ -194,9 +194,9 @@ function profilePic(){
 }
 
 function updateProfile(){
-    if(input::exists()){
+    if(Input::exists()){
         if(!empty($_POST['College'])){
-            $_POST['College'] = implode(',',input::get('College'));
+            $_POST['College'] = implode(',',Input::get('College'));
         }else{
            $_POST['College'] ="";
         }
@@ -227,10 +227,10 @@ function updateProfile(){
 
                 try {
                     $user->update(array(
-                        'username'=>input::get('username'),
-                        'name'=> input::get('fullName'),
-                        'colleges'=> input::get('College'),
-                        'email'=> input::get('email')
+                        'username'=>Input::get('username'),
+                        'name'=> Input::get('fullName'),
+                        'colleges'=> Input::get('College'),
+                        'email'=> Input::get('email')
                     ));
                 } catch (Exception $e) {
                     die($e->getMessage());
@@ -246,7 +246,7 @@ function updateProfile(){
 }
 
 function changeP(){
-    if(input::exists()){
+    if(Input::exists()){
         $validate = new Validate;
         $validate = $validate->check($_POST,array(
             'password_current'=>array(
@@ -263,14 +263,14 @@ function changeP(){
 
             if($validate->passed()){
                 $user = new user();
-                if(Hash::make(input::get('password_current'),$user->data()->salt) !== $user->data()->password){
+                if(Hash::make(Input::get('password_current'),$user->data()->salt) !== $user->data()->password){
                     curpassError();
                 }else{
                     $user = new user();
                     $salt = Hash::salt(32);
                     try {
                         $user->update(array(
-                            'password'=>Hash::make(input::get('password'),$salt),
+                            'password'=>Hash::make(Input::get('password'),$salt),
                             'salt'=>$salt
                         ));
                     } catch (Exception $e) {

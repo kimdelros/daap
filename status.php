@@ -25,18 +25,14 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
     </nav>
 
     <div class="wrapper">
-         <div class="title">
-            Discount Application and Alumni Portal <br> Status Checker
-         </div>
-         <form action="index.php" method="post">
-            <div class="field">
-                <h5>Please enter your transaction ID below</h5>
-               <input type="text" placeholder="Your Transaction ID" required>
-            </div>
-            <div class="field">
-               <input type="submit" value="Check Status">
-            </div>
-         </form>
+         <?php 
+         if (!empty($_POST)){
+            require 'statusresult.php';
+         }
+         else {
+            require 'statusform.php';
+         }
+         ?>
       </div>
 </body>
 
