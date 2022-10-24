@@ -1,16 +1,21 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
+$user = new user();
+isRegistrar($user->data()->groups);
+
 require 'config.php';
 
 $db = new config();
 $con = $db->con();
 
 $transID = $_GET['id'];
-$sql = "UPDATE `applications` SET `isHold` = '1' WHERE `transID` = '$transID'";
+$holdBy = $user->data()->id;
+$reasonHold = $_GET['reason'];
+$dateHold = date('Y-m-d H:i:s', time());
+
+$sql = "UPDATE `applications` SET `isHold` = '1', `dateHold` = '$dateHold', `reasonHold` = '$reasonHold', `holdBy` = '$holdBy' WHERE `transID` = '$transID'";
 $data= $con->prepare($sql);
 $data->execute();
-
-$reason = $_GET['reason'];
-
 
 $strArray = explode('-',$transID);
 switch($strArray[0]){

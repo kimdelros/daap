@@ -1,11 +1,18 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
+$user = new user();
+isRegistrar($user->data()->groups);
+
 require 'config.php';
 
 $db = new config();
 $con = $db->con();
 
 $transID = $_GET['id'];
-$sql = "UPDATE `applications` SET `isRejected` = '1' WHERE `transID` = '$transID'";
+$rejectedBy = $user->data()->id;
+$dateRejected = date('Y-m-d H:i:s', time());
+
+$sql = "UPDATE `applications` SET `isRejected` = '1', `dateRejected` = '$dateRejected', `rejectedBy` = '$rejectedBy' WHERE `transID` = '$transID'";
 $data= $con->prepare($sql);
 $data->execute();
 

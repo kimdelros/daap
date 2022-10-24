@@ -94,7 +94,7 @@ $view = new viewtable();
                 <a href="approveAlumni.php"><div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewApprovedSummaryCard("1"); ?></div>
-                        <div class="cardName">Alumni Discount</div>
+                        <div class="cardName">Approved Alumni Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="diamond-outline"></ion-icon>
@@ -104,7 +104,7 @@ $view = new viewtable();
                 <a href="approveSibling.php"><div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewApprovedSummaryCard("2"); ?></div>
-                        <div class="cardName">Sibling Discount</div>
+                        <div class="cardName">Approved Sibling Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="people-outline"></ion-icon>
@@ -114,7 +114,7 @@ $view = new viewtable();
                 <a href="approveCeis.php"><div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewApprovedSummaryCard("3"); ?></div>
-                        <div class="cardName">CEIS Graduate</div>
+                        <div class="cardName">Approved CEIS Graduate</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="school-outline"></ion-icon>
@@ -124,7 +124,7 @@ $view = new viewtable();
                 <div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewApprovedSummaryCard("4"); ?></div>
-                        <div class="cardName">Total Applications</div>
+                        <div class="cardName">Total Approved Applications</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="information-outline"></ion-icon>
