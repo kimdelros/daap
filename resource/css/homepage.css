@@ -82,17 +82,17 @@ html{
   width: auto;
   min-height: 100vh;
   padding-top: 30px;
-  background-image: url('../img/bg-ceu-gradient-1.png');
+  background-image: url('../img/bg-ceu-gradient-1.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
-section.discount .row .daaplogo h2 {
-  color: white;
-  font-weight: 800;
-  font-size: 45px;
+section.discount .row .daapheader img {
+  width: 100%;
+  margin-top: 15px;
 }
+
 
 .cardcon{
   background-color: black;
@@ -134,7 +134,7 @@ section.discount .row .daaplogo h2 {
     width: auto;
     min-height: 93vh;
     padding-top: 30px;
-    background-image: url('../img/bg-ceu-gradient-2.png');
+    background-image: url('../img/bg-ceu-gradient-2.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -143,7 +143,7 @@ section.discount .row .daaplogo h2 {
     width: auto;
     min-height: 100vh;
     padding-top: 30px;
-    background-image: url('../img/bg-ceu-gradient-3.png');
+    background-image: url('../img/bg-ceu-gradient-3.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -300,7 +300,18 @@ form .field input[type="submit"]{
   margin: 0 40px;
   color:#b3b3b3;
   }
-} 
+}
+
+@media only screen and (max-width: 300px){
+  .home .info p {
+    padding-top: 10px;
+    font-weight: 600;
+    line-height: 35px;
+    text-align: center;
+    font-size: 1.3em;
+    color:#b3b3b3;
+    }
+  }
 
 @media only screen and (min-width: 600px) {
   /* For tablets: */

@@ -1,4 +1,4 @@
-<div class="title">
+         <div class="title">
             Discount Application and Alumni Portal <br> Status Checker
          </div>
          <form action="" method="post">

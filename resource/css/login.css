@@ -12,7 +12,7 @@ body{
   height: 100%;
   width: 100%;
   place-items: center;
-  background: url('../img/bg-ceu-gradient-1.png') no-repeat;
+  background: url('../img/bg-ceu-gradient-1.jpg') no-repeat;
 }
 ::selection{
   background: #fa4299;
@@ -50,7 +50,7 @@ body{
   font-size: 20px;
   font-weight: 700;
   border-radius: 50px;
-  cursor: pointer; 
+  cursor: pointer;
   transition: all 0.5s;
 }
 
@@ -90,7 +90,7 @@ body{
   background: -webkit-linear-gradient(left,#a445b2, #fa4299);
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.5);
 }
 .wrapper .title-text{
   display: relative;

@@ -14,7 +14,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="resource/css/landing.css">
+    <link rel="stylesheet" href="resource/css/homepage.css">
     <script src="resource/js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="resource/img/daap-icon.png">
@@ -27,7 +27,7 @@
           <img src="resource/img/DAAPlogo-white.png" alt="daap-logo">
             <div class="info">
                 <h2>Welcome, Escolarian!</h2>
-                <p>DAAP or Discount Application and Alumni Portal is a proposed system for Centro Escolar University wherein the students can apply for the student discount provided by the University called Entrance Grant Benefits. And the Alumni can also register and provide information so they can view the latest events of the University and the success of their co-Escolarians.</p>
+                <p>DAAP or Discount Application and Alumni Portal is a proposed system for Centro Escolar University wherein the students can apply for the student discount provided by the University called Entrance Grant Benefits. And a collaboration with the Candidate Verification Portal wherein the Alumni can register and provide information so they can view the latest events of the University and the success of their co-Escolarians.</p>
             </div>
           </div>
           <div class="scroll" data-aos="fade-up" data-aos-duration="2000">
@@ -38,9 +38,9 @@
 
     <section class="discount" id="gallery">
       <div class="container container-fluid">
-        <div class="row text-center">
-        <div class="daaplogo" data-aos="fade-down" data-aos-duration="2000">
-          <h2 class="mt-5">Discount Application and Alumni Portal</h2>
+        <div class="row text-center pt-lg-4">
+        <div class="daapheader" data-aos="fade-down" data-aos-duration="2000">
+          <img src="resource/img/DAAP-header.png" alt="daap-header">
         </div>
         <div class="container pt-md-5">
           <div class="row">
@@ -49,7 +49,7 @@
                 <img src="resource/img/lc-alumni.jpg" class="card-img-top"  alt="alumni"/>
                 <div class="card-body">
                 <p class="card-text text-justify">
-                  CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. Here in Alumni Discount, an Alumni and their children will be granted a 5% discount on their tuition fee (maximum of 4 children) if their application will be approved by the Admin.
+                  CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. Here in Alumni Discount, an Alumni can enroll their children to the University and they will be granted a 5% discount on their tuition fee (maximum of 4 children) if their application will be approved by the Admin.
                 </p>
                 <a href="#AlumniForm" class="btn-card">APPLY NOW</a>
               </div>
@@ -98,12 +98,12 @@
          </form>
       </div>
     </section> -->
-  <section class="map">
+    <section class="map">
 
-  </section>
-  <!--<section class="tracert">
+    </section>
+  <!-- <section class="tracert">
 
-  </section> -->
+  </section>-->
 
   <section class="regOverlay" id="AlumniForm">
     <div class="regWrapper">
@@ -305,7 +305,7 @@
                <small>Copyright &copy; Discount Application & Alumni Portal</small>
            </div>
            <div class="col text-right">
-               <small>Del Rosario, JK. | Cruz, RC. | Forbes, LI. | Heyrana, PK. | Bolasoc, R. (2022)</small>
+               <small>Del Rosario, JK. | Cruz, RC. | Heyrana, PK. | Forbes, LI. | Bolasoc, R. (2022)</small>
            </div>
        </div>
    </div>
