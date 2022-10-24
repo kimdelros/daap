@@ -17,6 +17,13 @@ $sql = "UPDATE `applications` SET `isRejected` = '1', `dateRejected` = '$dateRej
 $data= $con->prepare($sql);
 $data->execute();
 
+$sql = "SELECT `studentName`, `studentEmail` FROM `applications` WHERE `transID` = '$transID'";
+$data= $con->prepare($sql);
+$data->execute();
+$result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+sendRejectUpdate($result[0]['studentName'], $result[0]['studentEmail'], $transID);
+
 $strArray = explode('-',$transID);
 switch($strArray[0]){
   case "ALUM":

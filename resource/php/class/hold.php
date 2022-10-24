@@ -18,6 +18,13 @@ $sql = "UPDATE `applications` SET `isHold` = '1', `dateHold` = '$dateHold', `rea
 $data= $con->prepare($sql);
 $data->execute();
 
+$sql = "SELECT `studentName`, `studentEmail` FROM `applications` WHERE `transID` = '$transID'";
+$data= $con->prepare($sql);
+$data->execute();
+$result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+sendHoldUpdate($result[0]['studentName'], $result[0]['studentEmail'], $reasonHold." Document/s", $transID);
+
 $strArray = explode('-',$transID);
 switch($strArray[0]){
   case "ALUM":

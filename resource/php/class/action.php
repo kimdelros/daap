@@ -35,9 +35,9 @@ class action extends config{
           input: 'select',
           inputOptions: {
             'Reason': {
-              blurry: 'Blurry Document',
-              unviewable: 'Unviewable Document',
-              wrong: 'Wrong Document'
+              Blurry: 'Blurry Document',
+              Unviewable: 'Unviewable Document',
+              Wrong: 'Wrong Document'
             }
           },
           inputPlaceholder: 'Select a Reason',
