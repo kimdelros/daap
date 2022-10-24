@@ -1,4 +1,5 @@
 <?php
+require $_SERVER['DOCUMENT_ROOT'].'/daap/vendor/sendmail.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 $user = new user();
 isRegistrar($user->data()->groups);

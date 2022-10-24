@@ -24,8 +24,6 @@ class action extends config{
          }).then((result) => {
             if (result.isConfirmed) {
                 window.location = \"resource/php/class/approve.php?id=$transID\";
-            }else if(result.isDenied){
-                window.location = \"\";
             }
           });
         </script>";
@@ -65,8 +63,23 @@ class action extends config{
          }).then((result) => {
             if (result.isConfirmed) {
                 window.location = \"resource/php/class/reject.php?id=$transID\";
-            }else if(result.isDenied){
-                window.location = \"\";
+            }
+          });
+        </script>";
+        break;
+        case "finish":
+        echo "<script>
+        Swal.fire({
+               title: \"Are you sure?\",
+               text: \"Finishing Application: $transID\",
+               icon: \"question\",
+               showDenyButton: true,
+               confirmButtonText: \"Yes\",
+               denyButtonText: \"No\",
+               width: 600
+         }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = \"resource/php/class/finish.php?id=$transID\";
             }
           });
         </script>";
@@ -74,17 +87,5 @@ class action extends config{
         default: break;
       }
     }
-
-    public function approveApplication($transID){
-        $con = $this->con();
-        $sql = "UPDATE `applications` SET `isApproved` = 1, `dateApproved` = CURRENT_TIMESTAMP WHERE `transID` = '$transID'";
-        $data = $con->prepare($sql);
-        if($data->execute()){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
 }
 ?>

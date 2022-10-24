@@ -174,9 +174,9 @@ class viewtable extends config{
     echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
     $this->viewDocuments($data['appID'], $data['appType']);
     echo "<td>
-              <a href='#' class='btn btn-success btn-sm col-12 mt-1'><i class='fa fa-edit'></i>Finish Application</a>
-              <a href='#' class='btn btn-warning btn-sm col-12 mt-1'><i class='fa fa-edit'></i>On-Hold</a>
-              <a href='#' class='btn btn-danger btn-sm col-lg-12 mt-1'><i class='fa fa-trash'></i>Reject Application</a>
+            <form method='POST' action=''>
+              <input class='btn btn-success btn-sm col-12 mt-1' type='submit' name='finish $data[transID]' id='finish' value='Finish Application' />
+            </form>
           </td>";
     echo "</tr>";
     }

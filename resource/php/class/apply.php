@@ -159,6 +159,7 @@ class apply extends config{
               });
              </script>";
              sendConfirmationEmail($studentName, $studentEmail, "Alumni Discount", $transID);
+             notifyRegistrar("Alumni Discount", $transID);
              exit();
            }
            echo "<script>
@@ -228,6 +229,7 @@ class apply extends config{
               });
              </script>";
              sendConfirmationEmail($studentName, $studentEmail, "Sibling Discount", $transID);
+             notifyRegistrar("Sibling Discount", $transID);
              exit();
            }
            echo "<script>
@@ -282,6 +284,7 @@ class apply extends config{
               });
              </script>";
              sendConfirmationEmail($studentName, $studentEmail, "CEIS Graduate Discount", $transID);
+             notifyRegistrar("CEIS Graduate Discount", $transID);
              exit();
            }
            echo "<script>
