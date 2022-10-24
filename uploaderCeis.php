@@ -40,3 +40,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
       </div>
     </form>
     </div>
+
+</body>
+</html>

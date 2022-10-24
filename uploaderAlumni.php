@@ -30,26 +30,28 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
     </div>
     <form action="" method="post">
     <div class="row justify-content-center text-center">
-                <h6 class="Reminder pt-5">*Please upload atleast one document (image file).</h6>
-              <div class="col-md-8 pt-3">
-                <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no">
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8 pt-3">
-                <label for="alumniDiploma" class="form-label">Alumni's Diploma</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*" autocomplete="no">
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8 pt-3">
-                <label for="alumniTOR" class="form-label">Alumni's TOR</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniTOR" id="alumniTOR" accept="image/*" autocomplete="no">
-              </div>
-            </div>
-            <div class="col-12 text-center mt-4">
-              <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyAlumni" id="applyAlumni" value="Re-Upload Document">
-            </div>
+        <h6 class="Reminder pt-5">*Please upload atleast one document (image file).</h6>
+      <div class="col-md-8 pt-3">
+        <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
+           <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no">
+      </div>
+    </div>
+    <div class="row justify-content-center text-center">
+      <div class="col-md-8 pt-3">
+        <label for="alumniDiploma" class="form-label">Alumni's Diploma</label>
+           <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*" autocomplete="no">
+      </div>
+    </div>
+    <div class="row justify-content-center text-center">
+      <div class="col-md-8 pt-3">
+        <label for="alumniTOR" class="form-label">Alumni's TOR</label>
+           <input type="file" class="form-control text-center" aria-label="file example" name="alumniTOR" id="alumniTOR" accept="image/*" autocomplete="no">
+      </div>
+    </div>
+    <div class="col-12 text-center mt-4">
+      <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyAlumni" id="applyAlumni" value="Re-Upload Document">
+    </div>
     </form>
     </div>
+</body>
+</html>
