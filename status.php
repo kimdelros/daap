@@ -25,7 +25,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
     </nav>
 
     <div class="wrapper">
-         <?php 
+         <?php
          if (!empty($_POST)){
             require 'statusresult.php';
          }
@@ -35,4 +35,3 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
          ?>
       </div>
 </body>
-
