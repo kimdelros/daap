@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 22, 2022 at 04:33 AM
+-- Generation Time: Oct 24, 2022 at 05:04 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `alumni` (
   `alumniTOR` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`alumniID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `alumni`
@@ -45,7 +45,8 @@ CREATE TABLE IF NOT EXISTS `alumni` (
 
 INSERT INTO `alumni` (`alumniID`, `appID`, `alumniName`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES
 (40, 39, 'qwer', 'resource/documents/alumniYB/ALUM-2GG8JLY6N66XZQKYLXCH.1.jpg', '', ''),
-(41, 44, 'qwer', 'resource/documents/alumniYB/ALUM-A5HRDEUUGWL29P2HYURE.1.jpg', '', '');
+(41, 44, 'qwer', 'resource/documents/alumniYB/ALUM-A5HRDEUUGWL29P2HYURE.1.jpg', '', ''),
+(42, 46, 'Dhennie Marie Cruz', 'resource/documents/alumniYB/ALUM-8B313O1B286I597LX9RL.1.jpg', '', '');
 
 -- --------------------------------------------------------
 
@@ -67,24 +68,33 @@ CREATE TABLE IF NOT EXISTS `applications` (
   `isDiscounted` tinyint(1) NOT NULL DEFAULT '0',
   `dateApplied` datetime NOT NULL,
   `dateApproved` datetime DEFAULT NULL,
+  `dateHold` datetime DEFAULT NULL,
+  `dateRejected` datetime DEFAULT NULL,
   `dateDiscounted` datetime DEFAULT NULL,
+  `reasonHold` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `approvedBy` int(10) DEFAULT NULL,
+  `holdBy` int(10) DEFAULT NULL,
+  `rejectedBy` int(10) DEFAULT NULL,
   `discountedBy` int(10) DEFAULT NULL,
   PRIMARY KEY (`appID`),
   KEY `approvedBy` (`approvedBy`),
-  KEY `discountedBy` (`discountedBy`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  KEY `discountedBy` (`discountedBy`),
+  KEY `holdBy` (`holdBy`),
+  KEY `rejectedBy` (`rejectedBy`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`, `appType`, `transID`, `isApproved`, `isHold`, `isRejected`, `isDiscounted`, `dateApplied`, `dateApproved`, `dateDiscounted`, `approvedBy`, `discountedBy`) VALUES
-(39, '1234-12345', 'qwer', 'qwre@qwer.com', '1', 'ALUM-2GG8JLY6N66XZQKYLXCH', 0, 0, 0, 0, '2022-10-12 17:22:00', NULL, NULL, NULL, NULL),
-(40, '1234-12345', 'qwer', 'qwer@qwer.com', '2', 'SIBL-J4K0TLEBCDVNA9YPF26O', 0, 0, 0, 0, '2022-10-12 17:22:46', NULL, NULL, NULL, NULL),
-(42, '1234-12345', 'qwer', 'qwer@qwer.com', '3', 'CEIS-CBEGJ0N2ZSU9JIF6PZE6', 0, 0, 0, 0, '2022-10-12 18:21:40', NULL, NULL, NULL, NULL),
-(43, '1234-12345', 'Rigel Kent Cruz', 'rikeru07@gmail.com', '3', 'CEIS-9LAERAKGKJ9E5CY0TMO7', 0, 0, 0, 0, '2022-10-12 18:26:29', NULL, NULL, NULL, NULL),
-(44, '1234-12345', 'qwer', 'qwer@qwer.com', '1', 'ALUM-A5HRDEUUGWL29P2HYURE', 0, 0, 0, 0, '2022-10-20 18:16:51', NULL, NULL, NULL, NULL);
+INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`, `appType`, `transID`, `isApproved`, `isHold`, `isRejected`, `isDiscounted`, `dateApplied`, `dateApproved`, `dateHold`, `dateRejected`, `dateDiscounted`, `reasonHold`, `approvedBy`, `holdBy`, `rejectedBy`, `discountedBy`) VALUES
+(39, '1234-12345', 'qwer', 'qwre@qwer.com', '1', 'ALUM-2GG8JLY6N66XZQKYLXCH', 0, 0, 0, 0, '2022-10-12 17:22:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(40, '1234-12345', 'qwer', 'qwer@qwer.com', '2', 'SIBL-J4K0TLEBCDVNA9YPF26O', 0, 0, 0, 0, '2022-10-12 17:22:46', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(42, '1234-12345', 'qwer', 'qwer@qwer.com', '3', 'CEIS-CBEGJ0N2ZSU9JIF6PZE6', 0, 0, 0, 0, '2022-10-12 18:21:40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(43, '1234-12345', 'Rigel Kent Cruz', 'rikeru07@gmail.com', '3', 'CEIS-9LAERAKGKJ9E5CY0TMO7', 0, 0, 0, 0, '2022-10-12 18:26:29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(44, '1234-12345', 'qwer', 'qwer@qwer.com', '1', 'ALUM-A5HRDEUUGWL29P2HYURE', 0, 0, 0, 0, '2022-10-20 18:16:51', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(45, '1234-12345', 'Rigel Kent Cruz', 'cruz1930647@mls.ceu.edu.ph', '2', 'SIBL-M5RG7JIB1IK35U7ZTEYT', 0, 1, 0, 0, '2022-10-24 15:30:04', '2022-10-24 15:33:17', '2022-10-24 15:32:38', NULL, '2022-10-24 16:41:56', 'Blurry', 9, 9, NULL, 10),
+(46, '1234-12345', 'Rigel Kent Cruz', 'cruz1930647@mls.ceu.edu.ph', '1', 'ALUM-8B313O1B286I597LX9RL', 0, 0, 1, 0, '2022-10-24 15:46:49', NULL, '2022-10-24 16:29:32', '2022-10-24 16:33:43', NULL, 'Blurry', NULL, 9, 9, NULL);
 
 -- --------------------------------------------------------
 
@@ -160,14 +170,15 @@ CREATE TABLE IF NOT EXISTS `sibling` (
   `siblingCOM` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`siblingID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `sibling`
 --
 
 INSERT INTO `sibling` (`siblingID`, `appID`, `siblingStudentID`, `siblingName`, `applicantCOM`, `siblingCOM`) VALUES
-(3, 40, '1234-12345', 'qwer', 'resource/documents/applicantCOM/SIBL-J4K0TLEBCDVNA9YPF26O.4.jpg', 'resource/documents/siblingCOM/SIBL-J4K0TLEBCDVNA9YPF26O.5.jpg');
+(3, 40, '1234-12345', 'qwer', 'resource/documents/applicantCOM/SIBL-J4K0TLEBCDVNA9YPF26O.4.jpg', 'resource/documents/siblingCOM/SIBL-J4K0TLEBCDVNA9YPF26O.5.jpg'),
+(4, 45, '1234-12343', 'Lovely Kate Saloma', 'resource/documents/applicantCOM/SIBL-M5RG7JIB1IK35U7ZTEYT.4.jpg', 'resource/documents/siblingCOM/SIBL-M5RG7JIB1IK35U7ZTEYT.5.jpg');
 
 -- --------------------------------------------------------
 
@@ -262,8 +273,10 @@ ALTER TABLE `alumni`
 -- Constraints for table `applications`
 --
 ALTER TABLE `applications`
-  ADD CONSTRAINT `applications_ibfk_1` FOREIGN KEY (`approvedBy`) REFERENCES `tbl_accounts` (`id`),
-  ADD CONSTRAINT `applications_ibfk_2` FOREIGN KEY (`discountedBy`) REFERENCES `tbl_accounts` (`id`);
+  ADD CONSTRAINT `applications_ibfk_2` FOREIGN KEY (`discountedBy`) REFERENCES `tbl_accounts` (`id`),
+  ADD CONSTRAINT `applications_ibfk_3` FOREIGN KEY (`approvedBy`) REFERENCES `tbl_accounts` (`id`),
+  ADD CONSTRAINT `applications_ibfk_4` FOREIGN KEY (`holdBy`) REFERENCES `tbl_accounts` (`id`),
+  ADD CONSTRAINT `applications_ibfk_5` FOREIGN KEY (`rejectedBy`) REFERENCES `tbl_accounts` (`id`);
 
 --
 -- Constraints for table `ceis`
