@@ -306,15 +306,16 @@ form .field input[type="submit"]{
     font-size: 1.3em;
     color:#b3b3b3;
     }
+    .home .info p {
+      padding-top: 10px;
+      font-weight: 600;
+      line-height: 35px;
+      text-align: center;
+      font-size: 1.3em;
+      margin: 0 100px;
+      color:#b3b3b3;
+    }
   }
 
-  .home .info p {
-    padding-top: 10px;
-    font-weight: 600;
-    line-height: 35px;
-    text-align: center;
-    font-size: 1.3em;
-    margin: 0 100px;
-    color:#b3b3b3;
-  }
-}
+
+

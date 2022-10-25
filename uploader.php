@@ -28,6 +28,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
     <div class="title">
         Discount Application and Alumni Portal <br> File Re-Uploader
     </div>
+    <?php reuploadDoc(); ?>
     <form action="" method="post">
         <div class="field">
             <h5>Please enter your transaction ID below</h5>
@@ -38,7 +39,5 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
         </div>
     </form>
     </div>
-
-    
 </body>
 </html>

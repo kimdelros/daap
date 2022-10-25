@@ -295,4 +295,25 @@ function approveApplication(){
         }
     }
 }
+
+function reuploadDoc(){
+    if(Input::exists()){
+      if(!empty($_POST['transactionID'])){
+        if($_POST['transactionID'][0] === "A"){
+          Redirect::to('uploaderAlumni.php');
+        }
+        else if($_POST['transactionID'][0] === "S"){
+          Redirect::to('uploaderSibling.php');
+        }
+        else if($_POST['transactionID'][0] === "C"){
+          Redirect::to('uploaderCeis.php');
+        }
+        else {
+          echo "Invalid Transaction ID.";
+        }
+      } else {
+        echo "Invalid Transaction ID.";
+      }
+    }
+}
  ?>
