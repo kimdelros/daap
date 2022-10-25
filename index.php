@@ -44,7 +44,7 @@
         </div>
         <div class="container pt-md-5">
           <div class="row">
-            <div class="col-s-4">
+            <div class="col-12 col-md-6 col-lg-4">
               <div class="card cardcon mt-2" data-aos="fade-up" data-aos-duration="2000">
                 <img src="resource/img/lc-alumni.jpg" class="card-img-top"  alt="alumni"/>
                 <div class="card-body">
@@ -55,7 +55,7 @@
               </div>
               </div>
             </div>
-            <div class="col-s-4">
+            <div class="col-12 col-md-6 col-lg-4">
               <div class="card cardcon mt-2" data-aos="fade-up" data-aos-duration="2000">
                 <img src="resource/img/lc-sibling.jpg" class="card-img-top" alt="sibling"/>
                 <div class="card-body">
@@ -66,7 +66,7 @@
               </div>
               </div>
             </div>
-            <div class="col-s-4">
+            <div class="col-12 col-md-6 col-lg-4">
               <div class="card cardcon mt-2" data-aos="fade-up" data-aos-duration="2000">
                 <img src="resource/img/lc-ceis.jpg" class="card-img-top" alt="CEIS"/>
                 <div class="card-body">
