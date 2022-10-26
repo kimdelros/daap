@@ -4,6 +4,23 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require 'autoload.php';
 
+function configureMail($mail, $recepient){
+  $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+  $mail->isSMTP();
+  $mail->Host       = 'smtp.gmail.com';     //platform
+  $mail->SMTPAuth   = true;
+  $mail->Username   = 'ceu.mls.daap@gmail.com';   //email
+  $mail->Password   = 'lnmlcgfepelimbqr';                                //password
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Port       = 587;
+
+  //Recipients
+  $mail->setFrom($mail->Username);       //sender
+  $mail->addAddress($recepient);
+  
+  return $mail;
+}
+
 function sendConfirmationEmail($studentName, $studentEmail, $type, $transID){
   $mail = new PHPMailer(true);
 
@@ -18,18 +35,7 @@ function sendConfirmationEmail($studentName, $studentEmail, $type, $transID){
   try {
       //Server settings
       //Server settings
-       $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-       $mail->isSMTP();
-       $mail->Host       = 'smtp.gmail.com';     //platform
-       $mail->SMTPAuth   = true;
-       $mail->Username   = 'ceu.mls.daap@gmail.com';   //email
-       $mail->Password   = 'lnmlcgfepelimbqr';                                //password
-       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-       $mail->Port       = 587;
-
-       //Recipients
-       $mail->setFrom($mail->Username);       //sender
-       $mail->addAddress($studentEmail);
+      $mail = configureMail($mail, $studentEmail);
 
        //Content
        $mail->isHTML(true);
@@ -58,18 +64,7 @@ function notifyRegistrar($type, $transID){
   try {
       //Server settings
       //Server settings
-       $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-       $mail->isSMTP();
-       $mail->Host       = 'smtp.gmail.com';     //platform
-       $mail->SMTPAuth   = true;
-       $mail->Username   = 'ceu.mls.daap@gmail.com';   //email
-       $mail->Password   = 'lnmlcgfepelimbqr';                                //password
-       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-       $mail->Port       = 587;
-
-       //Recipients
-       $mail->setFrom($mail->Username);       //sender
-       $mail->addAddress("drjemiahkim@gmail.com");
+      $mail = configureMail($mail, "drjemiahkim@gmail.com");
 
        //Content
        $mail->isHTML(true);
@@ -98,18 +93,7 @@ function sendApprovedUpdate($studentName, $studentEmail, $transID){
   try {
       //Server settings
       //Server settings
-       $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-       $mail->isSMTP();
-       $mail->Host       = 'smtp.gmail.com';     //platform
-       $mail->SMTPAuth   = true;
-       $mail->Username   = 'ceu.mls.daap@gmail.com';   //email
-       $mail->Password   = 'lnmlcgfepelimbqr';                                //password
-       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-       $mail->Port       = 587;
-
-       //Recipients
-       $mail->setFrom($mail->Username);       //sender
-       $mail->addAddress($studentEmail);
+      $mail = configureMail($mail, $studentEmail);
 
        //Content
        $mail->isHTML(true);
@@ -138,18 +122,7 @@ function sendHoldUpdate($studentName, $studentEmail, $reason, $transID){
   try {
       //Server settings
       //Server settings
-       $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-       $mail->isSMTP();
-       $mail->Host       = 'smtp.gmail.com';     //platform
-       $mail->SMTPAuth   = true;
-       $mail->Username   = 'ceu.mls.daap@gmail.com';   //email
-       $mail->Password   = 'lnmlcgfepelimbqr';                                //password
-       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-       $mail->Port       = 587;
-
-       //Recipients
-       $mail->setFrom($mail->Username);       //sender
-       $mail->addAddress($studentEmail);
+      $mail = configureMail($mail, $studentEmail);
 
        //Content
        $mail->isHTML(true);
@@ -176,18 +149,7 @@ function sendRejectUpdate($studentName, $studentEmail, $transID){
   try {
       //Server settings
       //Server settings
-       $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-       $mail->isSMTP();
-       $mail->Host       = 'smtp.gmail.com';     //platform
-       $mail->SMTPAuth   = true;
-       $mail->Username   = 'ceu.mls.daap@gmail.com';   //email
-       $mail->Password   = 'lnmlcgfepelimbqr';                                //password
-       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-       $mail->Port       = 587;
-
-       //Recipients
-       $mail->setFrom($mail->Username);       //sender
-       $mail->addAddress($studentEmail);
+      $mail = configureMail($mail, $studentEmail);
 
        //Content
        $mail->isHTML(true);
@@ -219,18 +181,7 @@ function sendAccountingUpdate($studentName, $studentEmail, $transID){
   try {
       //Server settings
       //Server settings
-       $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-       $mail->isSMTP();
-       $mail->Host       = 'smtp.gmail.com';     //platform
-       $mail->SMTPAuth   = true;
-       $mail->Username   = 'ceu.mls.daap@gmail.com';   //email
-       $mail->Password   = 'lnmlcgfepelimbqr';                                //password
-       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-       $mail->Port       = 587;
-
-       //Recipients
-       $mail->setFrom($mail->Username);       //sender
-       $mail->addAddress($studentEmail);
+      $mail = configureMail($mail, $studentEmail);
 
        //Content
        $mail->isHTML(true);
