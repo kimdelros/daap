@@ -58,7 +58,7 @@ class viewtable extends config{
     $data->execute();
     $result = $data->fetch(PDO::FETCH_ASSOC);
 
-    echo"<td class='d-none d-sm-table-cell' >";
+    echo"<td>";
     if($appType == "1"){
       if($result['alumniYB'] != "")
         echo "<a href='?document=$result[alumniYB]#viewDoc'>View Year Book</a><br>";
@@ -103,19 +103,19 @@ class viewtable extends config{
     echo "<div class='table-responsive'>";
     echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
     echo "<thead class='thead-dark'>";
-    echo "<th class='d-none d-sm-table-cell'>Transaction ID</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Number</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Name</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Email</th>";
-    echo "<th class='d-none d-sm-table-cell'>View Document</th>";
+    echo "<th>Transaction ID</th>";
+    echo "<th>Student Number</th>";
+    echo "<th>Student Name</th>";
+    echo "<th>Student Email</th>";
+    echo "<th>View Document</th>";
     echo "<th style='font-size: 85%;'>Actions</th>";
     echo "</thead>";
     foreach ($result as $data) {
     echo "<tr>";
-    echo "<td class='d-none d-sm-table-cell' >$data[transID]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentID]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
+    echo "<td>$data[transID]</td>";
+    echo "<td>$data[studentID]</td>";
+    echo "<td>$data[studentName]</td>";
+    echo "<td>$data[studentEmail]</td>";
     $this->viewDocuments($data['appID'], $data['appType']);
     echo "<td>
           <form method='POST' action=''>
@@ -159,19 +159,19 @@ class viewtable extends config{
     echo "<div class='table-responsive'>";
     echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
     echo "<thead class='thead-dark'>";
-    echo "<th class='d-none d-sm-table-cell'>Application ID</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Number</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Name</th>";
-    echo "<th class='d-none d-sm-table-cell'>Student Email</th>";
-    echo "<th class='d-none d-sm-table-cell'>View Document</th>";
+    echo "<th>Application ID</th>";
+    echo "<th>Student Number</th>";
+    echo "<th>Student Name</th>";
+    echo "<th>Student Email</th>";
+    echo "<th>View Document</th>";
     echo "<th style='font-size: 85%;'>Actions</th>";
     echo "</thead>";
     foreach ($result as $data) {
     echo "<tr>";
-    echo "<td class='d-none d-sm-table-cell' >$data[appID]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentID]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentName]</td>";
-    echo "<td class='d-none d-sm-table-cell' >$data[studentEmail]</td>";
+    echo "<td>$data[appID]</td>";
+    echo "<td>$data[studentID]</td>";
+    echo "<td>$data[studentName]</td>";
+    echo "<td>$data[studentEmail]</td>";
     $this->viewDocuments($data['appID'], $data['appType']);
     echo "<td>
             <form method='POST' action=''>
