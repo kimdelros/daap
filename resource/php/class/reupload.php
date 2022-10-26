@@ -63,10 +63,67 @@ class reupload extends config{
                 }
                 break;
             case 2:
+                if($files['applicantCOM']['name'] == "" || $files['siblingCOM']['name'] == ""){
+                    $message = "Please upload all the documents needed.";
+                 break;
+                }
 
+                $message = $this->verifyFile($files['applicantCOM'], "Applicant's COM", $message);
+                $message = $this->verifyFile($files['siblingCOM'], "Sibling's COM", $message);
+
+                if($message == ""){
+                    $applicantCOM = $this->storeFile($files['applicantCOM'], "applicantCOM", $_GET['id']);
+                    $siblingCOM = $this->storeFile($files['siblingCOM'], "siblingCOM", $_GET['id']);
+
+                    $con = config::con();
+
+                    $sql = "SELECT * FROM `applications` WHERE `transID` = '$_GET[id]'";
+
+                    $data= $con->prepare($sql);
+                    $data->execute();
+                    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+                    $appID = (int)$result[0]['appID'];
+
+                    $sql = "UPDATE `sibling` SET `applicantCOM` = '$applicantCOM', `siblingCOM` = '$siblingCOM' WHERE `appID` = '$appID'";
+                    $data= $con->prepare($sql);
+                    $data->execute();
+                    
+
+                    $sql = "UPDATE `applications` SET `isHold` = '0' WHERE `appID` = '$appID'";
+                    $data= $con->prepare($sql);
+                    $data->execute();
+                }
                 break;
             case 3:
+                if($files['ceisDiploma']['name'] == ""){
+                    $message = "Please upload the document needed.";
+                 break;
+                }
 
+                $message = $this->verifyFile($files['ceisDiploma'], "Applicant's Diploma", $message);
+
+                if($message == ""){
+                    $ceisDiploma = $this->storeFile($files['ceisDiploma'], "ceisDiploma", $_GET['id']);
+
+                    $con = config::con();
+
+                    $sql = "SELECT * FROM `applications` WHERE `transID` = '$_GET[id]'";
+
+                    $data= $con->prepare($sql);
+                    $data->execute();
+                    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+                    $appID = (int)$result[0]['appID'];
+
+                    $sql = "UPDATE `ceis` SET `ceisDiploma` = '$ceisDiploma' WHERE `appID` = '$appID'";
+                    $data= $con->prepare($sql);
+                    $data->execute();
+                    
+                    $sql = "UPDATE `applications` SET `isHold` = '0' WHERE `appID` = '$appID'";
+                    $data= $con->prepare($sql);
+                    $data->execute();
+                }
                 break;
             default:
             break;
