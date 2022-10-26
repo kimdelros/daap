@@ -1,5 +1,17 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/reupload.php';
+
+$db = new config();
+$con = $db->con();
+$sql = "SELECT * FROM `applications` WHERE `transID` = '$_GET[id]'";
+$data= $con->prepare($sql);
+$data->execute();
+$result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+if(empty($result))
+  header("Location: uploader.php");
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +42,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
     <div class="title">
         Discount Application and Alumni Portal <br> File Re-Uploader (Sibling)
     </div>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
       <div class="row justify-content-center text-center">
         <div class="col-md-8 pt-3">
           <label for="applicantCOM" class="form-label">Applicant's COM</label>
@@ -45,7 +57,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
       </div>
       <p class="text-center">*Kindly convert your COM into an image file.</p>
       <div class="col-12 text-center mt-4">
-        <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applySibling" id="applySibling" value="Re-Upload Document"></input>
+        <input class="btn btn-secondary btn-lg btn-block" type="submit" name="reupload_Sibling" id="reupload_Sibling" value="Re-Upload Document"></input>
+      <?php
+        if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['reupload_Sibling']){
+          $reupload = new reupload();
+          $reupload->reuploadDoc($_FILES, 2);
+        }
+      ?>
       </div>
     </form>
     </div>

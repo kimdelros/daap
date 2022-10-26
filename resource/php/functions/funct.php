@@ -286,16 +286,6 @@ function changeP(){
     }
 }
 
-function approveApplication(){
-    if(!empty($_GET['approve'])){
-        $approve = new approve($_GET['approve']);
-        if($approve->approveApplication()){
-        } else {
-            echo "Error in Approving";
-        }
-    }
-}
-
 function reuploadDoc(){
     if(Input::exists()){
       if(!empty($_POST['transactionID'])){
@@ -310,13 +300,13 @@ function reuploadDoc(){
 
         if(!empty($result)){
             if($transID[0] === "A"){
-                Redirect::to('uploaderAlumni.php');
+                Redirect::to('uploaderAlumni.php?id='.$transID);
             }
             else if($transID[0] === "S"){
-                Redirect::to('uploaderSibling.php');
+                Redirect::to('uploaderSibling.php?id='.$transID);
             }
             else if($transID[0] === "C"){
-                Redirect::to('uploaderCeis.php');
+                Redirect::to('uploaderCeis.php?id='.$transID);
             }
             else {
                 $message = "Invalid Transaction ID.";

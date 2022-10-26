@@ -1,5 +1,17 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/reupload.php';
+
+$db = new config();
+$con = $db->con();
+$sql = "SELECT * FROM `applications` WHERE `transID` = '$_GET[id]'";
+$data= $con->prepare($sql);
+$data->execute();
+$result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+if(empty($result))
+  header("Location: uploader.php");
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +42,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
     <div class="title">
         Discount Application and Alumni Portal <br> File Re-Uploader (CEIS)
     </div>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
       <div class="row justify-content-center text-center">
         <div class="col-md-8 pt-3">
           <label for="ceisDiploma" class="form-label">CEIS Diploma (Image Upload)</label>
@@ -38,7 +50,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
         </div>
       </div>
       <div class="col-12 text-center mt-4">
-        <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyCEIS" value="Re-Upload Document">
+        <input class="btn btn-secondary btn-lg btn-block" type="submit" name="reupload_Ceis" value="Re-Upload Document">
+      <?php
+        if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['reupload_Ceis']){
+          $reupload = new reupload();
+          $reupload->reuploadDoc($_FILES, 3);
+        }
+      ?>
       </div>
     </form>
     </div>

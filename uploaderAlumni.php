@@ -1,5 +1,17 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/reupload.php';
+
+$db = new config();
+$con = $db->con();
+$sql = "SELECT * FROM `applications` WHERE `transID` = '$_GET[id]'";
+$data= $con->prepare($sql);
+$data->execute();
+$result = $data->fetchAll(PDO::FETCH_ASSOC);
+
+if(empty($result))
+  header("Location: uploader.php");
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +42,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
     <div class="title">
         Discount Application and Alumni Portal <br> File Re-Uploader (Alumni)
     </div>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
     <div class="row justify-content-center text-center">
         <h6 class="Reminder pt-5">*Please upload atleast one document (image file).</h6>
       <div class="col-md-8 pt-3">
@@ -51,7 +63,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
       </div>
     </div>
     <div class="col-12 text-center mt-4">
-      <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyAlumni" id="applyAlumni" value="Re-Upload Document">
+      <input class="btn btn-secondary btn-lg btn-block" type="submit" name="reupload_Alumni" id="reupload_Alumni" value="Re-Upload Document">
+      <?php
+        if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['reupload_Alumni']){
+          $reupload = new reupload();
+          $reupload->reuploadDoc($_FILES, 1);
+        }
+      ?>
     </div>
     </form>
     </div>
