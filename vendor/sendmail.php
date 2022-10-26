@@ -69,7 +69,7 @@ function notifyRegistrar($type, $transID){
 
        //Recipients
        $mail->setFrom($mail->Username);       //sender
-       $mail->addAddress("rikeru07@gmail.com");
+       $mail->addAddress("drjemiahkim@gmail.com");
 
        //Content
        $mail->isHTML(true);
@@ -91,7 +91,7 @@ function sendApprovedUpdate($studentName, $studentEmail, $transID){
   <p>I hope this email finds you well.</p>
   <p>We just want to update you, that your application $transID has been <b>approved</b>.</p>
   <p>This application is being submitted to the Accounting Office to apply the discount.</p>
-  <p>You may check the status of your application using our application status checker at the CEU DAAP Portal.</p>
+  <p>You may check the status of your application using our <a href=\"https://port-seventeen.com/daap/status.php\">Status Checker</a>.</p>
   <p><b>This is an auto generated email please do not reply.</b></p>
   <p>Thank you and stay safe.</p>";
 
@@ -129,10 +129,9 @@ function sendHoldUpdate($studentName, $studentEmail, $reason, $transID){
   $body ="<p>Dear $studentName,</p>
   <p>Greetings of peace!</p>
   <p>I hope this email finds you well.</p>
-  <p>We just want to update you, that your application $transID has been <b>on-hold</b>.</p>
-  <p>This application is being hold due to <b>$reason</b>.</p>
+  <due>We just want to update you, that your application $transID has been <b>on-hold</b> due to <b>$reason</b>.</p>
   <p>Kindly provide a new set of documents and you may upload them using the link below.</p>
-  <a href=\"https://google.com\">Document Uploader</a>
+  <a href=\"https://port-seventeen.com/daap/uploader.php\">Document Uploader</a>
   <p><b>This is an auto generated email please do not reply.</b></p>
   <p>Thank you and stay safe.</p>";
 
