@@ -18,20 +18,20 @@ class transaction extends config {
         if($result){
           foreach ($result as $data){
               if($data['isApproved'] === '1' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
-                  echo "<h4 class='text-center'>Approved by Registrar but not yet discounted. <br><a href='generatepdf.php?transID=$data[transID]'>Download your certification here</a></h4>";
+                  echo "<h5 class='text-center'>Congratulations! Your application has been approved by the Registrar. <br>You may download your certification below. <br><a href='generatepdf.php?transID=$data[transID]'>Click Here to download your certificate</a> <br>You may present it to the Accounting department for adjustments.</h5>";
               }
               else if($data['isApproved'] === '0' && $data['isHold'] === '1' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
-                  echo "<h4 class='text-center'>Currently on hold by the Registrar due to $data[reasonHold] Document/s</h4>";
-                  echo "<h4 class='text-center'>Please reupload your document/s in the <a href=\"uploader.php\">Document Uploader</a></h4>";
+                  echo "<h5 class='text-center'>Your application has been currently on hold by the Registrar due to <br><b>$data[reasonHold] Document/s</b>
+                  <br>Kindly reupload your document/s in the <a href=\"uploader.php\">Document Uploader</a></h5>";
               }
               else if($data['isApproved'] === '0' && $data['isHold'] === '0' && $data['isRejected'] === '1' && $data['isDiscounted'] === '0'){
-                  echo "<h4 class='text-center'>Application has been rejected</h4>";
+                  echo "<h5 class='text-center'>We are sorry that your application has been rejected.<br>For clarification you may send an email to <b>ceu.mls.daap@gmail.com</b></h5>";
               }
               else if($data['isApproved'] === '0' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
-                  echo "<h4 class='text-center'>Still being reviewed by Registrar and not yet discounted</h4>";
+                  echo "<h5 class='text-center'>Your application is still being reviewed by the Registrar.</h5>";
               }
               else if($data['isApproved'] === '1' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '1'){
-                  echo "<h4 class='text-center'>Congratulations! Your application has been approved and discounted</h4>";
+                  echo "<h5 class='text-center'>Congratulations! Your application has been approved and discounted.<br>Thank you for using DAAP Portal for your discount grant application.</h5>";
               }
           }
         }else{

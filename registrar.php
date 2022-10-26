@@ -136,12 +136,12 @@ $view = new viewtable();
             </div>
 
             <!-- application chart -->
-            <div class="chartBox">
+            <!-- <div class="chartBox">
                 <div class="box">
                     <canvas id="myChart"></canvas>
                 </div>
 
-            </div>
+            </div>-->
         </div>
 
 

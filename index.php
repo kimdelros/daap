@@ -14,11 +14,12 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <link rel="stylesheet" href="resource/css/home.css">
     <script src="resource/js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="resource/img/daap-icon.png">
-    <title>DAAP Portal</title>
+    <title>DAAP Homepage</title>
   </head>
   <body>
     <section class="home flex-center" id="home">
@@ -98,9 +99,9 @@
          </form>
       </div>
     </section> -->
-    <section class="map">
+    <!-- <section class="map">
 
-    </section>
+    </section> -->
   <!-- <section class="tracert">
 
   </section>-->
