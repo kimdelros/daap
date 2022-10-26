@@ -26,7 +26,7 @@ class reupload extends config{
       }
 
     public function reuploadDoc($files, $type){
-        $message = null;
+        $message = "";
         switch($type){
             case 1:
                 if($files['alumniYB']['name'] == "" && $files['alumniDiploma']['name'] == "" && $files['alumniTOR']['name'] == ""){
@@ -42,32 +42,24 @@ class reupload extends config{
                     $alumniDiploma = $this->storeFile($files['alumniDiploma'], "alumniDiploma", $_GET['id']);
                     $alumniTOR = $this->storeFile($files['alumniTOR'], "alumniTOR", $_GET['id']);
 
-                    $db = new config();
-                    $con = $db->con();
+                    $con = config::con();
 
-                    $sql = "SELECT `appID` FROM `application` WHERE `transID` = $_GET[id]";
+                    $sql = "SELECT * FROM `applications` WHERE `transID` = '$_GET[id]'";
 
                     $data= $con->prepare($sql);
                     $data->execute();
                     $result = $data->fetchAll(PDO::FETCH_ASSOC);
 
-                    var_dump($result);
-                    $sql = "UPDATE `alumni` SET `alumniYB` = '$alumniYB', `alumniDiploma` = '$alumniDiploma',  `alumniTOR` = '$alumniTOR' WHERE `appID` = '$result[0][id]'";
+                    $appID = (int)$result[0]['appID'];
+
+                    $sql = "UPDATE `alumni` SET `alumniYB` = '$alumniYB', `alumniDiploma` = '$alumniDiploma',  `alumniTOR` = '$alumniTOR' WHERE `appID` = '$appID'";
                     $data= $con->prepare($sql);
                     $data->execute();
+                    
 
-                    $sql = "UPDATE `application` SET `isHold` = '0', `isApproved` = '1' WHERE `appID` = '$result[0][id]'";
+                    $sql = "UPDATE `applications` SET `isHold` = '0' WHERE `appID` = '$appID'";
                     $data= $con->prepare($sql);
                     $data->execute();
-
-                    echo "<script>
-                        Swal.fire({
-                                title: \"Thank you for uploading your documents!\",
-                                icon: \"success\",
-                                width: 900
-                            });
-                        </script>";
-                    header("Location: index.php");
                 }
                 break;
             case 2:
@@ -79,13 +71,26 @@ class reupload extends config{
             default:
             break;
         }
+        if($message !== ""){
+        
         echo "<script>
-        Swal.fire({
-                title: \"$message\",
-                icon: \"error\",
-                width: 900
+            Swal.fire({
+                    title: \"$message\",
+                    icon: \"error\",
+                    width: 900
+                });
+            </script>";
+        }else{
+            echo "<script>
+            Swal.fire({
+                    title: \"Your documents has been submitted!\",
+                    icon: \"success\",
+                    width: 700
+            }).then(function() {
+                    window.location = \"index.php\";
             });
-        </script>";
+            </script>";
+        }
     }
 
 }
