@@ -29,6 +29,7 @@ function sendConfirmationEmail($studentName, $studentEmail, $type, $transID){
   <p>Congratulations on applying for the $type.</p>
   <p>Kindly take note of your tracking ID: <b>$transID</b> for your reference.</p>
   <p>We will send you an email once your application has been approved by the Office of the Registrar.<p>
+  <p>You may check the status of your application using our <a href=\"https://port-seventeen.com/daap/status.php\">DAAP Status Checker</a>.</p>
   <p><b>This is an auto generated email please do not reply.</b></p>
   <p>Thank you and stay safe.</p>";
 
@@ -86,7 +87,7 @@ function sendApprovedUpdate($studentName, $studentEmail, $transID){
   <p>I hope this email finds you well.</p>
   <p>We just want to update you, that your application $transID has been <b>approved</b>.</p>
   <p>This application is being submitted to the Accounting Office to apply the discount.</p>
-  <p>You may check the status of your application using our <a href=\"https://port-seventeen.com/daap/status.php\">Status Checker</a>.</p>
+  <p>You may check the status of your application using our <a href=\"https://port-seventeen.com/daap/status.php\">DAAP Status Checker</a>.</p>
   <p><b>This is an auto generated email please do not reply.</b></p>
   <p>Thank you and stay safe.</p>";
 
