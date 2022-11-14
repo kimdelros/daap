@@ -31,11 +31,11 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
     </div>
     <?php reuploadDoc(); ?>
     <form action="" method="post">
-        <div class="field">
+        <div class="field col-12">
             <h5>Please enter your transaction ID below</h5>
                 <input type="text" name="transactionID" placeholder="Your Transaction ID" required>
         </div>
-        <div class="field">
+        <div class="field col-12 mt-5">
         <input type="submit" value="Upload New File/s">
         </div>
     </form>
