@@ -80,109 +80,109 @@ function vald(){
                 'required'=>'true'
             )));
 
-            if($validate->passed()){
-                $user = new user();
-                $salt = Hash::salt(32);
-                try {
-                    $user->create(array(
-                        'username'=>Input::get('username'),
-                        'password'=>Hash::make(Input::get('password'),$salt),
-                        'salt'=>$salt,
-                        'name'=> Input::get('fullName'),
-                        'joined'=>date('Y-m-d H:i:s'),
-                        'groups'=>1,
-                        'colleges'=> Input::get('College'),
-                        'email'=> Input::get('email'),
-                    ));
-
-                    $user->createC(array(
-                        'checker'=> Input::get('fullName'),
-
-                    ));
-                    $user->createV(array(
-                        'verifier'=> Input::get('fullName'),
-                    ));
-
-                    $user->createR(array(
-                        'releasedby'=> Input::get('fullName'),
-
-                    ));
-                } catch (Exception $e) {
-                    die($e->getMessage());
-                }
-
-                Success();
-            }else{
-                foreach ($validate->errors()as $error) {
-                pError($error);
-                }
-            }
-        }
-            }else{
-                return false;
-            }
-        }
-
-        function logd(){
-            if(Input::exists()){
-                if(Token::check(Input::get('token'))){
-                    $validate = new Validate();
-                    $validation = $validate->check($_POST,array(
-                        'username' => array('required'=>true),
-                        'password'=> array('required'=>true)
-                    ));
-                    if($validation->passed()){
-                        $user = new user();
-                        $remember = (Input::get('remember') ==='on') ? true :false;
-                        $login = $user->login(Input::get('username'),Input::get('password'),$remember);
-                        if($login){
-                          if($user->data()->groups == 1){
-                                 Redirect::to('registrar.php');
-                            }
-                            elseif($user->data()->groups == 2){
-                                 Redirect::to('accounting.php');
-                            }
-                            else{
-                                 Redirect::to('template.php');
-                            }
-                        }else{
-                            loginError();
-                        }
-                    }else{
-                        foreach($validation->errors() as $error){
-                            echo $error.'<br />';
-                        }
-                    }
-                }
-            }
-        }
-
-        function isLogin(){
+        if($validate->passed()){
             $user = new user();
-            if(!$user->isLoggedIn()){
-                Redirect::to('login.php');
+            $salt = Hash::salt(32);
+            try {
+                $user->create(array(
+                    'username'=>Input::get('username'),
+                    'password'=>Hash::make(Input::get('password'),$salt),
+                    'salt'=>$salt,
+                    'name'=> Input::get('fullName'),
+                    'joined'=>date('Y-m-d H:i:s'),
+                    'groups'=>1,
+                    'colleges'=> Input::get('College'),
+                    'email'=> Input::get('email'),
+                ));
+
+                $user->createC(array(
+                    'checker'=> Input::get('fullName'),
+
+                ));
+                $user->createV(array(
+                    'verifier'=> Input::get('fullName'),
+                ));
+
+                $user->createR(array(
+                    'releasedby'=> Input::get('fullName'),
+
+                ));
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+
+            Success();
+        }else{
+            foreach ($validate->errors()as $error) {
+            pError($error);
             }
         }
+    }
+        }else{
+            return false;
+        }
+}
 
-        function isRegistrar($user){
-            if($user === "1"){
-
-            }
-            else{
-                header("HTTP/1.1 403 Forbidden");
-                exit;
+function logd(){
+    if(Input::exists()){
+        if(Token::check(Input::get('token'))){
+            $validate = new Validate();
+            $validation = $validate->check($_POST,array(
+                'username' => array('required'=>true),
+                'password'=> array('required'=>true)
+            ));
+            if($validation->passed()){
+                $user = new user();
+                $remember = (Input::get('remember') ==='on') ? true :false;
+                $login = $user->login(Input::get('username'),Input::get('password'),$remember);
+                if($login){
+                    if($user->data()->groups == 1){
+                            Redirect::to('registrar.php');
+                    }
+                    elseif($user->data()->groups == 2){
+                            Redirect::to('accounting.php');
+                    }
+                    else{
+                            Redirect::to('template.php');
+                    }
+                }else{
+                    loginError();
+                }
+            }else{
+                foreach($validation->errors() as $error){
+                    echo $error.'<br />';
+                }
             }
         }
+    }
+}
 
-        function isAccounting($user){
-            if($user === "2"){
+function isLogin(){
+    $user = new user();
+    if(!$user->isLoggedIn()){
+        Redirect::to('login.php');
+    }
+}
 
-            }
-            else{
-                header("HTTP/1.1 403 Forbidden");
-                exit;
-            }
-        }
+function isRegistrar($user){
+    if($user === "1"){
+
+    }
+    else{
+        header("HTTP/1.1 403 Forbidden");
+        exit;
+    }
+}
+
+function isAccounting($user){
+    if($user === "2"){
+
+    }
+    else{
+        header("HTTP/1.1 403 Forbidden");
+        exit;
+    }
+}
 
 function profilePic(){
     $view = new view();

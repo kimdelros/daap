@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/registerAccount.php';
 $view = new view;
 ?>
 
@@ -39,9 +40,6 @@ $view = new view;
                      <h1 class="text-center">Register New Admin Account</h1>
                  </div>
             </div>
-            <?php
-                vald();
-            ?>
             <form action="" method="post">
                 <table class="table ">
                     <tr>
@@ -53,7 +51,7 @@ $view = new view;
                                 </div>
                                 <div class="form-group col-4">
                                  <label for = "password"> Password:</label>
-                                 <input type="password" class="form-control" name="password" id="password" value ="<?php echo input::get('password');?>" autocomplete="off"required/>
+                                 <input type="password" class="form-control" name="password" id="password" value ="<?php echo input::get('password');?>" autocomplete="off" required/>
                                 </div>
                                 <div class="form-group col-4">
                                  <label for = "ConfirmPassword"> Confirm Password:</label>
@@ -67,17 +65,17 @@ $view = new view;
                             <div class="row justify-content-center">
                                 <div class="form-group col-4">
                                  <label for = "fullName" class=""> Full Name</label>
-                                 <input class="form-control"  type = "text" name="fullName" id="fullName" value ="<?php echo input::get('fullName');?>"/required>
+                                 <input class="form-control" type = "text" name="fullName" id="fullName" value ="<?php echo input::get('fullName');?>" required>
                                 </div>
                                 <div class="form-group col-4">
                                   <label for="College" >College/s to handle</label>
-                                      <select id="College" name="College[]" class="selectpicker form-control" data-live-search="true" multiple required>
+                                      <select id="College" name="College" class="selectpicker form-control" data-live-search="true" multiple required>
                                         <?php $view->collegeSP2();?>
                                       </select>
                                 </div>
                                 <div class="form-group col-4">
                                  <label for = "email" class=""> Email Address</label>
-                                 <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo input::get('email');?>"/required>
+                                 <input class="form-control" type = "text" name="email" id="email" value ="<?php echo input::get('email');?>" required>
                                 </div>
                              </div>
                         </td>
@@ -88,7 +86,13 @@ $view = new view;
                                 <div class="form-group col-7">
                                     <label  >&nbsp;</label>
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
-                                 <input type="submit" value="Register New SRA" class=" form-control btn btn-success" />
+                                 <input type="submit" value="Register New SRA" class=" form-control btn btn-success" name="register" id="register" />
+                                 <?php
+                                if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['register']){
+                                    $applyClass = new apply();
+                                    $applyClass->verifyAdmin($_POST['username'], $_POST['password'], $_POST['ConfirmPassword'], $_POST['fullName'], $_POST['College'], $_POST['email']);
+                                }
+                                ?>
                                 </div>
                             </div>
                         </td>
