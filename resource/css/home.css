@@ -191,7 +191,7 @@ section.discount .row .daapheader img {
 .regWrapper .close:hover {
 	color: #06D85F;
 }
-.wrapregWrapperper .content {
+.wrapregWrapperper.content {
 	max-height: 30%;
 	overflow: auto;
 }
@@ -316,6 +316,3 @@ form .field input[type="submit"]{
       color:#b3b3b3;
     }
   }
-
-
-
