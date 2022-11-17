@@ -21,7 +21,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark">
-      <img src="resource/img/DAAPlogo-white.png" class="img-fluid logo" alt="daap-logo">
+      <a href="index.php"><img src="resource/img/DAAPlogo-white.png" class="img-fluid logo" alt="daap-logo"></a>
 
     </nav>
 
