@@ -105,7 +105,6 @@ isAccounting($user->data()->groups);
                         <h1 class="text-center">UPDATE YOUR ACCOUNT</h1>
                     </div>
                 </div>
-            <?php updateProfile(); ?>
             <form action="" method="post">
                 <table class="table ">
                     <tr>
