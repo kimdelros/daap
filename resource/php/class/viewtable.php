@@ -8,10 +8,10 @@ class viewtable extends config{
     $con = $this->con();
     switch($appType){
       case "1": case "2": case "3":
-        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 0 AND `appType` = '$appType'";
+        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 0 AND `isHold`= 0 AND `isRejected`= 0 AND `appType` = '$appType'";
         break;
       case "4":
-        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 0";
+        $sql = "SELECT COUNT(*) FROM `applications` WHERE `isApproved`= 0 AND `isHold`= 0 AND `isRejected`= 0";
         break;
       default: break;
     }

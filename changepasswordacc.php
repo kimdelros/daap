@@ -3,6 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 isLogin();
 $view = new view;
 $user = new user();
+isAccounting($user->data()->groups);
  ?>
 
 
@@ -15,6 +16,7 @@ $user = new user();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="resource/css/dashboard.css">
     <link rel="icon" href="resource/img/daap-icon.png">
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>DAAP Dashboard</title>
 </head>
 <body>
@@ -93,11 +95,9 @@ $user = new user();
         <div class="container mt-5 puff-in-center">
              <div class="row">
                  <div class="col-12">
-                   <?php changeP(); ?>
                      <h1 class="text-center">CHANGE PASSWORD</h1>
                  </div>
             </div>
-            <?php changeP(); ?>
             <form action="" method="post">
                 <table class="table ">
                     <tr>
@@ -105,15 +105,15 @@ $user = new user();
                             <div class="row justify-content-md-center">
                                 <div class="form-group col-4">
                                  <label for = "password_current"> Enter Current Password:</label>
-                                 <input type="password" class="form-control" name="password_current" id="password" value ="" autocomplete="off"required/>
+                                 <input type="password" class="form-control" name="password_current" id="password" value ="<?php echo input::get('password_current');?>" autocomplete="off" required/>
                                 </div>
                                 <div class="form-group col-4">
                                  <label for = "password"> Enter New Password:</label>
-                                 <input type="password" class="form-control" name="password" id="password" value ="" autocomplete="off"required/>
+                                 <input type="password" class="form-control" name="password" id="password" value ="<?php echo input::get('password');?>" autocomplete="off" required/>
                                 </div>
                                 <div class="form-group col-4">
                                  <label for = "ConfirmPassword"> Confirm New Password:</label>
-                                 <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value ="" autocomplete="off"required/>
+                                 <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value ="<?php echo input::get('ConfirmPassword');?>" autocomplete="off" required/>
                                 </div>
                              </div>
                         </td>
@@ -124,7 +124,13 @@ $user = new user();
                                 <div class="form-group col-7">
                                     <label  >&nbsp;</label>
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
-                                 <input type="submit" value="Change Password" class=" form-control btn btn-primary" />
+                                 <input type="submit" value="Change Password" class=" form-control btn btn-primary" name="changeP" id="changeP"/>
+                                 <?php
+                                if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['changeP']){
+                                    $changePassword = new changePassword();
+                                    $changePassword->verifyPass($user->data()->username, $user->data()->password, $user->data()->salt, $_POST['password_current'], $_POST['password'], $_POST['ConfirmPassword']);
+                                }
+                                ?>
                                 </div>
                             </div>
                         </td>

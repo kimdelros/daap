@@ -10,8 +10,8 @@ private function checkUsername($username){
     $stmt->execute();
     if($stmt->rowCount() > 0)
         return true;
-    else
-        return false;
+    
+    return false;
 }
 
 private function verifyUsername($username){
@@ -25,8 +25,8 @@ private function verifyUsername($username){
         return $error = "Input Error.\\nUsername should not contain any white space";
     if(preg_match("/\W/", $username))
         return $error = "Input Error.\\nUsername should not contain any special character";
-    else 
-        return $error = "";
+     
+    return $error = "";
 }
 
 private function verifyPassword($password, $confirmPassword){
@@ -46,10 +46,10 @@ private function verifyPassword($password, $confirmPassword){
         return $error = "Input Error.\\nPassword should not contain any white space";
     if($confirmPassword == "" || $confirmPassword == null)
         return $error = "Input Error.\\nPlease enter a confirm password";
-    if($password == $confirmPassword)
+    if(!($password == $confirmPassword))
         return $error = "Input Error.\\nPasswords are not matching.";
-    else 
-        return $error = "";
+     
+    return $error = "";
 }
 
 private function verifyFullname($fullname){
@@ -62,8 +62,8 @@ private function verifyFullname($fullname){
         return $error = "Input Error.\\nName should not contain any digit";
     if(preg_match("/\s\s/", $name))
         return $error = "Input Error.\\nName should not contain too much spaces";
-    else 
-        return $error = "";
+     
+    return $error = "";
     
 }
 
@@ -97,7 +97,25 @@ public function verifyAdmin($username, $password, $confirmPassword, $fullname, $
             $error = "Input Error.\\n$email is a not valid email address";
 
     if($error == ""){
-        
+    $salt = Hash::salt(32);
+    $password = Hash::make($password,$salt);
+    $joined = date('Y-m-d H:i:s');
+
+    $link = config::con();
+
+    $sql = "INSERT INTO `tbl_accounts`(`username`, `password`, `salt`, `name`, `joined`, `colleges`, `email`) VALUES ('$username', '$password', '$salt', '$fullname', '$joined', '$college', '$email')";
+    $stmt = $link->prepare($sql);
+    $stmt->execute();
+    
+    echo "<script>
+             Swal.fire({
+                    title: \"You have registered successfully!\",
+                    icon: \"success\",
+                    width: 700
+              }).then(function() {
+                    window.location = \"login.php\";
+              });
+             </script>";
     }else{
     echo "<script>
         Swal.fire({

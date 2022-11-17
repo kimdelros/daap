@@ -3,6 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
 isLogin();
 $view = new view;
 $user = new user();
+isAccounting($user->data()->groups);
  ?>
 
 
@@ -19,6 +20,7 @@ $user = new user();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="resource/css/dashboard.css">
     <link rel="icon" href="resource/img/daap-icon.png">
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     
     <title>DAAP Dashboard</title>
@@ -111,15 +113,15 @@ $user = new user();
                             <div class="row justify-content-center">
                                 <div class="form-group col-4">
                                  <label for = "username" class=""> Username:</label>
-                                 <input class="form-control"  type = "text" name="username" id="username" value ="<?php echo escape($user->data()->username); ?>" autocomplete="off"  />
+                                 <input class="form-control"  type = "text" name="username" id="username" value ="<?php echo input::get('username'); ?>" autocomplete="off">
                                 </div>
                                 <div class="form-group col-4">
                                  <label for = "fullName" class=""> Full Name</label>
-                                 <input class="form-control"  type = "text" name="fullName" id="fullName" value ="<?php echo escape($user->data()->name); ?>"/required>
+                                 <input class="form-control"  type = "text" name="fullName" id="fullName" value ="<?php echo input::get('fullName'); ?>">
                                 </div>
                                 <div class="form-group col-4">
                                  <label for = "email" class=""> Email Address</label>
-                                 <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo escape($user->data()->email); ?>"/required>
+                                 <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo input::get('email'); ?>">
                                 </div>
                              </div>
                         </td>
@@ -128,15 +130,15 @@ $user = new user();
                         <td>
                             <div class="row justify-content-center">
                                 <div class="form-group col-5">
-                                  <label for="College" >College/s to handle</label>
-                                      <select id="College" name="College[]" class="form-select form-control" data-live-search="true" required>
-                                        <?php $view->collegeSP2();?>
-                                      </select>
-                                </div>
-                                <div class="form-group col-5">
                                     <label  >&nbsp;</label>
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
-                                 <input type="submit" value="Update your profile" class=" form-control btn btn-primary" />
+                                 <input type="submit" value="Update your profile" class=" form-control btn btn-primary" name="update" id="update" />
+                                 <?php
+                                if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['update']){
+                                    $updateProfile = new updateProfile();
+                                    $updateProfile->verifyUpdate($user->data()->username, $user->data()->password, $user->data()->salt, $_POST['password_current'], $_POST['password'], $_POST['ConfirmPassword']);
+                                }
+                                ?>/>
                                 </div>
                              </div>
                         </td>
