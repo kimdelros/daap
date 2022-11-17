@@ -1,6 +1,5 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
-  require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/registerAccount.php';
 $view = new view;
 ?>
 
@@ -17,6 +16,7 @@ $view = new view;
    <link href="vendor/css/all.css" rel="stylesheet">
    <link rel="stylesheet" type="text/css"  href="resource/css/styles.css">
    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap-select.min.css">
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
  </head>
  <body>
@@ -69,7 +69,7 @@ $view = new view;
                                 </div>
                                 <div class="form-group col-4">
                                   <label for="College" >College/s to handle</label>
-                                      <select id="College" name="College" class="selectpicker form-control" data-live-search="true" multiple required>
+                                      <select id="College" name="College" class="selectpicker form-control" data-live-search="true" required>
                                         <?php $view->collegeSP2();?>
                                       </select>
                                 </div>
@@ -89,8 +89,8 @@ $view = new view;
                                  <input type="submit" value="Register New SRA" class=" form-control btn btn-success" name="register" id="register" />
                                  <?php
                                 if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['register']){
-                                    $applyClass = new apply();
-                                    $applyClass->verifyAdmin($_POST['username'], $_POST['password'], $_POST['ConfirmPassword'], $_POST['fullName'], $_POST['College'], $_POST['email']);
+                                    $registerAccount = new registerAccount();
+                                    $registerAccount->verifyAdmin($_POST['username'], $_POST['password'], $_POST['ConfirmPassword'], $_POST['fullName'], $_POST['College'], $_POST['email']);
                                 }
                                 ?>
                                 </div>
