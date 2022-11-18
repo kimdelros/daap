@@ -14,6 +14,7 @@ $view = new viewtable();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="resource/css/dashboard.css">
     <link rel="icon" href="resource/img/daap-icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <title>DAAP Dashboard</title>
 </head>
 <body>
@@ -140,6 +141,73 @@ $view = new viewtable();
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
+
+            <?php
+            $year1 = date("Y");
+            $year2 = date("Y")-2;
+            $year3 = date("Y")-1;
+            $year4 = date("Y")+1;
+            ?>
+
+            <script>
+                // chart js
+                const ctx = document.getElementById('myChart').getContext('2d');
+
+                var date = new Date();
+
+                var year1 = <?php echo $year1;?>;
+                var year2 = <?php echo $year2;?>;
+                var year3 = <?php echo $year3;?>;
+                var year4 = <?php echo $year4;?>;
+
+                if(date.getMonth()>6){
+                    var label1 = "2nd Sem AY "+year2+"-"+year3;
+                    var label2 = "1st Sem AY "+year3+"-"+year1;
+                    var label3 = "2nd Sem AY "+year3+"-"+year1;
+                    var label4 = "1st Sem AY "+year1+"-"+year4;
+                }else{
+                    var label1 = "1st Sem AY "+year3+"-"+year1;
+                    var label2 = "2nd Sem AY "+year3+"-"+year1;
+                    var label3 = "1st Sem AY "+year1+"-"+year4;
+                    var label4 = "2nd Sem AY "+year1+"-"+year4;
+                }
+
+                const myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [label1, label2, label3, label4],
+                        datasets: [{
+                            label: 'Number of Applications per Semester',
+                            data: [50, 64, 34, 98],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
         </div>
 
 
@@ -149,7 +217,6 @@ $view = new viewtable();
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script src="resource/js/script.js"></script>
     <script src="resource/js/mychart.js"></script>
     <script src="resource/js/pendingActions.js"></script>
