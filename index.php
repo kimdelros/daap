@@ -52,7 +52,7 @@
                 <img src="resource/img/lc-alumni.jpg" class="card-img-top"  alt="alumni"/>
                 <div class="card-body">
                 <p class="card-text text-justify">
-                  CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. Here in Alumni Discount, an Alumni can enroll their children to the University and they will be granted a 5% discount on their tuition fee (maximum of 4 children) if their application will be approved by the Admin.
+                  CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. Here in Alumni Discount, an Alumni can enroll their children to the University and they will be granted a 5% discount on their tuition fee (max. of 4 children) if their application will be approved by the Admin.
                 </p>
                 <a href="#AlumniForm" class="btn-card">APPLY NOW</a>
               </div>

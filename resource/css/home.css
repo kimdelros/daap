@@ -133,11 +133,10 @@ section.discount .row .daapheader img {
 .map {
     text-align: center;
     width: auto;
-    min-height: 90vh;
+    min-height: 70vh;
     padding-top: 30px;
     background-color: #FFF;
     background-size: cover;
-    background-position: center;
 }
 
 svg path {
