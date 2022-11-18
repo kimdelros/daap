@@ -10,7 +10,7 @@ $view = new viewtable();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="60; url=login.php">
+    <meta http-equiv="refresh" content="60; url=logout.php">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="resource/css/dashboard.css">
@@ -136,12 +136,12 @@ $view = new viewtable();
             </div>
 
             <!-- application chart -->
-            <!-- <div class="chartBox">
+            <div class="chartBox">
                 <div class="box">
                     <canvas id="myChart"></canvas>
                 </div>
 
-            </div>-->
+            </div>
         </div>
 
 

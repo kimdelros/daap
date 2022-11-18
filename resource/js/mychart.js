@@ -5,7 +5,7 @@ const myChart = new Chart(ctx, {
     data: {
         labels: ['AY22-23', 'AY23-24', 'AY24-25', 'AY25-26'],
         datasets: [{
-            label: 'Number of Applications per Academic Year',
+            label: 'Number of Applications per Semester',
             data: [50, 64, 34, 98],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
