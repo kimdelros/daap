@@ -10,7 +10,6 @@ $view = new viewtable();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="60; url=logout.php">
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -143,6 +142,31 @@ $view = new viewtable();
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="resource/js/script.js"></script>
+    <script>
+    (function() {
 
+        const idleDurationSecs = 60;    // X number of seconds
+        const redirectUrl = 'logout.php';  // Redirect idle users to this URL
+        let idleTimeout; // variable to hold the timeout, do not modify
+
+        const resetIdleTimeout = function() {
+
+            // Clears the existing timeout
+            if(idleTimeout) clearTimeout(idleTimeout);
+
+            // Set a new idle timeout to load the redirectUrl after idleDurationSecs
+            idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
+        };
+
+        // Init on page load
+        resetIdleTimeout();
+
+        // Reset the idle timeout on any of the events listed below
+        ['click', 'touchstart', 'mousemove'].forEach(evt => 
+            document.addEventListener(evt, resetIdleTimeout, false)
+        );
+
+    })();
+    </script>
 </body>
 </html>
