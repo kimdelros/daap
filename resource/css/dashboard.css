@@ -242,7 +242,7 @@ body {
 .cardBox .card:hover .cardName,
 .cardBox .card:hover .iconDisplay {
     color: var(--bs-white);
-    
+
 }
 
 .cardBox a:hover {
@@ -342,6 +342,39 @@ body {
 
 
 /* responsiveness */
+@media only screen and (max-width: 991px) {
+  .navigation {
+      position: fixed;
+      width: 80px;
+      height: 100%;
+      left: 0;
+      background: var(--bs-indigo);
+      border-left: 10px solid var(--bs-indigo);
+      transition: 0.5s;
+      overflow: hidden;
+  }
+  .toggle{
+    opacity: 0;
+  }
+  .main {
+      position: absolute;
+      width: calc(100% - 80px);
+      left: 80px;
+      min-height: 100vh;
+      background: white;
+      transition: 0.5s;
+  }
+
+  .main.active {
+      width: calc(100% - 80px);
+      left: 80px;
+  }
+
+  .cardBox {
+      grid-template-columns: repeat(2,1fr);
+  }
+}
+
 @media (max-width: 991px) {
     .cardBox {
         grid-template-columns: repeat(2,1fr);
