@@ -131,12 +131,25 @@ section.discount .row .daapheader img {
 }
 
 .map {
+    text-align: center;
     width: auto;
-    min-height: 93vh;
+    min-height: 90vh;
     padding-top: 30px;
-    background-image: url('../img/bg-ceu-gradient-2.jpg');
+    background-color: #FFF;
     background-size: cover;
     background-position: center;
+}
+
+svg path {
+  fill: #251f70;
+  stroke: #251f70;
+  stroke-width: .25;
+}
+
+svg path:hover {
+  fill: #ed6eae;
+  transition: 0.6s;
+  cursor: pointer;
 }
 
 .tracert {
