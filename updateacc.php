@@ -112,15 +112,15 @@ isAccounting($user->data()->groups);
                             <div class="row justify-content-center">
                                 <div class="form-group col-4">
                                  <label for = "username" class=""> Username:</label>
-                                 <input class="form-control"  type = "text" name="username" id="username" value ="<?php echo input::get('username'); ?>" autocomplete="off">
+                                 <input class="form-control"  type = "text" name="username" id="username" value ="<?php echo escape($user->data()->username); ?>" autocomplete="off">
                                 </div>
                                 <div class="form-group col-4">
                                  <label for = "fullName" class=""> Full Name</label>
-                                 <input class="form-control"  type = "text" name="fullName" id="fullName" value ="<?php echo input::get('fullName'); ?>">
+                                 <input class="form-control"  type = "text" name="fullName" id="fullName" value ="<?php echo escape($user->data()->name); ?>">
                                 </div>
                                 <div class="form-group col-4">
                                  <label for = "email" class=""> Email Address</label>
-                                 <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo input::get('email'); ?>">
+                                 <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo escape($user->data()->email); ?>">
                                 </div>
                              </div>
                         </td>
@@ -135,7 +135,7 @@ isAccounting($user->data()->groups);
                                  <?php
                                 if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['update']){
                                     $updateProfile = new updateProfile();
-                                    $updateProfile->verifyUpdate($user->data()->username, $user->data()->password, $user->data()->salt, $_POST['password_current'], $_POST['password'], $_POST['ConfirmPassword']);
+                                    $updateProfile->verifyUpdate($user->data()->username, $user->data()->name, $user->data()->email, $_POST['username'], $_POST['fullName'], $_POST['email'], $user->data()->groups);
                                 }
                                 ?>/>
                                 </div>

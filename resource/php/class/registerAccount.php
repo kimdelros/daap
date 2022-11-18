@@ -56,7 +56,7 @@ private function verifyFullname($fullname){
     $name = str_replace('.', '', $fullname);
     if($name == "" || $name == null)
         return $error = "Input Error.\\nPlease enter your full name.";
-    if(preg_match("[^a-zA-Z0-9]", $name))
+    if(preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $name))
         return $error = "Input Error.\\nName should not contain any special character";
     if(preg_match("/\d/", $name))
         return $error = "Input Error.\\nName should not contain any digit";

@@ -128,7 +128,7 @@ isRegistrar($user->data()->groups);
                                  <?php
                                 if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['changeP']){
                                     $changePassword = new changePassword();
-                                    $changePassword->verifyPass($user->data()->username, $user->data()->password, $user->data()->salt, $_POST['password_current'], $_POST['password'], $_POST['ConfirmPassword']);
+                                    $changePassword->verifyPass($user->data()->username, $user->data()->password, $user->data()->salt, $_POST['password_current'], $_POST['password'], $_POST['ConfirmPassword'], $user->data()->groups);
                                 }
                                 ?>
                                 </div>

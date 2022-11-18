@@ -33,10 +33,13 @@ class changePassword extends config{
         return $error = "";
     }
 
-    public function verifyPass($username, $password, $salt, $currentPassword, $newPassword, $confirmPassword){
+    public function verifyPass($username, $password, $salt, $currentPassword, $newPassword, $confirmPassword, $group){
         $error = $this->verifyCurrentPassword($password, $salt, $currentPassword);
         if($error == "")        
             $error = $this->verifyNewPassword($newPassword, $confirmPassword);
+        
+        if($newPassword == $currentPassword && $error == "")
+            $error = "Please enter new password.";
 
         if($error == ""){
             $newSalt = Hash::salt(32);
@@ -48,12 +51,19 @@ class changePassword extends config{
             $stmt = $link->prepare($sql);
             $stmt->execute();
 
+            if($group == 1)
+                $location = "changepassword.php";
+            else
+                $location = "changepasswordacc.php";
+
             echo "<script>
              Swal.fire({
                     title: \"You have successfully changed your password!\",
                     icon: \"success\",
                     width: 700
-              });
+              }).then(function() {
+                window.location = \"$location\";
+          });
              </script>";
         }else{
         echo "<script>
