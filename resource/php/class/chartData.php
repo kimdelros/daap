@@ -11,4 +11,6 @@ class chartData extends config{
         $stmt = $link->prepare($sql);
         $stmt->execute();
     }
+
+}
 ?>
