@@ -14,7 +14,7 @@ isRegistrar($user->data()->groups);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
-    <link href="vendor/css/all.css" rel="stylesheet">   
+    <link href="vendor/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap-select.min.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,7 +22,7 @@ isRegistrar($user->data()->groups);
     <link rel="icon" href="resource/img/daap-icon.png">
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    
+
     <title>DAAP Dashboard</title>
 </head>
 <body>
@@ -98,7 +98,7 @@ isRegistrar($user->data()->groups);
                     <img src="resource/img/user.jpg" alt="">
                 </div>
             </div>
-        
+
             <div class="container mt-5 puff-in-center">
                 <div class="row">
                     <div class="col-12">
@@ -110,15 +110,15 @@ isRegistrar($user->data()->groups);
                     <tr>
                         <td>
                             <div class="row justify-content-center">
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4 pt-3">
                                  <label for = "username" class=""> Username:</label>
                                  <input class="form-control"  type = "text" name="username" id="username" value ="<?php echo escape($user->data()->username);?>" autocomplete="off">
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4 pt-3">
                                  <label for = "fullName" class=""> Full Name</label>
                                  <input class="form-control"  type = "text" name="fullName" id="fullName" value ="<?php echo escape($user->data()->name);?>">
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4 pt-3">
                                  <label for = "email" class=""> Email Address</label>
                                  <input class="form-control"  type = "text" name="email" id="email" value ="<?php echo escape($user->data()->email);?>">
                                 </div>
@@ -128,7 +128,7 @@ isRegistrar($user->data()->groups);
                     <tr>
                         <td>
                             <div class="row justify-content-center">
-                                <div class="form-group col-5">
+                                <div class="form-group col-7 p-1">
                                     <label  >&nbsp;</label>
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
                                  <input type="submit" value="Update your profile" class=" form-control btn btn-primary" name="update" id="update" />
@@ -143,7 +143,7 @@ isRegistrar($user->data()->groups);
                         </td>
                     </tr>
                 </table>
-             </form>          
+             </form>
         </div>
     </div>
     </div>
@@ -173,7 +173,7 @@ isRegistrar($user->data()->groups);
         resetIdleTimeout();
 
         // Reset the idle timeout on any of the events listed below
-        ['click', 'touchstart', 'mousemove'].forEach(evt => 
+        ['click', 'touchstart', 'mousemove'].forEach(evt =>
             document.addEventListener(evt, resetIdleTimeout, false)
         );
 

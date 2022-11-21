@@ -324,8 +324,9 @@ body {
 }
 
 .details .applyDetails table tbody tr:hover {
-    background: #6f42c1;
-    color: white;
+    background: #d3d3d3;
+    color: black;
+    font-weight: 500;
 }
 
 .details .applyDetails table tr:last-child {

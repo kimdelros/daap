@@ -20,7 +20,7 @@ isRegistrar($user->data()->groups);
     <title>DAAP Dashboard</title>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">
 
         <!--sidebar-->
         <div class="navigation">
@@ -103,15 +103,15 @@ isRegistrar($user->data()->groups);
                     <tr>
                         <td>
                             <div class="row justify-content-md-center">
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4 pt-3">
                                  <label for = "password_current"> Enter Current Password:</label>
                                  <input type="password" class="form-control" name="password_current" id="password" value="<?php echo input::get('password_current');?>" autocomplete="off" required/>
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4 pt-3">
                                  <label for = "password"> Enter New Password:</label>
                                  <input type="password" class="form-control" name="password" id="password" value="<?php echo input::get('password');?>" autocomplete="off" required/>
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4 pt-3">
                                  <label for = "ConfirmPassword"> Confirm New Password:</label>
                                  <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value="<?php echo input::get('ConfirmPassword');?>" autocomplete="off" required/>
                                 </div>
@@ -121,7 +121,7 @@ isRegistrar($user->data()->groups);
                     <tr>
                         <td>
                             <div class="row justify-content-center">
-                                <div class="form-group col-7">
+                                <div class="form-group col-7 p-1">
                                     <label  >&nbsp;</label>
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
                                  <input type="submit" value="Change Password" class=" form-control btn btn-primary" name="changeP" id="changeP"/>
@@ -164,7 +164,7 @@ isRegistrar($user->data()->groups);
         resetIdleTimeout();
 
         // Reset the idle timeout on any of the events listed below
-        ['click', 'touchstart', 'mousemove'].forEach(evt => 
+        ['click', 'touchstart', 'mousemove'].forEach(evt =>
             document.addEventListener(evt, resetIdleTimeout, false)
         );
 

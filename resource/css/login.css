@@ -213,6 +213,7 @@ form .field input[type="submit"]:hover {
   }
   .wrapper{
     max-width: 600px;
+    margin-bottom: 100px;
   }
 }
 

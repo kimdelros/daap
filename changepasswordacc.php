@@ -32,7 +32,7 @@ isAccounting($user->data()->groups);
                     </a>
                 </li>
                 <li>
-                    <a href="registrar.php">
+                    <a href="accounting.php">
                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class="title">Dashboard</span>
                     </a>
@@ -164,7 +164,7 @@ isAccounting($user->data()->groups);
         resetIdleTimeout();
 
         // Reset the idle timeout on any of the events listed below
-        ['click', 'touchstart', 'mousemove'].forEach(evt => 
+        ['click', 'touchstart', 'mousemove'].forEach(evt =>
             document.addEventListener(evt, resetIdleTimeout, false)
         );
 

@@ -297,6 +297,18 @@ form .field input[type="submit"]{
   transition: all 0.3s ease;
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1280px){
+  .regWrapper {
+  	margin: 70px auto;
+  	padding: 20px;
+  	background: #e7e7e7;
+  	border-radius: 5px;
+  	width: 50%;
+  	position: relative;
+  	transition: all 3s ease-in-out;
+  }
+}
+
 @media only screen and (min-width: 769px) and (max-width: 991px){
   .regWrapper {
   	margin: 70px auto;
