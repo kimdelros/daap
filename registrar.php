@@ -143,42 +143,62 @@ $view = new viewtable();
             </div>
 
             <?php
+
+            $chartData = new chartData();
             $year1 = date("Y");
             $year2 = date("Y")-2;
             $year3 = date("Y")-1;
             $year4 = date("Y")+1;
+
+            if(date("m")>6){
+                $label1 = "2nd Sem AY $year2-$year3";
+                $label2 = "1st Sem AY $year3-$year1";
+                $label3 = "2nd Sem AY $year3-$year1";
+                $label4 = "1st Sem AY $year1-$year4";
+
+                $data1 = $chartData->getData($year2, 1);
+                $data2 = $chartData->getData($year3, 2);
+                $data3 = $chartData->getData($year3, 1);
+                $data4 = $chartData->getData($year1, 2);
+            }else{
+                $label1 = "1st Sem AY $year2-$year3";
+                $label2 = "2nd Sem AY $year2-$year3";
+                $label3 = "1st Sem AY $year3-$year1";
+                $label4 = "2nd Sem AY $year3-$year1";
+
+                $data1 = $chartData->getData($year2, 2);
+                $data2 = $chartData->getData($year2, 1);
+                $data3 = $chartData->getData($year3, 2);
+                $data4 = $chartData->getData($year3, 1);
+            }
             ?>
 
             <script>
                 // chart js
                 const ctx = document.getElementById('myChart').getContext('2d');
 
-                var date = new Date();
-
                 var year1 = <?php echo $year1;?>;
                 var year2 = <?php echo $year2;?>;
                 var year3 = <?php echo $year3;?>;
                 var year4 = <?php echo $year4;?>;
 
-                if(date.getMonth()>6){
-                    var label1 = "2nd Sem AY "+year2+"-"+year3;
-                    var label2 = "1st Sem AY "+year3+"-"+year1;
-                    var label3 = "2nd Sem AY "+year3+"-"+year1;
-                    var label4 = "1st Sem AY "+year1+"-"+year4;
-                }else{
-                    var label1 = "1st Sem AY "+year3+"-"+year1;
-                    var label2 = "2nd Sem AY "+year3+"-"+year1;
-                    var label3 = "1st Sem AY "+year1+"-"+year4;
-                    var label4 = "2nd Sem AY "+year1+"-"+year4;
-                }
+                var label1 = "<?php echo $label1;?>";
+                var label2 = "<?php echo $label2;?>";
+                var label3 = "<?php echo $label3;?>";
+                var label4 = "<?php echo $label4;?>";
 
+                var data1 = <?php echo $data1;?>;
+                var data2 = <?php echo $data2;?>;
+                var data3 = <?php echo $data3;?>;
+                var data4 = <?php echo $data4;?>;
+                
                 const myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: [label1, label2, label3, label4],
                         datasets: [{
                             label: 'Number of Applications per Semester',
-                            data: [50, 64, 34, 98],
+                            data: [data1, data2, data3, data4],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
@@ -218,8 +238,6 @@ $view = new viewtable();
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="resource/js/script.js"></script>
-    <script src="resource/js/mychart.js"></script>
-    <script src="resource/js/pendingActions.js"></script>
 
     <script>
     (function() {
