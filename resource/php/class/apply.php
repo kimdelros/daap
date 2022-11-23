@@ -277,27 +277,28 @@ class apply extends config{
            else if($ceisDiploma['size'] >= $maxSize)
              $message = "File too large. File must be less than 2 megabytes.";
            else {
-             do{
-               $transID = $this->getTransID('CEIS-');
-             }while($this->checkTransID($transID));
-             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "3", $transID);
+            //  do{
+            //    $transID = $this->getTransID('CEIS-');
+            //  }while($this->checkTransID($transID));
+            //  $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "3", $transID);
 
-             $CDIP = $this->storeFile($ceisDiploma, "6", $transID);
-             $this->applyCEIS($lastID, $CEISstudentID, $CDIP);
-             echo "<script>
-             Swal.fire({
-                    title: \"Your application has been submitted!\",
-                    html: \"Your tracking ID is: <br>\" +
-                    \"<b>$transID</b>\",
-                    icon: \"success\",
-                    width: 700
-              }).then(function() {
-                    window.location = \"index.php\";
-              });
-             </script>";
-             sendConfirmationEmail($studentName, $studentEmail, "CEIS Graduate Discount", $transID);
-             notifyRegistrar("CEIS Graduate Discount", $transID);
-             exit();
+            //  $CDIP = $this->storeFile($ceisDiploma, "6", $transID);
+            //  $this->applyCEIS($lastID, $CEISstudentID, $CDIP);
+            //  echo "<script>
+            //  Swal.fire({
+            //         title: \"Your application has been submitted!\",
+            //         html: \"Your tracking ID is: <br>\" +
+            //         \"<b>$transID</b>\",
+            //         icon: \"success\",
+            //         width: 700
+            //   }).then(function() {
+            //         window.location = \"index.php\";
+            //   });
+            //  </script>";
+            //  sendConfirmationEmail($studentName, $studentEmail, "CEIS Graduate Discount", $transID);
+            //  notifyRegistrar("CEIS Graduate Discount", $transID);
+            //  exit();
+            var_dump($ceisDiploma['size']);
            }
            echo "<script>
            Swal.fire({
