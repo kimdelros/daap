@@ -108,6 +108,8 @@ class apply extends config{
     }
 
     public function verifyAlumni($studentID, $studentEmail, $studentName, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){
+      $maxSize = 2097152;
+
       $yb = pathinfo($alumniYB['name'], PATHINFO_EXTENSION);
       $dip = pathinfo($alumniDiploma['name'], PATHINFO_EXTENSION);
       $tor = pathinfo($alumniTOR['name'], PATHINFO_EXTENSION);
@@ -128,6 +130,8 @@ class apply extends config{
              $message = "Alumni's TOR must be an image file only.";
            else if($yb == '' && $dip == '' && $tor == '')
              $message = "Please upload atleast one document.";
+           else if($alumniYB['size'] >= $maxSize && $alumniDiploma ['size'] >= $maxSize && $alumniTOR['size'] >= $maxSize)
+             $message = "File too large. File must be less than 2 megabytes.";
            else {
              do{
                $transID = $this->getTransID('ALUM-');
@@ -184,6 +188,8 @@ class apply extends config{
      }
 
     public function verifySibling($studentID, $studentEmail, $studentName, $siblingID, $siblingName, $applicantCOM, $siblingCOM){
+      $maxSize = 2097152;
+
       $acom = pathinfo($applicantCOM['name'], PATHINFO_EXTENSION);
       $scom = pathinfo($siblingCOM['name'], PATHINFO_EXTENSION);
 
@@ -207,6 +213,8 @@ class apply extends config{
              $message = "Applicant's COM must be an image file only!";
            else if($scom !== 'gif' && $scom !== 'png' && $scom !== 'jpg' && $scom !== 'jpeg' && $scom !== 'jfif')
              $message = "Sibling's COM must be an image file only!";
+           else if($applicantCOM['size'] >= $maxSize && $siblingCOM ['size'] >= $maxSize)
+             $message = "File too large. File must be less than 2 megabytes.";
            else {
              do{
                $transID = $this->getTransID('SIBL-');
@@ -253,6 +261,8 @@ class apply extends config{
      }
 
     public function verifyCEIS($studentID, $CEISstudentID, $studentEmail, $studentName, $ceisDiploma){
+      $maxSize = 2097152;
+
       $dip = pathinfo($ceisDiploma['name'], PATHINFO_EXTENSION);
 
          if($this->verifyStudent($studentID, $studentEmail, $studentName)){
@@ -264,6 +274,8 @@ class apply extends config{
              $message = "Applicant's CEIS Diploma is required.";
            else if($dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif')
              $message = "Applicant's CEIS Diploma must be an image file only.";
+           else if($ceisDiploma['size'] >= $maxSize)
+             $message = "File too large. File must be less than 2 megabytes.";
            else {
              do{
                $transID = $this->getTransID('CEIS-');

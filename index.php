@@ -289,7 +289,7 @@
               </div>
             </div>
             <div class="col-12 text-center">
-              <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyCEIS" value="Apply">
+              <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyCEIS" id="applyCEIS" value="Apply">
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyCEIS']){
                 $applyClass = new apply();
