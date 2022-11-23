@@ -23,7 +23,7 @@ private function verifyUsername($username){
         return $error = "Input Error.\\n<b>$username</b> is taken. Please enter a new username."; 
     if(preg_match("/\s/", $username))
         return $error = "Input Error.\\nUsername should not contain any white space";
-    if(preg_match("/\W/", $username))
+    if(preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $username))
         return $error = "Input Error.\\nUsername should not contain any special character";
      
     return $error = "";
@@ -53,14 +53,13 @@ private function verifyPassword($password, $confirmPassword){
 }
 
 private function verifyFullname($fullname){
-    $name = str_replace('.', '', $fullname);
-    if($name == "" || $name == null)
+    if($fullname == "" || $fullname == null)
         return $error = "Input Error.\\nPlease enter your full name.";
-    if(preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $name))
+    if(preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $fullname))
         return $error = "Input Error.\\nName should not contain any special character";
-    if(preg_match("/\d/", $name))
+    if(preg_match("/\d/", $fullname))
         return $error = "Input Error.\\nName should not contain any digit";
-    if(preg_match("/\s\s/", $name))
+    if(preg_match("/\s\s/", $fullname))
         return $error = "Input Error.\\nName should not contain too much spaces";
      
     return $error = "";

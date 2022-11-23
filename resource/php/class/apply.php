@@ -94,7 +94,7 @@ class apply extends config{
       $stmt->execute();
       $lastID = $link->lastInsertId();
       $link->connection = null;
-      return ($lastID);
+      return $lastID;
     }
 
    private function applyAlumni($lastID, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){

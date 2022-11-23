@@ -88,7 +88,7 @@ $view = new view;
                                 <input type="hidden" name ="Token" value="<?php echo Token::generate();?>" />
                                  <input type="submit" value="Register New SRA" class=" form-control btn btn-success" name="register" id="register" />
                                  <?php
-                                if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['register']){
+                                if($_SERVER['REQUEST_METHOD']=='POST'){
                                     $registerAccount = new registerAccount();
                                     $registerAccount->verifyAdmin($_POST['username'], $_POST['password'], $_POST['ConfirmPassword'], $_POST['fullName'], $_POST['College'], $_POST['email']);
                                 }
