@@ -108,7 +108,7 @@ class apply extends config{
     }
 
     public function verifyAlumni($studentID, $studentEmail, $studentName, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){
-      $maxSize = 2097152;
+      $maxSize = 2 * 1024 * 1024;
 
       $yb = pathinfo($alumniYB['name'], PATHINFO_EXTENSION);
       $dip = pathinfo($alumniDiploma['name'], PATHINFO_EXTENSION);
@@ -188,7 +188,7 @@ class apply extends config{
      }
 
     public function verifySibling($studentID, $studentEmail, $studentName, $siblingID, $siblingName, $applicantCOM, $siblingCOM){
-      $maxSize = 2097152;
+      $maxSize = 2 * 1024 * 1024;
 
       $acom = pathinfo($applicantCOM['name'], PATHINFO_EXTENSION);
       $scom = pathinfo($siblingCOM['name'], PATHINFO_EXTENSION);
@@ -261,7 +261,7 @@ class apply extends config{
      }
 
     public function verifyCEIS($studentID, $CEISstudentID, $studentEmail, $studentName, $ceisDiploma){
-      $maxSize = 2097152;
+      $maxSize = 2 * 1024 * 1024;
 
       $dip = pathinfo($ceisDiploma['name'], PATHINFO_EXTENSION);
 
@@ -274,33 +274,30 @@ class apply extends config{
              $message = "Applicant's CEIS Diploma is required.";
            else if($dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif')
              $message = "Applicant's CEIS Diploma must be an image file only.";
-           else if($ceisDiploma['size'] >= $maxSize){
-            
-            var_dump($ceisDiploma['size']);
-            $message = "File too large. File must be less than 2 megabytes.";
-           }
+           else if($ceisDiploma['size'] >= $maxSize)
+            $message = "File too large. File must be less than 2MB.";
            else {
-            //  do{
-            //    $transID = $this->getTransID('CEIS-');
-            //  }while($this->checkTransID($transID));
-            //  $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "3", $transID);
+             do{
+               $transID = $this->getTransID('CEIS-');
+             }while($this->checkTransID($transID));
+             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "3", $transID);
 
-            //  $CDIP = $this->storeFile($ceisDiploma, "6", $transID);
-            //  $this->applyCEIS($lastID, $CEISstudentID, $CDIP);
-            //  echo "<script>
-            //  Swal.fire({
-            //         title: \"Your application has been submitted!\",
-            //         html: \"Your tracking ID is: <br>\" +
-            //         \"<b>$transID</b>\",
-            //         icon: \"success\",
-            //         width: 700
-            //   }).then(function() {
-            //         window.location = \"index.php\";
-            //   });
-            //  </script>";
-            //  sendConfirmationEmail($studentName, $studentEmail, "CEIS Graduate Discount", $transID);
-            //  notifyRegistrar("CEIS Graduate Discount", $transID);
-            //  exit();
+             $CDIP = $this->storeFile($ceisDiploma, "6", $transID);
+             $this->applyCEIS($lastID, $CEISstudentID, $CDIP);
+             echo "<script>
+             Swal.fire({
+                    title: \"Your application has been submitted!\",
+                    html: \"Your tracking ID is: <br>\" +
+                    \"<b>$transID</b>\",
+                    icon: \"success\",
+                    width: 700
+              }).then(function() {
+                    window.location = \"index.php\";
+              });
+             </script>";
+             sendConfirmationEmail($studentName, $studentEmail, "CEIS Graduate Discount", $transID);
+             notifyRegistrar("CEIS Graduate Discount", $transID);
+             exit();
            }
            echo "<script>
            Swal.fire({
