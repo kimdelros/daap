@@ -355,7 +355,7 @@ body {
       overflow: hidden;
   }
   .toggle{
-    opacity: 0;
+    visibility: hidden;
   }
   .main {
       position: absolute;
