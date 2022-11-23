@@ -274,8 +274,11 @@ class apply extends config{
              $message = "Applicant's CEIS Diploma is required.";
            else if($dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif')
              $message = "Applicant's CEIS Diploma must be an image file only.";
-           else if($ceisDiploma['size'] >= $maxSize)
-             $message = "File too large. File must be less than 2 megabytes.";
+           else if($ceisDiploma['size'] >= $maxSize){
+            
+            var_dump($ceisDiploma['size']);
+            $message = "File too large. File must be less than 2 megabytes.";
+           }
            else {
             //  do{
             //    $transID = $this->getTransID('CEIS-');
@@ -298,7 +301,6 @@ class apply extends config{
             //  sendConfirmationEmail($studentName, $studentEmail, "CEIS Graduate Discount", $transID);
             //  notifyRegistrar("CEIS Graduate Discount", $transID);
             //  exit();
-            var_dump($ceisDiploma['size']);
            }
            echo "<script>
            Swal.fire({
