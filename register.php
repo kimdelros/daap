@@ -20,17 +20,11 @@ $view = new view;
 
  </head>
  <body>
-         <nav class="navbar navbar-dark bg-white shadow-sm slide-in-left">
+         <nav class="navbar navbar-dark shadow-lg p-3 mb-5 rounded slide-in-left">
            <a class="navbar-brand" href="https://malolos.ceu.edu.ph/">
              <img src="resource/img/DAAPlogo.png" height="65" class="d-inline-block align-top"
                alt="mdb logo"><h3 class="ib">
            </a>
-           <a href="exportTableAdmin.php"><i class="fas fa-table ceucolor"></i></a>
-           <a href="statsAdmin.php"><i class="fas fa-chart-line ceucolor"></i></a>
-           <a href="userVerificationAdmin.php"><i class="fas fa-user-plus ceucolor"></i></a>
-           <a href="verificationAdmin.php"><i class="fas fa-user-graduate ceucolor"></i></a>
-           <a href="viewAlumniAdmin.php"><i class="fa fa-graduation-cap ceucolor"></i></a>
-           <a href="nTransactionAdmin.php"><i class="fas fa-file-upload ceucolor"></i></a>
            <a href="registrar.php"><i class="fas fa-home ceucolor"></i></a>
          </nav>
 
@@ -45,15 +39,15 @@ $view = new view;
                     <tr>
                         <td>
                             <div class="row justify-content-center">
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4">
                                  <label for = "username" class=""> Username:</label>
                                  <input class="form-control"  type = "text" name="username" id="username" value ="<?php echo input::get('username');?>" autocomplete="off" required />
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4">
                                  <label for = "password"> Password:</label>
                                  <input type="password" class="form-control" name="password" id="password" value ="<?php echo input::get('password');?>" autocomplete="off" required/>
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4">
                                  <label for = "ConfirmPassword"> Confirm Password:</label>
                                  <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value ="<?php echo input::get('ConfirmPassword');?>" autocomplete="off"required/>
                                 </div>
@@ -63,17 +57,17 @@ $view = new view;
                     <tr>
                         <td>
                             <div class="row justify-content-center">
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4">
                                  <label for = "fullName" class=""> Full Name</label>
                                  <input class="form-control" type = "text" name="fullName" id="fullName" value ="<?php echo input::get('fullName');?>" required>
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4">
                                   <label for="College" >College/s to handle</label>
                                       <select id="College" name="College" class="selectpicker form-control" data-live-search="true" required>
                                         <?php $view->collegeSP2();?>
                                       </select>
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-12 col-md-6 col-lg-4">
                                  <label for = "email" class=""> Email Address</label>
                                  <input class="form-control" type = "text" name="email" id="email" value ="<?php echo input::get('email');?>" required>
                                 </div>
