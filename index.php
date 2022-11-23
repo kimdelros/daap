@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <link rel="stylesheet" href="resource/css/home.css">
-    <script src="resource/js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="resource/js/scripts.js"></script>
     <link rel="icon" href="resource/img/daap-icon.png">
     <title>DAAP Homepage</title>
   </head>
@@ -155,19 +155,88 @@
                 <h6 class="Reminder pt-4">*Please upload atleast one document (image file).</h6>
               <div class="col-md-8 pt-3">
                 <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no" onchange="return validateSizeYB()">
+                   <script>
+                    validateSizeYB = () => {
+                      const fi = document.getElementById('alumniYB');
+                      // Check if any file is selected.
+                      if (fi.files.length > 0) {
+                          for (var i = 0; i <= fi.files.length - 1; i++) {
+                    
+                              const fsize = fi.files.item(i).size;
+                              const file = Math.round((fsize / 1024));
+                              // The size of the file.
+                              if (file >= 2048) {
+                                  document.getElementById('alumniYB').value = "";
+                                  Swal.fire({
+                                      title: "File is too big. Please upload a file that is less than 2MB",
+                                      icon: "error",
+                                      width: 900
+                                });
+
+                              }
+                          }
+                      }
+                    }
+                   </script>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="alumniDiploma" class="form-label">Alumni's Diploma</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*" autocomplete="no">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*" autocomplete="no" onchange="return validateSizeDip()">
+                   <script>
+                    validateSizeDip = () => {
+                      const fi = document.getElementById('alumniDiploma');
+                      // Check if any file is selected.
+                      if (fi.files.length > 0) {
+                          for (var i = 0; i <= fi.files.length - 1; i++) {
+                    
+                              const fsize = fi.files.item(i).size;
+                              const file = Math.round((fsize / 1024));
+                              // The size of the file.
+                              if (file >= 2048) {
+                                  document.getElementById('alumniYB').value = "";
+                                  Swal.fire({
+                                      title: "File is too big. Please upload a file that is less than 2MB",
+                                      icon: "error",
+                                      width: 900
+                                });
+
+                              }
+                          }
+                      }
+                    }
+                    </script>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="alumniTOR" class="form-label">Alumni's TOR</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniTOR" id="alumniTOR" accept="image/*" autocomplete="no">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="alumniTOR" id="alumniTOR" accept="image/*" autocomplete="no" onchange="return validateSizeTOR()">
+                   <script>
+                    validateSizeTOR = () => {
+                      const fi = document.getElementById('alumniTOR');
+                      // Check if any file is selected.
+                      if (fi.files.length > 0) {
+                          for (var i = 0; i <= fi.files.length - 1; i++) {
+                    
+                              const fsize = fi.files.item(i).size;
+                              const file = Math.round((fsize / 1024));
+                              // The size of the file.
+                              if (file >= 2048) {
+                                  document.getElementById('alumniYB').value = "";
+                                  Swal.fire({
+                                      title: "File is too big. Please upload a file that is less than 2MB",
+                                      icon: "error",
+                                      width: 900
+                                });
+
+                              }
+                          }
+                      }
+                    }
+                    </script>
               </div>
             </div>
             <div class="col-12 text-center">
@@ -225,13 +294,59 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="applicantCOM" class="form-label">Applicant's COM</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="applicantCOM" id="applicantCOM" accept="image/*" autocomplete="no">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="applicantCOM" id="applicantCOM" accept="image/*" autocomplete="no" onchange="return validateSizeACOM()">
+                   <script>
+                    validateSizeACOM = () => {
+                      const fi = document.getElementById('applicantCOM');
+                      // Check if any file is selected.
+                      if (fi.files.length > 0) {
+                          for (var i = 0; i <= fi.files.length - 1; i++) {
+                    
+                              const fsize = fi.files.item(i).size;
+                              const file = Math.round((fsize / 1024));
+                              // The size of the file.
+                              if (file >= 2048) {
+                                  document.getElementById('alumniYB').value = "";
+                                  Swal.fire({
+                                      title: "File is too big. Please upload a file that is less than 2MB",
+                                      icon: "error",
+                                      width: 900
+                                });
+
+                              }
+                          }
+                      }
+                    }
+                    </script>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="siblingCOM" class="form-label">Sibling's COM</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="image/*" autocomplete="no">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="image/*" autocomplete="no" onchange="return validateSizeSCOM()">
+                   <script>
+                    validateSizeSCOM = () => {
+                      const fi = document.getElementById('siblingCOM');
+                      // Check if any file is selected.
+                      if (fi.files.length > 0) {
+                          for (var i = 0; i <= fi.files.length - 1; i++) {
+                    
+                              const fsize = fi.files.item(i).size;
+                              const file = Math.round((fsize / 1024));
+                              // The size of the file.
+                              if (file >= 2048) {
+                                  document.getElementById('alumniYB').value = "";
+                                  Swal.fire({
+                                      title: "File is too big. Please upload a file that is less than 2MB",
+                                      icon: "error",
+                                      width: 900
+                                });
+
+                              }
+                          }
+                      }
+                    }
+                    </script>
               </div>
             </div>
             <p class="text-center">*Kindly convert your COM into an image file.</p>
@@ -285,11 +400,34 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="ceisDiploma" class="form-label">CEIS Diploma (Image Upload)</label>
-                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="image/*" autocomplete="no">
+                   <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="image/*" autocomplete="no" onchange="return validateSizeCEISDip()">
+                   <script>
+                    validateSizeCEISDip = () => {
+                      const fi = document.getElementById('ceisDiploma');
+                      // Check if any file is selected.
+                      if (fi.files.length > 0) {
+                          for (var i = 0; i <= fi.files.length - 1; i++) {
+                    
+                              const fsize = fi.files.item(i).size;
+                              const file = Math.round((fsize / 1024));
+                              // The size of the file.
+                              if (file >= 2048) {
+                                  document.getElementById('alumniYB').value = "";
+                                  Swal.fire({
+                                      title: "File is too big. Please upload a file that is less than 2MB",
+                                      icon: "error",
+                                      width: 900
+                                });
+
+                              }
+                          }
+                      }
+                    }
+                    </script>
               </div>
             </div>
             <div class="col-12 text-center">
-              <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyCEIS" id="applyCEIS" value="Apply">
+              <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyCEIS" id="applyCEIS" value="Apply"></input>              
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyCEIS']){
                 $applyClass = new apply();

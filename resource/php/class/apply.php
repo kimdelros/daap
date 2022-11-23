@@ -110,9 +110,9 @@ class apply extends config{
     public function verifyAlumni($studentID, $studentEmail, $studentName, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){
       $maxSize = 2 * 1024 * 1024;
 
-      $yb = pathinfo($alumniYB['name'], PATHINFO_EXTENSION);
-      $dip = pathinfo($alumniDiploma['name'], PATHINFO_EXTENSION);
-      $tor = pathinfo($alumniTOR['name'], PATHINFO_EXTENSION);
+      $yb = strtolower(pathinfo($alumniYB['name'], PATHINFO_EXTENSION));
+      $dip = strtolower(pathinfo($alumniDiploma['name'], PATHINFO_EXTENSION));
+      $tor = strtolower(pathinfo($alumniTOR['name'], PATHINFO_EXTENSION));
 
       $tempAName = str_replace(' ', '', $alumniName);
       $tempAName = str_replace('.', '', $tempAName);
@@ -190,8 +190,8 @@ class apply extends config{
     public function verifySibling($studentID, $studentEmail, $studentName, $siblingID, $siblingName, $applicantCOM, $siblingCOM){
       $maxSize = 2 * 1024 * 1024;
 
-      $acom = pathinfo($applicantCOM['name'], PATHINFO_EXTENSION);
-      $scom = pathinfo($siblingCOM['name'], PATHINFO_EXTENSION);
+      $acom = strtolower(pathinfo($applicantCOM['name'], PATHINFO_EXTENSION));
+      $scom = strtolower(pathinfo($siblingCOM['name'], PATHINFO_EXTENSION));
 
       $tempSName = str_replace(' ', '', $siblingName);
       $tempSName = str_replace('.', '', $tempSName);
@@ -263,7 +263,7 @@ class apply extends config{
     public function verifyCEIS($studentID, $CEISstudentID, $studentEmail, $studentName, $ceisDiploma){
       $maxSize = 2 * 1024 * 1024;
 
-      $dip = pathinfo($ceisDiploma['name'], PATHINFO_EXTENSION);
+      $dip = strtolower(pathinfo($ceisDiploma['name'], PATHINFO_EXTENSION));
 
          if($this->verifyStudent($studentID, $studentEmail, $studentName)){
            if($CEISstudentID == "")
