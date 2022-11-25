@@ -114,7 +114,7 @@ $view = new viewtable();
                 <a href="approveCeis.php"><div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewApprovedSummaryCard("3"); ?></div>
-                        <div class="cardName">Approved CEIS Graduate</div>
+                        <div class="cardName">Approved CEIS Graduate Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="school-outline"></ion-icon>

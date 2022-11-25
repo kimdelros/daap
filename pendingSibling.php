@@ -118,11 +118,31 @@ $view = new viewtable();
             <!-- application details -->
             <div class="details">
                 <div class="applyDetails">
-                    <?php $view->viewRequests("2");
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="false">Approved</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="onhold-tab" data-toggle="tab" href="#onhold" role="tab" aria-controls="onhold" aria-selected="false">On-Hold</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="reject-tab" data-toggle="tab" href="#reject" role="tab" aria-controls="reject" aria-selected="false">Rejected</a>
+                </li>
+                </ul>
+                <div class="tab-content mt-5" id="myTabContent">
+                    <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab"><?php $view->viewRequests("2");
                     if($_SERVER['REQUEST_METHOD']=='POST'){
                       $action = new action();
                       $action->execute();
-                    }?>
+                    }?></div>
+                    <div class="tab-pane fade" id="approved" role="tabpanel" aria-labelledby="approved-tab">...</div>
+                    <div class="tab-pane fade" id="onhold" role="tabpanel" aria-labelledby="onhold-tab">...</div>
+                    <div class="tab-pane fade" id="reject" role="tabpanel" aria-labelledby="reject-tab">...</div>
+                </div>
+                    
                 </div>
             </div>
         </div>

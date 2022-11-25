@@ -1,6 +1,7 @@
 <?php
   require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
   require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/apply.php';
+  $view = new view();
  ?>
  <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -135,22 +136,66 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                <label for="studentEmail" class="form-label">Email Address</label>
-                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz2200000@ceu.edu.ph" autocomplete="no">
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
                 <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
+                <label for="studentEmail" class="form-label">Email Address</label>
+                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz2200000@ceu.edu.ph" autocomplete="no">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="yearLevel" class="form-label">Year Level</label>
+                  <select id="couryearLevelse" name="yearLevel" class="selectpicker form-control text-center" value="" title="Select Year Level" required>
+                  <?php $view->yearLevel(); ?>  
+                </select>
+              </div>
+            </div><div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="course" class="form-label">Course / Degree</label>
+                  <select id="course" name="course" class="selectpicker form-control text-center" title="Select Course / Degree" required>
+                    <?php $view->course(); ?>
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="campus" class="form-label">Campus</label>
+                  <select id="campus" name="campus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <?php $view->campus(); ?>
+                  </select>
+              </div>
+            </div>
+            
+
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
                 <label for="alumniName" class="form-label">Alumni's Full Name</label>
                 <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
               </div>
             </div>
+
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="campus" class="form-label">Graduated Campus</label>
+                  <select id="campus" name="campus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <?php $view->campus(); ?>
+                  </select>
+              </div>
+            </div>
+
+            <div class="row justify-content-center text-center">
+            <div class="col-md-8  pt-3">
+                  <label for="years" class="form-label">Year Graduated</label>
+                  <select id="years" name="years" class="selectpicker form-control text-center" title="Select Year Graduated" required>
+                    <?php $view->years(); ?>
+                  </select>
+              </div>
+            </div>
+            
             <div class="row justify-content-center text-center">
                 <h6 class="Reminder pt-4">*Please upload atleast one document (image file).</h6>
               <div class="col-md-8 pt-3">

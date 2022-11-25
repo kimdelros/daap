@@ -116,7 +116,7 @@ $view = new viewtable();
                 <div class="card">
                     <div>
                         <div class="numbers"><?php echo $view->viewPendingSummaryCard("3"); ?></div>
-                        <div class="cardName">Pending CEIS Graduate</div>
+                        <div class="cardName">Pending CEIS Graduate Discount</div>
                     </div>
                     <div class="iconDisplay">
                         <ion-icon name="school-outline"></ion-icon>

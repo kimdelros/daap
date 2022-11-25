@@ -105,15 +105,15 @@ isRegistrar($user->data()->groups);
                             <div class="row justify-content-md-center">
                                 <div class="form-group col-12 col-md-6 col-lg-4 pt-3">
                                  <label for = "password_current"> Enter Current Password:</label>
-                                 <input type="password" class="form-control" name="password_current" id="password" value="<?php echo input::get('password_current');?>" autocomplete="off" required/>
+                                 <input type="password" class="form-control" name="password_current" id="password" value="<?php echo Input::get('password_current');?>" autocomplete="off" required/>
                                 </div>
                                 <div class="form-group col-12 col-md-6 col-lg-4 pt-3">
                                  <label for = "password"> Enter New Password:</label>
-                                 <input type="password" class="form-control" name="password" id="password" value="<?php echo input::get('password');?>" autocomplete="off" required/>
+                                 <input type="password" class="form-control" name="password" id="password" value="<?php echo Input::get('password');?>" autocomplete="off" required/>
                                 </div>
                                 <div class="form-group col-12 col-md-6 col-lg-4 pt-3">
                                  <label for = "ConfirmPassword"> Confirm New Password:</label>
-                                 <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value="<?php echo input::get('ConfirmPassword');?>" autocomplete="off" required/>
+                                 <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" value="<?php echo Input::get('ConfirmPassword');?>" autocomplete="off" required/>
                                 </div>
                              </div>
                         </td>

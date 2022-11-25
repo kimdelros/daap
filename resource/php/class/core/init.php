@@ -3,11 +3,19 @@ date_default_timezone_set('Asia/Manila');
 session_start();
 $GLOBALS['config'] = array(
     'mysql'=>array(
+        //localhost connection
         'host' => '127.0.0.1:3306',
         'username' =>'root',
         'password' =>'',
         'db'=>'daap'
     ),
+    // 'mysql'=>array(
+        //hostinger connection
+    //     'host' => '109.106.251.63',
+    //     'username' =>'port7396_daap',
+    //     'password' =>'p@ssw0rdBSIT4A',
+    //     'db'=>'port7396_daap'
+    // ),  
     'remember'=>array(
         'cookie_name' => 'hash',
         'cookie_expiry' =>604800
@@ -16,7 +24,35 @@ $GLOBALS['config'] = array(
         'session_name' =>'user',
         'token_name' =>'token'
     )
+
+     
 );
+
+$GLOBALS['config2'] = array(
+    'mysql'=>array(
+        //localhost connection
+        'host' => '127.0.0.1:3306',
+        'username' =>'root',
+        'password' =>'',
+        'db'=>'daap'
+    ),
+    // 'mysql'=>array(
+        //hostinger connection
+    //     'host' => '109.106.251.63',
+    //     'username' =>'port7396_daap',
+    //     'password' =>'p@ssw0rdBSIT4A',
+    //     'db'=>'port7396_daap'
+    // ),
+    'remember'=>array(
+        'cookie_name' => 'hash',
+        'cookie_expiry' =>604800
+    ),
+    'session'=>array(
+        'session_name' =>'user',
+        'token_name' =>'token'
+    )
+    );
+
 
 spl_autoload_register(function($class){
     require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/'.$class.'.php';
