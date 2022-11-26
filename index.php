@@ -148,23 +148,23 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="yearLevel" class="form-label">Year Level</label>
-                  <select id="couryearLevelse" name="yearLevel" class="selectpicker form-control text-center" value="" title="Select Year Level" required>
-                  <?php $view->yearLevel(); ?>  
-                </select>
+                  <label for="studentYearLevel" class="form-label">Year Level</label>
+                  <select id="studentYearLevel" name="studentYearLevel" class="selectpicker form-control text-center" data-live-search="true" required>
+                    <?php $view->yearLevel(); ?>  
+                  </select>
               </div>
             </div><div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="course" class="form-label">Course / Degree</label>
-                  <select id="course" name="course" class="selectpicker form-control text-center" title="Select Course / Degree" required>
-                    <?php $view->course(); ?>
+                  <label for="studentCourse" class="form-label">Course / Degree</label>
+                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control text-center" data-live-search="true" required>
+                    <?php $view->collegeSP2();?>
                   </select>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="campus" class="form-label">Campus</label>
-                  <select id="campus" name="campus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <label for="studentCampus" class="form-label">Campus</label>
+                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
                   <?php $view->campus(); ?>
                   </select>
               </div>
@@ -180,8 +180,8 @@
 
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="campus" class="form-label">Graduated Campus</label>
-                  <select id="campus" name="campus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <label for="campusGraduated" class="form-label">Campus Graduated</label>
+                  <select id="campusGraduated" name="campusGraduated" class="selectpicker form-control text-center" title="Select Campus" required>
                   <?php $view->campus(); ?>
                   </select>
               </div>
@@ -189,15 +189,15 @@
 
             <div class="row justify-content-center text-center">
             <div class="col-md-8  pt-3">
-                  <label for="years" class="form-label">Year Graduated</label>
-                  <select id="years" name="years" class="selectpicker form-control text-center" title="Select Year Graduated" required>
+                  <label for="yearGraduated" class="form-label">Year Graduated</label>
+                  <select id="yearGraduated" name="yearGraduated" class="selectpicker form-control text-center" title="Select Year Graduated" required>
                     <?php $view->years(); ?>
                   </select>
               </div>
             </div>
             
             <div class="row justify-content-center text-center">
-                <h6 class="Reminder pt-4">*Please upload atleast one document (image file).</h6>
+                <h6 class="Reminder pt-4">*Please upload atleast one document (image file)*<br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
                 <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no" onchange="return validateSizeYB()">
@@ -289,7 +289,7 @@
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyAlumni']){
                 $applyClass = new apply();
-                $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['alumniName'], $_FILES['alumniYB'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
+                $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['studentCourse'], $_POST['studentCampus'], $_POST['alumniName'], $_POST['campusGraduated'], $_POST['yearGraduated'], $_FILES['alumniYB'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
               }
                ?>
             </div>
@@ -496,7 +496,9 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
   <script type="text/javascript" src="https://rawgit.com/DanielHoffmann/jquery-svg-pan-zoom/master/compiled/jquery.svg.pan.zoom.js"></script>
   <script src="resource/js/map.js"></script>
-    
+
+     <script src="vendor/js/popper.js"></script>
+     <script src="vendor/js/bootstrap.min.js"></script>
   <script>
         $(function () {
         $('[data-toggle=" "]').tooltip()

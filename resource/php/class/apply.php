@@ -107,7 +107,7 @@ class apply extends config{
       $link->connection = null;
     }
 
-    public function verifyAlumni($studentID, $studentEmail, $studentName, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){
+    public function verifyAlumni($studentID, $studentEmail, $studentName, $studentYearLevel, $studentCourse, $studentCampus, $alumniName, $alumniCampusGraduated, $alumniYearGraduated, $alumniYB, $alumniDiploma, $alumniTOR){
       $maxSize = 2 * 1024 * 1024;
 
       $yb = strtolower(pathinfo($alumniYB['name'], PATHINFO_EXTENSION));

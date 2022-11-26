@@ -31,16 +31,10 @@ class view extends config{
         }
 
         public function campus(){
-            $config = new config;
-            $con = $config->con();
-            $sql = "SELECT * FROM `tbl_campus`";
-            $data = $con-> prepare($sql);
-            $data ->execute();
-            $rows =$data-> fetchAll(PDO::FETCH_OBJ);
-                foreach ($rows as $row) {
-                  echo '<option data-tokens=".'.$row->campus.'." value="'.$row->campus.'">'.$row->campus.'</option>';
-                  echo 'success';
-                }
+          echo '<option data-tokens="Malolos" value="Malolos">Malolos</option>';
+          echo '<option data-tokens="Manila" value="Manila">Manila</option>';
+          echo '<option data-tokens="Makati" value="Makati">Makati</option>';
+          echo 'success';
         }
 
         public function yearLevel() {
@@ -48,11 +42,15 @@ class view extends config{
             echo '<option data-tokens="2nd Year" value="2nd Year">2nd Year</option>';
             echo '<option data-tokens="3rd Year" value="3rd Year">3rd Year</option>';
             echo '<option data-tokens="4th Year" value="4th Year">4th Year</option>';
+            echo '<option data-tokens="5th Year" value="5th Year">5th Year</option>';
+            echo '<option data-tokens="6th Year" value="6th Year">6th Year</option>';
+            echo 'success';
         }
 
         public function years() {
-            for ($i = 1940; $i <= date('Y'); $i++) 
+            for ($i = date('Y'); $i >= 1925; $i--) 
            echo '<option data-tokens=".'.$i.'." value="'.$i.'">'.$i.'</option>';
+           echo 'success';
           }
 
         public function getdpSRA(){
