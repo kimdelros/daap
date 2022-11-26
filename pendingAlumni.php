@@ -105,10 +105,10 @@ $view = new viewtable();
                 <div class="applyDetails">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending</a>
+                    <a class="nav-link active text-secondary" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="false">Approved</a>
+                    <a class="nav-link text-secondary" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="false">Approved</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="onhold-tab" data-toggle="tab" href="#onhold" role="tab" aria-controls="onhold" aria-selected="false">On-Hold</a>
@@ -133,7 +133,7 @@ $view = new viewtable();
         </div>
     </div>
 
-    <section class="details" id=></section>
+    <section class="appDetails" id=></section>
 
     <section class="regOverlay" id="viewDoc">
     <div class="regWrapper">

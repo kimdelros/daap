@@ -31,7 +31,7 @@
           <img src="resource/img/DAAPlogo-white.png" alt="daap-logo">
             <div class="info">
                 <h2>Welcome, Escolarian!</h2>
-                <p>DAAP or Discount Application and Alumni Portal is a proposed system for Centro Escolar University wherein the students can apply for the student discount provided by the University called Entrance Grant Benefits. And a collaboration with the Candidate Verification Portal wherein the Alumni can register and provide information so they can view the latest events of the University and the success of their co-Escolarians.</p>
+                <p>DAAP or Discount Application and Alumni Portal is a proposed system for Centro Escolar University wherein the students can apply for the student discount provided by the University called Entrance Benefits. And a collaboration with the Candidate Verification Portal wherein the Alumni can register and provide information so they can view the latest events of the University and the success of their co-Escolarians.</p>
             </div>
           </div>
           <div class="scroll" data-aos="fade-up" data-aos-duration="2000">
@@ -126,8 +126,8 @@
       <a class="close" href="">&times;</a>
       <div class="regContent">
         <div class="regForm">
-          <h2 class="text-center">ALUMNI DISCOUNT FORM</h2>
-          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="POST" action="">
+          <h2 class="text-center font-weight-bold">ALUMNI DISCOUNT FORM</h2>
+          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="POST" action="/index.php">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
@@ -157,21 +157,40 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                   <label for="studentCampus" class="form-label">Campus</label>
-                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" onchange= required>
-                  <?php $view->campus(); ?>
+                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <option value="" selected="selected">Select Campus</option>
                   </select>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                   <label for="studentCourse" class="form-label">Course / Degree</label>
-                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control text-center" data-live-search="true" required>
-                    <?php $view->course();?>
+                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control" data-live-search="true" required>
+                    <option value="" selected="selected">Please select campus first</option>
                   </select>
               </div>
             </div>
             
-            
+            <script>
+              var campuses = {
+                "Malolos": ["HTML","CSS","JavaScript"],
+                "Manila": ["PHP", "SQL"],
+                "Makati": ["C++", "C#"]
+              }
+              window.onload = function() {
+                var campus = document.getElementById("studentCampus");
+                var course = document.getElementById("studentCourse");
+                for (var x in campuses) {
+                  campus.options[campus.options.length] = new Option(x, x);
+                }
+                campus.onchange = function() {
+                course.length = 1;
+                  for (var y in campuses[this.value]) {
+                    course.options[course.options.length] = new Option(y, y);
+                  }
+                }
+              }
+            </script>
 
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
@@ -199,7 +218,7 @@
             </div>
             
             <div class="row justify-content-center text-center">
-                <h6 class="Reminder pt-4">*Please upload atleast one document (image file)*<br>*Maximum of 2MB file size*</h6>
+                <h6 class="Reminder pt-4 text-danger">*Please upload atleast one document (image file)*<br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
                 <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no" onchange="return validateSizeYB()">
