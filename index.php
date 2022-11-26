@@ -153,22 +153,24 @@
                     <?php $view->yearLevel(); ?>  
                   </select>
               </div>
-            </div><div class="row justify-content-center text-center">
+            </div>
+            <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCourse" class="form-label">Course / Degree</label>
-                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control text-center" data-live-search="true" required>
-                    <?php $view->collegeSP2();?>
+                  <label for="studentCampus" class="form-label">Campus</label>
+                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" onchange= required>
+                  <?php $view->campus(); ?>
                   </select>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCampus" class="form-label">Campus</label>
-                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
-                  <?php $view->campus(); ?>
+                  <label for="studentCourse" class="form-label">Course / Degree</label>
+                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control text-center" data-live-search="true" required>
+                    <?php $view->course();?>
                   </select>
               </div>
             </div>
+            
             
 
             <div class="row justify-content-center text-center">
@@ -337,6 +339,7 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
+            <h6 class="Reminder pt-4">*Kindly convert your COM into an image file*<br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
                 <label for="applicantCOM" class="form-label">Applicant's COM</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="applicantCOM" id="applicantCOM" accept="image/*" autocomplete="no" onchange="return validateSizeACOM()">
@@ -394,7 +397,6 @@
                     </script>
               </div>
             </div>
-            <p class="text-center">*Kindly convert your COM into an image file.</p>
             <div class="col-12 text-center">
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applySibling" id="applySibling" value="Apply"></input>
               <?php
@@ -443,6 +445,7 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
+            <h6 class="Reminder pt-4">*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
                 <label for="ceisDiploma" class="form-label">CEIS Diploma (Image Upload)</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="image/*" autocomplete="no" onchange="return validateSizeCEISDip()">
