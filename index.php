@@ -103,18 +103,27 @@
       </div>
     </section> -->
     <section class="map">
-    <div class="container px-5 my-5" >
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-8 col-xl-6">
-                            <div class="text-center">
-                                <h2 class="fw-bolder esco">Escolarians Around the World!</h2>
-                                <p class="lead fw-normal caption-world text-muted mb-4">It's amazing how these successful people benchmarked their success and shared it with the rest of the world.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <?php 
-                    require_once("maps.php");
+    <div class="container px-5 my-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="text-center">
+                    <h2 class="fw-bolder esco">Escolarians Around the World!</h2>
+                    <p class="lead fw-normal caption-world text-muted mb-5">It's amazing how these successful
+                        people benchmarked their success and shared it with the rest of the world.</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="pb-5">Use the scroll wheel to zoom.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <?php require_once 'maps.php';
+
                     ?>
+                </div>
+            </div>
+        </div>
   </div>
   </section>
   <!-- <section class="tracert">
@@ -517,7 +526,7 @@
   
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
   <script type="text/javascript" src="https://rawgit.com/DanielHoffmann/jquery-svg-pan-zoom/master/compiled/jquery.svg.pan.zoom.js"></script>
-  <script src="resource/js/map.js"></script>
+  <script src="resource/js/map-country.js"></script>
 
      <script src="vendor/js/popper.js"></script>
      <script src="vendor/js/bootstrap.min.js"></script>
