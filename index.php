@@ -107,22 +107,18 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-8 col-xl-6">
                 <div class="text-center">
-                    <h2 class="fw-bolder esco">Escolarians Around the World!</h2>
-                    <p class="lead fw-normal caption-world text-muted mb-5">It's amazing how these successful
-                        people benchmarked their success and shared it with the rest of the world.</p>
+                    <h2 class="font-weight-bold">Escolarians Around the World!</h2>
+                    <p class="text-muted mb-5">It's incredible how these successful people measured and shared their accomplishment with the rest of the world.</p>
                 </div>
             </div>
         </div>
 
-        <p class="pb-5">Use the scroll wheel to zoom.</p>
-        <div class="container">
+        <p class="pb-5 text-left">Use the scroll wheel to zoom.</p>
             <div class="row">
                 <div class="col-lg-12">
                     <?php require_once 'maps.php';
-
                     ?>
                 </div>
-            </div>
         </div>
   </div>
   </section>
@@ -227,7 +223,7 @@
             </div>
             
             <div class="row justify-content-center text-center">
-                <h6 class="Reminder pt-4 text-danger">*Please upload atleast one document (image file)*<br>*Maximum of 2MB file size*</h6>
+                <h6 class="Reminder pt-4 text-danger">*Please upload atleast one document (image file format)*<br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
                 <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no" onchange="return validateSizeYB()">
@@ -355,6 +351,22 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="studentCampus" class="form-label">Applicant's Campus</label>
+                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <option value="" selected="selected">Select Campus</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="studentCourse" class="form-label">Course / Degree</label>
+                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control" data-live-search="true" required>
+                    <option value="" selected="selected">Please select campus first</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="siblingID" class="form-label">Sibling's Student Number</label>
                 <input type="text" class="form-control text-center" name="siblingID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
@@ -367,7 +379,23 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
-            <h6 class="Reminder pt-4">*Kindly convert your COM into an image file*<br>*Maximum of 2MB file size*</h6>
+              <div class="col-md-8  pt-3">
+                  <label for="studentCampus" class="form-label">Sibling's Campus</label>
+                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <option value="" selected="selected">Select Campus</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="studentCourse" class="form-label">Course / Degree</label>
+                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control" data-live-search="true" required>
+                    <option value="" selected="selected">Please select campus first</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+            <h6 class="Reminder pt-4 text-danger">*Kindly convert your COM into an image file*<br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
                 <label for="applicantCOM" class="form-label">Applicant's COM</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="applicantCOM" id="applicantCOM" accept="image/*" autocomplete="no" onchange="return validateSizeACOM()">
@@ -473,9 +501,17 @@
               </div>
             </div>
             <div class="row justify-content-center text-center">
-            <h6 class="Reminder pt-4">*Maximum of 2MB file size*</h6>
+              <div class="col-md-8  pt-3">
+                  <label for="studentCampus" class="form-label">CEIS Campus</label>
+                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <option value="" selected="selected">Select Campus</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+            <h6 class="Reminder pt-4 text-danger">*Kindly convert your diploma into an image file* <br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
-                <label for="ceisDiploma" class="form-label">CEIS Diploma (Image Upload)</label>
+                <label for="ceisDiploma" class="form-label">CEIS Diploma</label>
                    <input type="file" class="form-control text-center" aria-label="file example" name="ceisDiploma" id="ceisDiploma" accept="image/*" autocomplete="no" onchange="return validateSizeCEISDip()">
                    <script>
                     validateSizeCEISDip = () => {
