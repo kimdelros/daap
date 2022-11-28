@@ -10,12 +10,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <link rel="stylesheet" href="resource/css/report.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="resource/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <link rel="icon" href="resource/img/daap-icon.png">
     <title>Report Dashboard</title>
   </head>
@@ -131,17 +130,41 @@
                   <option>5</option>
                 </select>
                 </div>
-              <div class="col-12 form-group">
+              <div class="CAS form-group">
                   <button type="button" class="btn btn-info">Change Admin Settings</button>
               </div>
         </div>
         <div class="lowerrht col-6 p-3">
           <!--input code here-->
           <h4>Applicant Volume Per Day</h4>
+          <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+          <script>
+            var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+            var yValues = [55, 49, 44, 24, 15];
+            var barColors = ["red", "green","blue","orange","brown"];
+
+            new Chart("myChart", {
+              type: "bar",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  backgroundColor: barColors,
+                  data: yValues
+                }]
+              },
+              options: {
+                legend: {display: false},
+                title: {
+                  display: true,
+                  text: "World Wine Production 2018"
+                }
+              }
+            });
+            </script>
         </div>
       </div>
   </body>
-  <footer id="sticky-footer" class="py-4 bg-dark text-white-50 fixed-bottom  slide-in-right">
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50 slide-in-right">
     <div class="container text-center">
         <div class="row">
             <div class="col col-sm-5 text-left">

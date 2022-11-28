@@ -15,12 +15,26 @@ html{
 }
 .upper h5{
   color: cyan;
+  font-size: medium;
+}
+.upper span{
+    font-size: small;
+    font-weight: 500;
 }
 .lowerlft h4{
   padding-left: 0;
   color: cyan;
+  font-size: large;
+}
+.lowerlft label{
+    font-size: small;
+    font-weight: 500;
+}
+.CAS button{
+  width: 100%;
 }
 .lowerrht h4{
   padding-left: 0;
   color: cyan;
+  font-size: large;
 }
