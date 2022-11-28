@@ -1,6 +1,7 @@
 <?php
   require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
   require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/apply.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/cascadingDropdown.php';
   $view = new view();
  ?>
  <!DOCTYPE html>
@@ -15,6 +16,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
@@ -102,8 +104,8 @@
          </form>
       </div>
     </section> -->
-    <section class="map">
-    <div class="container px-5 my-5">
+  <section class="map">
+    <div class="container px-3 my-5">
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-8 col-xl-6">
                 <div class="text-center">
@@ -114,13 +116,15 @@
         </div>
 
         <p class="pb-5 text-left">Use the scroll wheel to zoom.</p>
+            <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <?php require_once 'maps.php';
                     ?>
                 </div>
-        </div>
-  </div>
+            </div>  
+          </div>
+    </div>
   </section>
   <!-- <section class="tracert">
 
@@ -162,8 +166,16 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                   <label for="studentCampus" class="form-label">Campus</label>
-                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center " title="Select Campus" required>
                   <option value="" selected="selected">Select Campus</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="studentCollege" class="form-label">College / Department</label>
+                  <select id="studentCollege" name="studentCollege" class="selectpicker form-control text-center" title="Select College" required>
+                  <option value="" selected="selected">Please Select Campus first</option>
                   </select>
               </div>
             </div>
@@ -171,30 +183,42 @@
               <div class="col-md-8  pt-3">
                   <label for="studentCourse" class="form-label">Course / Degree</label>
                   <select id="studentCourse" name="studentCourse" class="selectpicker form-control" data-live-search="true" required>
-                    <option value="" selected="selected">Please select campus first</option>
+                    <option value="" selected="selected">Please Select College / Department first</option>
                   </select>
               </div>
             </div>
-            
+            <?php 
+              $getData = new cascadingDropdown();
+              $db = $getData->getAllData(); 
+            ?>
             <script>
-              var campuses = {
-                "Malolos": ["HTML","CSS","JavaScript"],
-                "Manila": ["PHP", "SQL"],
-                "Makati": ["C++", "C#"]
-              }
+              var allData = <?php echo $db ?>;
               window.onload = function() {
-                var campus = document.getElementById("studentCampus");
-                var course = document.getElementById("studentCourse");
-                for (var x in campuses) {
-                  campus.options[campus.options.length] = new Option(x, x);
-                }
-                campus.onchange = function() {
+              var campus = document.getElementById("studentCampus");
+              var college = document.getElementById("studentCollege");
+              var course = document.getElementById("studentCourse");
+              for (var x in allData) {
+                campus.options[campus.options.length] = new Option(x, x);
+              }
+              campus.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
                 course.length = 1;
-                  for (var y in campuses[this.value]) {
-                    course.options[course.options.length] = new Option(y, y);
-                  }
+                college.length = 1;
+                //display correct values
+                for (var y in allData[this.value]) {
+                  college.options[college.options.length] = new Option(y, y);
                 }
               }
+              college.onchange = function() {
+                //empty Chapters dropdown
+                course.length = 1;
+                //display correct values
+                var z = allData[campus.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  course.options[course.options.length] = new Option(z[i], z[i]);
+                }
+              }
+            }
             </script>
 
             <div class="row justify-content-center text-center">
@@ -366,6 +390,7 @@
                   </select>
               </div>
             </div>
+            
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="siblingID" class="form-label">Sibling's Student Number</label>
@@ -552,25 +577,23 @@
       </div>
     </div>
   </section>
+ 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="https://rawgit.com/DanielHoffmann/jquery-svg-pan-zoom/master/compiled/jquery.svg.pan.zoom.js"></script>
+  <script src="resource/js/map-country.js"></script>
+  <script src="resource/js/map.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/b04d2a2a76.js" crossorigin="anonymous"></script>
-  
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-  <script type="text/javascript" src="https://rawgit.com/DanielHoffmann/jquery-svg-pan-zoom/master/compiled/jquery.svg.pan.zoom.js"></script>
-  <script src="resource/js/map-country.js"></script>
 
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script> -->
+  
      <script src="vendor/js/popper.js"></script>
      <script src="vendor/js/bootstrap.min.js"></script>
-  <script>
-        $(function () {
-        $('[data-toggle=" "]').tooltip()
-      })
-    </script>
+ 
 
   <script>
     AOS.init();
@@ -587,5 +610,5 @@
            </div>
        </div>
    </div>
- </footer>
+ </footer>  
 </html>

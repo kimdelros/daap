@@ -24,24 +24,21 @@ $GLOBALS['config'] = array(
         'session_name' =>'user',
         'token_name' =>'token'
     )
-
-     
 );
-
 $GLOBALS['config2'] = array(
     'mysql'=>array(
         //localhost connection
         'host' => '127.0.0.1:3306',
         'username' =>'root',
         'password' =>'',
-        'db'=>'daap'
+        'db'=>'map_db'
     ),
     // 'mysql'=>array(
         //hostinger connection
     //     'host' => '109.106.251.63',
-    //     'username' =>'port7396_daap',
+    //     'username' =>'port7396_cave_daap',
     //     'password' =>'p@ssw0rdBSIT4A',
-    //     'db'=>'port7396_daap'
+    //     'db'=>'port7396_mapdb'
     // ),
     'remember'=>array(
         'cookie_name' => 'hash',
@@ -69,4 +66,4 @@ if(Cookie::exists(Conf::get('remember/cookie_name')) && !Session::exists(Conf::g
         $user->login();
     }
 }
- ?>
+?>

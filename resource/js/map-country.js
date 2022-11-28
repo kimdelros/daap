@@ -3,9 +3,10 @@ $(document).ready(function(e) {
 
         $(this).tooltip();
         $('.ui-tooltip').hide();
-        
+            
 
         var id = ($(this).data('id'));
+        console.log(id);
         $.ajax({
             type: 'POST',
             
@@ -15,7 +16,7 @@ $(document).ready(function(e) {
             },
             dataType: 'json',
             success: function(response) {
-               
+
                 console.log(response);
                 $('#AF').text(response);
                 $('#AO').text(response);
