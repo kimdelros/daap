@@ -621,7 +621,64 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCampus" class="form-label">CEIS Campus</label>
+                  <label for="ceisCampus" class="form-label">Campus</label>
+                  <select id="ceisCampus" name="ceisCampus" class="selectpicker form-control text-center " title="Select Campus" required>
+                  <option value="" selected="selected">Select Campus</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="ceisCollege" class="form-label">College / Department</label>
+                  <select id="ceisCollege" name="ceisCollege" class="selectpicker form-control text-center" title="Select College" required>
+                  <option value="" selected="selected">Please Select Campus first</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="ceisCourse" class="form-label">Course / Degree</label>
+                  <select id="ceisCourse" name="ceisCourse" class="selectpicker form-control" data-live-search="true" required>
+                    <option value="" selected="selected">Please Select College / Department first</option>
+                  </select>
+              </div>
+            </div>
+            <?php 
+              $getData = new cascadingDropdown();
+              $allData = $getData->getAllData();
+            ?>
+            <script>
+              var allData = <?php echo $allData; ?>;
+              window.onload = function() {
+              var campus = document.getElementById("ceisCampus");
+              var college = document.getElementById("ceisCollege");
+              var course = document.getElementById("ceisCourse");
+              for (var x in allData) {
+                campus.options[campus.options.length] = new Option(x, x);
+              }
+              campus.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                course.length = 1;
+                college.length = 1;
+                //display correct values
+                for (var y in allData[this.value]) {
+                  college.options[college.options.length] = new Option(y, y);
+                }
+              }
+              college.onchange = function() {
+                //empty Chapters dropdown
+                course.length = 1;
+                //display correct values
+                var z = allData[campus.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  course.options[course.options.length] = new Option(z[i], z[i]);
+                }
+              }
+            }
+            </script>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="studentCampus" class="form-label">CEIS Graduated Campus</label>
                   <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
                   <option value="" selected="selected">Select Campus</option>
                   </select>
