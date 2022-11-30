@@ -492,7 +492,7 @@
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applySibling']){
                 $applyClass = new apply();
-                $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['siblingApplicantCampus'], $_POST['siblingApplicantCollege'], $_POST['siblingApplicantCourse'], $_POST['siblingID'], $_POST['siblingName'], $_POST['siblingSiblingCampus'], $_POST['siblingSiblingCollege'], $_POST['siblingSiblingCourse'], $_FILES['applicantCOM'], $_FILES['siblingCOM']);
+                $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['siblingApplicantCampus'], $_POST['siblingApplicantCollege'], $_POST['siblingApplicantCourse'], $_POST['siblingID'], $_POST['siblingName'], $_POST['siblingYearLevel'], $_POST['siblingSiblingCampus'], $_POST['siblingSiblingCollege'], $_POST['siblingSiblingCourse'], $_FILES['applicantCOM'], $_FILES['siblingCOM']);
               }
                ?>
             </div>
@@ -560,8 +560,8 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCampus" class="form-label">CEIS Graduated Campus</label>
-                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <label for="ceisCampusGraduated" class="form-label">CEIS Campus Graduated</label>
+                  <select id="ceisCampusGraduated" name="ceisCampusGraduated" class="selectpicker form-control text-center" title="Select Campus" required>
                   <option value="" selected="selected">Select Campus</option>
                   </select>
               </div>
@@ -599,10 +599,10 @@
             <div class="col-12 text-center">
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyCEIS" id="applyCEIS" value="Apply"></input>              
               <?php
-              // if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyCEIS']){
-              //   $applyClass = new apply();
-              //   $applyClass->verifyCEIS($_POST['studentID'], $_POST['CEISstudentID'], $_POST['studentEmail'], $_POST['studentName'], $_FILES['ceisDiploma']);
-              // }
+              if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyCEIS']){
+                $applyClass = new apply();
+                $applyClass->verifyCEIS($_POST['studentID'], $_POST['CEISstudentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['ceisCampus'], $_POST['ceisCollege'], $_POST['ceisCourse'], $_POST['ceisCampusGraduated'], $_FILES['ceisDiploma']);
+              }
                ?>
             </div>
           </form>
@@ -648,6 +648,8 @@
               var ceisCollege = document.getElementById("ceisCollege");
               var ceisCourse = document.getElementById("ceisCourse");
 
+              var ceisCampusGraduated = document.getElementById("ceisCampusGraduated");
+
               for (var x in allData) {
                 alumniCampus.options[alumniCampus.options.length] = new Option(x, x);
               }
@@ -659,6 +661,9 @@
               }
               for (var x in allData) {
                 ceisCampus.options[ceisCampus.options.length] = new Option(x, x);
+              }
+              for (var x in allData) {
+                ceisCampusGraduated.options[ceisCampusGraduated.options.length] = new Option(x, x);
               }
 
               alumniCampus.onchange = function() {

@@ -327,22 +327,29 @@ class apply extends config{
            exit();
          }
     }
-    private function applyCEIS($lastID, $CEISstudentID, $CDIP){
+    private function applyCEIS($lastID, $CEISstudentID, $ceisCampusGraduatedID, $CDIP){
        $link = config::con();
 
-       $sql = "INSERT INTO `ceis`(`appID`, `studentCID`, `studentDiploma`) VALUES ('$lastID', '$CEISstudentID', '$CDIP')";
+       $sql = "INSERT INTO `ceis`(`appID`, `studentCID`, `ceisCampusGraduatedID`, `studentDiploma`) VALUES ('$lastID', '$CEISstudentID', '$ceisCampusGraduatedID', '$CDIP')";
 
        $link = $link->prepare($sql);
        $link->execute();
        $link->connection = null;
      }
 
-    public function verifyCEIS($studentID, $CEISstudentID, $studentEmail, $studentName, $ceisDiploma){
+    public function verifyCEIS($studentID, $CEISstudentID, $studentEmail, $studentName, $ceisCampus, $ceisCollege, $ceisCourse, $ceisCampusGraduated, $ceisDiploma){
+
+      $campusID = $this->verifyCampus($ceisCampus);
+      $cdID = $this->verifyCollege($campusID, $ceisCollege);
+      $courseID = $this->verifyCourse($campusID, $cdID, $ceisCourse);
+
+      $ceisCampusGraduatedID = $this->verifyCampus($ceisCampusGraduated);
+
       $maxSize = 2 * 1024 * 1024;
 
       $dip = strtolower(pathinfo($ceisDiploma['name'], PATHINFO_EXTENSION));
 
-         if($this->verifyStudent($studentID, $studentEmail, $studentName)){
+         if($this->verifyStudent($studentID, $studentEmail, $studentName, "1st Year", $campusID, $cdID, $courseID)){
            if($CEISstudentID == "")
              $message = "CIES Student Number is required.";
            else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $CEISstudentID))
@@ -353,14 +360,16 @@ class apply extends config{
              $message = "Applicant's CEIS Diploma must be an image file only.";
            else if($ceisDiploma['size'] >= $maxSize)
             $message = "File too large. File must be less than 2MB.";
+           else if($ceisCampusGraduatedID == 0)
+            $message = "CEIS Campus Graduated is invalid.";
            else {
              do{
                $transID = $this->getTransID('CEIS-');
              }while($this->checkTransID($transID));
-             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "3", $transID);
+             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "1st Year", $campusID, $cdID, $courseID, "3", $transID);
 
              $CDIP = $this->storeFile($ceisDiploma, "6", $transID);
-             $this->applyCEIS($lastID, $CEISstudentID, $CDIP);
+             $this->applyCEIS($lastID, $CEISstudentID, $ceisCampusGraduatedID, $CDIP);
              echo "<script>
              Swal.fire({
                     title: \"Your application has been submitted!\",
