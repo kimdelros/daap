@@ -133,7 +133,7 @@ $view = new viewtable();
                 </li>
                 </ul>
                 <div class="tab-content mt-5" id="myTabContent">
-                    <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab"><?php $view->viewRequests("2");
+                    <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab"><?php $view->viewPendingApplications("2");
                     if($_SERVER['REQUEST_METHOD']=='POST'){
                       $action = new action();
                       $action->execute();

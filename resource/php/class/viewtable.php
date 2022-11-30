@@ -81,7 +81,7 @@ class viewtable extends config{
   }
 
 
-  public function viewRequests($appType){
+  public function viewPendingApplications($appType){
     $con = $this->con();
     $sql = "SELECT * FROM `applications` WHERE `isApproved`= 0 AND `isHold`= 0 AND `isRejected`= 0 AND `appType` = '$appType'";
     $data= $con->prepare($sql);
@@ -89,14 +89,13 @@ class viewtable extends config{
     $result = $data->fetchAll(PDO::FETCH_ASSOC);
     switch($appType){
       case "1":
-        echo "<h3 class='text-center'> Entrance Grant Application (Alumni) </h3>";
+        echo "<h3 class='text-center'> Entrance Grant Pending Application (Alumni) </h3>";
         break;
       case "2":
-        echo "<h3 class='text-center'> Entrance Grant Application (Sibling) </h3>";
+        echo "<h3 class='text-center'> Entrance Grant Pending Application (Sibling) </h3>";
         break;
       case "3":
-        echo "<h3 class='text-center'> Entrance Grant Application (CEIS) </h3>";
-        break;
+        echo "<h3 class='text-center'> Entrance Grant Pending Application (CEIS) </h3>";
         break;
       default: break;
     }
@@ -124,6 +123,123 @@ class viewtable extends config{
             <input class='btn btn-danger btn-sm col-12 mt-1' type='submit' name='reject $data[transID]' id='reject' value='Reject Application' />
           </form>
           </td>";
+    echo "</tr>";
+    }
+    echo "</table>";
+  }
+
+  public function viewApprovedApplications($appType){
+    $con = $this->con();
+    $sql = "SELECT * FROM `applications` WHERE `isApproved`= 1 AND `appType` = '$appType'";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    switch($appType){
+      case "1":
+        echo "<h3 class='text-center'> Entrance Grant Approved Application (Alumni) </h3>";
+        break;
+      case "2":
+        echo "<h3 class='text-center'> Entrance Grant Approved Application (Sibling) </h3>";
+        break;
+      case "3":
+        echo "<h3 class='text-center'> Entrance Grant Approved Application (CEIS) </h3>";
+        break;
+      default: break;
+    }
+    echo "<div class='table-responsive'>";
+    echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
+    echo "<thead class='thead-dark'>";
+    echo "<th>Transaction ID</th>";
+    echo "<th>Student Number</th>";
+    echo "<th>Student Name</th>";
+    echo "<th>Student Email</th>";
+    echo "<th>View Document</th>";
+    echo "</thead>";
+    foreach ($result as $data) {
+    echo "<tr>";
+    echo "<td>$data[transID]</td>";
+    echo "<td>$data[studentID]</td>";
+    echo "<td>$data[studentName]</td>";
+    echo "<td>$data[studentEmail]</td>";
+    $this->viewDocuments($data['appID'], $data['appType']);
+    echo "</tr>";
+    }
+    echo "</table>";
+  }
+
+  public function viewOnHoldApplications($appType){
+    $con = $this->con();
+    $sql = "SELECT * FROM `applications` WHERE `isHold`= 1 AND `appType` = '$appType'";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    switch($appType){
+      case "1":
+        echo "<h3 class='text-center'> Entrance Grant On-Hold Application (Alumni) </h3>";
+        break;
+      case "2":
+        echo "<h3 class='text-center'> Entrance Grant On-Hold Application (Sibling) </h3>";
+        break;
+      case "3":
+        echo "<h3 class='text-center'> Entrance Grant On-Hold Application (CEIS) </h3>";
+        break;
+      default: break;
+    }
+    echo "<div class='table-responsive'>";
+    echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
+    echo "<thead class='thead-dark'>";
+    echo "<th>Transaction ID</th>";
+    echo "<th>Student Number</th>";
+    echo "<th>Student Name</th>";
+    echo "<th>Student Email</th>";
+    echo "<th>View Document</th>";
+    echo "</thead>";
+    foreach ($result as $data) {
+    echo "<tr>";
+    echo "<td>$data[transID]</td>";
+    echo "<td>$data[studentID]</td>";
+    echo "<td>$data[studentName]</td>";
+    echo "<td>$data[studentEmail]</td>";
+    $this->viewDocuments($data['appID'], $data['appType']);
+    echo "</tr>";
+    }
+    echo "</table>";
+  }
+
+  public function viewRejectedApplications($appType){
+    $con = $this->con();
+    $sql = "SELECT * FROM `applications` WHERE `isRejected`= 1 AND `appType` = '$appType'";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    switch($appType){
+      case "1":
+        echo "<h3 class='text-center'> Entrance Grant On-Hold Application (Alumni) </h3>";
+        break;
+      case "2":
+        echo "<h3 class='text-center'> Entrance Grant On-Hold Application (Sibling) </h3>";
+        break;
+      case "3":
+        echo "<h3 class='text-center'> Entrance Grant On-Hold Application (CEIS) </h3>";
+        break;
+      default: break;
+    }
+    echo "<div class='table-responsive'>";
+    echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
+    echo "<thead class='thead-dark'>";
+    echo "<th>Transaction ID</th>";
+    echo "<th>Student Number</th>";
+    echo "<th>Student Name</th>";
+    echo "<th>Student Email</th>";
+    echo "<th>View Document</th>";
+    echo "</thead>";
+    foreach ($result as $data) {
+    echo "<tr>";
+    echo "<td>$data[transID]</td>";
+    echo "<td>$data[studentID]</td>";
+    echo "<td>$data[studentName]</td>";
+    echo "<td>$data[studentEmail]</td>";
+    $this->viewDocuments($data['appID'], $data['appType']);
     echo "</tr>";
     }
     echo "</table>";
