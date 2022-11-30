@@ -199,40 +199,6 @@
                   </select>
               </div>
             </div>
-            <?php 
-              $getData = new cascadingDropdown();
-              $allData = $getData->getAllData();
-            ?>
-            <script>
-              var allData = <?php echo $allData; ?>;
-              window.onload = function() {
-              var campus = document.getElementById("alumniStudentCampus");
-              var college = document.getElementById("alumniStudentCollege");
-              var course = document.getElementById("alumniStudentCourse");
-              for (var x in allData) {
-                campus.options[campus.options.length] = new Option(x, x);
-              }
-              campus.onchange = function() {
-                //empty Chapters- and Topics- dropdowns
-                course.length = 1;
-                college.length = 1;
-                //display correct values
-                for (var y in allData[this.value]) {
-                  college.options[college.options.length] = new Option(y, y);
-                }
-              }
-              college.onchange = function() {
-                //empty Chapters dropdown
-                course.length = 1;
-                //display correct values
-                var z = allData[campus.value][this.value];
-                for (var i = 0; i < z.length; i++) {
-                  course.options[course.options.length] = new Option(z[i], z[i]);
-                }
-              }
-            }
-            </script>
-
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="alumniName" class="form-label">Alumni's Full Name</label>
@@ -410,40 +376,6 @@
                   </select>
               </div>
             </div>
-            <?php 
-              $getData = new cascadingDropdown();
-              $allData = $getData->getAllData();
-            ?>
-            <script>
-              var allData = <?php echo $allData; ?>;
-              window.onload = function() {
-              var campus = document.getElementById("siblingApplicantCampus");
-              var college = document.getElementById("siblingApplicantCollege");
-              var course = document.getElementById("siblingApplicantCourse");
-              for (var x in allData) {
-                campus.options[campus.options.length] = new Option(x, x);
-              }
-              campus.onchange = function() {
-                //empty Chapters- and Topics- dropdowns
-                course.length = 1;
-                college.length = 1;
-                //display correct values
-                for (var y in allData[this.value]) {
-                  college.options[college.options.length] = new Option(y, y);
-                }
-              }
-              college.onchange = function() {
-                //empty Chapters dropdown
-                course.length = 1;
-                //display correct values
-                var z = allData[campus.value][this.value];
-                for (var i = 0; i < z.length; i++) {
-                  course.options[course.options.length] = new Option(z[i], z[i]);
-                }
-              }
-            }
-            </script>
-            
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="siblingID" class="form-label">Sibling's Student Number</label>
@@ -480,39 +412,6 @@
                   </select>
               </div>
             </div>
-            <?php 
-              $getData = new cascadingDropdown();
-              $allData = $getData->getAllData();
-            ?>
-            <script>
-              var allData = <?php echo $allData; ?>;
-              window.onload = function() {
-              var campus = document.getElementById("siblingSiblingCampus");
-              var college = document.getElementById("siblingSiblingCollege");
-              var course = document.getElementById("siblingSiblingCourse");
-              for (var x in allData) {
-                campus.options[campus.options.length] = new Option(x, x);
-              }
-              campus.onchange = function() {
-                //empty Chapters- and Topics- dropdowns
-                course.length = 1;
-                college.length = 1;
-                //display correct values
-                for (var y in allData[this.value]) {
-                  college.options[college.options.length] = new Option(y, y);
-                }
-              }
-              college.onchange = function() {
-                //empty Chapters dropdown
-                course.length = 1;
-                //display correct values
-                var z = allData[campus.value][this.value];
-                for (var i = 0; i < z.length; i++) {
-                  course.options[course.options.length] = new Option(z[i], z[i]);
-                }
-              }
-            }
-            </script>
             <div class="row justify-content-center text-center">
             <h6 class="Reminder pt-4 text-danger">*Kindly convert your COM into an image file*<br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
@@ -643,39 +542,6 @@
                   </select>
               </div>
             </div>
-            <?php 
-              $getData = new cascadingDropdown();
-              $allData = $getData->getAllData();
-            ?>
-            <script>
-              var allData = <?php echo $allData; ?>;
-              window.onload = function() {
-              var campus = document.getElementById("ceisCampus");
-              var college = document.getElementById("ceisCollege");
-              var course = document.getElementById("ceisCourse");
-              for (var x in allData) {
-                campus.options[campus.options.length] = new Option(x, x);
-              }
-              campus.onchange = function() {
-                //empty Chapters- and Topics- dropdowns
-                course.length = 1;
-                college.length = 1;
-                //display correct values
-                for (var y in allData[this.value]) {
-                  college.options[college.options.length] = new Option(y, y);
-                }
-              }
-              college.onchange = function() {
-                //empty Chapters dropdown
-                course.length = 1;
-                //display correct values
-                var z = allData[campus.value][this.value];
-                for (var i = 0; i < z.length; i++) {
-                  course.options[course.options.length] = new Option(z[i], z[i]);
-                }
-              }
-            }
-            </script>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                   <label for="studentCampus" class="form-label">CEIS Graduated Campus</label>
@@ -741,6 +607,119 @@
   <script src="https://kit.fontawesome.com/b04d2a2a76.js" crossorigin="anonymous"></script>
 
   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script> --> 
+            <?php 
+              $getData = new cascadingDropdown();
+              $allData = $getData->getAllData();
+            ?>
+            <script>
+              var allData = <?php echo $allData; ?>;
+              window.onload = function() {
+                
+              var alumniCampus = document.getElementById("alumniStudentCampus");
+              var alumniCollege = document.getElementById("alumniStudentCollege");
+              var alumniCourse = document.getElementById("alumniStudentCourse");
+
+              var siblingApplicantCampus = document.getElementById("siblingApplicantCampus");
+              var siblingApplicantCollege = document.getElementById("siblingApplicantCollege");
+              var siblingApplicantCourse = document.getElementById("siblingApplicantCourse");
+
+              
+              var siblingSiblingCampus = document.getElementById("siblingSiblingCampus");
+              var siblingSiblingCollege = document.getElementById("siblingSiblingCollege");
+              var siblingSiblingCourse = document.getElementById("siblingSiblingCourse");
+              
+              var ceisCampus = document.getElementById("ceisCampus");
+              var ceisCollege = document.getElementById("ceisCollege");
+              var ceisCourse = document.getElementById("ceisCourse");
+
+              for (var x in allData) {
+                alumniCampus.options[alumniCampus.options.length] = new Option(x, x);
+              }
+              for (var x in allData) {
+                siblingApplicantCampus.options[siblingApplicantCampus.options.length] = new Option(x, x);
+              }
+              for (var x in allData) {
+                siblingSiblingCampus.options[siblingSiblingCampus.options.length] = new Option(x, x);
+              }
+              for (var x in allData) {
+                ceisCampus.options[ceisCampus.options.length] = new Option(x, x);
+              }
+
+              alumniCampus.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                alumniCourse.length = 1;
+                alumniCollege.length = 1;
+                //display correct values
+                for (var y in allData[this.value]) {
+                  alumniCollege.options[alumniCollege.options.length] = new Option(y, y);
+                }
+              }
+              alumniCollege.onchange = function() {
+                //empty Chapters dropdown
+                alumniCourse.length = 1;
+                //display correct values
+                var z = allData[alumniCampus.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  alumniCourse.options[alumniCourse.options.length] = new Option(z[i], z[i]);
+                }
+              }
+              siblingApplicantCampus.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                siblingApplicantCourse.length = 1;
+                siblingApplicantCollege.length = 1;
+                //display correct values
+                for (var y in allData[this.value]) {
+                  siblingApplicantCollege.options[siblingApplicantCollege.options.length] = new Option(y, y);
+                }
+              }
+              siblingApplicantCollege.onchange = function() {
+                //empty Chapters dropdown
+                siblingApplicantCourse.length = 1;
+                //display correct values
+                var z = allData[siblingApplicantCampus.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  siblingApplicantCourse.options[siblingApplicantCourse.options.length] = new Option(z[i], z[i]);
+                }
+              }
+              siblingSiblingCampus.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                siblingSiblingCourse.length = 1;
+                siblingSiblingCollege.length = 1;
+                //display correct values
+                for (var y in allData[this.value]) {
+                  siblingSiblingCollege.options[siblingSiblingCollege.options.length] = new Option(y, y);
+                }
+              }
+              siblingSiblingCollege.onchange = function() {
+                //empty Chapters dropdown
+                siblingSiblingCourse.length = 1;
+                //display correct values
+                var z = allData[siblingSiblingCampus.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  siblingSiblingCourse.options[siblingSiblingCourse.options.length] = new Option(z[i], z[i]);
+                }
+              }
+              ceisCampus.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                ceisCourse.length = 1;
+                ceisCollege.length = 1;
+                //display correct values
+                for (var y in allData[this.value]) {
+                  ceisCollege.options[ceisCollege.options.length] = new Option(y, y);
+                }
+              }
+              ceisCollege.onchange = function() {
+                //empty Chapters dropdown
+                ceisCourse.length = 1;
+                //display correct values
+                var z = allData[ceisCampus.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  ceisCourse.options[ceisCourse.options.length] = new Option(z[i], z[i]);
+                }
+              }
+            }
+            </script>
+
 
   <script>
     AOS.init();
