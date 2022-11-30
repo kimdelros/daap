@@ -156,20 +156,20 @@ $view = new viewtable();
                 $label3 = "2nd Sem AY $year3-$year1";
                 $label4 = "1st Sem AY $year1-$year4";
 
-                $data1 = $chartData->getData($year2, 1);
-                $data2 = $chartData->getData($year3, 2);
-                $data3 = $chartData->getData($year3, 1);
-                $data4 = $chartData->getData($year1, 2);
+                $data1 = $chartData->getData($year3, 2);
+                $data2 = $chartData->getData($year3, 1);
+                $data3 = $chartData->getData($year1, 2);
+                $data4 = $chartData->getData($year1, 1);
             }else{
                 $label1 = "1st Sem AY $year2-$year3";
                 $label2 = "2nd Sem AY $year2-$year3";
                 $label3 = "1st Sem AY $year3-$year1";
                 $label4 = "2nd Sem AY $year3-$year1";
 
-                $data1 = $chartData->getData($year2, 2);
-                $data2 = $chartData->getData($year2, 1);
-                $data3 = $chartData->getData($year3, 2);
-                $data4 = $chartData->getData($year3, 1);
+                $data1 = $chartData->getData($year2, 1);
+                $data2 = $chartData->getData($year3, 2);
+                $data3 = $chartData->getData($year3, 1);
+                $data4 = $chartData->getData($year1, 2);
             }
             ?>
 

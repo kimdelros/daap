@@ -226,13 +226,13 @@ class viewtable extends config{
     $result = $data->fetchAll(PDO::FETCH_ASSOC);
     switch($appType){
       case "1":
-        echo "<h3 class='text-center'> Entrance Grant On-Hold Application (Alumni) </h3>";
+        echo "<h3 class='text-center'> Entrance Grant Rejected Application (Alumni) </h3>";
         break;
       case "2":
-        echo "<h3 class='text-center'> Entrance Grant On-Hold Application (Sibling) </h3>";
+        echo "<h3 class='text-center'> Entrance Grant Rejected Application (Sibling) </h3>";
         break;
       case "3":
-        echo "<h3 class='text-center'> Entrance Grant On-Hold Application (CEIS) </h3>";
+        echo "<h3 class='text-center'> Entrance Grant Rejected Application (CEIS) </h3>";
         break;
       default: break;
     }
