@@ -24,6 +24,18 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="resource/js/scripts.js"></script>
     <link rel="icon" href="resource/img/daap-icon.png">
+
+    
+   <!-- <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
+   <link href="vendor/css/all.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css"  href="resource/css/styles.css">
+   <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap-select.min.css">
+
+   <script src="vendor/js/jquery.js"></script>
+     <script src="vendor/js/popper.js"></script>
+     <script src="vendor/js/bootstrap.min.js"></script>
+     <script src="vendor/js/bootstrap-select.min.js"></script> -->
+
     <title>DAAP Homepage</title>
   </head>
   <body>
@@ -165,38 +177,38 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCampus" class="form-label">Campus</label>
-                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center " title="Select Campus" required>
+                  <label for="alumniStudentCampus" class="form-label">Campus</label>
+                  <select id="alumniStudentCampus" name="alumniStudentCampus" class="selectpicker form-control text-center " title="Select Campus" required>
                   <option value="" selected="selected">Select Campus</option>
                   </select>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCollege" class="form-label">College / Department</label>
-                  <select id="studentCollege" name="studentCollege" class="selectpicker form-control text-center" title="Select College" required>
+                  <label for="alumniStudentCollege" class="form-label">College / Department</label>
+                  <select id="alumniStudentCollege" name="alumniStudentCollege" class="selectpicker form-control text-center" title="Select College" required>
                   <option value="" selected="selected">Please Select Campus first</option>
                   </select>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCourse" class="form-label">Course / Degree</label>
-                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control" data-live-search="true" required>
+                  <label for="alumniStudentCourse" class="form-label">Course / Degree</label>
+                  <select id="alumniStudentCourse" name="alumniStudentCourse" class="selectpicker form-control" data-live-search="true" required>
                     <option value="" selected="selected">Please Select College / Department first</option>
                   </select>
               </div>
             </div>
             <?php 
               $getData = new cascadingDropdown();
-              $db = $getData->getAllData(); 
+              $allData = $getData->getAllData();
             ?>
             <script>
-              var allData = <?php echo $db ?>;
+              var allData = <?php echo $allData; ?>;
               window.onload = function() {
-              var campus = document.getElementById("studentCampus");
-              var college = document.getElementById("studentCollege");
-              var course = document.getElementById("studentCourse");
+              var campus = document.getElementById("alumniStudentCampus");
+              var college = document.getElementById("alumniStudentCollege");
+              var course = document.getElementById("alumniStudentCourse");
               for (var x in allData) {
                 campus.options[campus.options.length] = new Option(x, x);
               }
@@ -376,20 +388,61 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCampus" class="form-label">Applicant's Campus</label>
-                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <label for="siblingApplicantCampus" class="form-label">Applicant's Campus</label>
+                  <select id="siblingApplicantCampus" name="siblingApplicantCampus" class="selectpicker form-control text-center " title="Select Campus" required>
                   <option value="" selected="selected">Select Campus</option>
                   </select>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCourse" class="form-label">Course / Degree</label>
-                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control" data-live-search="true" required>
-                    <option value="" selected="selected">Please select campus first</option>
+                  <label for="siblingApplicantCollege" class="form-label">Applicant's College / Department</label>
+                  <select id="siblingApplicantCollege" name="siblingApplicantCollege" class="selectpicker form-control text-center" title="Select College" required>
+                  <option value="" selected="selected">Please Select Campus first</option>
                   </select>
               </div>
             </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="siblingApplicantCourse" class="form-label">Applicant's Course / Degree</label>
+                  <select id="siblingApplicantCourse" name="siblingApplicantCourse" class="selectpicker form-control" data-live-search="true" required>
+                    <option value="" selected="selected">Please Select College / Department first</option>
+                  </select>
+              </div>
+            </div>
+            <?php 
+              $getData = new cascadingDropdown();
+              $allData = $getData->getAllData();
+            ?>
+            <script>
+              var allData = <?php echo $allData; ?>;
+              window.onload = function() {
+              var campus = document.getElementById("siblingApplicantCampus");
+              var college = document.getElementById("siblingApplicantCollege");
+              var course = document.getElementById("siblingApplicantCourse");
+              for (var x in allData) {
+                campus.options[campus.options.length] = new Option(x, x);
+              }
+              campus.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                course.length = 1;
+                college.length = 1;
+                //display correct values
+                for (var y in allData[this.value]) {
+                  college.options[college.options.length] = new Option(y, y);
+                }
+              }
+              college.onchange = function() {
+                //empty Chapters dropdown
+                course.length = 1;
+                //display correct values
+                var z = allData[campus.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  course.options[course.options.length] = new Option(z[i], z[i]);
+                }
+              }
+            }
+            </script>
             
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
@@ -405,20 +458,61 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCampus" class="form-label">Sibling's Campus</label>
-                  <select id="studentCampus" name="studentCampus" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <label for="siblingSiblingCampus" class="form-label">Sibling's Campus</label>
+                  <select id="siblingSiblingCampus" name="siblingSiblingCampus" class="selectpicker form-control text-center " title="Select Campus" required>
                   <option value="" selected="selected">Select Campus</option>
                   </select>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
-                  <label for="studentCourse" class="form-label">Course / Degree</label>
-                  <select id="studentCourse" name="studentCourse" class="selectpicker form-control" data-live-search="true" required>
-                    <option value="" selected="selected">Please select campus first</option>
+                  <label for="siblingSiblingCollege" class="form-label">Sibling's College / Department</label>
+                  <select id="siblingSiblingCollege" name="siblingSiblingCollege" class="selectpicker form-control text-center" title="Select College" required>
+                  <option value="" selected="selected">Please Select Campus first</option>
                   </select>
               </div>
             </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="siblingSiblingCourse" class="form-label">Sibling's Course / Degree</label>
+                  <select id="siblingSiblingCourse" name="siblingSiblingCourse" class="selectpicker form-control" data-live-search="true" required>
+                    <option value="" selected="selected">Please Select College / Department first</option>
+                  </select>
+              </div>
+            </div>
+            <?php 
+              $getData = new cascadingDropdown();
+              $allData = $getData->getAllData();
+            ?>
+            <script>
+              var allData = <?php echo $allData; ?>;
+              window.onload = function() {
+              var campus = document.getElementById("siblingSiblingCampus");
+              var college = document.getElementById("siblingSiblingCollege");
+              var course = document.getElementById("siblingSiblingCourse");
+              for (var x in allData) {
+                campus.options[campus.options.length] = new Option(x, x);
+              }
+              campus.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                course.length = 1;
+                college.length = 1;
+                //display correct values
+                for (var y in allData[this.value]) {
+                  college.options[college.options.length] = new Option(y, y);
+                }
+              }
+              college.onchange = function() {
+                //empty Chapters dropdown
+                course.length = 1;
+                //display correct values
+                var z = allData[campus.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  course.options[course.options.length] = new Option(z[i], z[i]);
+                }
+              }
+            }
+            </script>
             <div class="row justify-content-center text-center">
             <h6 class="Reminder pt-4 text-danger">*Kindly convert your COM into an image file*<br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
@@ -589,11 +683,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/b04d2a2a76.js" crossorigin="anonymous"></script>
 
-  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script> -->
-  
-     <script src="vendor/js/popper.js"></script>
-     <script src="vendor/js/bootstrap.min.js"></script>
- 
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script> --> 
 
   <script>
     AOS.init();

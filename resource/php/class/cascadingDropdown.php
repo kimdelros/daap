@@ -7,8 +7,6 @@ class cascadingDropdown extends config{
     public function getAllData(){
         $data = array();
         $ctrCampus = 0;
-        $ctrCollege = 0;
-        $ctrCourse = 0;
 
         $link = config::con();
         $sql = "SELECT * FROM `campus`";
@@ -27,22 +25,6 @@ class cascadingDropdown extends config{
         $stmt->execute();
         $courses = $stmt->fetchAll();
 
-        // foreach($campuses as $campus){
-            
-        // $ctrCollege = 0;
-        //         foreach($colleges as $college){
-        //             $ctrCourse = 0;
-        //             foreach($courses as $course){
-        //                 if($ctrCampus+1 == $course['campusID'] && $ctrCollege+1 == $course['cdID']){
-        //                     $data[$campus][$ctrCollege][$ctrCourse] = $course['courseName'];
-        //                     $ctrCourse++;
-        //                 }  
-        //             }
-
-        //             $ctrCollege++;
-        //         }
-        //     $ctrCampus++;
-        // }
         foreach($campuses as $campus){
             $ctrCollege = 0;
             foreach($colleges as $college){
@@ -55,7 +37,7 @@ class cascadingDropdown extends config{
             
             $ctrCampus++;
         }
-        return (json_encode($data));
+        return json_encode($data);
     }
 
 }
