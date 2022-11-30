@@ -312,4 +312,48 @@ class viewtable extends config{
 
   }
 
+  public function viewTotalApplicants(){
+    $con = $this->con();
+    $sql = "SELECT COUNT(appID) FROM `applications`";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchColumn();
+    return $result;
+  }
+
+  public function viewTotalPending(){
+    $con = $this->con();
+    $sql = "SELECT COUNT(appID) FROM `applications` WHERE `isApproved` = 0";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchColumn();
+    return $result;
+  }
+
+  public function viewTotalApproved(){
+    $con = $this->con();
+    $sql = "SELECT COUNT(appID) FROM `applications` WHERE `isApproved` = 1";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchColumn();
+    return $result;
+  }
+
+  public function viewTotalRejected(){
+    $con = $this->con();
+    $sql = "SELECT COUNT(appID) FROM `applications` WHERE `isRejected` = 1";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchColumn();
+    return $result;
+  }
+
+  public function viewTotalDiscounted(){
+    $con = $this->con();
+    $sql = "SELECT COUNT(appID) FROM `applications` WHERE `isDiscounted` = 1";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchColumn();
+    return $result;
+  }
 }

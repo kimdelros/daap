@@ -13,6 +13,22 @@ html{
 .upper{
   padding-bottom: 15px;
 }
+
+.navbar {
+  background-color: rgba(255, 255, 255);
+  width: 100%;
+  margin: auto;
+  padding: 10px 0;
+  padding-left: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar img{
+  width: 200px;
+  cursor: pointer;
+  float: left;
+}
 .upper h5{
   color: cyan;
   font-size: medium;

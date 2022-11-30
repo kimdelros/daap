@@ -26,7 +26,7 @@ $view = new viewtable();
                 <li>
                     <a href="#">
                         <span class="icon"><img src="resource/img/daap-icon.png" width="40px" alt=""></span>
-                        <span class="title">DAAP System</span>
+                        <span class="title pt-2">DAAP System</span>
                     </a>
                 </li>
                 <li>
@@ -51,6 +51,12 @@ $view = new viewtable();
                     <a href="pendingCeis.php">
                         <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
                         <span class="title">CEIS</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="report.php">
+                        <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
+                        <span class="title">Reports</span>
                     </a>
                 </li>
                 <li>

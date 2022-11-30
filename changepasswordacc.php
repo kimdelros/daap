@@ -28,7 +28,7 @@ isAccounting($user->data()->groups);
                 <li>
                     <a href="#">
                         <span class="icon"><img src="resource/img/daap-icon.png" width="40px" alt=""></span>
-                        <span class="title">DAAP System</span>
+                        <span class="title pt-2">DAAP System</span>
                     </a>
                 </li>
                 <li>

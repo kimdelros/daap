@@ -215,6 +215,17 @@ body {
     box-shadow: 0 7px 25px rgba(0,0,0,0.3);
 }
 
+.cardBox .card-1 {
+    position: relative;
+    width: 120%;
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.3);
+}
+
 .cardBox .card .numbers {
     position: relative;
     font-weight: 600;
@@ -288,6 +299,16 @@ body {
     border-radius: 10px;
 }
 
+.details-1 .applyDetails-1 {
+    position: relative;
+    display: grid;
+    min-height: 40px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
 .tableHeader {
     display: flex;
     justify-content: space-between;
@@ -340,6 +361,7 @@ body {
 .details .applyDetails table tr td:last-child {
     text-align: end;
 }
+
 
 
 /* responsiveness */

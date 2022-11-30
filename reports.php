@@ -19,55 +19,25 @@
     <title>Report Dashboard</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark shadow-lg p-3 mb-4 rounded">
-      <a class="navbar-brand" href="https://malolos.ceu.edu.ph/">
-        <img src="resource/img/DAAPlogo.png" height="45" class="d-inline-block align-top"
-          alt="mdb logo"><h3 class="ib">
-      </a>
+    <nav class="navbar navbar-expand-md navbar-dark shadow-lg">
+        <a href="index.php"><img src="resource/img/DAAPlogo.png" class="img-fluid logo" alt="daap-logo"></a>
     </nav>
 
-    <div class="top container-fluid shadow-lg">
+
+    <div class="top container-fluid shadow-lg mt-5 p-4">
       <div class="row upper pt-3">
         <div class="col">
-          <h5>Entrance Scholarship</h5>
+          <h5>Entrance Benefits</h5>
           <span>Total Number of Applicants:</span><br>
-          <span>For Scholarship Officer Review:</span><br>
-          <span>For Deans Approval:</span><br>
           <span>For Registrar Approval:</span><br>
           <span>Scholarship Approved:</span><br>
           <span>Scholarship Rejected:</span>
-        </div>
-        <div class="col">
-          <h5>University Scholarship</h5>
-          <span>Total Number of Applicants:</span><br>
-          <span>For Scholarship Officer Review:</span><br>
-          <span>For Deans Approval:</span><br>
-          <span>For Registrar Approval:</span><br>
-          <span>Scholarship Approved:</span><br>
-          <span>Scholarship Rejected:</span>
-        </div>
-        <div class="col">
-          <h5>Entrance Grant</h5>
-          <span>Total Number of Applicants:</span><br>
-          <span>For Scholarship Officer Review:</span><br>
-          <span>For Deans Approval:</span><br>
-          <span>For Registrar Approval:</span><br>
-          <span>Scholarship Approved:</span><br>
-          <span>Scholarship Rejected:</span>
-        </div>
-        <div class="col">
-          <h5>University Grant</h5>
-          <span>Total Number of Applicants:</span><br>
-          <span>For Scholarship Officer Review:</span><br>
-          <span>For Deans Approval:</span><br>
-          <span>For Registrar Approval:</span><br>
-          <span>Scholarship Approved:</span><br>
-          <span>Scholarship Rejected:</span>
+          <span>Discounted Applications:</span>
         </div>
       </div>
     </div>
 
-      <div class="lower container-fluid shadow-lg">
+      <div class="lower container-fluid shadow-lg p-4">
         <div class="row lowerlft col-6 p-3">
             <h4>Applicant Volume Per Day</h4>
           <div class="col-6 form-group">
@@ -134,7 +104,7 @@
                   <button type="button" class="btn btn-info">Change Admin Settings</button>
               </div>
         </div>
-        <div class="lowerrht col-6 p-3">
+        <div class="lowerrht col-6 p-4">
           <!--input code here-->
           <h4>Applicant Volume Per Day</h4>
           <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
@@ -164,16 +134,17 @@
         </div>
       </div>
   </body>
-  <footer id="sticky-footer" class="py-4 bg-dark text-white-50 slide-in-right">
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
     <div class="container text-center">
-        <div class="row">
-            <div class="col col-sm-5 text-left">
-                <small>Copyright &copy; Discount Application and Alumni Portal</small>
-            </div>
-            <div class="col text-right">
-                <small>Created by: Jemiah Kim Del Rosario, Rigel Kent Cruz, Lawrence Ian Forbes, Paul Kenneth Heyrana</small>
-            </div>
-        </div>
+    <div class="row">
+           <div class="col col-sm-5 text-left">
+               <small>Copyright &copy; Discount Application & Alumni Portal</small>
+           </div>
+           <div class="col text-right">
+               <small>Del Rosario, JK. | Cruz, RC. | Heyrana, PK. | Forbes, LI. | Bolasoc, R. (2022)</small>
+           </div>
+       </div>
+   </div>
     </div>
   </footer>
 </html>
