@@ -13,7 +13,7 @@ $view = new viewtable();
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <link rel="stylesheet" href="resource/css/dashboard.css">
     <link rel="stylesheet" href="resource/css/viewStyle.css">
@@ -97,18 +97,14 @@ $view = new viewtable();
                 </div>
             </div>
 
-            <!--form types-->
-
-
-            <!-- application details -->
             <div class="details">
                 <div class="applyDetails">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active text-secondary" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending</a>
+                    <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="false">Approved</a>
+                    <a class="nav-link" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="false">Approved</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="onhold-tab" data-toggle="tab" href="#onhold" role="tab" aria-controls="onhold" aria-selected="false">On-Hold</a>
@@ -118,11 +114,14 @@ $view = new viewtable();
                 </li>
                 </ul>
                 <div class="tab-content mt-5" id="myTabContent">
-                    <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab"><?php $view->viewRequests("1");
-                    if($_SERVER['REQUEST_METHOD']=='POST'){
-                      $action = new action();
-                      $action->execute();
-                    }?></div>
+                    <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+                    <?php $view->viewRequests("2");
+                        if($_SERVER['REQUEST_METHOD']=='POST'){
+                            $action = new action();
+                            $action->execute();
+                        }
+                    ?>
+                    </div>
                     <div class="tab-pane fade" id="approved" role="tabpanel" aria-labelledby="approved-tab">...</div>
                     <div class="tab-pane fade" id="onhold" role="tabpanel" aria-labelledby="onhold-tab">...</div>
                     <div class="tab-pane fade" id="reject" role="tabpanel" aria-labelledby="reject-tab">...</div>
@@ -159,9 +158,9 @@ $view = new viewtable();
         });
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="resource/js/script.js"></script>
