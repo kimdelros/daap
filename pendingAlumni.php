@@ -100,42 +100,39 @@ $view = new viewtable();
             <div class="details">
                 <div class="applyDetails">
                     
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="false">Approved</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="onhold-tab" data-toggle="tab" href="#onhold" role="tab" aria-controls="onhold" aria-selected="false">On-Hold</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="reject-tab" data-toggle="tab" href="#reject" role="tab" aria-controls="reject" aria-selected="false">Rejected</a>
-                </li>
-                </ul>
-                <div class="tab-content mt-5" id="myTabContent">
-                    <section class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
-                    <?php $view->viewPendingApplications("1");
-                        if($_SERVER['REQUEST_METHOD']=='POST'){
-                            $action = new action();
-                            $action->execute();
-                        }
-                    ?>
-                    </section>
-                    <section class="tab-pane fade" id="approved" role="tabpanel" aria-labelledby="approved-tab">
-                    <?php $view->viewApprovedApplications("1");
-                    ?>
-                    </section>
-                    <section class="tab-pane fade" id="onhold" role="tabpanel" aria-labelledby="onhold-tab">
-                    <?php $view->viewOnHoldApplications("1");
-                    ?>
-                    </section>
-                    <section class="tab-pane fade" id="reject" role="tabpanel" aria-labelledby="reject-tab">
-                    <?php $view->viewRejectedApplications("1");
-                    ?>
-                    </section>
-                </div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="approved-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="approved" aria-selected="false">Approved</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="onhold-tab" data-toggle="tab" href="#onhold" role="tab" aria-controls="onhold" aria-selected="false">On-Hold</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="rejected-tab" data-toggle="tab" href="#rejected" role="tab" aria-controls="rejected" aria-selected="false">Rejected</a>
+                    </li>
+                    </ul>
+                    <div class="tab-content mt-5" id="myTabContent">
+                        <section class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+                        <?php $view->viewPendingApplications("1");
+                            if($_SERVER['REQUEST_METHOD']=='POST'){
+                                $action = new action();
+                                $action->execute();
+                            }
+                        ?>
+                        </section>
+                        <section class="tab-pane fade" id="approved" role="tabpanel" aria-labelledby="approved-tab">
+                            <?php $view->viewApprovedApplications("1"); ?>
+                        </section>
+                        <section class="tab-pane fade" id="onhold" role="tabpanel" aria-labelledby="onhold-tab">
+                            <?php $view->viewOnHoldApplications("1"); ?>
+                        </section>
+                        <section class="tab-pane fade" id="rejected" role="tabpanel" aria-labelledby="rejected-tab">
+                            <?php $view->viewRejectedApplications("1"); ?>
+                        </section>
+                    </div>
                     
                 </div>
             </div>

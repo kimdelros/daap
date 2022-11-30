@@ -255,8 +255,8 @@ class apply extends config{
       $courseID = $this->verifyCourse($campusID, $cdID, $siblingApplicantCourse);
 
       $siblingCampusID = $this->verifyCampus($siblingSiblingCampus);
-      $siblingCdID = $this->verifyCollege($campusID, $siblingSiblingCollege);
-      $siblingCourseID = $this->verifyCourse($campusID, $cdID, $siblingSiblingCourse);
+      $siblingCdID = $this->verifyCollege($siblingCampusID, $siblingSiblingCollege);
+      $siblingCourseID = $this->verifyCourse($siblingCampusID, $siblingCdID, $siblingSiblingCourse);
 
       $maxSize = 2 * 1024 * 1024;
 
