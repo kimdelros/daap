@@ -197,7 +197,7 @@ class apply extends config{
              do{
                $transID = $this->getTransID('ALUM-');
              }while($this->checkTransID($transID));
-             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "1", $transID, $studentYearLevel, $campusID, $cdID, $courseID);
+             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, $studentYearLevel, $campusID, $cdID, $courseID, "1", $transID);
 
              if($alumniYB['name'] != '')
                 $AYB = $this->storeFile($alumniYB, "1", $transID);
@@ -238,17 +238,26 @@ class apply extends config{
          }
     }
 
-    private function applySibling($lastID, $siblingID, $siblingName, $applicantCOM, $siblingCOM){
+    private function applySibling($lastID, $siblingID, $siblingName, $siblingYearLevel, $siblingCampusID, $siblingCdID, $siblingCourseID, $applicantCOM, $siblingCOM){
        $link = config::con();
 
-       $sql = "INSERT INTO `sibling`(`appID`, `siblingStudentID`, `siblingName`, `applicantCOM`, `siblingCOM`) VALUES ('$lastID', '$siblingID', '$siblingName', '$applicantCOM', '$siblingCOM')";
+       $sql = "INSERT INTO `sibling`(`appID`, `siblingStudentID`, `siblingName`, `siblingYearLevel`, `siblingCampusID`, `siblingCdID`, `siblingCourseID`, `applicantCOM`, `siblingCOM`) VALUES ('$lastID', '$siblingID', '$siblingName', `$siblingYearLevel`, `$siblingCampusID`, `$siblingCdID`, `$siblingCourseID`, '$applicantCOM', '$siblingCOM')";
 
        $link = $link->prepare($sql);
        $link->execute();
        $link->connection = null;
      }
 
-    public function verifySibling($studentID, $studentEmail, $studentName, $siblingID, $siblingName, $applicantCOM, $siblingCOM){
+    public function verifySibling($studentID, $studentEmail, $studentName, $studentYearLevel, $siblingApplicantCampus, $siblingApplicantCollege, $siblingApplicantCourse, $siblingID, $siblingName, $siblingYearLevel, $siblingSiblingCampus, $siblingSiblingCollege, $siblingSiblingCourse, $applicantCOM, $siblingCOM){
+
+      $campusID = $this->verifyCampus($siblingApplicantCampus);
+      $cdID = $this->verifyCollege($campusID, $siblingApplicantCollege);
+      $courseID = $this->verifyCourse($campusID, $cdID, $siblingApplicantCourse);
+
+      $siblingCampusID = $this->verifyCampus($siblingSiblingCampus);
+      $siblingCdID = $this->verifyCollege($campusID, $siblingSiblingCollege);
+      $siblingCourseID = $this->verifyCourse($campusID, $cdID, $siblingSiblingCourse);
+
       $maxSize = 2 * 1024 * 1024;
 
       $acom = strtolower(pathinfo($applicantCOM['name'], PATHINFO_EXTENSION));
@@ -256,8 +265,7 @@ class apply extends config{
 
       $tempSName = str_replace(' ', '', $siblingName);
       $tempSName = str_replace('.', '', $tempSName);
-
-         if($this->verifyStudent($studentID, $studentEmail, $studentName)){
+         if($this->verifyStudent($studentID, $studentEmail, $studentName, $studentYearLevel, $campusID, $cdID, $courseID)){
            if($siblingID == "")
              $message = "Student Number is required.";
            else if(!preg_match("/^[0-9]{4,4}+\-[0-9]{5,5}$/", $siblingID))
@@ -276,16 +284,24 @@ class apply extends config{
              $message = "Sibling's COM must be an image file only!";
            else if($applicantCOM['size'] >= $maxSize && $siblingCOM ['size'] >= $maxSize)
              $message = "File too large. File must be less than 2 megabytes.";
+           else if(!($siblingYearLevel == "1st Year" || $siblingYearLevel == "2nd Year" || $siblingYearLevel == "3rd Year" || $siblingYearLevel == "4th Year" || $siblingYearLevel == "5th Year" || $siblingYearLevel == "6th Year"))
+             $message = "Sibling's Year Level is invalid.";
+           else if($siblingCampusID == 0)
+             $message = "Sibling's Campus is invalid.";
+           else if($siblingCdID == 0)
+             $message = "Sibling's College is invalid.";
+           else if($siblingCourseID == 0)
+             $message = "Sibling's Course is invalid.";
            else {
              do{
                $transID = $this->getTransID('SIBL-');
              }while($this->checkTransID($transID));
-             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "2", $transID);
+             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, $studentYearLevel, $campusID, $cdID, $courseID, "2", $transID);
 
 
              $ACM = $this->storeFile($applicantCOM, "4", $transID);
              $SCM = $this->storeFile($siblingCOM, "5", $transID);
-             $this->applySibling($lastID, $siblingID, $siblingName, $ACM, $SCM);
+             $this->applySibling($lastID, $siblingID, $siblingName, $siblingYearLevel, $siblingCampusID, $siblingCdID, $siblingCourseID, $ACM, $SCM);
              echo "<script>
              Swal.fire({
                     title: \"Your application has been submitted!\",

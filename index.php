@@ -354,6 +354,14 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
+                  <label for="studentYearLevel" class="form-label">Applicant's Year Level</label>
+                  <select id="studentYearLevel" name="studentYearLevel" class="selectpicker form-control text-center" data-live-search="true" required>
+                    <?php $view->yearLevel(); ?>  
+                  </select>
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
                   <label for="siblingApplicantCampus" class="form-label">Applicant's Campus</label>
                   <select id="siblingApplicantCampus" name="siblingApplicantCampus" class="selectpicker form-control text-center " title="Select Campus" required>
                   <option value="" selected="selected">Select Campus</option>
@@ -386,6 +394,14 @@
               <div class="col-md-8  pt-3">
                 <label for="siblingName" class="form-label">Sibling's Full Name</label>
                 <input type="text" class="form-control text-center" name="siblingName" placeholder="Sibling's Full Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+              </div>
+            </div>
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8  pt-3">
+                  <label for="siblingYearLevel" class="form-label">Sibling's Year Level</label>
+                  <select id="siblingYearLevel" name="siblingYearLevel" class="selectpicker form-control text-center" data-live-search="true" required>
+                    <?php $view->yearLevel(); ?>  
+                  </select>
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -474,10 +490,10 @@
             <div class="col-12 text-center">
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applySibling" id="applySibling" value="Apply"></input>
               <?php
-              // if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applySibling']){
-              //   $applyClass = new apply();
-              //   $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['siblingID'], $_POST['siblingName'], $_FILES['applicantCOM'], $_FILES['siblingCOM']);
-              // }
+              if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applySibling']){
+                $applyClass = new apply();
+                $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['siblingApplicantCampus'], $_POST['siblingApplicantCollege'], $_POST['siblingApplicantCourse'], $_POST['siblingID'], $_POST['siblingName'], $_POST['siblingSiblingCampus'], $_POST['siblingSiblingCollege'], $_POST['siblingSiblingCourse'], $_FILES['applicantCOM'], $_FILES['siblingCOM']);
+              }
                ?>
             </div>
           </form>
