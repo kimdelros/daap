@@ -30,6 +30,22 @@ body{
     font-size: 2rem;
 }
 
+.navbar img{
+        width: 200px;
+        cursor: pointer;
+        float: left;
+      }
+
+.navbar {
+background-color: rgb(0, 0, 0, 0.5);
+width: 100%;
+margin: auto;
+padding: 10px 0;
+padding-left: 30px;
+align-items: center;
+justify-content: space-between;
+}
+
 .screen2{
     background-image: url(../img/block.jpg);
 	background-size: cover;

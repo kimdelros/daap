@@ -11,7 +11,7 @@ $view = new view;
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" href="resource/img/daap-icon.png">
-   <title>DAAP Dashboard</title>
+   <title>DAAP Register Account</title>
    <link rel="stylesheet" type="text/css"  href="vendor/css/bootstrap.min.css">
    <link href="vendor/css/all.css" rel="stylesheet">
    <link rel="stylesheet" type="text/css"  href="resource/css/styles.css">
@@ -20,18 +20,15 @@ $view = new view;
 
  </head>
  <body>
-         <nav class="navbar navbar-dark shadow-lg p-3 mb-5 rounded slide-in-left">
-           <a class="navbar-brand" href="https://malolos.ceu.edu.ph/">
-             <img src="resource/img/DAAPlogo.png" height="65" class="d-inline-block align-top"
-               alt="mdb logo"><h3 class="ib">
-           </a>
-           <a href="registrar.php"><i class="fas fa-home ceucolor"></i></a>
-         </nav>
+ <nav class="navbar navbar-expand-md navbar-dark">
+      <a href="index.php"><img src="resource/img/DAAPlogo-white.png" class="img-fluid logo" alt="daap-logo"></a>
+      <a href="registrar.php"><i class="fas fa-home ceucolor"></i></a>
+    </nav>
 
          <div class="container mt-4 puff-in-center">
              <div class="row">
                  <div class="col-12">
-                     <h1 class="text-center">Register New Admin Account</h1>
+                     <h1 class="text-center mt-5 font-weight-bold">Register New Admin Account</h1>
                  </div>
             </div>
             <form action="" method="post">
@@ -95,14 +92,14 @@ $view = new view;
              </form>
          </div>
  </body>
- <footer id="sticky-footer" class="py-4 bg-dark text-white-50 fixed-bottom  slide-in-right">
+ <footer id="sticky-footer" class="py-4 bg-dark text-white-50 fixed-bottom">
    <div class="container text-center">
-       <div class="row">
+   <div class="row">
            <div class="col col-sm-5 text-left">
-               <small>Copyright &copy; Discount Application and Alumni Portal</small>
+               <small>Copyright &copy; Discount Application & Alumni Portal</small>
            </div>
            <div class="col text-right">
-               <small>Created by: Jemiah Kim Del Rosario, Rigel Kent Cruz, Lawrence Ian Forbes, Paul Kenneth Heyrana</small>
+               <small>Del Rosario, JK. | Cruz, RC. | Heyrana, PK. | Forbes, LI. | Bolasoc, R. (2022)</small>
            </div>
        </div>
    </div>

@@ -2,7 +2,7 @@
 
 class config2{
 
-    public function conn(){
+    public function con(){
       $host = '127.0.0.1:3306';
       $db = 'map_db';
       $user = 'root';
