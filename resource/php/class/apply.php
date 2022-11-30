@@ -168,6 +168,7 @@ class apply extends config{
       $campusID = $this->verifyCampus($studentCampus);
       $cdID = $this->verifyCollege($campusID, $studentCollege);
       $courseID = $this->verifyCourse($campusID, $cdID, $studentCourse);
+      
       $alumniCampusID = $this->verifyCampus($alumniCampusGraduated);
 
       $tempAName = str_replace(' ', '', $alumniName);

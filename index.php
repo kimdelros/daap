@@ -148,7 +148,7 @@
       <div class="regContent">
         <div class="regForm">
           <h2 class="text-center font-weight-bold">ALUMNI DISCOUNT FORM</h2>
-          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="POST" action="/index.php">
+          <form class="row pt-3 g-3 needs-validation" enctype="multipart/form-data" method="POST" action="">
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
@@ -202,7 +202,7 @@
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="alumniName" class="form-label">Alumni's Full Name</label>
-                <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+                <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
               </div>
             </div>
 
@@ -474,10 +474,10 @@
             <div class="col-12 text-center">
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applySibling" id="applySibling" value="Apply"></input>
               <?php
-              if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applySibling']){
-                $applyClass = new apply();
-                $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['siblingID'], $_POST['siblingName'], $_FILES['applicantCOM'], $_FILES['siblingCOM']);
-              }
+              // if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applySibling']){
+              //   $applyClass = new apply();
+              //   $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['siblingID'], $_POST['siblingName'], $_FILES['applicantCOM'], $_FILES['siblingCOM']);
+              // }
                ?>
             </div>
           </form>
@@ -583,10 +583,10 @@
             <div class="col-12 text-center">
               <input class="btn btn-secondary btn-lg btn-block" type="submit" name="applyCEIS" id="applyCEIS" value="Apply"></input>              
               <?php
-              if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyCEIS']){
-                $applyClass = new apply();
-                $applyClass->verifyCEIS($_POST['studentID'], $_POST['CEISstudentID'], $_POST['studentEmail'], $_POST['studentName'], $_FILES['ceisDiploma']);
-              }
+              // if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyCEIS']){
+              //   $applyClass = new apply();
+              //   $applyClass->verifyCEIS($_POST['studentID'], $_POST['CEISstudentID'], $_POST['studentEmail'], $_POST['studentName'], $_FILES['ceisDiploma']);
+              // }
                ?>
             </div>
           </form>
