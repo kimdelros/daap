@@ -356,4 +356,32 @@ class viewtable extends config{
     $result = $data->fetchColumn();
     return $result;
   }
+
+  public function viewTotalPerCampus(){
+    $con = $this->con();
+    $sql = "SELECT `campusID`, COUNT(campusID) AS quantity FROM `applications` WHERE `campusID` != 0 GROUP BY campusID";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $total[] = array();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
+      $total[] = $row['quantity'];
+    }
+    unset($total[0]);
+    return $total;
+  }
+
+  public function viewTotalPerCampusName(){
+    $con = $this->con();
+    $sql = "SELECT `campusID`, COUNT(campusID) AS quantity FROM `applications` WHERE `campusID` != 0 GROUP BY campusID";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $campuses[] = array();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
+      $campuses[] = $row['campusID'];
+    }
+    unset($campuses[0]);
+    return $campuses;
+  }
 }
