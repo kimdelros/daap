@@ -241,7 +241,7 @@ class apply extends config{
     private function applySibling($lastID, $siblingID, $siblingName, $siblingYearLevel, $siblingCampusID, $siblingCdID, $siblingCourseID, $applicantCOM, $siblingCOM){
        $link = config::con();
 
-       $sql = "INSERT INTO `sibling`(`appID`, `siblingStudentID`, `siblingName`, `siblingYearLevel`, `siblingCampusID`, `siblingCdID`, `siblingCourseID`, `applicantCOM`, `siblingCOM`) VALUES ('$lastID', '$siblingID', '$siblingName', '$siblingYearLevel', '$siblingCampusID', '$siblingCdID', `$siblingCourseID`, '$applicantCOM', '$siblingCOM')";
+       $sql = "INSERT INTO `sibling`(`appID`, `siblingStudentID`, `siblingName`, `siblingYearLevel`, `siblingCampusID`, `siblingCollegeID`, `siblingCourseID`, `applicantCOM`, `siblingCOM`) VALUES ('$lastID', '$siblingID', '$siblingName', '$siblingYearLevel', '$siblingCampusID', '$siblingCdID', '$siblingCourseID', '$applicantCOM', '$siblingCOM')";
 
        $link = $link->prepare($sql);
        $link->execute();

@@ -80,6 +80,16 @@ class viewtable extends config{
     echo "</td>";
   }
 
+  private function viewCampus($campusID){
+    $con = $this->con();
+    $sql = "SELECT * FROM `campus` WHERE `campusID` = '$campusID'";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($result as $data) {
+      echo "<td>$data[campusName]</td>";
+    }
+  }
 
   public function viewPendingApplications($appType){
     $con = $this->con();
@@ -103,6 +113,7 @@ class viewtable extends config{
     echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
     echo "<thead class='thead-dark'>";
     echo "<th>Transaction ID</th>";
+    echo "<th>Campus</th>";
     echo "<th>Student Number</th>";
     echo "<th>Student Name</th>";
     echo "<th>Student Email</th>";
@@ -112,6 +123,7 @@ class viewtable extends config{
     foreach ($result as $data) {
     echo "<tr>";
     echo "<td>$data[transID]</td>";
+    $this->viewCampus($data['campusID']);
     echo "<td>$data[studentID]</td>";
     echo "<td>$data[studentName]</td>";
     echo "<td>$data[studentEmail]</td>";
