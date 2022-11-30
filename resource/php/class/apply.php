@@ -2,7 +2,49 @@
 require $_SERVER['DOCUMENT_ROOT'].'/daap/vendor/sendmail.php';
 class apply extends config{
 
-    private function verifyStudent($studentID, $studentEmail, $studentName){
+    private function verifyCampus($studentCampus){
+      $link = config::con();
+
+      $sql = "SELECT * FROM `campus` WHERE `campusName` = '$studentCampus'";
+      $stmt = $link->prepare($sql);
+      $stmt->execute();
+      $campusID = $stmt->fetchAll();
+
+      if($campusID[0][0])
+        return $campusID[0][0];
+      else
+        return 0;
+    }
+
+    private function verifyCollege($campusID, $studentCollege){
+      $link = config::con();
+
+      $sql = "SELECT * FROM `collegedepartment` WHERE `campusID` = '$campusID' AND `cdName` = '$studentCollege'";
+      $stmt = $link->prepare($sql);
+      $stmt->execute();
+      $cdID = $stmt->fetchAll();
+
+      if($cdID[0][0])
+        return $cdID[0][0];
+      else
+        return 0;
+    }
+
+    private function verifyCourse($campusID, $cdID, $studentCourse){
+      $link = config::con();
+
+      $sql = "SELECT * FROM `courses` WHERE `campusID` = '$campusID' AND `cdID` = '$cdID' AND `courseName` = '$studentCourse'";
+      $stmt = $link->prepare($sql);
+      $stmt->execute();
+      $courseID = $stmt->fetchAll();
+
+      if($courseID[0][0])
+        return $courseID[0][0];
+      else
+        return 0;
+    }
+
+    private function verifyStudent($studentID, $studentEmail, $studentName, $studentYearLevel, $campusID, $cdID, $courseID){
       $studentName = str_replace(' ', '', $studentName);
       $studentName = str_replace('.', '', $studentName);
 
@@ -18,6 +60,14 @@ class apply extends config{
         $message = "Applicant's name is required.";
       else if(!ctype_alpha($studentName))
         $message = "Applicant's Name is invalid.";
+      else if(!($studentYearLevel == "1st Year" || $studentYearLevel == "2nd Year" || $studentYearLevel == "3rd Year" || $studentYearLevel == "4th Year" || $studentYearLevel == "5th Year" || $studentYearLevel == "6th Year"))
+        $message = "Year Level is invalid.";
+      else if($campusID == 0)
+        $message = "Campus is invalid.";
+      else if($cdID == 0)
+        $message = "College is invalid.";
+      else if($courseID == 0)
+        $message = "Course is invalid.";
       else
         return true;
 
@@ -83,12 +133,12 @@ class apply extends config{
       return $pathFile;
     }
 
-   private function applyStudent($studentID, $studentEmail, $studentName, $appType, $transID){
+   private function applyStudent($studentID, $studentEmail, $studentName, $studentYearLevel, $campusID, $cdID, $courseID, $appType, $transID){
      $dateApplied = date('Y-m-d H:i:s', time());
 
       $link = config::con();
 
-      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `appType`, `transID`, `dateApplied`) VALUES ('$studentID', '$studentName', '$studentEmail', '$appType', '$transID', '$dateApplied')";
+      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `studentYearLevel`, `campusID`, `cdID`, `courseID`, `appType`, `transID`, `dateApplied`) VALUES ('$studentID', '$studentName', '$studentEmail', '$studentYearLevel', '$campusID', '$cdID', '$courseID', '$appType', '$transID', '$dateApplied')";
 
       $stmt = $link->prepare($sql);
       $stmt->execute();
@@ -97,27 +147,33 @@ class apply extends config{
       return $lastID;
     }
 
-   private function applyAlumni($lastID, $alumniName, $alumniYB, $alumniDiploma, $alumniTOR){
+   private function applyAlumni($lastID, $alumniName, $alumniCampusID, $alumniYearGraduated, $alumniYB, $alumniDiploma, $alumniTOR){
       $link = config::con();
 
-      $sql = "INSERT INTO `alumni`(`appID`, `alumniName`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES ('$lastID', '$alumniName', '$alumniYB', '$alumniDiploma', '$alumniTOR')";
+      $sql = "INSERT INTO `alumni`(`appID`, `alumniName`, `alumniCampusID`, `alumniYearGraduated`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES ('$lastID', '$alumniName', '$alumniCampusID', '$alumniYearGraduated', '$alumniYB', '$alumniDiploma', '$alumniTOR')";
 
       $link = $link->prepare($sql);
       $link->execute();
       $link->connection = null;
     }
 
-    public function verifyAlumni($studentID, $studentEmail, $studentName, $studentYearLevel, $studentCourse, $studentCampus, $alumniName, $alumniCampusGraduated, $alumniYearGraduated, $alumniYB, $alumniDiploma, $alumniTOR){
+    public function verifyAlumni($studentID, $studentEmail, $studentName, $studentYearLevel, $studentCampus, $studentCollege, $studentCourse, $alumniName, $alumniCampusGraduated, $alumniYearGraduated, $alumniYB, $alumniDiploma, $alumniTOR){
       $maxSize = 2 * 1024 * 1024;
 
       $yb = strtolower(pathinfo($alumniYB['name'], PATHINFO_EXTENSION));
       $dip = strtolower(pathinfo($alumniDiploma['name'], PATHINFO_EXTENSION));
       $tor = strtolower(pathinfo($alumniTOR['name'], PATHINFO_EXTENSION));
 
+      
+      $campusID = $this->verifyCampus($studentCampus);
+      $cdID = $this->verifyCollege($campusID, $studentCollege);
+      $courseID = $this->verifyCourse($campusID, $cdID, $studentCourse);
+      $alumniCampusID = $this->verifyCampus($alumniCampusGraduated);
+
       $tempAName = str_replace(' ', '', $alumniName);
       $tempAName = str_replace('.', '', $tempAName);
 
-         if($this->verifyStudent($studentID, $studentEmail, $studentName)){
+         if($this->verifyStudent($studentID, $studentEmail, $studentName, $studentYearLevel, $campusID, $cdID, $courseID)){
            if($alumniName == "")
              $message = "Alumni's Name is required.";
            else if(!ctype_alpha($tempAName))
@@ -132,11 +188,15 @@ class apply extends config{
              $message = "Please upload atleast one document.";
            else if($alumniYB['size'] >= $maxSize && $alumniDiploma ['size'] >= $maxSize && $alumniTOR['size'] >= $maxSize)
              $message = "File too large. File must be less than 2 megabytes.";
+          else if($alumniCampusID == 0)
+             $message = "Alumni Campus is invalid";
+          else if(!(is_numeric($alumniYearGraduated)) || $alumniYearGraduated < 1925 || $alumniYearGraduated > date('Y'))
+             $message = "Alumni Year Graduated is invalid";
            else {
              do{
                $transID = $this->getTransID('ALUM-');
              }while($this->checkTransID($transID));
-             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "1", $transID);
+             $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, "1", $transID, $studentYearLevel, $campusID, $cdID, $courseID);
 
              if($alumniYB['name'] != '')
                 $AYB = $this->storeFile($alumniYB, "1", $transID);
@@ -150,7 +210,7 @@ class apply extends config{
                 $ATOR = $this->storeFile($alumniTOR, "3", $transID);
              else
                 $ATOR = '';
-             $this->applyAlumni($lastID, $alumniName, $AYB, $AD, $ATOR);
+             $this->applyAlumni($lastID, $alumniName, $alumniCampusID, $alumniYearGraduated, $AYB, $AD, $ATOR);
              echo "<script>
              Swal.fire({
                     title: \"Your application has been submitted!\",

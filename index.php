@@ -317,7 +317,7 @@
               <?php
               if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['applyAlumni']){
                 $applyClass = new apply();
-                $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['studentCourse'], $_POST['studentCampus'], $_POST['alumniName'], $_POST['campusGraduated'], $_POST['yearGraduated'], $_FILES['alumniYB'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
+                $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['alumniStudentCampus'], $_POST['alumniStudentCollege'], $_POST['alumniStudentCourse'], $_POST['alumniName'], $_POST['campusGraduated'], $_POST['yearGraduated'], $_FILES['alumniYB'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
               }
                ?>
             </div>
@@ -719,6 +719,8 @@
               }
             }
             </script>
+
+
 
 
   <script>

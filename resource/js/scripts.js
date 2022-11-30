@@ -5,3 +5,4 @@ function overlayOn() {
 function overlayOff() {
   document.getElementById("regOverlay").style.display = "none";
 }
+
