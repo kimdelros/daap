@@ -167,64 +167,27 @@ $view = new viewtable();
         <div class="regForm text-center">
           <?php 
           $transID = $_GET['transID'];
+          $getData = new viewSummary();
 
-          $con = new config();
-          $link = $con->con();
-          $sql = "SELECT * FROM `applications` WHERE `transID` = '$transID'";
-          $stmt = $link->prepare($sql);
-          $stmt->execute();
-          $result = $stmt->fetchAll();
+          $studentInfo = $getData->viewAllData($transID);
 
-          $appID = (int) $result[0]['appID'];
+          $appID = $studentInfo[0]['appID'];
+          $studentCampus = $getData->viewCampus($studentInfo[0]['campusID']);
+          $studentCollege = $getData->viewCollege($studentInfo[0]['cdID']);
+          $studentCourse = $getData->viewCourse($studentInfo[0]['courseID']);
+          $appType = $getData->viewAppType($studentInfo[0]['appType']);
           
-          $campusID = $result[0]['campusID'];
-          $cdID = $result[0]['cdID'];
-          $courseID = $result[0]['courseID'];
-
-          $link2 = $con->con();
-          $sql2 = "SELECT * FROM `campus` WHERE `campusID` = '$campusID'";
-          $stmt2 = $link2->prepare($sql2);
-          $stmt2->execute();
-          $campus = $stmt2->fetchAll();
-          
-          $link3 = $con->con();
-          $sql3 = "SELECT * FROM `collegedepartment` WHERE `cdID` = '$cdID'";
-          $stmt3 = $link3->prepare($sql3);
-          $stmt3->execute();
-          $college = $stmt3->fetchAll();
-
-          $link4 = $con->con();
-          $sql4 = "SELECT * FROM `courses` WHERE `courseID` = '$courseID'";
-          $stmt4 = $link4->prepare($sql4);
-          $stmt4->execute();
-          $course = $stmt4->fetchAll();
-        
-          $link5 = $con->con();
-          switch($result[0]['appType']){
-            case 1: 
-                $appType = "Alumni Discount";
-                $sql = "SELECT * FROM `alumni` WHERE `appID`= '$appID'";
-                break;
-            case 2: 
-                $appType = "Sibling Discount";
-                $sql = "SELECT * FROM `sibling` WHERE `appID`= '$appID'";
-                break;
-            case 3: 
-                $appType = "CEIS Graduate Discount";
-                $sql = "SELECT * FROM `ceis` WHERE `appID`= '$appID'";
-                break;
-          }
-          $stmt5= $link5->prepare($sql);
-          $stmt5->execute();
-          $files = $stmt5->fetch(PDO::FETCH_ASSOC);
-
+          $specificInfo = $getData->viewSpecificInfo($appID, $studentInfo[0]['appType']);
+          $alumniName = $specificInfo[0]['alumniName'];
+          $alumniCampus = $getData->viewCampus($specificInfo[0]['alumniCampusID']);
+          $alumniYearGraduated = $specificInfo[0]['alumniYearGraduated'];
           ?>
-          <h2><?php echo $result[0]['transID']; ?></h2>
+          <h2><?php echo $studentInfo[0]['transID']; ?></h2>
           <h3>Student Information</h3>
-          <h3><?php echo $result[0]['studentName']; ?></h3>
-          <h5><?php echo $result[0]['studentID']; ?><br></h5>
-          <h5><?php echo $result[0]['studentEmail']; ?><br><br></h5>
-          <h4><?php echo $campus[0]['campusName']." Campus<br>".$college[0]['cdName']."<br>".$course[0]['courseName']; ?></h4>
+          <h3><?php echo $studentInfo[0]['studentName']; ?></h3>
+          <h5><?php echo $studentInfo[0]['studentID']; ?><br></h5>
+          <h5><?php echo $studentInfo[0]['studentEmail']; ?><br><br></h5>
+          <h4><?php echo $studentCampus." Campus<br>".$studentCollege."<br>".$studentCourse; ?></h4>
         </div>
         <div class="container-fluid">
             <div class="row">
@@ -234,21 +197,11 @@ $view = new viewtable();
                 <div class="row">
                 <div class="col-1"></div>
                     <div class="col-11 text-left">
-                    <h5>Discount Type: <?php echo $appType; ?></h5>
                     <?php 
-                    switch($result[0]['appType']){
-                        case 1:
-                            echo "<h5>Alumni Name: $files[alumniName]</h5>";
-                            echo "<h5>Alumni Campus: $files[alumniName]</h5>";
-                            echo "<h5>Alumni Year Graduated: $files[alumniYearGraduated]</h5>";
-                            break;
-                        case 2:
-
-                            break;
-                        case 3:
-
-                            break;
-                    }
+                    echo "<h5>Discount Type: <b>$appType</b></h5>";                    
+                    echo "<h5>Alumni Name: <b>$alumniName</b></h5>";
+                    echo "<h5>Alumni Campus: <b>$alumniCampus Campus</b></h5>";
+                    echo "<h5>Alumni Year Graduated: <b>$alumniYearGraduated</b></h5>";
                     ?>
                     </div>
                     </div>
@@ -257,36 +210,18 @@ $view = new viewtable();
                 <div class="regForm col-6 text-center">
                     <h5>File/s Uploaded</h5>
                     <?php 
-                    switch($result[0]['appType']){
-                        case 1: 
-                            if($files['alumniYB']){
-                                $src = $files['alumniYB'];
-                                echo "<img src='$src' width=50%><br>Alumni Year Book<br>";
-                            }
-                            if($files['alumniDiploma']){
-                                $src = $files['alumniDiploma'];
-                                echo "<img src='$src' width=50%><br>Alumni Diploma<br>";
-                            }
-                            if($files['alumniTOR']){
-                                $src = $files['alumniTOR'];
-                                echo "<img src='$src' width=50%><br>Alumni TOR<br>";
-                            }
-                            break;
-                        case 2: 
-                            if($files['applicantCOM']){
-                                $src = $files['applicantCOM'];
-                                echo "<img src='$src' width=50%><br>Applicant COM<br>";
-                            }
-                            if($files['siblingCOM']){
-                                $src = $files['siblingCOM'];
-                                echo "<img src='$src' width=50%><br>Sibling COM<br>";
-                            }
-                            break;
-                        case 3: 
-                            $appType = "CEIS Graduate Discount";
-                            $sql = "SELECT * FROM `ceis` WHERE `appID`= '$appID'";
-                            break;
-                      }
+                    if($specificInfo[0]['alumniYB']){
+                        $src = $specificInfo[0]['alumniYB'];
+                        echo "<img src='$src' width=50%><br><b>Alumni Year Book</b><br>";
+                    }
+                    if($specificInfo[0]['alumniDiploma']){
+                        $src = $specificInfo[0]['alumniDiploma'];
+                        echo "<img src='$src' width=50%><br><b>Alumni Diploma</b><br>";
+                    }
+                    if($specificInfo[0]['alumniTOR']){
+                        $src = $specificInfo[0]['alumniTOR'];
+                        echo "<img src='$src' width=50%><br><b>Alumni TOR</b><br>";
+                    }
                     ?>  
                 </div>
             </div>

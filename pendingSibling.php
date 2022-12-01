@@ -176,6 +176,77 @@ $view = new viewtable();
     </div>
     </section>
 
+    <section class="regOverlay" id="viewSum">
+    <div class="regWrapper">
+      <a class="close" href="" >&times;</a>
+      <div class="regContent">
+        <div class="regForm text-center">
+          <?php 
+          $transID = $_GET['transID'];
+          $getData = new viewSummary();
+
+          $studentInfo = $getData->viewAllData($transID);
+
+          $appID = $studentInfo[0]['appID'];
+          $studentCampus = $getData->viewCampus($studentInfo[0]['campusID']);
+          $studentCollege = $getData->viewCollege($studentInfo[0]['cdID']);
+          $studentCourse = $getData->viewCourse($studentInfo[0]['courseID']);
+          $appType = $getData->viewAppType($studentInfo[0]['appType']);
+          
+          $specificInfo = $getData->viewSpecificInfo($appID, $studentInfo[0]['appType']);
+          $siblingStudentID = $specificInfo[0]['siblingStudentID'];
+          $siblingName = $specificInfo[0]['siblingName'];
+          $siblingYearLevel = $specificInfo[0]['siblingYearLevel'];
+          
+          $siblingCampus = $getData->viewCampus($specificInfo[0]['siblingCampusID']);
+          $siblingCollege = $getData->viewCollege($specificInfo[0]['siblingCollegeID']);
+          $siblingCourse = $getData->viewCourse($specificInfo[0]['siblingCourseID']);
+
+
+          ?>
+          <h2><?php echo $studentInfo[0]['transID']; ?></h2>
+          <h3>Student Information</h3>
+          <h3><?php echo $studentInfo[0]['studentName']; ?></h3>
+          <h5><?php echo $studentInfo[0]['studentID']; ?><br></h5>
+          <h5><?php echo $studentInfo[0]['studentEmail']; ?><br><br></h5>
+          <h4><?php echo $studentCampus." Campus<br>".$studentCollege."<br>".$studentCourse; ?></h4>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="regForm col-6 text-center">
+                    
+                <h4>Application Information</h4>
+                <div class="row">
+                <div class="col-1"></div>
+                    <div class="col-11 text-left">
+                    <?php 
+                    echo "<h5>Discount Type: <b>$appType</b></h5>"; 
+                    echo "<h5>Sibling Name: <b>$siblingName</b></h5>";
+                    echo "<h5>Sibling Student ID: <b>$siblingStudentID</b></h5>";
+                    echo "<h5>Sibling Year Level: <b>$siblingYearLevel</b></h5>";
+                    echo "<h5>Sibling Campus: <b>$siblingCampus Campus</b></h5>";
+                    echo "<h5>Sibling College: <b>$siblingCollege</b></h5>";
+                    echo "<h5>Sibling Course: <b>$siblingCourse</b></h5>";
+                    ?>
+                    </div>
+                    </div>
+                    
+                </div>
+                <div class="regForm col-6 text-center">
+                    <h5>File/s Uploaded</h5>
+                    <?php 
+                    $src = $specificInfo[0]['applicantCOM'];
+                    echo "<img src='$src' width=50%><br><b>Applicant COM</b><br>";
+                    $src = $specificInfo[0]['siblingCOM'];
+                    echo "<img src='$src' width=50%><br><b>Sibling COM</b><br>";
+                    ?>  
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
     <!--Scripts-->
     <script>
         $(document).ready(function () {

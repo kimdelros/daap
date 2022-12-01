@@ -160,6 +160,69 @@ $view = new viewtable();
       </div>
     </div>
     </section>
+
+    <section class="regOverlay" id="viewSum">
+    <div class="regWrapper">
+      <a class="close" href="" >&times;</a>
+      <div class="regContent">
+        <div class="regForm text-center">
+          <?php 
+          $transID = $_GET['transID'];
+          $getData = new viewSummary();
+
+          $studentInfo = $getData->viewAllData($transID);
+
+          $appID = $studentInfo[0]['appID'];
+          $studentCampus = $getData->viewCampus($studentInfo[0]['campusID']);
+          $studentCollege = $getData->viewCollege($studentInfo[0]['cdID']);
+          $studentCourse = $getData->viewCourse($studentInfo[0]['courseID']);
+          $appType = $getData->viewAppType($studentInfo[0]['appType']);
+          
+          $specificInfo = $getData->viewSpecificInfo($appID, $studentInfo[0]['appType']);
+          $ceisID = $specificInfo[0]['studentCID'];
+          $ceisCampus = $getData->viewCampus($specificInfo[0]['ceisCampusGraduatedID']);
+
+
+          ?>
+          <h2>Transaction ID: <?php echo $studentInfo[0]['transID']; ?></h2>
+          <h3 class="font-weight-bold">Student Information</h3>
+          <h3>Applicant's Name: <?php echo $studentInfo[0]['studentName']; ?></h3>
+          <h5>Student Number: <?php echo $studentInfo[0]['studentID']; ?><br></h5>
+          <h5>Email Address<?php echo $studentInfo[0]['studentEmail']; ?><br><br></h5>
+          <h4><?php echo $studentCampus." Campus<br>".$studentCollege."<br>".$studentCourse; ?></h4>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="regForm col-6 text-center">
+                    
+                <h4>Application Information</h4>
+                <div class="row">
+                <div class="col-1"></div>
+                    <div class="col-11 text-left">
+                    <?php 
+                    echo "<h5>Discount Type: <b>$appType</b></h5>"; 
+                    echo "<h5>CEIS Student ID: <b>$ceisID</b></h5>";
+                    echo "<h5>CEIS Campus Graduated: <b>$ceisCampus Campus</b></h5>";
+                    ?>
+                    </div>
+                    </div>
+                    
+                </div>
+                <div class="regForm col-6 text-center">
+                    <h5>File/s Uploaded</h5>
+                    <?php 
+                    $src = $specificInfo[0]['studentDiploma'];
+                    echo "<img src='$src' width=50%><br><b>CEIS Diploma</b><br>";
+                    ?>  
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+                            
+
     <!--Scripts-->
     <script>
         $(document).ready(function () {
