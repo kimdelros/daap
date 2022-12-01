@@ -152,13 +152,32 @@ svg path:hover {
 }
 
 .tracert {
-    width: auto;
-    min-height: 100vh;
+    min-height: 50vh;
     padding-top: 30px;
-    background-image: url('../img/bg-ceu-gradient-3.jpg');
+    background: rgb(28,31,68);
+    background: linear-gradient(180deg, rgba(28,31,68,1) 27%, rgba(148,44,121,1) 100%);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+.tracert h2 {
+  color: white;
+  margin-top: 20px;
+}
+
+.tracert label {
+  color: white;
+  font-weight: 600;
+}
+
+.tracert input {
+  padding: 10px;
+}
+
+.btn-outline-light {
+  color: #f5f5f5;
+  padding: 15px;
 }
 
 .regOverlay {
