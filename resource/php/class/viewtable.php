@@ -87,7 +87,12 @@ class viewtable extends config{
     $data->execute();
     $result = $data->fetchAll(PDO::FETCH_ASSOC);
     foreach ($result as $data) {
-      echo "<td>$data[campusName]</td>";
+      if($data['campusName'] === ""){
+        echo "<td>asd</td>";
+      }else{
+        echo "<td>$data[campusName]</td>";
+      }
+      
     }
   }
 
@@ -118,11 +123,12 @@ class viewtable extends config{
     echo "<th>Student Name</th>";
     echo "<th>Student Email</th>";
     echo "<th>View Document</th>";
-    echo "<th style='font-size: 85%;'>Actions</th>";
+    echo "<th>Actions</th>";
     echo "</thead>";
     foreach ($result as $data) {
     echo "<tr>";
-    echo "<td>$data[transID]</td>";
+    echo "<td>$data[transID]<br>
+          <a href='?transID=$data[transID]#viewSum'>View Summary</a></td>";
     $this->viewCampus($data['campusID']);
     echo "<td>$data[studentID]</td>";
     echo "<td>$data[studentName]</td>";
@@ -162,6 +168,7 @@ class viewtable extends config{
     echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
     echo "<thead class='thead-dark'>";
     echo "<th>Transaction ID</th>";
+    echo "<th>Campus</th>";
     echo "<th>Student Number</th>";
     echo "<th>Student Name</th>";
     echo "<th>Student Email</th>";
@@ -170,6 +177,7 @@ class viewtable extends config{
     foreach ($result as $data) {
     echo "<tr>";
     echo "<td>$data[transID]</td>";
+    $this->viewCampus($data['campusID']);
     echo "<td>$data[studentID]</td>";
     echo "<td>$data[studentName]</td>";
     echo "<td>$data[studentEmail]</td>";
@@ -201,6 +209,7 @@ class viewtable extends config{
     echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
     echo "<thead class='thead-dark'>";
     echo "<th>Transaction ID</th>";
+    echo "<th>Campus</th>";
     echo "<th>Student Number</th>";
     echo "<th>Student Name</th>";
     echo "<th>Student Email</th>";
@@ -209,6 +218,7 @@ class viewtable extends config{
     foreach ($result as $data) {
     echo "<tr>";
     echo "<td>$data[transID]</td>";
+    $this->viewCampus($data['campusID']);
     echo "<td>$data[studentID]</td>";
     echo "<td>$data[studentName]</td>";
     echo "<td>$data[studentEmail]</td>";
@@ -240,6 +250,7 @@ class viewtable extends config{
     echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
     echo "<thead class='thead-dark'>";
     echo "<th>Transaction ID</th>";
+    echo "<th>Campus</th>";
     echo "<th>Student Number</th>";
     echo "<th>Student Name</th>";
     echo "<th>Student Email</th>";
@@ -248,6 +259,7 @@ class viewtable extends config{
     foreach ($result as $data) {
     echo "<tr>";
     echo "<td>$data[transID]</td>";
+    $this->viewCampus($data['campusID']);
     echo "<td>$data[studentID]</td>";
     echo "<td>$data[studentName]</td>";
     echo "<td>$data[studentEmail]</td>";
@@ -292,7 +304,7 @@ class viewtable extends config{
     echo "<th>Student Name</th>";
     echo "<th>Student Email</th>";
     echo "<th>View Document</th>";
-    echo "<th style='font-size: 85%;'>Actions</th>";
+    echo "<th>Actions</th>";
     echo "</thead>";
     foreach ($result as $data) {
     echo "<tr>";

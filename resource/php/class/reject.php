@@ -11,9 +11,10 @@ $con = $db->con();
 
 $transID = $_GET['id'];
 $rejectedBy = $user->data()->id;
+$reasonReject = $_GET['reason'];
 $dateRejected = date('Y-m-d H:i:s', time());
 
-$sql = "UPDATE `applications` SET `isRejected` = '1', `dateRejected` = '$dateRejected', `rejectedBy` = '$rejectedBy' WHERE `transID` = '$transID'";
+$sql = "UPDATE `applications` SET `isRejected` = '1', `dateRejected` = '$dateRejected', `reasonReject` = '$reasonReject', `rejectedBy` = '$rejectedBy' WHERE `transID` = '$transID'";
 $data= $con->prepare($sql);
 $data->execute();
 
@@ -22,7 +23,7 @@ $data= $con->prepare($sql);
 $data->execute();
 $result = $data->fetchAll(PDO::FETCH_ASSOC);
 
-sendRejectUpdate($result[0]['studentName'], $result[0]['studentEmail'], $transID);
+sendRejectUpdate($result[0]['studentName'], $result[0]['studentEmail'], $transID, $reasonReject);
 
 $strArray = explode('-',$transID);
 switch($strArray[0]){

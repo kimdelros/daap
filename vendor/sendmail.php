@@ -114,7 +114,8 @@ function sendHoldUpdate($studentName, $studentEmail, $reason, $transID){
   $body ="<p>Dear $studentName,</p>
   <p>Greetings of peace!</p>
   <p>I hope this email finds you well.</p>
-  <due>We just want to update you, that your application $transID has been <b>on-hold</b> due to <b>$reason</b>.</p>
+  <due>We just want to update you, that your application <b>$transID</b> has been placed <b>on-hold</b>.</p>
+  <p> Reason: <b>$reason</b>.</p>
   <p>Kindly provide a new set of documents and you may upload them using the link below.</p>
   <a href=\"https://port-seventeen.com/daap/uploader.php\">Document Uploader</a>
   <p><b>This is an auto generated email please do not reply.</b></p>
@@ -137,13 +138,14 @@ function sendHoldUpdate($studentName, $studentEmail, $reason, $transID){
   }
 }
 
-function sendRejectUpdate($studentName, $studentEmail, $transID){
+function sendRejectUpdate($studentName, $studentEmail, $transID, $reasonReject){
   $mail = new PHPMailer(true);
 
   $body ="<p>Dear $studentName,</p>
   <p>Greetings of peace!</p>
   <p>I hope this email finds you well.</p>
   <p>We just want to update you, that your application $transID has been <b>rejected</b>.</p>
+  <p>Reason: <b>$reasonReject</b></p>
   <p><b>This is an auto generated email please do not reply.</b></p>
   <p>Thank you and stay safe.</p>";
 

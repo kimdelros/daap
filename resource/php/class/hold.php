@@ -23,7 +23,7 @@ $data= $con->prepare($sql);
 $data->execute();
 $result = $data->fetchAll(PDO::FETCH_ASSOC);
 
-sendHoldUpdate($result[0]['studentName'], $result[0]['studentEmail'], $reasonHold." Document/s", $transID);
+sendHoldUpdate($result[0]['studentName'], $result[0]['studentEmail'], $reasonHold, $transID);
 
 $strArray = explode('-',$transID);
 switch($strArray[0]){
