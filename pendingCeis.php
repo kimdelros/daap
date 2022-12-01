@@ -184,18 +184,18 @@ $view = new viewtable();
 
 
           ?>
-          <h2>Transaction ID: <?php echo $studentInfo[0]['transID']; ?></h2>
-          <h3 class="font-weight-bold">Student Information</h3>
+          <h2 class="text-secondary">Transaction ID: <?php echo $studentInfo[0]['transID']; ?></h2>
+          <h3 class="mt-4 font-weight-bold">STUDENT INFORMATION:</h3>
           <h3>Applicant's Name: <?php echo $studentInfo[0]['studentName']; ?></h3>
-          <h5>Student Number: <?php echo $studentInfo[0]['studentID']; ?><br></h5>
-          <h5>Email Address<?php echo $studentInfo[0]['studentEmail']; ?><br><br></h5>
+          <h4>Student Number: <?php echo $studentInfo[0]['studentID']; ?><br></h4>
+          <h4>Email Address<?php echo $studentInfo[0]['studentEmail']; ?><br><br></h4>
           <h4><?php echo $studentCampus." Campus<br>".$studentCollege."<br>".$studentCourse; ?></h4>
         </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="regForm col-6 text-center">
                     
-                <h4>Application Information</h4>
+                <h4 class="text-secondary mb-4">Application Information</h4>
                 <div class="row">
                 <div class="col-1"></div>
                     <div class="col-11 text-left">
@@ -209,7 +209,7 @@ $view = new viewtable();
                     
                 </div>
                 <div class="regForm col-6 text-center">
-                    <h5>File/s Uploaded</h5>
+                    <h4 class="text-secondary mb-4">File/s Uploaded</h4>
                     <?php 
                     $src = $specificInfo[0]['studentDiploma'];
                     echo "<img src='$src' width=50%><br><b>CEIS Diploma</b><br>";

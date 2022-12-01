@@ -110,7 +110,7 @@ $view = new viewtable();
                 <br>
                 Scholarship Rejected: <span class="font-weight-bold text-primary"> <?php echo $view->viewTotalRejected(); ?></span>
                 <br>
-                Discounted Applications:<span class="font-weight-bold text-primary"><?php echo $view->viewTotalDiscounted(); ?></span> 
+                Discounted Applications: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalDiscounted(); ?></span> 
                 </div>
                 </div>
                 <div class="card-1">
@@ -125,16 +125,16 @@ $view = new viewtable();
             <script>
                 const totalpie = document.getElementById('myChart');
                 new  Chart(totalpie, {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                     labels: <?php echo '["' .implode('", "', $view->viewTotalPerCampusName()) . '"]'?>,
                     datasets: [{
                         label: 'Total in Campus',
                         data: <?php echo '["' .implode('", "', $view->viewTotalPerCampus()) . '"]'?>,
                         backgroundColor: [
-                            'rgb(255, 0, 0)',
-                            'rgb(0, 0, 255)',
-                            'rgb(0, 255, 0)'],
+                            'rgb(254, 200, 216)',
+                            'rgb(149, 125, 173)',
+                            'rgb(173, 173, 175)'],
                     }]
                 }
             });
