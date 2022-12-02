@@ -137,9 +137,9 @@ $view = new view();
     </div>
   </section>
   <section class="tracert" id="tracert">
-  <div class="container">  
-  <h2 class="text-center mb-5">Help us to locate you and other Escolarians!</h2>
-    <form>
+    <div class="container">
+      <h2 class="text-center mb-5">Help us to locate you and other Escolarians!</h2>
+      <form>
         <div class="row m-3">
           <div class="col-md-4">
             <label for="firstName">First Name</label>
@@ -185,10 +185,14 @@ $view = new view();
             <input type="text" class="form-control" placeholder="Company Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
           </div>
           <div class="form-group mt-4">
-              <button class="btn btn-outline-light">Submit Form</button>
+            <button class="fancy">
+              <span class="top-key"></span>
+              <span class="text">Submit Form</span>
+              <span class="bottom-key-1"></span>
+              <span class="bottom-key-2"></span></button>
           </div>
         </div>
-      </div>
+    </div>
     </form>
   </section>
 
