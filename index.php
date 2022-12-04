@@ -155,7 +155,28 @@ $view = new view();
           </div>
         </div>
         <div class="row m-3">
+          
           <div class="col-md-4">
+            <label for="tracertCampus">Campus</label>
+            <select id="tracertCampus" name="tracertCampus" class="selectpicker form-control" title="Select Campus" required>
+              <option value="" selected="selected">Select your Campus</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="tracertCollege">College / Department</label>
+            <select id="tracertCollege" name="tracertCollege" class="selectpicker form-control" title="Select College / Department" required>
+              <option value="" selected="selected">Choose your College / Department</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="tracertCourse">Course / Degree</label>
+            <select id="tracertCourse" name="tracertCourse" class="selectpicker form-control" title="Select Campus" required>
+              <option value="" selected="selected">Choose your Course / Degree</option>
+            </select>
+          </div>
+        </div>
+        <div class="row m-3">
+        <div class="col-md-4">
             <label for="inputState">Country</label>
             <select id="inputState" class="form-control">
               <option selected>Choose...</option>
@@ -163,33 +184,24 @@ $view = new view();
             </select>
           </div>
           <div class="col-md-4">
-            <label for="tracertCampus">Campus</label>
-            <select id="tracertCampus" name="tracertCampus" class="selectpicker form-control" title="Select Campus" required>
-              <option value="" selected="selected">Select Campus</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-            <label for="tracertCampus">Course / Degree</label>
-            <select id="tracertCampus" name="tracertCampus" class="selectpicker form-control" title="Select Campus" required>
-              <option value="" selected="selected">Choose your Degree</option>
-            </select>
-          </div>
-        </div>
-        <div class="row m-3">
-          <div class="col-md-6">
             <label for="employeeName">Employee Name</label>
             <input type="text" class="form-control" placeholder="Employee Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <label for="companyName">Company Name</label>
             <input type="text" class="form-control" placeholder="Company Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
           </div>
           <div class="form-group mt-4">
-            <button class="fancy">
+            <button class="fancy" type="submit" name="tracert" id="tracert">
               <span class="top-key"></span>
               <span class="text">Submit Form</span>
               <span class="bottom-key-1"></span>
               <span class="bottom-key-2"></span></button>
+            
+          <?php 
+
+          
+          ?>
           </div>
         </div>
     </div>
@@ -702,6 +714,10 @@ $view = new view();
 
       var ceisCampusGraduated = document.getElementById("ceisCampusGraduated");
 
+      var tracertCampus = document.getElementById("tracertCampus");
+      var tracertCollege = document.getElementById("tracertCollege");
+      var tracertCourse = document.getElementById("tracertCourse");
+
       for (var x in allData) {
         alumniCampus.options[alumniCampus.options.length] = new Option(x, x);
       }
@@ -716,6 +732,9 @@ $view = new view();
       }
       for (var x in allData) {
         ceisCampusGraduated.options[ceisCampusGraduated.options.length] = new Option(x, x);
+      }
+      for (var x in allData) {
+        tracertCampus.options[tracertCampus.options.length] = new Option(x, x);
       }
 
       alumniCampus.onchange = function() {
@@ -788,6 +807,24 @@ $view = new view();
         var z = allData[ceisCampus.value][this.value];
         for (var i = 0; i < z.length; i++) {
           ceisCourse.options[ceisCourse.options.length] = new Option(z[i], z[i]);
+        }
+      }
+      tracertCampus.onchange = function() {
+        //empty Chapters- and Topics- dropdowns
+        tracertCourse.length = 1;
+        tracertCollege.length = 1;
+        //display correct values
+        for (var y in allData[this.value]) {
+          tracertCollege.options[tracertCollege.options.length] = new Option(y, y);
+        }
+      }
+      tracertCollege.onchange = function() {
+        //empty Chapters dropdown
+        tracertCourse.length = 1;
+        //display correct values
+        var z = allData[tracertCampus.value][this.value];
+        for (var i = 0; i < z.length; i++) {
+          tracertCourse.options[tracertCourse.options.length] = new Option(z[i], z[i]);
         }
       }
     }

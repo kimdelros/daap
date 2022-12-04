@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 01, 2022 at 12:41 AM
+-- Generation Time: Dec 01, 2022 at 08:57 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -39,18 +39,20 @@ CREATE TABLE IF NOT EXISTS `alumni` (
   `alumniTOR` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`alumniID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `alumni`
 --
 
 INSERT INTO `alumni` (`alumniID`, `appID`, `alumniName`, `alumniCampusID`, `alumniYearGraduated`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES
-(40, 39, 'qwer', 0, 0, 'resource/documents/alumniYB/ALUM-2GG8JLY6N66XZQKYLXCH.1.jpg', '', ''),
-(41, 44, 'qwer', 0, 0, '', 'resource/documents/alumniDiploma/ALUM-A5HRDEUUGWL29P2HYURE.alumniDiploma.png', ''),
-(42, 46, 'Dhennie Marie Cruz', 0, 0, '', '', 'resource/documents/alumniTOR/ALUM-8B313O1B286I597LX9RL.alumniTOR.png'),
-(43, 47, 'Dhennie', 0, 0, 'resource/documents/alumniYB/ALUM-FMH22H36D0D7TNZGHE7V.1.jpeg', '', ''),
-(44, 48, 'Dhennie', 0, 0, 'resource/documents/alumniYB/ALUM-N6AWGR5X7ZC7HF8TL9DQ.1.jpeg', '', '');
+(40, 39, 'qwer', 1, 1244, 'resource/documents/alumniYB/ALUM-2GG8JLY6N66XZQKYLXCH.1.jpg', '', ''),
+(41, 44, 'qwer', 1, 1344, '', 'resource/documents/alumniDiploma/ALUM-A5HRDEUUGWL29P2HYURE.alumniDiploma.png', ''),
+(42, 46, 'Dhennie Marie Cruz', 1, 1234, '', '', 'resource/documents/alumniTOR/ALUM-8B313O1B286I597LX9RL.alumniTOR.png'),
+(43, 47, 'Dhennie', 1, 1244, 'resource/documents/alumniYB/ALUM-FMH22H36D0D7TNZGHE7V.1.jpeg', '', ''),
+(44, 48, 'Dhennie', 1, 1234, 'resource/documents/alumniYB/ALUM-N6AWGR5X7ZC7HF8TL9DQ.1.jpeg', '', ''),
+(45, 52, 'asdasdqeqwe', 3, 2007, 'resource/documents/alumniYB/ALUM-425XVN1OZ1ISVW9PSRTX.1.png', '', ''),
+(46, 61, 'qwer', 2, 2022, 'resource/documents/alumniYB/ALUM-WN17X0WTIUOTW3SLGW7D.1.png', 'resource/documents/alumniDiploma/ALUM-WN17X0WTIUOTW3SLGW7D.2.png', 'resource/documents/alumniTOR/ALUM-WN17X0WTIUOTW3SLGW7D.3.png');
 
 -- --------------------------------------------------------
 
@@ -80,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `applications` (
   `dateRejected` datetime DEFAULT NULL,
   `dateDiscounted` datetime DEFAULT NULL,
   `reasonHold` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `reasonReject` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `approvedBy` int(10) DEFAULT NULL,
   `holdBy` int(10) DEFAULT NULL,
   `rejectedBy` int(10) DEFAULT NULL,
@@ -89,25 +92,31 @@ CREATE TABLE IF NOT EXISTS `applications` (
   KEY `discountedBy` (`discountedBy`),
   KEY `holdBy` (`holdBy`),
   KEY `rejectedBy` (`rejectedBy`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`, `studentYearLevel`, `campusID`, `cdID`, `courseID`, `appType`, `transID`, `isApproved`, `isHold`, `isRejected`, `isDiscounted`, `dateApplied`, `dateApproved`, `dateHold`, `dateRejected`, `dateDiscounted`, `reasonHold`, `approvedBy`, `holdBy`, `rejectedBy`, `discountedBy`) VALUES
-(39, '1234-12345', 'qwer', 'qwre@qwer.com', '', 0, 0, 0, '1', 'ALUM-2GG8JLY6N66XZQKYLXCH', 0, 0, 0, 0, '2022-10-12 17:22:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(40, '1234-12345', 'qwer', 'qwer@qwer.com', '', 0, 0, 0, '2', 'SIBL-J4K0TLEBCDVNA9YPF26O', 0, 0, 0, 0, '2022-10-12 17:22:46', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(42, '1234-12345', 'qwer', 'qwer@qwer.com', '', 0, 0, 0, '3', 'CEIS-CBEGJ0N2ZSU9JIF6PZE6', 0, 0, 0, 0, '2022-10-12 18:21:40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(43, '1234-12345', 'Rigel Kent Cruz', 'rikeru07@gmail.com', '', 0, 0, 0, '3', 'CEIS-9LAERAKGKJ9E5CY0TMO7', 0, 0, 0, 0, '2022-10-12 18:26:29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(44, '1234-12345', 'qwer', 'qwer@qwer.com', '', 0, 0, 0, '1', 'ALUM-A5HRDEUUGWL29P2HYURE', 1, 0, 0, 0, '2022-10-20 18:16:51', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(45, '1234-12345', 'Rigel Kent Cruz', 'cruz1930647@mls.ceu.edu.ph', '', 0, 0, 0, '2', 'SIBL-M5RG7JIB1IK35U7ZTEYT', 0, 1, 0, 0, '2022-10-24 15:30:04', '2022-10-24 15:33:17', '2022-10-24 15:32:38', NULL, '2022-10-24 16:41:56', 'Blurry', 9, 9, NULL, 10),
-(46, '1234-12345', 'Rigel Kent Cruz', 'cruz1930647@mls.ceu.edu.ph', '', 0, 0, 0, '1', 'ALUM-8B313O1B286I597LX9RL', 0, 1, 0, 0, '2022-10-24 15:46:49', NULL, '2022-10-26 20:50:19', '2022-10-24 16:33:43', NULL, 'Blurry', NULL, 9, 9, NULL),
-(47, '2022-12345', 'Rigel Kent Cruz', 'rikeru07@gmail.com', '', 0, 0, 0, '1', 'ALUM-FMH22H36D0D7TNZGHE7V', 0, 0, 0, 0, '2022-05-22 09:16:40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(48, '2022-12345', 'Rigel Kent Cruz', 'rikeru07@gmail.com', '', 0, 0, 0, '1', 'ALUM-N6AWGR5X7ZC7HF8TL9DQ', 0, 0, 0, 0, '2022-05-22 09:17:05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(49, '1234-12345', 'qwer', 'qwer@qwer.fom', '', 0, 0, 0, '2', 'SIBL-PU9LSYGLN5SHCO08L9HZ', 0, 0, 0, 0, '2022-11-22 09:35:39', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(50, '1234-12345', 'qwer', 'qwer@qwer.com', '', 0, 0, 0, '3', 'CEIS-MD476AZT2GE7JHB5QGL6', 0, 0, 0, 0, '2022-11-23 14:13:48', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(51, '1234-21345', 'qwer', 'qwer@qwer.com', '', 0, 0, 0, '3', 'CEIS-VPH9VMA0CZIO7GNECAHH', 0, 0, 0, 0, '2022-11-23 15:24:43', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`, `studentYearLevel`, `campusID`, `cdID`, `courseID`, `appType`, `transID`, `isApproved`, `isHold`, `isRejected`, `isDiscounted`, `dateApplied`, `dateApproved`, `dateHold`, `dateRejected`, `dateDiscounted`, `reasonHold`, `reasonReject`, `approvedBy`, `holdBy`, `rejectedBy`, `discountedBy`) VALUES
+(39, '1234-12345', 'qwer', 'qwre@qwer.com', '', 3, 0, 0, '1', 'ALUM-2GG8JLY6N66XZQKYLXCH', 0, 0, 1, 0, '2022-10-12 17:22:00', NULL, NULL, '2022-12-01 09:35:40', NULL, NULL, 'Not Eligible', NULL, NULL, 9, NULL),
+(40, '1234-12345', 'qwer', 'qwer@qwer.com', '', 3, 0, 0, '2', 'SIBL-J4K0TLEBCDVNA9YPF26O', 0, 0, 0, 0, '2022-10-12 17:22:46', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(42, '1234-12345', 'qwer', 'qwer@qwer.com', '', 1, 1, 1, '3', 'CEIS-CBEGJ0N2ZSU9JIF6PZE6', 0, 0, 0, 0, '2022-10-12 18:21:40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(43, '1234-12345', 'Rigel Kent Cruz', 'rikeru07@gmail.com', '', 1, 1, 1, '3', 'CEIS-9LAERAKGKJ9E5CY0TMO7', 0, 0, 0, 0, '2022-10-12 18:26:29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(44, '1234-12345', 'qwer', 'qwer@qwer.com', '', 1, 1, 1, '1', 'ALUM-A5HRDEUUGWL29P2HYURE', 1, 0, 0, 0, '2022-10-20 18:16:51', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(45, '1234-12345', 'Rigel Kent Cruz', 'cruz1930647@mls.ceu.edu.ph', '', 1, 1, 1, '2', 'SIBL-M5RG7JIB1IK35U7ZTEYT', 0, 1, 0, 0, '2022-10-24 15:30:04', '2022-10-24 15:33:17', '2022-10-24 15:32:38', NULL, '2022-10-24 16:41:56', 'Blurry', NULL, 9, 9, NULL, 10),
+(46, '1234-12345', 'Rigel Kent Cruz', 'cruz1930647@mls.ceu.edu.ph', '', 1, 1, 1, '1', 'ALUM-8B313O1B286I597LX9RL', 0, 1, 0, 0, '2022-10-24 15:46:49', NULL, '2022-10-26 20:50:19', '2022-10-24 16:33:43', NULL, 'Blurry', NULL, NULL, 9, 9, NULL),
+(47, '2022-12345', 'Rigel Kent Cruz', 'rikeru07@gmail.com', '', 1, 1, 1, '1', 'ALUM-FMH22H36D0D7TNZGHE7V', 0, 0, 0, 0, '2022-05-22 09:16:40', NULL, '2022-12-01 09:25:27', NULL, NULL, 'Testing Documents', NULL, NULL, 9, NULL, NULL),
+(48, '2022-12345', 'Rigel Kent Cruz', 'rikeru07@gmail.com', '', 1, 1, 1, '1', 'ALUM-N6AWGR5X7ZC7HF8TL9DQ', 0, 0, 1, 0, '2022-05-22 09:17:05', NULL, '2022-12-01 09:25:37', '2022-12-01 09:36:33', NULL, 'Blurry Document/s', 'Not Eligible', NULL, 9, 9, NULL),
+(49, '1234-12345', 'qwer', 'qwer@qwer.fom', '', 1, 0, 0, '2', 'SIBL-PU9LSYGLN5SHCO08L9HZ', 0, 0, 0, 0, '2022-11-22 09:35:39', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(50, '1234-12345', 'qwer', 'qwer@qwer.com', '', 1, 0, 0, '3', 'CEIS-MD476AZT2GE7JHB5QGL6', 0, 0, 0, 0, '2022-11-23 14:13:48', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(51, '1234-21345', 'qwer', 'qwer@qwer.com', '', 1, 0, 0, '3', 'CEIS-VPH9VMA0CZIO7GNECAHH', 0, 0, 0, 0, '2022-11-23 15:24:43', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(52, '2019-12312', 'qsqweqweq', 'qweqweqwe@aseasd.com', '3rd Year', 1, 3, 13, '1', 'ALUM-425XVN1OZ1ISVW9PSRTX', 0, 0, 0, 0, '2022-12-01 01:55:18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(54, '2012-31231', 'wewewewe', 'weqweqweqwe@aweas.com', '1st Year', 2, 16, 40, '3', 'CEIS-MXCLSHT1W8MENAX54JYH', 0, 0, 0, 0, '2022-12-01 02:00:15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(59, '2133-12312', 'assssssssss', 'qwwwwwwwwwwwwwwwwww@sss.com', '4th Year', 1, 1, 7, '2', 'SIBL-I6WX22AQXXQS16AXOARL', 0, 0, 0, 0, '2022-12-01 02:11:17', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(60, '2120-12313', 'fffffffffffffffffffff', 'tttttttttttttt@ffffffffff.com', '1st Year', 1, 7, 18, '3', 'CEIS-VNGY5FYLUYLVRJHS0VOH', 0, 0, 0, 0, '2022-12-01 02:13:14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(61, '1314-12341', 'qwer', 'qwer@qwer.com', '1st Year', 1, 1, 1, '1', 'ALUM-WN17X0WTIUOTW3SLGW7D', 0, 0, 0, 0, '2022-12-01 10:55:02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(62, '2019-23102', 'Jemiah Del Rosario', 'drjemiahkim@gmail.com', '4th Year', 1, 1, 7, '2', 'SIBL-UJLMQVUK6AN33W0C5GQG', 0, 0, 0, 0, '2022-12-01 13:45:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,17 +155,19 @@ CREATE TABLE IF NOT EXISTS `ceis` (
   `studentDiploma` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ceisID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `ceis`
 --
 
 INSERT INTO `ceis` (`ceisID`, `appID`, `studentCID`, `ceisCampusGraduatedID`, `studentDiploma`) VALUES
-(1, 42, '1234-12345', 0, 'resource/documents/applicantDiploma/CEIS-CBEGJ0N2ZSU9JIF6PZE6.6.jpg'),
-(2, 43, '1234-12345', 0, 'resource/documents/applicantDiploma/CEIS-9LAERAKGKJ9E5CY0TMO7.6.jpg'),
-(3, 50, '1234-12345', 0, 'resource/documents/applicantDiploma/CEIS-MD476AZT2GE7JHB5QGL6.6.png'),
-(4, 51, '1234-12345', 0, 'resource/documents/applicantDiploma/CEIS-VPH9VMA0CZIO7GNECAHH.6.jpg');
+(1, 42, '1234-12345', 1, 'resource/documents/applicantDiploma/CEIS-CBEGJ0N2ZSU9JIF6PZE6.6.jpg'),
+(2, 43, '1234-12345', 1, 'resource/documents/applicantDiploma/CEIS-9LAERAKGKJ9E5CY0TMO7.6.jpg'),
+(3, 50, '1234-12345', 1, 'resource/documents/applicantDiploma/CEIS-MD476AZT2GE7JHB5QGL6.6.png'),
+(4, 51, '1234-12345', 1, 'resource/documents/applicantDiploma/CEIS-VPH9VMA0CZIO7GNECAHH.6.jpg'),
+(5, 54, '2103-23123', 2, 'resource/documents/applicantDiploma/CEIS-MXCLSHT1W8MENAX54JYH.6.jpg'),
+(6, 60, '4444-44444', 1, 'resource/documents/applicantDiploma/CEIS-VNGY5FYLUYLVRJHS0VOH.6.png');
 
 -- --------------------------------------------------------
 
@@ -343,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `sibling` (
   `siblingCOM` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`siblingID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `sibling`
@@ -352,7 +363,9 @@ CREATE TABLE IF NOT EXISTS `sibling` (
 INSERT INTO `sibling` (`siblingID`, `appID`, `siblingStudentID`, `siblingName`, `siblingYearLevel`, `siblingCampusID`, `siblingCollegeID`, `siblingCourseID`, `applicantCOM`, `siblingCOM`) VALUES
 (3, 40, '1234-12345', 'qwer', '', 0, 0, 0, 'resource/documents/applicantCOM/SIBL-J4K0TLEBCDVNA9YPF26O.4.jpg', 'resource/documents/siblingCOM/SIBL-J4K0TLEBCDVNA9YPF26O.5.jpg'),
 (4, 45, '1234-12343', 'Lovely Kate Saloma', '', 0, 0, 0, 'resource/documents/applicantCOM/SIBL-M5RG7JIB1IK35U7ZTEYT.4.jpg', 'resource/documents/siblingCOM/SIBL-M5RG7JIB1IK35U7ZTEYT.5.jpg'),
-(5, 49, '1234-12345', 'qwer', '', 0, 0, 0, 'resource/documents/applicantCOM/SIBL-PU9LSYGLN5SHCO08L9HZ.4.jpg', 'resource/documents/siblingCOM/SIBL-PU9LSYGLN5SHCO08L9HZ.5.jpg');
+(5, 49, '1234-12345', 'qwer', '', 0, 0, 0, 'resource/documents/applicantCOM/SIBL-PU9LSYGLN5SHCO08L9HZ.4.jpg', 'resource/documents/siblingCOM/SIBL-PU9LSYGLN5SHCO08L9HZ.5.jpg'),
+(6, 59, '1212-23123', 'wwwwwwwwwwwwww', '2nd Year', 1, 7, 17, 'resource/documents/applicantCOM/SIBL-I6WX22AQXXQS16AXOARL.4.png', 'resource/documents/siblingCOM/SIBL-I6WX22AQXXQS16AXOARL.5.png'),
+(7, 62, '2017-12345', 'Mae Del Rosario', '5th Year', 2, 16, 41, 'resource/documents/applicantCOM/SIBL-UJLMQVUK6AN33W0C5GQG.4.png', 'resource/documents/siblingCOM/SIBL-UJLMQVUK6AN33W0C5GQG.5.png');
 
 -- --------------------------------------------------------
 
