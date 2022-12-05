@@ -98,7 +98,7 @@ $view = new viewtable();
             
 
             <!-- Reports -->
-            <div class="cardBox">
+            <div class="container-fluid cardBox-1 col-12">
                 <div class="card-1">
                 <div class="col-md">
                 <h4 class="font-weight-bold">Entrance Benefits</h4>
@@ -113,7 +113,14 @@ $view = new viewtable();
                 Discounted Applications: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalDiscounted(); ?></span> 
                 </div>
                 </div>
-                <div class="card-1">
+                <div class="card-2">
+                    <div class="box">
+                    <h5 class="font-weight-bold text-center">Campuses of Applicants</h5>
+                    <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>
+                    <canvas style="width: 100%; max-width:650px;" id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="card-3">
                     <div class="box">
                     <h5 class="font-weight-bold text-center">Campuses of Applicants</h5>
                     <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>

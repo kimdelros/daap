@@ -87,7 +87,7 @@ function sendApprovedUpdate($studentName, $studentEmail, $transID){
   <p>I hope this email finds you well.</p>
   <p>We just want to update you, that your application $transID has been <b>approved</b>.</p>
   <p>This application is being submitted to the Accounting Office to apply the discount.</p>
-  <p>You may check the status of your application using our <a href=\"https://port-seventeen.com/daap/status.php\">DAAP Status Checker</a>.</p>
+  <p>You may check the status of your application using our <a href=\"https://ceumnlregistrar.com/daap/status.php\">DAAP Status Checker</a>.</p>
   <p><b>This is an auto generated email please do not reply.</b></p>
   <p>Thank you and stay safe.</p>";
 
@@ -117,7 +117,7 @@ function sendHoldUpdate($studentName, $studentEmail, $reason, $transID){
   <due>We just want to update you, that your application <b>$transID</b> has been placed <b>on-hold</b>.</p>
   <p> Reason: <b>$reason</b>.</p>
   <p>Kindly provide a new set of documents and you may upload them using the link below.</p>
-  <a href=\"https://port-seventeen.com/daap/uploader.php\">Document Uploader</a>
+  <a href=\"https://ceumnlregistrar.com/daap/uploader.php\">Document Uploader</a>
   <p><b>This is an auto generated email please do not reply.</b></p>
   <p>Thank you and stay safe.</p>";
 

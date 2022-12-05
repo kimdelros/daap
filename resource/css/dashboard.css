@@ -204,6 +204,16 @@ body {
     margin-top: 10px;
 }
 
+.cardBox-1 {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+
 .cardBox .card {
     position: relative;
     background: white;
@@ -215,7 +225,29 @@ body {
     box-shadow: 0 7px 25px rgba(0,0,0,0.3);
 }
 
-.cardBox .card-1 {
+.cardBox-1 .card-1 {
+    position: relative;
+    width: 100%;
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    display: grid;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.3);
+}
+
+.cardBox-1 .card-2 {
+    position: relative;
+    width: 100%;
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    display: grid;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.3);
+}
+
+.cardBox-1 .card-3 {
     position: relative;
     width: 100%;
     background: white;
@@ -397,6 +429,12 @@ body {
   .cardBox {
       grid-template-columns: repeat(2,1fr);
   }
+}
+
+@media (max-width: 1187px) {
+    .cardBox .card-1{
+        width: 300px;
+    }
 }
 
 @media (max-width: 991px) {
