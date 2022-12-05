@@ -139,19 +139,19 @@ $view = new view();
   <section class="tracert" id="tracert">
     <div class="container">
       <h2 class="text-center mb-5">Help us to locate you and other Escolarians!</h2>
-      <form>
+      <form method="POST" action="#tracert">
         <div class="row m-3">
           <div class="col-md-4">
             <label for="firstName">First Name</label>
-            <input type="text" class="form-control" placeholder="First Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+            <input id="firstName" name="firstName" type="text" class="form-control" placeholder="First Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
           </div>
           <div class="col-md-4">
             <label for="middleName">Middle Name</label>
-            <input type="text" class="form-control" placeholder="Middle Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+            <input id="middleName" name="middleName" type="text" class="form-control" placeholder="Middle Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
           </div>
           <div class="col-md-4">
             <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" placeholder="Last name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+            <input id="lastName" name="lastName" type="text" class="form-control" placeholder="Last name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
           </div>
         </div>
         <div class="row m-3">
@@ -176,36 +176,33 @@ $view = new view();
           </div>
         </div>
         <div class="row m-3">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="inputState">Country</label>
-            <select id="inputState" class="form-control">
+            <select id="country" name="country" class="form-control">
               <option selected>Choose...</option>
-              <option>...</option>
+              <?php $view->countries();?>
             </select>
           </div>
-          <div class="col-md-4">
-            <label for="employeeName">Employee Name</label>
-            <input type="text" class="form-control" placeholder="Employee Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
-          </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <label for="companyName">Company Name</label>
-            <input type="text" class="form-control" placeholder="Company Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+            <input id="companyName" name="companyName" type="text" class="form-control" placeholder="Company Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
           </div>
           <div class="form-group mt-4">
-            <button class="fancy" type="submit" name="tracert" id="tracert">
+            <button class="fancy" type="submit" name="tracert" id="tracert" value="tracert">
               <span class="top-key"></span>
               <span class="text">Submit Form</span>
               <span class="bottom-key-1"></span>
               <span class="bottom-key-2"></span></button>
-            
-          <?php 
-
-          
+            </div>
+            <?php 
+          if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['tracert']){
+            $applyClass = new tracert();
+            $applyClass->verifyTracert($_POST['firstName'], $_POST['middleName'], $_POST['lastName'], $_POST['tracertCampus'], $_POST['tracertCollege'], $_POST['tracertCourse'], $_POST['country'], $_POST['companyName']);
+          }
           ?>
           </div>
         </div>
-    </div>
-    </form>
+      </form>
   </section>
 
   <section class="regOverlay" id="AlumniForm">

@@ -1,12 +1,10 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/daap/resource/php/class/core/init.php';
-require_once 'config.php';
 
 class view extends config{
 
         public function collegeSP2(){
-            $config = new config;
-            $con = $config->con();
+            $con = $this->con();
             $sql = "SELECT * FROM `collegeschool`";
             $data = $con-> prepare($sql);
             $data ->execute();
@@ -18,8 +16,7 @@ class view extends config{
         }
 
         public function course(){
-            $config = new config;
-            $con = $config->con();
+            $con = $this->con();
             $sql = "SELECT * FROM `tbl_course`";
             $data = $con-> prepare($sql);
             $data ->execute();
@@ -61,6 +58,18 @@ class view extends config{
         public function getMmSRA(){
             $user = new user();
              return $user->data()->mm;
+        }
+
+        public function countries(){
+            $con = new config2();
+            $db = $con->conn();
+            $sql = "SELECT * FROM `tbl_countries` ORDER BY `countryname` ASC;";
+            $data = $db->prepare($sql);
+            $data->execute();
+            $rows = $data-> fetchAll();
+            foreach ($rows as $row) {
+              echo "<option data-tokens='$row[countryname]' value='$row[countryname]'> $row[countryname] </option>";
+            }
         }
 
 }
