@@ -237,8 +237,8 @@ $view = new viewtable();
                     <?php 
                     $src = $specificInfo[0]['applicantCOM'];
                     echo "<img src='$src' width=50%><br><b>Applicant COM</b><br>";
-                    $src = $specificInfo[0]['siblingCOM'];
-                    echo "<img src='$src' width=50%><br><b>Sibling COM  </b><br>";
+                    $src = $specificInfo[0]['siblingBC'];
+                    echo "<img src='$src' width=50%><br><b>Sibling Birth Certificate  </b><br>";
                     ?>  
                 </div>
             </div>

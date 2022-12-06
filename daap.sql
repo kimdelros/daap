@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 01, 2022 at 08:57 AM
+-- Generation Time: Dec 07, 2022 at 05:05 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `applications` (
   KEY `discountedBy` (`discountedBy`),
   KEY `holdBy` (`holdBy`),
   KEY `rejectedBy` (`rejectedBy`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `applications`
@@ -116,7 +116,8 @@ INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`,
 (59, '2133-12312', 'assssssssss', 'qwwwwwwwwwwwwwwwwww@sss.com', '4th Year', 1, 1, 7, '2', 'SIBL-I6WX22AQXXQS16AXOARL', 0, 0, 0, 0, '2022-12-01 02:11:17', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (60, '2120-12313', 'fffffffffffffffffffff', 'tttttttttttttt@ffffffffff.com', '1st Year', 1, 7, 18, '3', 'CEIS-VNGY5FYLUYLVRJHS0VOH', 0, 0, 0, 0, '2022-12-01 02:13:14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (61, '1314-12341', 'qwer', 'qwer@qwer.com', '1st Year', 1, 1, 1, '1', 'ALUM-WN17X0WTIUOTW3SLGW7D', 0, 0, 0, 0, '2022-12-01 10:55:02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(62, '2019-23102', 'Jemiah Del Rosario', 'drjemiahkim@gmail.com', '4th Year', 1, 1, 7, '2', 'SIBL-UJLMQVUK6AN33W0C5GQG', 0, 0, 0, 0, '2022-12-01 13:45:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(62, '2019-23102', 'Jemiah Del Rosario', 'drjemiahkim@gmail.com', '4th Year', 1, 1, 7, '2', 'SIBL-UJLMQVUK6AN33W0C5GQG', 0, 0, 0, 0, '2022-12-01 13:45:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(63, '1234-21345', 'qwer', 'qwer@qwer.com', '1st Year', 1, 1, 1, '2', 'SIBL-ZYSFRL9F9GXDGCDP6QJ6', 0, 0, 0, 0, '2022-12-07 05:03:54', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -351,21 +352,22 @@ CREATE TABLE IF NOT EXISTS `sibling` (
   `siblingCollegeID` int(11) NOT NULL,
   `siblingCourseID` int(11) NOT NULL,
   `applicantCOM` varchar(512) COLLATE utf8_bin NOT NULL,
-  `siblingCOM` varchar(512) COLLATE utf8_bin NOT NULL,
+  `siblingBC` varchar(512) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`siblingID`),
   KEY `appID` (`appID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `sibling`
 --
 
-INSERT INTO `sibling` (`siblingID`, `appID`, `siblingStudentID`, `siblingName`, `siblingYearLevel`, `siblingCampusID`, `siblingCollegeID`, `siblingCourseID`, `applicantCOM`, `siblingCOM`) VALUES
+INSERT INTO `sibling` (`siblingID`, `appID`, `siblingStudentID`, `siblingName`, `siblingYearLevel`, `siblingCampusID`, `siblingCollegeID`, `siblingCourseID`, `applicantCOM`, `siblingBC`) VALUES
 (3, 40, '1234-12345', 'qwer', '', 0, 0, 0, 'resource/documents/applicantCOM/SIBL-J4K0TLEBCDVNA9YPF26O.4.jpg', 'resource/documents/siblingCOM/SIBL-J4K0TLEBCDVNA9YPF26O.5.jpg'),
 (4, 45, '1234-12343', 'Lovely Kate Saloma', '', 0, 0, 0, 'resource/documents/applicantCOM/SIBL-M5RG7JIB1IK35U7ZTEYT.4.jpg', 'resource/documents/siblingCOM/SIBL-M5RG7JIB1IK35U7ZTEYT.5.jpg'),
 (5, 49, '1234-12345', 'qwer', '', 0, 0, 0, 'resource/documents/applicantCOM/SIBL-PU9LSYGLN5SHCO08L9HZ.4.jpg', 'resource/documents/siblingCOM/SIBL-PU9LSYGLN5SHCO08L9HZ.5.jpg'),
 (6, 59, '1212-23123', 'wwwwwwwwwwwwww', '2nd Year', 1, 7, 17, 'resource/documents/applicantCOM/SIBL-I6WX22AQXXQS16AXOARL.4.png', 'resource/documents/siblingCOM/SIBL-I6WX22AQXXQS16AXOARL.5.png'),
-(7, 62, '2017-12345', 'Mae Del Rosario', '5th Year', 2, 16, 41, 'resource/documents/applicantCOM/SIBL-UJLMQVUK6AN33W0C5GQG.4.png', 'resource/documents/siblingCOM/SIBL-UJLMQVUK6AN33W0C5GQG.5.png');
+(7, 62, '2017-12345', 'Mae Del Rosario', '5th Year', 2, 16, 41, 'resource/documents/applicantCOM/SIBL-UJLMQVUK6AN33W0C5GQG.4.png', 'resource/documents/siblingCOM/SIBL-UJLMQVUK6AN33W0C5GQG.5.png'),
+(8, 63, '1234-12345', 'qwer', '1st Year', 1, 1, 1, 'resource/documents/applicantCOM/SIBL-ZYSFRL9F9GXDGCDP6QJ6.4.jpeg', 'resource/documents/siblingBC/SIBL-ZYSFRL9F9GXDGCDP6QJ6.5.jpeg');
 
 -- --------------------------------------------------------
 

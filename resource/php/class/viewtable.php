@@ -70,8 +70,8 @@ class viewtable extends config{
     else if($appType == "2"){
       if($result['applicantCOM'] != "")
         echo "<a href='?document=$result[applicantCOM]#viewDoc'>View Applicant COM</a><br>";
-      if($result['siblingCOM'] != "")
-        echo "<a href='?document=$result[siblingCOM]#viewDoc'>View Sibling COM</a><br>";
+      if($result['siblingBC'] != "")
+        echo "<a href='?document=$result[siblingBC]#viewDoc'>View Sibling Birth Certificate</a><br>";
     }
     else if($appType == "3"){
       if($result['studentDiploma'] != "")

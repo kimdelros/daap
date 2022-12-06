@@ -530,11 +530,11 @@ $view = new view();
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
-                <label for="siblingCOM" class="form-label">Sibling's COM</label>
-                <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="image/*" autocomplete="no" onchange="return validateSizeSCOM()">
+                <label for="siblingBC" class="form-label">Sibling's Birth Certificate</label>
+                <input type="file" class="form-control text-center" aria-label="file example" name="siblingBC" id="siblingBC" accept="image/*" autocomplete="no" onchange="return validateSizeSCOM()">
                 <script>
                   validateSizeSCOM = () => {
-                    const fi = document.getElementById('siblingCOM');
+                    const fi = document.getElementById('siblingBC');
                     // Check if any file is selected.
                     if (fi.files.length > 0) {
                       for (var i = 0; i <= fi.files.length - 1; i++) {
@@ -562,7 +562,7 @@ $view = new view();
               <?php
               if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applySibling']) {
                 $applyClass = new apply();
-                $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['siblingApplicantCampus'], $_POST['siblingApplicantCollege'], $_POST['siblingApplicantCourse'], $_POST['siblingID'], $_POST['siblingName'], $_POST['siblingYearLevel'], $_POST['siblingSiblingCampus'], $_POST['siblingSiblingCollege'], $_POST['siblingSiblingCourse'], $_FILES['applicantCOM'], $_FILES['siblingCOM']);
+                $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['siblingApplicantCampus'], $_POST['siblingApplicantCollege'], $_POST['siblingApplicantCourse'], $_POST['siblingID'], $_POST['siblingName'], $_POST['siblingYearLevel'], $_POST['siblingSiblingCampus'], $_POST['siblingSiblingCollege'], $_POST['siblingSiblingCourse'], $_FILES['applicantCOM'], $_FILES['siblingBC']);
               }
               ?>
             </div>

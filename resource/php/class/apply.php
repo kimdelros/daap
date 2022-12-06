@@ -120,7 +120,7 @@ class apply extends config{
         $targetDir = "resource/documents/applicantCOM/";
           break;
         case "5":
-        $targetDir = "resource/documents/siblingCOM/";
+        $targetDir = "resource/documents/siblingBC/";
           break;
         case "6":
         $targetDir = "resource/documents/applicantDiploma/";
@@ -238,17 +238,17 @@ class apply extends config{
          }
     }
 
-    private function applySibling($lastID, $siblingID, $siblingName, $siblingYearLevel, $siblingCampusID, $siblingCdID, $siblingCourseID, $applicantCOM, $siblingCOM){
+    private function applySibling($lastID, $siblingID, $siblingName, $siblingYearLevel, $siblingCampusID, $siblingCdID, $siblingCourseID, $applicantCOM, $siblingBC){
        $link = config::con();
 
-       $sql = "INSERT INTO `sibling`(`appID`, `siblingStudentID`, `siblingName`, `siblingYearLevel`, `siblingCampusID`, `siblingCollegeID`, `siblingCourseID`, `applicantCOM`, `siblingCOM`) VALUES ('$lastID', '$siblingID', '$siblingName', '$siblingYearLevel', '$siblingCampusID', '$siblingCdID', '$siblingCourseID', '$applicantCOM', '$siblingCOM')";
+       $sql = "INSERT INTO `sibling`(`appID`, `siblingStudentID`, `siblingName`, `siblingYearLevel`, `siblingCampusID`, `siblingCollegeID`, `siblingCourseID`, `applicantCOM`, `siblingBC`) VALUES ('$lastID', '$siblingID', '$siblingName', '$siblingYearLevel', '$siblingCampusID', '$siblingCdID', '$siblingCourseID', '$applicantCOM', '$siblingBC')";
 
        $link = $link->prepare($sql);
        $link->execute();
        $link->connection = null;
      }
 
-    public function verifySibling($studentID, $studentEmail, $studentName, $studentYearLevel, $siblingApplicantCampus, $siblingApplicantCollege, $siblingApplicantCourse, $siblingID, $siblingName, $siblingYearLevel, $siblingSiblingCampus, $siblingSiblingCollege, $siblingSiblingCourse, $applicantCOM, $siblingCOM){
+    public function verifySibling($studentID, $studentEmail, $studentName, $studentYearLevel, $siblingApplicantCampus, $siblingApplicantCollege, $siblingApplicantCourse, $siblingID, $siblingName, $siblingYearLevel, $siblingSiblingCampus, $siblingSiblingCollege, $siblingSiblingCourse, $applicantCOM, $siblingBC){
 
       $campusID = $this->verifyCampus($siblingApplicantCampus);
       $cdID = $this->verifyCollege($campusID, $siblingApplicantCollege);
@@ -261,7 +261,7 @@ class apply extends config{
       $maxSize = 2 * 1024 * 1024;
 
       $acom = strtolower(pathinfo($applicantCOM['name'], PATHINFO_EXTENSION));
-      $scom = strtolower(pathinfo($siblingCOM['name'], PATHINFO_EXTENSION));
+      $scom = strtolower(pathinfo($siblingBC['name'], PATHINFO_EXTENSION));
 
       $tempSName = str_replace(' ', '', $siblingName);
       $tempSName = str_replace('.', '', $tempSName);
@@ -282,7 +282,7 @@ class apply extends config{
              $message = "Applicant's COM must be an image file only!";
            else if($scom !== 'gif' && $scom !== 'png' && $scom !== 'jpg' && $scom !== 'jpeg' && $scom !== 'jfif')
              $message = "Sibling's COM must be an image file only!";
-           else if($applicantCOM['size'] >= $maxSize && $siblingCOM ['size'] >= $maxSize)
+           else if($applicantCOM['size'] >= $maxSize && $siblingBC ['size'] >= $maxSize)
              $message = "File too large. File must be less than 2 megabytes.";
            else if(!($siblingYearLevel == "1st Year" || $siblingYearLevel == "2nd Year" || $siblingYearLevel == "3rd Year" || $siblingYearLevel == "4th Year" || $siblingYearLevel == "5th Year" || $siblingYearLevel == "6th Year"))
              $message = "Sibling's Year Level is invalid.";
@@ -300,7 +300,7 @@ class apply extends config{
 
 
              $ACM = $this->storeFile($applicantCOM, "4", $transID);
-             $SCM = $this->storeFile($siblingCOM, "5", $transID);
+             $SCM = $this->storeFile($siblingBC, "5", $transID);
              $this->applySibling($lastID, $siblingID, $siblingName, $siblingYearLevel, $siblingCampusID, $siblingCdID, $siblingCourseID, $ACM, $SCM);
              echo "<script>
              Swal.fire({
