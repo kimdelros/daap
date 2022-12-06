@@ -176,16 +176,23 @@ $view = new view();
           </div>
         </div>
         <div class="row m-3">
-        <div class="col-md-6">
-            <label for="inputState">Country</label>
-            <select id="country" name="country" class="form-control">
-              <option selected>Choose...</option>
+          <div class="col-md-4">
+          <label for="yearGraduated" class="form-label">Year Graduated</label>
+                <select id="yearGraduated" name="yearGraduated" class="selectpicker form-control" title="Select Year Graduated" required>
+                  <option value="" selected="selected">Choose...</option>
+                  <?php $view->years(); ?>
+                </select>
+            </div>
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">Country</label>
+            <select id="country" name="country" class="selectpicker form-control"  title="Select Year Graduated" required>
+              <option value="" selected="selected">Choose...</option>
               <?php $view->countries();?>
             </select>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <label for="companyName">Company Name</label>
-            <input id="companyName" name="companyName" type="text" class="form-control" placeholder="Company Name" required pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+            <input id="companyName" name="companyName" type="text" class="form-control" placeholder="Company Name" required autocomplete="no">
           </div>
           <div class="form-group mt-4">
             <button class="fancy" type="submit" name="tracert" id="tracert" value="tracert">
@@ -197,7 +204,7 @@ $view = new view();
             <?php 
           if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['tracert']){
             $applyClass = new tracert();
-            $applyClass->verifyTracert($_POST['firstName'], $_POST['middleName'], $_POST['lastName'], $_POST['tracertCampus'], $_POST['tracertCollege'], $_POST['tracertCourse'], $_POST['country'], $_POST['companyName']);
+            $applyClass->verifyTracert($_POST['firstName'], $_POST['middleName'], $_POST['lastName'], $_POST['tracertCampus'], $_POST['tracertCollege'], $_POST['tracertCourse'], $_POST['yearGraduated'], $_POST['country'], $_POST['companyName']);
           }
           ?>
           </div>
