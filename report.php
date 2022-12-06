@@ -96,56 +96,9 @@ $view = new viewtable();
                     </div>
                 </div>
             
+            <!--All Applications displayed-->
 
-            <!-- Reports -->
-            <div class="container-fluid cardBox-1 col-12">
-                <div class="card-1">
-                <div class="col-md">
-                <h4 class="font-weight-bold">Entrance Benefits</h4>
-                Total Number of Applicants:<span class="font-weight-bold text-primary"> <?php echo $view->viewTotalApplicants(); ?></span>
-                <br>
-                For Registrar Approval: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalPending(); ?></span>
-                <br>
-                Scholarship Approved: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalApproved(); ?></span>
-                <br>
-                Scholarship Rejected: <span class="font-weight-bold text-primary"> <?php echo $view->viewTotalRejected(); ?></span>
-                <br>
-                Discounted Applications: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalDiscounted(); ?></span> 
-                </div>
-                </div>
-                <div class="card-2">
-                    <div class="box">
-                    <h5 class="font-weight-bold text-center">Campuses of Applicants</h5>
-                    <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>
-                    <canvas style="width: 100%; max-width:650px;" id="myChart"></canvas>
-                    </div>
-                </div>
-                <div class="card-3">
-                    <div class="box">
-                    <h5 class="font-weight-bold text-center">Campuses of Applicants</h5>
-                    <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>
-                    <canvas style="width: 100%; max-width:650px;" id="myChart"></canvas>
-                    </div>
-                </div>
 
-            </div>
-            <script>
-                const totalpie = document.getElementById('myChart');
-                new  Chart(totalpie, {
-                type: 'pie',
-                data: {
-                    labels: <?php echo '["' .implode('", "', $view->viewTotalPerCampusName()) . '"]'?>,
-                    datasets: [{
-                        label: 'Total in Campus',
-                        data: <?php echo '["' .implode('", "', $view->viewTotalPerCampus()) . '"]'?>,
-                        backgroundColor: [
-                            'rgb(254, 200, 216)',
-                            'rgb(149, 125, 173)',
-                            'rgb(173, 173, 175)'],
-                    }]
-                }
-            });
-            </script>
             <div class="details-1">
                 <div class="applyDetails-1 m-3">
                     <h4 class="font-weight-bold">DAAP System Admin Setting</h4>

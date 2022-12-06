@@ -141,7 +141,64 @@ $view = new viewtable();
                 </div>
             </div>
 
-            <!-- application chart -->
+            <!-- Reports -->
+            <div class="container-fluid cardBox-1 col-12">
+                <div class="card-1">
+                <div class="col-md">
+                <h4 class="font-weight-bold">Entrance Benefits</h4>
+                <ion-icon name="folder-open" class="ml-2"></ion-icon> Total Number of Applicants:<span class="font-weight-bold text-primary"> <?php echo $view->viewTotalApplicants(); ?></span>
+                <br>
+                <ion-icon name="hand-left" class="ml-2"></ion-icon> For Registrar Approval: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalPending(); ?></span>
+                <br>
+                <ion-icon name="checkmark-done" class="ml-2"></ion-icon> Scholarship Approved: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalApproved(); ?></span>
+                <br>
+                <ion-icon name="close" class="ml-2"></ion-icon> Scholarship Rejected: <span class="font-weight-bold text-primary"> <?php echo $view->viewTotalRejected(); ?></span>
+                <br>
+                <ion-icon name="ribbon" class="ml-2"></ion-icon> Discounted Applications: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalDiscounted(); ?></span> 
+                </div>
+                </div>
+                <div class="card-1">
+                    <div class="box">
+                    <h5 class="font-weight-bold text-center">Campuses of Applicants</h5>
+                    <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>
+                    <canvas style="width: 90%; max-width:650px;" id="myChartPie"></canvas>
+                    </div>
+                </div>
+                <div class="card-1">
+                    <div class="box">
+                    <h5 class="font-weight-bold text-center">Types of Discounts Applied</h5>
+                    <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>
+                    <canvas style="width: 90%; max-width:650px;" id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="card-1">
+                    <div class="box">
+                    <h5 class="font-weight-bold text-center">Types of Discounts Applied</h5>
+                    <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>
+                    <canvas style="width: 90%; max-width:650px;" id="myChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+            <script>
+                const totalpie = document.getElementById('myChartPie');
+                new  Chart(totalpie, {
+                type: 'pie',
+                data: {
+                    labels: <?php echo '["' .implode('", "', $view->viewTotalPerCampusName()) . '"]'?>,
+                    datasets: [{
+                        label: 'Total in Campus',
+                        data: <?php echo '["' .implode('", "', $view->viewTotalPerCampus()) . '"]'?>,
+                        backgroundColor: [
+                            'rgb(254, 200, 216)',
+                            'rgb(149, 125, 173)',
+                            'rgb(173, 173, 175)'],
+                    }]
+                }
+            });
+            </script>
+
+            <!-- </div>application chart
             <div class="chartBox">
                 <div class="box">
                     <canvas id="myChart"></canvas>
@@ -233,7 +290,7 @@ $view = new viewtable();
                         }
                     }
                 });
-            </script>
+            </script> -->
         </div>
 
 
