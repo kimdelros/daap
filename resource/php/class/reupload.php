@@ -63,17 +63,17 @@ class reupload extends config{
                 }
                 break;
             case 2:
-                if($files['applicantCOM']['name'] == "" || $files['siblingCOM']['name'] == ""){
+                if($files['applicantBC']['name'] == "" || $files['siblingBC']['name'] == ""){
                     $message = "Please upload all the documents needed.";
                  break;
                 }
 
-                $message = $this->verifyFile($files['applicantCOM'], "Applicant's COM", $message);
-                $message = $this->verifyFile($files['siblingCOM'], "Sibling's COM", $message);
+                $message = $this->verifyFile($files['applicantBC'], "Applicant's Birth Certificate", $message);
+                $message = $this->verifyFile($files['siblingBC'], "Sibling's Birth Certificate", $message);
 
                 if($message == ""){
-                    $applicantCOM = $this->storeFile($files['applicantCOM'], "applicantCOM", $_GET['id']);
-                    $siblingCOM = $this->storeFile($files['siblingCOM'], "siblingCOM", $_GET['id']);
+                    $applicantBC = $this->storeFile($files['applicantBC'], "applicantBC", $_GET['id']);
+                    $siblingBC = $this->storeFile($files['siblingBC'], "siblingBC", $_GET['id']);
 
                     $con = config::con();
 
@@ -85,7 +85,7 @@ class reupload extends config{
 
                     $appID = (int)$result[0]['appID'];
 
-                    $sql = "UPDATE `sibling` SET `applicantCOM` = '$applicantCOM', `siblingCOM` = '$siblingCOM' WHERE `appID` = '$appID'";
+                    $sql = "UPDATE `sibling` SET `applicantBC` = '$applicantBC', `siblingBC` = '$siblingBC' WHERE `appID` = '$appID'";
                     $data= $con->prepare($sql);
                     $data->execute();
                     

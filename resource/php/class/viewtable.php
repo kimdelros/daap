@@ -68,8 +68,8 @@ class viewtable extends config{
         echo "<a href='?document=$result[alumniTOR]#viewDoc'>View TOR</a><br>";
     }
     else if($appType == "2"){
-      if($result['applicantCOM'] != "")
-        echo "<a href='?document=$result[applicantCOM]#viewDoc'>View Applicant COM</a><br>";
+      if($result['applicantBC'] != "")
+        echo "<a href='?document=$result[applicantBC]#viewDoc'>View Applicant COM</a><br>";
       if($result['siblingBC'] != "")
         echo "<a href='?document=$result[siblingBC]#viewDoc'>View Sibling Birth Certificate</a><br>";
     }
@@ -385,15 +385,43 @@ class viewtable extends config{
 
   public function viewTotalPerCampusName(){
     $con = $this->con();
-    $sql = "SELECT `campusID`, COUNT(campusID) AS quantity FROM `applications` WHERE `campusID` != 0 GROUP BY campusID";
+    $sql = "SELECT `campusName`, COUNT(campusName) AS quantity FROM `campus` WHERE `campusID` != 0 GROUP BY campusID";
     $data= $con->prepare($sql);
     $data->execute();
     $campuses[] = array();
     $result = $data->fetchAll(PDO::FETCH_ASSOC);
     foreach($result as $row){
-      $campuses[] = $row['campusID'];
+      $campuses[] = $row['campusName'];
     }
     unset($campuses[0]);
     return $campuses;
+  }
+
+  public function viewTotalDiscountType(){
+    $con = $this->con();
+    $sql = "SELECT `appType`, COUNT(appType) AS quantity FROM `applications` WHERE `appType` != 0 GROUP BY appType";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $discounts[] = array();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
+      $discounts[] = $row['quantity'];
+    }
+    unset($discounts[0]);
+    return($discounts);
+  }
+
+  public function viewTotalDiscountTypeNames(){
+    $con = $this->con();
+    $sql = "SELECT `appType`, COUNT(appType) AS quantity FROM `applications` WHERE `appType` != 0 GROUP BY appType";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $discounts[] = array();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
+      $discounts[] = $row['quantity'];
+    }
+    unset($discounts[0]);
+    return($discounts);
   }
 }

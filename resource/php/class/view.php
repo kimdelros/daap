@@ -63,7 +63,7 @@ class view extends config{
         public function countries(){
             $con = new config2();
             $db = $con->conn();
-            $sql = "SELECT * FROM `tbl_countries` ORDER BY `countryname` ASC;";
+            $sql = "SELECT * FROM `tbl_countries` ORDER BY `countryname` ASC";
             $data = $db->prepare($sql);
             $data->execute();
             $rows = $data-> fetchAll();

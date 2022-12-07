@@ -160,23 +160,12 @@ $view = new viewtable();
                 <div class="card-1">
                     <div class="box">
                     <h5 class="font-weight-bold text-center">Campuses of Applicants</h5>
-                    <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>
                     <canvas style="width: 90%; max-width:650px;" id="myChartPie"></canvas>
                     </div>
                 </div>
                 <div class="card-1">
-                    <div class="box">
                     <h5 class="font-weight-bold text-center">Types of Discounts Applied</h5>
-                    <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>
-                    <canvas style="width: 90%; max-width:650px;" id="myChart"></canvas>
-                    </div>
-                </div>
-                <div class="card-1">
-                    <div class="box">
-                    <h5 class="font-weight-bold text-center">Types of Discounts Applied</h5>
-                    <p class="text-center muted">1 - Malolos, 2 - Manila, 3 - Makati</p>
-                    <canvas style="width: 90%; max-width:650px;" id="myChart"></canvas>
-                    </div>
+                    <canvas style="width: 100%; max-width:650px; " id="discountType"></canvas>
                 </div>
 
             </div>
@@ -197,6 +186,29 @@ $view = new viewtable();
                 }
             });
             </script>
+
+
+            <script>
+                const discountType = document.getElementById('discountType');
+                new  Chart(discountType, {
+                type: 'bar',
+                data: {
+                    labels: ["Alumni", "Sibling", "CEIS"],
+                    datasets: [{
+                        label: 'Total discounts per type',
+                        data: <?php echo '["' .implode('", "', $view->viewTotalDiscountType()) . '"]'?>,
+                        backgroundColor: [
+                            'rgb(254, 200, 216)',
+                            'rgb(149, 125, 173)',
+                            'rgb(173, 173, 175)'],
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                }
+            });
+            </script>
+
 
             <!-- </div>application chart
             <div class="chartBox">

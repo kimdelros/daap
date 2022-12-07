@@ -183,13 +183,15 @@ $view = new view();
                   <?php $view->years(); ?>
                 </select>
             </div>
-        <div class="col-md-4">
-            <label for="inputState" class="form-label">Country</label>
-            <select id="country" name="country" class="selectpicker form-control"  title="Select Year Graduated" required>
-              <option value="" selected="selected">Choose...</option>
-              <?php $view->countries();?>
-            </select>
-          </div>
+
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">Country</label>
+              <select id="country" name="country" class="selectpicker form-control"  title="Select Country" required>
+                <option value="" selected="selected">Choose...</option>
+                <?php $view->countries();?>
+              </select>
+            </div>
+
           <div class="col-md-4">
             <label for="companyName">Company Name</label>
             <input id="companyName" name="companyName" type="text" class="form-control" placeholder="Company Name" required autocomplete="no">
@@ -501,11 +503,11 @@ $view = new view();
             <div class="row justify-content-center text-center">
               <h6 class="Reminder pt-4 text-danger">*Kindly convert your COM into an image file*<br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
-                <label for="applicantCOM" class="form-label">Applicant's COM</label>
-                <input type="file" class="form-control text-center" aria-label="file example" name="applicantCOM" id="applicantCOM" accept="image/*" autocomplete="no" onchange="return validateSizeACOM()">
+                <label for="applicantBC" class="form-label">Applicant's Birth Certificate</label>
+                <input type="file" class="form-control text-center" aria-label="file example" name="applicantBC" id="applicantBC" accept="image/*" autocomplete="no" onchange="return validateSizeACOM()">
                 <script>
                   validateSizeACOM = () => {
-                    const fi = document.getElementById('applicantCOM');
+                    const fi = document.getElementById('applicantBC');
                     // Check if any file is selected.
                     if (fi.files.length > 0) {
                       for (var i = 0; i <= fi.files.length - 1; i++) {
@@ -562,7 +564,7 @@ $view = new view();
               <?php
               if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applySibling']) {
                 $applyClass = new apply();
-                $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['siblingApplicantCampus'], $_POST['siblingApplicantCollege'], $_POST['siblingApplicantCourse'], $_POST['siblingID'], $_POST['siblingName'], $_POST['siblingYearLevel'], $_POST['siblingSiblingCampus'], $_POST['siblingSiblingCollege'], $_POST['siblingSiblingCourse'], $_FILES['applicantCOM'], $_FILES['siblingBC']);
+                $applyClass->verifySibling($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['siblingApplicantCampus'], $_POST['siblingApplicantCollege'], $_POST['siblingApplicantCourse'], $_POST['siblingID'], $_POST['siblingName'], $_POST['siblingYearLevel'], $_POST['siblingSiblingCampus'], $_POST['siblingSiblingCollege'], $_POST['siblingSiblingCourse'], $_FILES['applicantBC'], $_FILES['siblingBC']);
               }
               ?>
             </div>

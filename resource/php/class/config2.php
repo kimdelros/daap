@@ -4,7 +4,7 @@ class config2{
 
     public function conn(){
       $host = '127.0.0.1:3306';
-      $db = 'mapdb';
+      $db = 'map_db';
       $user = 'root';
       $password = '';
       $pdo = null;

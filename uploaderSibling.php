@@ -45,14 +45,14 @@ if(empty($result))
     <form action="" method="post" enctype="multipart/form-data">
       <div class="row justify-content-center text-center">
         <div class="col-md-8 pt-3">
-          <label for="applicantCOM" class="form-label">Applicant's COM</label>
-             <input type="file" class="form-control text-center" aria-label="file example" name="applicantCOM" id="applicantCOM" accept="image/*" autocomplete="no">
+          <label for="applicantBC" class="form-label">Applicant's Birth Certificate</label>
+             <input type="file" class="form-control text-center" aria-label="file example" name="applicantBC" id="applicantBC" accept="image/*" autocomplete="no">
         </div>
       </div>
       <div class="row justify-content-center text-center">
         <div class="col-md-8 pt-3">
-          <label for="siblingCOM" class="form-label">Sibling's COM</label>
-             <input type="file" class="form-control text-center" aria-label="file example" name="siblingCOM" id="siblingCOM" accept="image/*" autocomplete="no">
+          <label for="siblingBC" class="form-label">Sibling's Birth Certificate</label>
+             <input type="file" class="form-control text-center" aria-label="file example" name="siblingBC" id="siblingBC" accept="image/*" autocomplete="no">
         </div>
       </div>
       <p class="text-center">*Kindly convert your COM into an image file.</p>
