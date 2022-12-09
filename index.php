@@ -299,11 +299,11 @@ $view = new view();
             <div class="row justify-content-center text-center">
               <h6 class="Reminder pt-4 text-danger">*Please upload atleast one document (image file format)*<br>*Maximum of 2MB file size*</h6>
               <div class="col-md-8 pt-3">
-                <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
-                <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no" onchange="return validateSizeYB()">
+                <label for="alumniSID" class="form-label">Alumni's School ID</label>
+                <input type="file" class="form-control text-center" aria-label="file example" name="alumniSID" id="alumniSID" accept="image/*" autocomplete="no" onchange="return validateSizeYB()">
                 <script>
                   validateSizeYB = () => {
-                    const fi = document.getElementById('alumniYB');
+                    const fi = document.getElementById('alumniSID');
                     // Check if any file is selected.
                     if (fi.files.length > 0) {
                       for (var i = 0; i <= fi.files.length - 1; i++) {
@@ -312,7 +312,7 @@ $view = new view();
                         const file = Math.round((fsize / 1024));
                         // The size of the file.
                         if (file >= 2048) {
-                          document.getElementById('alumniYB').value = "";
+                          document.getElementById('alumniSID').value = "";
                           Swal.fire({
                             title: "File is too big. Please upload a file that is less than 2MB",
                             icon: "error",
@@ -341,7 +341,7 @@ $view = new view();
                         const file = Math.round((fsize / 1024));
                         // The size of the file.
                         if (file >= 2048) {
-                          document.getElementById('alumniYB').value = "";
+                          document.getElementById('alumniDiploma').value = "";
                           Swal.fire({
                             title: "File is too big. Please upload a file that is less than 2MB",
                             icon: "error",
@@ -370,7 +370,7 @@ $view = new view();
                         const file = Math.round((fsize / 1024));
                         // The size of the file.
                         if (file >= 2048) {
-                          document.getElementById('alumniYB').value = "";
+                          document.getElementById('alumniTOR').value = "";
                           Swal.fire({
                             title: "File is too big. Please upload a file that is less than 2MB",
                             icon: "error",
@@ -389,7 +389,7 @@ $view = new view();
               <?php
               if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applyAlumni']) {
                 $applyClass = new apply();
-                $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['alumniStudentCampus'], $_POST['alumniStudentCollege'], $_POST['alumniStudentCourse'], $_POST['alumniName'], $_POST['campusGraduated'], $_POST['yearGraduated'], $_FILES['alumniYB'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
+                $applyClass->verifyAlumni($_POST['studentID'], $_POST['studentEmail'], $_POST['studentName'], $_POST['studentYearLevel'], $_POST['alumniStudentCampus'], $_POST['alumniStudentCollege'], $_POST['alumniStudentCourse'], $_POST['alumniName'], $_POST['campusGraduated'], $_POST['yearGraduated'], $_FILES['alumniSID'], $_FILES['alumniDiploma'], $_FILES['alumniTOR']);
               }
               ?>
             </div>
@@ -516,7 +516,7 @@ $view = new view();
                         const file = Math.round((fsize / 1024));
                         // The size of the file.
                         if (file >= 2048) {
-                          document.getElementById('alumniYB').value = "";
+                          document.getElementById('applicantBC').value = "";
                           Swal.fire({
                             title: "File is too big. Please upload a file that is less than 2MB",
                             icon: "error",
@@ -545,7 +545,7 @@ $view = new view();
                         const file = Math.round((fsize / 1024));
                         // The size of the file.
                         if (file >= 2048) {
-                          document.getElementById('alumniYB').value = "";
+                          document.getElementById('siblingBC').value = "";
                           Swal.fire({
                             title: "File is too big. Please upload a file that is less than 2MB",
                             icon: "error",
@@ -654,7 +654,7 @@ $view = new view();
                         const file = Math.round((fsize / 1024));
                         // The size of the file.
                         if (file >= 2048) {
-                          document.getElementById('alumniYB').value = "";
+                          document.getElementById('ceisDiploma').value = "";
                           Swal.fire({
                             title: "File is too big. Please upload a file that is less than 2MB",
                             icon: "error",
