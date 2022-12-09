@@ -25,10 +25,10 @@ class transaction extends config {
                   <br>Kindly reupload your document/s in the <a href=\"uploader.php\">Document Uploader</a></h5>";
               }
               else if($data['isApproved'] === '0' && $data['isHold'] === '0' && $data['isRejected'] === '1' && $data['isDiscounted'] === '0'){
-                  echo "<h5 class='text-center'>We are sorry that your application has been rejected.<br>For clarification you may send an email to <b>ceu.mls.daap@gmail.com</b></h5>";
+                  echo "<h5 class='text-center'>We are sorry that your application has been rejected due to <b>$data[reasonReject]</b>.<br>For clarification/s you may send an email to ceu.mls.daap@gmail.com</h5>";
               }
               else if($data['isApproved'] === '0' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
-                  echo "<h5 class='text-center'>Your application is still being reviewed by the Registrar.</h5>";
+                  echo "<h5 class='text-center'>Your application is still being reviewed by the Registrar. <br>Kindly wait for at least 2-3 working days in processing your application.</h5>";
               }
               else if($data['isApproved'] === '1' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '1'){
                   echo "<h5 class='text-center'>Congratulations! Your application has been approved and discounted.<br>Thank you for using DAAP Portal for your discount grant application.</h5>";

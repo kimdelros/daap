@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 01, 2022 at 09:15 AM
+-- Generation Time: Dec 09, 2022 at 09:27 AM
 -- Server version: 5.7.36
--- PHP Version: 7.1.33
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mapdb`
+-- Database: `map_db`
 --
 
 -- --------------------------------------------------------
@@ -313,17 +313,17 @@ INSERT INTO `tbl_countries` (`id`, `ccode`, `countryname`, `coordinates`) VALUES
 DROP TABLE IF EXISTS `tbl_students`;
 CREATE TABLE IF NOT EXISTS `tbl_students` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(150) COLLATE utf8_bin DEFAULT NULL,
+  `firstName` varchar(150) COLLATE utf8_bin NOT NULL,
   `middleName` varchar(150) COLLATE utf8_bin DEFAULT NULL,
-  `lastName` varchar(150) COLLATE utf8_bin DEFAULT NULL,
+  `lastName` varchar(150) COLLATE utf8_bin NOT NULL,
   `degree` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `yearsGrad` varchar(150) COLLATE utf8_bin NOT NULL,
   `campus` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `country` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `company_name` varchar(150) COLLATE utf8_bin NOT NULL,
-  `employee_name` varchar(150) COLLATE utf8_bin NOT NULL,
+  `employee_name` varchar(150) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `tbl_students`
@@ -336,7 +336,8 @@ INSERT INTO `tbl_students` (`id`, `firstName`, `middleName`, `lastName`, `degree
 (24, 'Ralph Jimel ', 'Tan', ' Mariano', 'Bachelor of Science in Accountancy (BSA)', '1950', 'MNL', 'JP', 'Centro Escolar University', 'Ralph Jimel Mariano'),
 (25, 'Miguel ', 'San Diego ', ' Tuazon', 'Bachelor of Science in Accountancy (BSA)', '1950', 'MNL', 'AF', 'Centro Escolar University', 'Ralph Jimel Mariano'),
 (26, 'John Noel', 'Ayson', ' Gita', 'Bachelor of Science in Accountancy (BSA)', '1950', 'MNL', 'AF', 'Centro Escolar University', 'Ralph Jimel Mariano'),
-(27, 'John Noel', 'Ayson', ' Gita', 'Bachelor of Science in Accountancy (BSA)', '1950', 'MNL', 'AF', 'Centro Escolar University', 'Ralph Jimel Mariano');
+(27, 'John Noel', 'Ayson', ' Gita', 'Bachelor of Science in Accountancy (BSA)', '1950', 'MNL', 'AF', 'Centro Escolar University', 'Ralph Jimel Mariano'),
+(29, 'John Alexander', 'Mendoza', 'Espiritu', 'Bachelor of Science in Information Technology', '2022', 'MLS', 'CA', 'DFA', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

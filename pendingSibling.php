@@ -236,7 +236,7 @@ $view = new viewtable();
                     <h4 class="text-secondary mb-4">File/s Uploaded</h4>
                     <?php 
                     $src = $specificInfo[0]['applicantBC'];
-                    echo "<img src='$src' width=50%><br><b>Applicant COM</b><br>";
+                    echo "<img src='$src' width=50%><br><b>Applicant Birth Certificate</b><br>";
                     $src = $specificInfo[0]['siblingBC'];
                     echo "<img src='$src' width=50%><br><b>Sibling Birth Certificate</b><br>";
                     ?>  

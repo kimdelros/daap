@@ -145,23 +145,21 @@ $view = new viewtable();
             <div class="container-fluid cardBox-1 col-12">
                 <div class="card-1">
                 <div class="col-md">
-                <h4 class="font-weight-bold">Entrance Benefits</h4>
-                <ion-icon name="folder-open" class="ml-2"></ion-icon> Total Number of Applicants:<span class="font-weight-bold text-primary"> <?php echo $view->viewTotalApplicants(); ?></span>
-                <br>
-                <ion-icon name="hand-left" class="ml-2"></ion-icon> For Registrar Approval: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalPending(); ?></span>
-                <br>
-                <ion-icon name="checkmark-done" class="ml-2"></ion-icon> Scholarship Approved: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalApproved(); ?></span>
-                <br>
-                <ion-icon name="close" class="ml-2"></ion-icon> Scholarship Rejected: <span class="font-weight-bold text-primary"> <?php echo $view->viewTotalRejected(); ?></span>
-                <br>
-                <ion-icon name="ribbon" class="ml-2"></ion-icon> Discounted Applications: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalDiscounted(); ?></span> 
+                    <h4 class="font-weight-bold">Entrance Benefits</h4>
+                    <ion-icon name="folder-open" class="ml-2"></ion-icon> Total Number of Applicants:<span class="font-weight-bold text-primary"> <?php echo $view->viewTotalApplicants(); ?></span>
+                    <br>
+                    <ion-icon name="hand-left" class="ml-2"></ion-icon> For Registrar Approval: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalPending(); ?></span>
+                    <br>
+                    <ion-icon name="checkmark-done" class="ml-2"></ion-icon> Scholarship Approved: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalApproved(); ?></span>
+                    <br>
+                    <ion-icon name="close" class="ml-2"></ion-icon> Scholarship Rejected: <span class="font-weight-bold text-primary"> <?php echo $view->viewTotalRejected(); ?></span>
+                    <br>
+                    <ion-icon name="ribbon" class="ml-2"></ion-icon> Discounted Applications: <span class="font-weight-bold text-primary"><?php echo $view->viewTotalDiscounted(); ?></span> 
                 </div>
                 </div>
                 <div class="card-1">
-                    <div class="box">
                     <h5 class="font-weight-bold text-center">Campuses of Applicants</h5>
-                    <canvas style="width: 90%; max-width:650px;" id="myChartPie"></canvas>
-                    </div>
+                    <canvas style="width: 100%; max-width:650px;" id="myChartPie"></canvas>
                 </div>
                 <div class="card-1">
                     <h5 class="font-weight-bold text-center">Types of Discounts Applied</h5>
@@ -195,12 +193,12 @@ $view = new viewtable();
                 data: {
                     labels: ["Alumni", "Sibling", "CEIS"],
                     datasets: [{
-                        label: 'Total discounts per type',
+                        label: '# of Applications per Discount Type',
                         data: <?php echo '["' .implode('", "', $view->viewTotalDiscountType()) . '"]'?>,
                         backgroundColor: [
-                            'rgb(254, 200, 216)',
-                            'rgb(149, 125, 173)',
-                            'rgb(173, 173, 175)'],
+                            'rgb(122, 193, 213)',
+                            'rgb(240, 204, 169)',
+                            'rgb(156, 211, 163)'],
                     }]
                 },
                 options: {

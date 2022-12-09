@@ -46,8 +46,8 @@ if(empty($result))
     <div class="row justify-content-center text-center">
         <h6 class="Reminder pt-5">*Please upload atleast one document (image file).</h6>
       <div class="col-md-8 pt-3">
-        <label for="alumniYB" class="form-label">Alumni's Yearbook</label>
-           <input type="file" class="form-control text-center" aria-label="file example" name="alumniYB" id="alumniYB" accept="image/*" autocomplete="no">
+        <label for="alumniSID" class="form-label">Alumni's School ID</label>
+           <input type="file" class="form-control text-center" aria-label="file example" name="alumniSID" id="alumniSID" accept="image/*" autocomplete="no">
       </div>
     </div>
     <div class="row justify-content-center text-center">

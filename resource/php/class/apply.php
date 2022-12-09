@@ -108,7 +108,7 @@ class apply extends config{
       $file['name'] = $transID.".".$type.".".$imageFileType;
       switch ($type) {
         case "1":
-        $targetDir = "resource/documents/alumniYB/";
+        $targetDir = "resource/documents/alumniSID/";
           break;
         case "2":
         $targetDir = "resource/documents/alumniDiploma/";
@@ -138,7 +138,20 @@ class apply extends config{
 
       $link = config::con();
 
-      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `studentYearLevel`, `campusID`, `cdID`, `courseID`, `appType`, `transID`, `dateApplied`) VALUES ('$studentID', '$studentName', '$studentEmail', '$studentYearLevel', '$campusID', '$cdID', '$courseID', '$appType', '$transID', '$dateApplied')";
+      $config = new config;
+      $con = $config->con();
+      $sql2 = "SELECT `semester` FROM `config`";
+      $data2 = $con->prepare($sql2);
+      $data2->execute();
+      $semester = $data2->fetchColumn();
+
+      $con = $config->con();
+      $sql3 = "SELECT `schoolYear` FROM `config`";
+      $data3 = $con->prepare($sql3);
+      $data3->execute();
+      $schoolYear = $data3->fetchColumn();
+
+      $sql = "INSERT INTO `applications`(`studentID`, `studentName`, `studentEmail`, `studentYearLevel`, `campusID`, `cdID`, `courseID`, `appType`, `semester`, `schoolYear`, `transID`, `dateApplied`) VALUES ('$studentID', '$studentName', '$studentEmail', '$studentYearLevel', '$campusID', '$cdID', '$courseID', '$appType', '$semester', '$schoolYear', '$transID', '$dateApplied')";
 
       $stmt = $link->prepare($sql);
       $stmt->execute();
@@ -147,20 +160,20 @@ class apply extends config{
       return $lastID;
     }
 
-   private function applyAlumni($lastID, $alumniName, $alumniCampusID, $alumniYearGraduated, $alumniYB, $alumniDiploma, $alumniTOR){
+    private function applyAlumni($lastID, $alumniName, $alumniCampusID, $alumniYearGraduated, $alumniSID, $alumniDiploma, $alumniTOR){
       $link = config::con();
 
-      $sql = "INSERT INTO `alumni`(`appID`, `alumniName`, `alumniCampusID`, `alumniYearGraduated`, `alumniYB`, `alumniDiploma`, `alumniTOR`) VALUES ('$lastID', '$alumniName', '$alumniCampusID', '$alumniYearGraduated', '$alumniYB', '$alumniDiploma', '$alumniTOR')";
+      $sql = "INSERT INTO `alumni`(`appID`, `alumniName`, `alumniCampusID`, `alumniYearGraduated`, `alumniSID`, `alumniDiploma`, `alumniTOR`) VALUES ('$lastID', '$alumniName', '$alumniCampusID', '$alumniYearGraduated', '$alumniSID', '$alumniDiploma', '$alumniTOR')";
 
       $link = $link->prepare($sql);
       $link->execute();
       $link->connection = null;
     }
 
-    public function verifyAlumni($studentID, $studentEmail, $studentName, $studentYearLevel, $studentCampus, $studentCollege, $studentCourse, $alumniName, $alumniCampusGraduated, $alumniYearGraduated, $alumniYB, $alumniDiploma, $alumniTOR){
+    public function verifyAlumni($studentID, $studentEmail, $studentName, $studentYearLevel, $studentCampus, $studentCollege, $studentCourse, $alumniName, $alumniCampusGraduated, $alumniYearGraduated, $alumniSID, $alumniDiploma, $alumniTOR){
       $maxSize = 2 * 1024 * 1024;
 
-      $yb = strtolower(pathinfo($alumniYB['name'], PATHINFO_EXTENSION));
+      $yb = strtolower(pathinfo($alumniSID['name'], PATHINFO_EXTENSION));
       $dip = strtolower(pathinfo($alumniDiploma['name'], PATHINFO_EXTENSION));
       $tor = strtolower(pathinfo($alumniTOR['name'], PATHINFO_EXTENSION));
 
@@ -182,12 +195,12 @@ class apply extends config{
            else if($dip !== '' && $dip !== 'gif' && $dip !== 'png' && $dip !== 'jpg' && $dip !== 'jpeg' && $dip !== 'jfif')
              $message = "Diploma must be an image file only.";
            else if($yb !== '' && $yb !== 'gif' && $yb !== 'png' && $yb !== 'jpg' && $yb !== 'jpeg' && $yb !== 'jfif')
-             $message = "Alumni's Yearbook must be an image file only!";
+             $message = "Alumni's School ID must be an image file only!";
            else if($tor !== '' && $tor !== 'gif' && $tor !== 'png' && $tor !== 'jpg' && $tor !== 'jpeg' && $tor !== 'jfif')
              $message = "Alumni's TOR must be an image file only.";
            else if($yb == '' && $dip == '' && $tor == '')
              $message = "Please upload atleast one document.";
-           else if($alumniYB['size'] >= $maxSize && $alumniDiploma ['size'] >= $maxSize && $alumniTOR['size'] >= $maxSize)
+           else if($alumniSID['size'] >= $maxSize && $alumniDiploma ['size'] >= $maxSize && $alumniTOR['size'] >= $maxSize)
              $message = "File too large. File must be less than 2 megabytes.";
           else if($alumniCampusID == 0)
              $message = "Alumni Campus is invalid";
@@ -199,8 +212,8 @@ class apply extends config{
              }while($this->checkTransID($transID));
              $lastID = $this->applyStudent($studentID, $studentEmail, $studentName, $studentYearLevel, $campusID, $cdID, $courseID, "1", $transID);
 
-             if($alumniYB['name'] != '')
-                $AYB = $this->storeFile($alumniYB, "1", $transID);
+             if($alumniSID['name'] != '')
+                $AYB = $this->storeFile($alumniSID, "1", $transID);
              else
                 $AYB = '';
              if($alumniDiploma['name'] != '')
@@ -275,13 +288,13 @@ class apply extends config{
            else if(!ctype_alpha($tempSName))
              $message = "Sibling's Name is invalid.";
            else if($acom == '')
-             $message = "Applicant's COM is required.";
+             $message = "Applicant's Birth Certificate is required.";
            else if($scom == '')
-             $message = "Sibling's COM is required.";
+             $message = "Sibling's Birth Certificate is required.";
            else if($acom !== 'gif' && $acom !== 'png' && $acom !== 'jpg' && $acom !== 'jpeg' && $acom !== 'jfif')
-             $message = "Applicant's COM must be an image file only!";
+             $message = "Applicant's Birth Certificate must be an image file only!";
            else if($scom !== 'gif' && $scom !== 'png' && $scom !== 'jpg' && $scom !== 'jpeg' && $scom !== 'jfif')
-             $message = "Sibling's COM must be an image file only!";
+             $message = "Sibling's Birth Certificate must be an image file only!";
            else if($applicantBC['size'] >= $maxSize && $siblingBC ['size'] >= $maxSize)
              $message = "File too large. File must be less than 2 megabytes.";
            else if(!($siblingYearLevel == "1st Year" || $siblingYearLevel == "2nd Year" || $siblingYearLevel == "3rd Year" || $siblingYearLevel == "4th Year" || $siblingYearLevel == "5th Year" || $siblingYearLevel == "6th Year"))

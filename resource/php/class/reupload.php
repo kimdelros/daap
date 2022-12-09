@@ -29,16 +29,16 @@ class reupload extends config{
         $message = "";
         switch($type){
             case 1:
-                if($files['alumniYB']['name'] == "" && $files['alumniDiploma']['name'] == "" && $files['alumniTOR']['name'] == ""){
+                if($files['alumniSID']['name'] == "" && $files['alumniDiploma']['name'] == "" && $files['alumniTOR']['name'] == ""){
                     $message = "Please upload atleast one document.";
                  break;
                 }
-                $message = $this->verifyFile($files['alumniYB'], "Alumni's Yearbook", $message);
+                $message = $this->verifyFile($files['alumniSID'], "Alumni's Yearbook", $message);
                 $message = $this->verifyFile($files['alumniDiploma'], "Alumni's Diploma", $message);
                 $message = $this->verifyFile($files['alumniTOR'], "Alumni's TOR", $message);
 
                 if($message == ""){
-                    $alumniYB = $this->storeFile($files['alumniYB'], "alumniYB", $_GET['id']);
+                    $alumniSID = $this->storeFile($files['alumniSID'], "alumniSID", $_GET['id']);
                     $alumniDiploma = $this->storeFile($files['alumniDiploma'], "alumniDiploma", $_GET['id']);
                     $alumniTOR = $this->storeFile($files['alumniTOR'], "alumniTOR", $_GET['id']);
 
@@ -52,7 +52,7 @@ class reupload extends config{
 
                     $appID = (int)$result[0]['appID'];
 
-                    $sql = "UPDATE `alumni` SET `alumniYB` = '$alumniYB', `alumniDiploma` = '$alumniDiploma',  `alumniTOR` = '$alumniTOR' WHERE `appID` = '$appID'";
+                    $sql = "UPDATE `alumni` SET `alumniSID` = '$alumniSID', `alumniDiploma` = '$alumniDiploma',  `alumniTOR` = '$alumniTOR' WHERE `appID` = '$appID'";
                     $data= $con->prepare($sql);
                     $data->execute();
                     

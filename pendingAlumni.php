@@ -210,9 +210,9 @@ $view = new viewtable();
                 <div class="regForm col-6 text-center">
                     <h4 class="text-secondary mb-4">File/s Uploaded</h4>
                     <?php 
-                    if($specificInfo[0]['alumniYB']){
-                        $src = $specificInfo[0]['alumniYB'];
-                        echo "<img src='$src' width=50%><br><b>Alumni Year Book</b><br>";
+                    if($specificInfo[0]['alumniSID']){
+                        $src = $specificInfo[0]['alumniSID'  ];
+                        echo "<img src='$src' width=50%><br><b>Alumni ID</b><br>";
                     }
                     if($specificInfo[0]['alumniDiploma']){
                         $src = $specificInfo[0]['alumniDiploma'];
@@ -251,7 +251,7 @@ $view = new viewtable();
     <script src="resource/js/script.js"></script>
     <script src="resource/js/scripts.js"></script>
     <script src="resource/js/pendingActions.js"></script>
-    <!-- <script>
+    <script>
     (function() {
 
         const idleDurationSecs = 60;    // X number of seconds
@@ -276,7 +276,7 @@ $view = new viewtable();
         );
 
     })();
-    </script> -->
+    </script
 
 </body>
 </html>

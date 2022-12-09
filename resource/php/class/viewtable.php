@@ -60,8 +60,8 @@ class viewtable extends config{
 
     echo"<td>";
     if($appType == "1"){
-      if($result['alumniYB'] != "")
-        echo "<a href='?document=$result[alumniYB]#viewDoc'>View Year Book</a><br>";
+      if($result['alumniSID'] != "")
+        echo "<a href='?document=$result[alumniSID]#viewDoc'>View Alumni ID</a><br>";
       if($result['alumniDiploma'] != "")
         echo "<a href='?document=$result[alumniDiploma]#viewDoc'>View Diploma</a><br>";
       if($result['alumniTOR'] != "")
@@ -69,7 +69,7 @@ class viewtable extends config{
     }
     else if($appType == "2"){
       if($result['applicantBC'] != "")
-        echo "<a href='?document=$result[applicantBC]#viewDoc'>View Applicant COM</a><br>";
+        echo "<a href='?document=$result[applicantBC]#viewDoc'>View Applicant Birth Certificate</a><br>";
       if($result['siblingBC'] != "")
         echo "<a href='?document=$result[siblingBC]#viewDoc'>View Sibling Birth Certificate</a><br>";
     }
@@ -423,5 +423,136 @@ class viewtable extends config{
     }
     unset($discounts[0]);
     return($discounts);
+  }
+
+  public function viewAllApplications($appType){
+    $con = $this->con();
+    $sql = "SELECT * FROM `applications` WHERE `appType` = '$appType'";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    switch($appType){
+      case "1":
+        echo "<h3 class='text-center font-weight-bold'> Entrance Grant Applications (Alumni) </h3>";
+        break;
+      case "2":
+        echo "<h3 class='text-center font-weight-bold'> Entrance Grant Applications (Sibling) </h3>";
+        break;
+      case "3":
+        echo "<h3 class='text-center font-weight-bold'> Entrance Grant Application (CEIS) </h3>";
+        break;
+      default: break;
+    }
+    echo "<div class='table-responsive'>";
+    echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
+    echo "<thead class='thead-dark'>";
+    echo "<th>Transaction ID</th>";
+    echo "<th>Student ID</th>";
+    echo "<th>Student Name</th>";
+    echo "<th>Student Email</th>";
+    echo "<th>Student Year Level</th>";
+    echo "<th>Campus</th>";
+    echo "<th>Status</th>";
+    echo "</thead>";
+    foreach ($result as $data) {
+    echo "<tr>";
+    echo "<td>$data[transID]</td>";
+    echo "<td>$data[studentID]</td>";
+    echo "<td>$data[studentName]</td>";
+    echo "<td>$data[studentEmail]</td>";
+    echo "<td>$data[studentYearLevel]</td>";
+    if($data['campusID'] === '1'){
+      echo "<td>Malolos</td>";
+    }
+    else if($data['campusID'] === '2'){
+      echo "<td>Manila</td>";
+    }
+    else if($data['campusID'] === '3'){
+      echo "<td>Makati</td>";
+    }
+
+    if($data['isApproved'] === '0' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
+      echo "<td style='color: orange; text-align: left;'> Pending </td>";
+    }
+    else if($data['isApproved'] === '1' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
+      echo "<td style='color: green; text-align: left;'> Approved by Registrar </td>";
+    }
+    else if($data['isApproved'] === '0' && $data['isHold'] === '1' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
+      echo "<td style='color: brown; text-align: left;'> On-Hold due to <p style='font-weight: bold;'>$data[reasonHold]</p></td>";
+    }
+    else if($data['isApproved'] === '0' && $data['isHold'] === '0' && $data['isRejected'] === '1' && $data['isDiscounted'] === '0'){
+      echo "<td style='color: red; text-align: left;'> Rejected due to <p style='font-weight: bold;'>$data[reasonReject]</p> </td>";
+    }
+    else if($data['isApproved'] === '1' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '1'){
+      echo "<td style='color: blue; text-align: left;'> Discounted by Accounting </td>";
+    }
+    echo "</tr>";
+    }
+    echo "</table>";
+  }
+
+  public function viewAllApplicationsFiltered($appType, $semester, $schoolYear){
+    $con = $this->con();
+    $sql = "SELECT * FROM `applications` WHERE `appType` = '$appType' AND `semester` = '$semester' AND `schoolYear` = '$schoolYear'";
+    $data= $con->prepare($sql);
+    $data->execute();
+    $result = $data->fetchAll(PDO::FETCH_ASSOC);
+    switch($appType){
+      case "1":
+        echo "<h3 class='text-center font-weight-bold'> Entrance Grant Applications (Alumni) $semester $schoolYear </h3>";
+        break;
+      case "2":
+        echo "<h3 class='text-center font-weight-bold'> Entrance Grant Applications (Sibling) $semester $schoolYear </h3>";
+        break;
+      case "3":
+        echo "<h3 class='text-center font-weight-bold'> Entrance Grant Application (CEIS) $semester $schoolYear </h3>";
+        break;
+      default: break;
+    }
+    echo "<div class='table-responsive'>";
+    echo "<table id='scholartable' class='table table-bordered table-sm table-bordered table-hover shadow display' width='100%'>";
+    echo "<thead class='thead-dark'>";
+    echo "<th>Transaction ID</th>";
+    echo "<th>Student ID</th>";
+    echo "<th>Student Name</th>";
+    echo "<th>Student Email</th>";
+    echo "<th>Student Year Level</th>";
+    echo "<th>Campus</th>";
+    echo "<th>Status</th>";
+    echo "</thead>";
+    foreach ($result as $data) {
+      echo "<tr>";
+      echo "<td>$data[transID]</td>";
+      echo "<td>$data[studentID]</td>";
+      echo "<td>$data[studentName]</td>";
+      echo "<td>$data[studentEmail]</td>";
+      echo "<td>$data[studentYearLevel]</td>";
+      if($data['campusID'] === '1'){
+        echo "<td>Malolos</td>";
+      }
+      else if($data['campusID'] === '2'){
+        echo "<td>Manila</td>";
+      }
+      else if($data['campusID'] === '3'){
+        echo "<td>Makati</td>";
+      }
+      if($data['isApproved'] === '0' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
+        echo "<td style='color: orange; text-align: left;'> Pending </td>";
+      }
+      else if($data['isApproved'] === '1' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
+        echo "<td style='color: green; text-align: left;'> Approved by Registrar </td>";
+      }
+      else if($data['isApproved'] === '0' && $data['isHold'] === '1' && $data['isRejected'] === '0' && $data['isDiscounted'] === '0'){
+        echo "<td style='color: brown; text-align: left;'> On-Hold due to <p style='font-weight: bold;'>$data[reasonHold]</p></td>";
+      }
+      else if($data['isApproved'] === '0' && $data['isHold'] === '0' && $data['isRejected'] === '1' && $data['isDiscounted'] === '0'){
+        echo "<td style='color: red; text-align: left;'> Rejected due to <p style='font-weight: bold;'>$data[reasonReject]</p> </td>";
+      }
+      else if($data['isApproved'] === '1' && $data['isHold'] === '0' && $data['isRejected'] === '0' && $data['isDiscounted'] === '1'){
+        echo "<td style='color: blue; text-align: left;'> Discounted by Accounting </td>";
+      }
+      echo "</tr>";
+    }
+    echo "</table>";
   }
 }
