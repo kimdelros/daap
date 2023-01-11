@@ -12,6 +12,8 @@ $result = $data->fetchAll(PDO::FETCH_ASSOC);
 
 if(empty($result))
   header("Location: uploader.php");
+else if($result[0]["transID"][0] != "A")
+  header("Location: uploader.php");
 ?>
 
 <!DOCTYPE html>
@@ -42,28 +44,40 @@ if(empty($result))
     <div class="title">
         Discount Application and Alumni Portal <br> File Re-Uploader (Alumni)
     </div>
-    <form action="" method="post" enctype="multipart/form-data">
-    <div class="row justify-content-center text-center">
-        <h6 class="Reminder pt-5">*Please upload atleast one document (image file).</h6>
-      <div class="col-md-8 pt-3">
-        <label for="alumniSID" class="form-label">Alumni's School ID</label>
-           <input type="file" class="form-control text-center" aria-label="file example" name="alumniSID" id="alumniSID" accept="image/*" autocomplete="no">
+    <?php
+    if($result[0]["isHold"] == 1){
+      echo "
+      <form action='' method='post' enctype='multipart/form-data'>
+      <div class='row justify-content-center text-center'>
+          <h6 class='Reminder pt-5'>*Please upload atleast one document (image file).</h6>
+        <div class='col-md-8 pt-3'>
+          <label for='alumniSID' class='form-label'>Alumni's School ID</label>
+             <input type='file' class='form-control text-center' aria-label='file example' name='alumniSID' id='alumniSID' accept='image/*' autocomplete='no'>
+        </div>
       </div>
-    </div>
-    <div class="row justify-content-center text-center">
-      <div class="col-md-8 pt-3">
-        <label for="alumniDiploma" class="form-label">Alumni's Diploma</label>
-           <input type="file" class="form-control text-center" aria-label="file example" name="alumniDiploma" id="alumniDiploma" accept="image/*" autocomplete="no">
+      <div class='row justify-content-center text-center'>
+        <div class='col-md-8 pt-3'>
+          <label for='alumniDiploma' class='form-label'>Alumni's Diploma</label>
+             <input type='file' class='form-control text-center' aria-label='file example' name='alumniDiploma' id='alumniDiploma' accept='image/*' autocomplete='no'>
+        </div>
       </div>
-    </div>
-    <div class="row justify-content-center text-center">
-      <div class="col-md-8 pt-3">
-        <label for="alumniTOR" class="form-label">Alumni's TOR</label>
-           <input type="file" class="form-control text-center" aria-label="file example" name="alumniTOR" id="alumniTOR" accept="image/*" autocomplete="no">
+      <div class='row justify-content-center text-center'>
+        <div class='col-md-8 pt-3'>
+          <label for='alumniTOR' class='form-label'>Alumni's TOR</label>
+             <input type='file' class='form-control text-center' aria-label='file example' name='alumniTOR' id='alumniTOR' accept='image/*' autocomplete='no'>
+        </div>
       </div>
-    </div>
-    <div class="col-12 text-center mt-4">
-      <input class="btn btn-secondary btn-lg btn-block" type="submit" name="reupload_Alumni" id="reupload_Alumni" value="Re-Upload Document">
+      <div class='col-12 text-center mt-4'>
+        <input class='btn btn-secondary btn-lg btn-block' type='submit' name='reupload_Alumni' id='reupload_Alumni' value='Re-Upload Document'>";
+    }
+    else if($result[0]["isHold"] == 0 && $result[0]["isApproved"] == 0){
+      echo "<h4 class='text-center'>The application is still on <b>PENDING</b>. <br>We will notify you if we will need new set of documents.</h4>";
+    }
+    else if($result[0]["isHold"] == 0 && $result[0]["isApproved"] == 1){
+      echo "<h4 class='text-center'>The application is already <b>APPROVED</b>.</h4>";
+    }
+    ?>
+
       <?php
         if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['reupload_Alumni']){
           $reupload = new reupload();
