@@ -30,6 +30,16 @@ while ($data = $result->FETCH_ASSOC()){
     $appType = "CEIS Graduate";
   }
 
+  if ($data['campusID'] === '1'){
+    $campus = "Malolos";
+  }
+  else if ($data['campusID'] === '2'){
+    $campus = "Manila";
+  }
+  else if ($data['campusID'] === '3'){
+    $campus = "Makati";
+  }
+
   $pdf = new FPDI();
   $pdf->AddPage();
   $pdf->setSourceFile($filename);
@@ -39,18 +49,28 @@ while ($data = $result->FETCH_ASSOC()){
   $pdf->SetFont('Helvetica');
   $pdf->SetFontSize(11);
 
-  $pdf->SetXY(90, 133);
+  $pdf->SetXY(92, 133);
   $pdf->Write(0, $data['studentName']);
-  $pdf->SetXY(91, 143);
+  $pdf->SetXY(170, 133);
+  $pdf->Write(0, $campus);
+  $pdf->SetXY(150, 143);
   $pdf->Write(0, $appType);
-  $pdf->SetXY(39, 153);
+  $pdf->SetXY(98, 153);
   $pdf->Write(0, date('Y-m-d',strtotime($data['dateApplied'])));
-  $pdf->SetXY(28, 163);
+  $pdf->SetXY(74, 163);
   $pdf->Write(0, date('Y-m-d',strtotime($data['dateApproved'])));
 
-  $pdf->Image('pdfprototype/signature/signature.png', "77","200", "60","20");
+  if ($data['campusID'] === '1'){
+    $pdf->Image('resource/signatures/dummy_sig_1.png', "77","200", "60","20");
+  }
+  else if ($data['campusID'] === '2'){
+    $pdf->Image('resource/signatures/dummy_sig_2.png', "77","200", "60","20");
+  }
+  else if ($data['campusID'] === '3'){
+    $pdf->Image('resource/signatures/dummy_sig_3.png', "77","200", "60","20");
+  }
 
-  $pdf->Output('D', "Certification - $data[studentName].pdf");
+  $pdf->Output('I', "Certification - $data[studentName].pdf");
 }
 
 ?>

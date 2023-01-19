@@ -107,7 +107,7 @@ class tracert extends config2{
 
           $link = $this->conn();
 
-          $sql = "INSERT INTO `tbl_students`(`firstName`, `middleName`, `lastName`, `degree`, `yearsGrad`, `campus`, `country`, `company_name`) VALUES ('$firstname', '$middlename', '$lastname', '$course', '$yearsGrad', '$campusCode', '$countryCode', '$companyName')";
+          $sql = "INSERT INTO `tbl_students`(`firstName`, `middleName`, `lastName`, `degree`, `yearsGrad`, `campus`, `country`, `company_name`,`employee_name`) VALUES ('$firstname', '$middlename', '$lastname', '$course', '$yearsGrad', '$campusCode', '$countryCode', '$companyName', 'N/A')";
           $stmt = $link->prepare($sql);
           $stmt->execute();
 

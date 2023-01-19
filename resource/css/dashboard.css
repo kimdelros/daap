@@ -409,7 +409,7 @@ body {
 
   .cardBox-1 {
     grid-template-columns: repeat(2,1fr);
-}
+  }
 }
 
 @media (max-width: 991px) {

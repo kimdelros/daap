@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 09, 2022 at 09:27 AM
+-- Generation Time: Dec 13, 2022 at 08:45 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -127,7 +127,7 @@ INSERT INTO `applications` (`appID`, `studentID`, `studentName`, `studentEmail`,
 (66, '2222-22222', 'john espiritu', 'espiritu0903@gmail.com', '1st Year', 1, 1, 1, '3', '1', '2022-2023', 'CEIS-F2QHEIFTA4MZ251ZG6R4', 0, 0, 0, 0, '2022-12-09 15:34:34', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (67, '3333-33333', 'john espiritu', 'espiritu0903@gmail.com', '1st Year', 2, 9, 25, '2', '1', '2022-2023', 'SIBL-HE3XFS8R0D0Z8HXDNKA5', 0, 0, 0, 0, '2022-12-09 15:36:05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (68, '0000-00000', 'JemKim Del Rosario', 'asdasd123@gmail.com', '1st Year', 1, 1, 7, '1', '1', '2022-2023', 'ALUM-F2N5CLPW3NATG4V1T1H0', 0, 0, 0, 0, '2022-12-09 15:41:04', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(69, '9999-99999', 'john espiritu', 'espiritu0903@gmail.com', '1st Year', 1, 1, 1, '1', '1', '2022-2023', 'ALUM-TK68ATOC1SSMPK4YCLC7', 0, 0, 0, 0, '2022-12-09 15:52:34', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(69, '9999-99999', 'John Alexander Espiritu', 'espiritu0903@gmail.com', '1st Year', 1, 1, 1, '1', '1', '2022-2023', 'ALUM-TK68ATOC1SSMPK4YCLC7', 1, 0, 0, 0, '2022-12-09 15:52:34', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (70, '2222-22222', 'JeKim', 'sdddddd@gmail.com', '1st Year', 1, 2, 8, '1', '1', '2022-2023', 'ALUM-QVZA6PBQMD931G1C03T1', 0, 0, 0, 0, '2022-12-09 15:58:34', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (71, '3333-33333', 'DelROs', 'aaaaaaaa@fmfd.com', '4th Year', 1, 2, 8, '2', '1', '2022-2023', 'SIBL-RCTKND90OFJFV9IBY4RC', 0, 0, 0, 0, '2022-12-09 16:00:53', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
