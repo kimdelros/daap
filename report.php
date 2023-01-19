@@ -108,14 +108,14 @@ $view = new viewtable();
                     <h4 class="font-weight-bold">DAAP System Admin Setting</h4>
                     <div class="row lowerlft col-6">  
                         <form method="POST">  
-                            <div class="col-6 form-group">
+                            <div class="form-group">
                                 <label for="SemesterSettings">Semester Settings</label>
                                 <select name='semester'class="form-control" id="SemSettings">
                                     <option data-tokens="1" value="1">1</option>
                                     <option data-tokens="2" value="2">2</option>
                                 </select>
                             </div>
-                            <div class="col-6 form-group">
+                            <div class="form-group">
                                 <label for="SchoolYRSettings">School Year Settings</label>
                                 <input type="text" name='schoolYear' class="form-control">
                             </div>

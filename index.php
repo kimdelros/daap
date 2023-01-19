@@ -136,7 +136,7 @@ $view = new view();
       </div>
     </div>
   </section>
-  <section class="tracert" id="tracert">
+  <!-- <section class="tracert" id="tracert">
     <div class="container">
       <h2 class="text-center mb-5">Help us to locate you and other Escolarians!</h2>
       <form method="POST" action="#tracert">
@@ -212,7 +212,7 @@ $view = new view();
           </div>
         </div>
       </form>
-  </section>
+  </section> -->
 
   <section class="regOverlay" id="AlumniForm">
     <div class="regWrapper">
@@ -720,9 +720,9 @@ $view = new view();
 
       var ceisCampusGraduated = document.getElementById("ceisCampusGraduated");
 
-      var tracertCampus = document.getElementById("tracertCampus");
-      var tracertCollege = document.getElementById("tracertCollege");
-      var tracertCourse = document.getElementById("tracertCourse");
+      // var tracertCampus = document.getElementById("tracertCampus");
+      // var tracertCollege = document.getElementById("tracertCollege");
+      // var tracertCourse = document.getElementById("tracertCourse");
 
       for (var x in allData) {
         alumniCampus.options[alumniCampus.options.length] = new Option(x, x);
@@ -739,9 +739,9 @@ $view = new view();
       for (var x in allData) {
         ceisCampusGraduated.options[ceisCampusGraduated.options.length] = new Option(x, x);
       }
-      for (var x in allData) {
-        tracertCampus.options[tracertCampus.options.length] = new Option(x, x);
-      }
+      // for (var x in allData) {
+      //   tracertCampus.options[tracertCampus.options.length] = new Option(x, x);
+      // }
 
       alumniCampus.onchange = function() {
         //empty Chapters- and Topics- dropdowns
@@ -815,24 +815,24 @@ $view = new view();
           ceisCourse.options[ceisCourse.options.length] = new Option(z[i], z[i]);
         }
       }
-      tracertCampus.onchange = function() {
-        //empty Chapters- and Topics- dropdowns
-        tracertCourse.length = 1;
-        tracertCollege.length = 1;
-        //display correct values
-        for (var y in allData[this.value]) {
-          tracertCollege.options[tracertCollege.options.length] = new Option(y, y);
-        }
-      }
-      tracertCollege.onchange = function() {
-        //empty Chapters dropdown
-        tracertCourse.length = 1;
-        //display correct values
-        var z = allData[tracertCampus.value][this.value];
-        for (var i = 0; i < z.length; i++) {
-          tracertCourse.options[tracertCourse.options.length] = new Option(z[i], z[i]);
-        }
-      }
+      // tracertCampus.onchange = function() {
+      //   //empty Chapters- and Topics- dropdowns
+      //   tracertCourse.length = 1;
+      //   tracertCollege.length = 1;
+      //   //display correct values
+      //   for (var y in allData[this.value]) {
+      //     tracertCollege.options[tracertCollege.options.length] = new Option(y, y);
+      //   }
+      // }
+      // tracertCollege.onchange = function() {
+      //   //empty Chapters dropdown
+      //   tracertCourse.length = 1;
+      //   //display correct values
+      //   var z = allData[tracertCampus.value][this.value];
+      //   for (var i = 0; i < z.length; i++) {
+      //     tracertCourse.options[tracertCourse.options.length] = new Option(z[i], z[i]);
+      //   }
+      // }
     }
   </script>
 

@@ -70,7 +70,7 @@ while ($data = $result->FETCH_ASSOC()){
     $pdf->Image('resource/signatures/dummy_sig_3.png', "77","200", "60","20");
   }
 
-  $pdf->Output('I', "Certification - $data[studentName].pdf");
+  $pdf->Output('D', "Certification - $data[studentName].pdf");
 }
 
 ?>
