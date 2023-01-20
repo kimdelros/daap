@@ -771,7 +771,7 @@ $view = new view();
           <p class='text-center'>This agreement is to acknowledge that the information provided by the applicants in this form is considered confidential and intended only for the use of the discount applied to it is addressed to. Any information and personal data are protected from unauthorized use or disclosure by the law (Republic Act No. 10173 "Data Privacy Act of 2012"). Therefore, any act that may violate the statement aforementioned such as printing, copying, dissemination, distribution, disclosure, or forwarding of the information is strictly prohibited.</p>
             
           <div class="row justify-content-center text-center">
-              <a href="#AlumniForm" class="btn-card">Accept</a>
+              <a href="#AlumniForm" class="btn-card">Agree</a>
           </div>
         </div>
       </div>
@@ -788,7 +788,7 @@ $view = new view();
           <p class='text-center'>This agreement is to acknowledge that the information provided by the applicants in this form is considered confidential and intended only for the use of the discount applied to it is addressed to. Any information and personal data are protected from unauthorized use or disclosure by the law (Republic Act No. 10173 "Data Privacy Act of 2012"). Therefore, any act that may violate the statement aforementioned such as printing, copying, dissemination, distribution, disclosure, or forwarding of the information is strictly prohibited.</p>
             
           <div class="row justify-content-center text-center">
-              <a href="#SiblingForm" class="btn-card">Accept</a>
+              <a href="#SiblingForm" class="btn-card">Agree</a>
           </div>
         </div>
       </div>
@@ -805,7 +805,7 @@ $view = new view();
           <p class='text-center'>This agreement is to acknowledge that the information provided by the applicants in this form is considered confidential and intended only for the use of the discount applied to it is addressed to. Any information and personal data are protected from unauthorized use or disclosure by the law (Republic Act No. 10173 "Data Privacy Act of 2012"). Therefore, any act that may violate the statement aforementioned such as printing, copying, dissemination, distribution, disclosure, or forwarding of the information is strictly prohibited.</p>
             
           <div class="row justify-content-center text-center">
-              <a href="#CEISForm" class="btn-card">Accept</a>
+              <a href="#CEISForm" class="btn-card">Agree</a>
           </div>
         </div>
       </div>
