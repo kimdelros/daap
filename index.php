@@ -224,25 +224,44 @@ $view = new view();
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
-                <input type="text" class="form-control text-center" name="studentID" placeholder="2022-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
+                <input type="text" class="form-control text-center" name="studentID" placeholder="2022-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no" 
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applyAlumni']){
+                  echo "value='$_POST[studentID]'";
+                }
+                ?>
+                >
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
-                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applyAlumni']){
+                  echo "value='$_POST[studentName]'";
+                }
+                ?>
+                >
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentEmail" class="form-label">Email Address</label>
-                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz2200000@ceu.edu.ph" autocomplete="no">
+                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz2200000@ceu.edu.ph" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applyAlumni']){
+                  echo "value='$_POST[studentEmail]'";
+                }
+                ?>
+                >
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentYearLevel" class="form-label">Year Level</label>
                 <select id="studentYearLevel" name="studentYearLevel" class="selectpicker form-control text-center" data-live-search="true" required>
+                <option value="" selected="selected">Select Year Level</option>
                   <?php $view->yearLevel(); ?>
                 </select>
               </div>
@@ -274,7 +293,13 @@ $view = new view();
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="alumniName" class="form-label">Alumni's Full Name</label>
-                <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required>
+                <input type="text" class="form-control text-center" name="alumniName" placeholder="Parent's Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no" required 
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applyAlumni']){
+                  echo "value='$_POST[alumniName]'";
+                }
+                ?>
+                >
               </div>
             </div>
 
@@ -282,6 +307,7 @@ $view = new view();
               <div class="col-md-8  pt-3">
                 <label for="campusGraduated" class="form-label">Campus Graduated</label>
                 <select id="campusGraduated" name="campusGraduated" class="selectpicker form-control text-center" title="Select Campus" required>
+                  <option value="" selected="selected">Select Campus</option>
                   <?php $view->campus(); ?>
                 </select>
               </div>
@@ -291,6 +317,7 @@ $view = new view();
               <div class="col-md-8  pt-3">
                 <label for="yearGraduated" class="form-label">Year Graduated</label>
                 <select id="yearGraduated" name="yearGraduated" class="selectpicker form-control text-center" title="Select Year Graduated" required>
+                  <option value="" selected="selected">Select Year Graduatd</option>
                   <?php $view->years(); ?>
                 </select>
               </div>
@@ -409,25 +436,41 @@ $view = new view();
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
-                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
+                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applySibling']){
+                  echo "value='$_POST[studentID]'";
+                }
+                ?>>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentEmail" class="form-label">Email Address</label>
-                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" autocomplete="no">
+                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applySibling']){
+                  echo "value='$_POST[studentEmail]'";
+                }
+                ?>>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
-                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s\.]*$" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applySibling']){
+                  echo "value='$_POST[studentName]'";
+                }
+                ?>>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentYearLevel" class="form-label">Applicant's Year Level</label>
                 <select id="studentYearLevel" name="studentYearLevel" class="selectpicker form-control text-center" data-live-search="true" required>
+                  <option value="" selected="selected">Select Year Level</option>
                   <?php $view->yearLevel(); ?>
                 </select>
               </div>
@@ -459,19 +502,30 @@ $view = new view();
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="siblingID" class="form-label">Sibling's Student Number</label>
-                <input type="text" class="form-control text-center" name="siblingID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
+                <input type="text" class="form-control text-center" name="siblingID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applySibling']){
+                  echo "value='$_POST[siblingID]'";
+                }
+                ?>>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="siblingName" class="form-label">Sibling's Full Name</label>
-                <input type="text" class="form-control text-center" name="siblingName" placeholder="Sibling's Full Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no">
+                <input type="text" class="form-control text-center" name="siblingName" placeholder="Sibling's Full Name" pattern="[a-zA-Z\s\.]*$" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applySibling']){
+                  echo "value='$_POST[siblingName]'";
+                }
+                ?>>
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="siblingYearLevel" class="form-label">Sibling's Year Level</label>
                 <select id="siblingYearLevel" name="siblingYearLevel" class="selectpicker form-control text-center" data-live-search="true" required>
+                  <option value="" selected="selected">Select Year Level</option>
                   <?php $view->yearLevel(); ?>
                 </select>
               </div>
@@ -585,25 +639,49 @@ $view = new view();
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="studentID" class="form-label">Applicant's Student Number</label>
-                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
+                <input type="text" class="form-control text-center" name="studentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applyCEIS']){
+                  echo "value='$_POST[studentID]'";
+                }
+                ?>
+                >
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8 pt-3">
                 <label for="CEISstudentID" class="form-label">Applicant's CEIS Student Number</label>
-                <input type="text" class="form-control text-center" name="CEISstudentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no">
+                <input type="text" class="form-control text-center" name="CEISstudentID" placeholder="2010-00000" pattern="[0-9]{4}-[0-9]{5}" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applyCEIS']){
+                  echo "value='$_POST[CEISstudentID]'";
+                }
+                ?>
+                >
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentEmail" class="form-label">Email Address</label>
-                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" autocomplete="no">
+                <input type="email" class="form-control text-center" name="studentEmail" placeholder="delacruz1900000@ceu.edu.ph" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applyCEIS']){
+                  echo "value='$_POST[studentEmail]'";
+                }
+                ?>
+                >
               </div>
             </div>
             <div class="row justify-content-center text-center">
               <div class="col-md-8  pt-3">
                 <label for="studentName" class="form-label">Applicant's Full Name</label>
-                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no">
+                <input type="text" class="form-control text-center" name="studentName" placeholder="Juan Santos Dela Cruz" pattern="[a-zA-Z\s]*$" autocomplete="no"
+                <?php 
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['applyCEIS']){
+                  echo "value='$_POST[studentName]'";
+                }
+                ?>
+                >
               </div>
             </div>
             <div class="row justify-content-center text-center">
