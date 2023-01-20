@@ -67,7 +67,7 @@ $view = new view();
                   <p class="card-text text-justify">
                     CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. Here in Alumni Discount, an Alumni can enroll their children to the University and they will be granted a 5% discount on their tuition fee (max. of 4 children) if their application will be approved by the Admin.
                   </p>
-                  <a href="#AlumniForm" class="btn-card">APPLY NOW</a>
+                  <a href="#AlumniDataPrivacy" class="btn-card">APPLY NOW</a>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ $view = new view();
                   <p class="card-text text-justify">
                     CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. Here in Sibling Discount, as long as they are enrolled at the same year, they will be granted a 5% discount on their tuition fee (maximum of 4 siblings) if their application will be approved by the Admin.
                   </p>
-                  <a href="#SiblingForm" class="btn-card">APPLY NOW</a>
+                  <a href="#SiblinDataPrivacy" class="btn-card">APPLY NOW</a>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@ $view = new view();
                   <p class="card-text text-justify">
                     CEU provides different entrance grant scholarships that will help our Escolarians in reaching their goals in life. If the freshman student graduated from CEIS, he/she shall be entitled to 10% discount in tuition fee only upon enrollment in college. This application is only applicable on the FIRST YEAR of college only.
                   </p>
-                  <a href="#CEISForm" class="btn-card">APPLY NOW</a>
+                  <a href="#CEISDataPrivacy" class="btn-card">APPLY NOW</a>
                 </div>
               </div>
             </div>
@@ -756,6 +756,57 @@ $view = new view();
               ?>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="regOverlay" id="AlumniDataPrivacy">
+    <div class="regWrapper">
+      <a class="close" href="">&times;</a>
+      <div class="regContent">
+        <div class="regForm">
+          <h3 class='text-center'>CONFIDENTIALITY AGREEMENT</h3>
+
+          <p class='text-center'>This agreement is to acknowledge that the information provided by the applicants in this form is considered confidential and intended only for the use of the discount applied to it is addressed to. Any information and personal data are protected from unauthorized use or disclosure by the law (Republic Act No. 10173 "Data Privacy Act of 2012"). Therefore, any act that may violate the statement aforementioned such as printing, copying, dissemination, distribution, disclosure, or forwarding of the information is strictly prohibited.</p>
+            
+          <div class="row justify-content-center text-center">
+              <a href="#AlumniForm" class="btn-card">Accept</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="regOverlay" id="SiblinDataPrivacy">
+    <div class="regWrapper">
+      <a class="close" href="">&times;</a>
+      <div class="regContent">
+        <div class="regForm">
+          <h3 class='text-center'>CONFIDENTIALITY AGREEMENT</h3>
+
+          <p class='text-center'>This agreement is to acknowledge that the information provided by the applicants in this form is considered confidential and intended only for the use of the discount applied to it is addressed to. Any information and personal data are protected from unauthorized use or disclosure by the law (Republic Act No. 10173 "Data Privacy Act of 2012"). Therefore, any act that may violate the statement aforementioned such as printing, copying, dissemination, distribution, disclosure, or forwarding of the information is strictly prohibited.</p>
+            
+          <div class="row justify-content-center text-center">
+              <a href="#SiblingForm" class="btn-card">Accept</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="regOverlay" id="CEISDataPrivacy">
+    <div class="regWrapper">
+      <a class="close" href="">&times;</a>
+      <div class="regContent">
+        <div class="regForm">
+          <h3 class='text-center'>CONFIDENTIALITY AGREEMENT</h3>
+
+          <p class='text-center'>This agreement is to acknowledge that the information provided by the applicants in this form is considered confidential and intended only for the use of the discount applied to it is addressed to. Any information and personal data are protected from unauthorized use or disclosure by the law (Republic Act No. 10173 "Data Privacy Act of 2012"). Therefore, any act that may violate the statement aforementioned such as printing, copying, dissemination, distribution, disclosure, or forwarding of the information is strictly prohibited.</p>
+            
+          <div class="row justify-content-center text-center">
+              <a href="#CEISForm" class="btn-card">Accept</a>
+          </div>
         </div>
       </div>
     </div>
