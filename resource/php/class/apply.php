@@ -156,7 +156,7 @@ class apply extends config{
       $stmt = $link->prepare($sql);
       $stmt->execute();
       $lastID = $link->lastInsertId();
-      $link->connection = null;
+      $link = null;
       return $lastID;
     }
 
@@ -167,7 +167,7 @@ class apply extends config{
 
       $link = $link->prepare($sql);
       $link->execute();
-      $link->connection = null;
+      $link = null;
     }
 
     public function verifyAlumni($studentID, $studentEmail, $studentName, $studentYearLevel, $studentCampus, $studentCollege, $studentCourse, $alumniName, $alumniCampusGraduated, $alumniYearGraduated, $alumniSID, $alumniDiploma, $alumniTOR){
@@ -258,7 +258,7 @@ class apply extends config{
 
        $link = $link->prepare($sql);
        $link->execute();
-       $link->connection = null;
+       $link = null;
      }
 
     public function verifySibling($studentID, $studentEmail, $studentName, $studentYearLevel, $siblingApplicantCampus, $siblingApplicantCollege, $siblingApplicantCourse, $siblingID, $siblingName, $siblingYearLevel, $siblingSiblingCampus, $siblingSiblingCollege, $siblingSiblingCourse, $applicantBC, $siblingBC){
@@ -347,7 +347,7 @@ class apply extends config{
 
        $link = $link->prepare($sql);
        $link->execute();
-       $link->connection = null;
+       $link = null;
      }
 
     public function verifyCEIS($studentID, $CEISstudentID, $studentEmail, $studentName, $ceisCampus, $ceisCollege, $ceisCourse, $ceisCampusGraduated, $ceisDiploma){
