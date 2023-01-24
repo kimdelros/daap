@@ -975,12 +975,14 @@ $view = new view();
 <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
   <div class="container text-center">
     <div class="row">
-      <div class="col col-sm-5 text-left">
-        <small>Copyright &copy; Discount Application & Alumni Portal</small>
-      </div>
-      <div class="col text-right">
-        <small>Del Rosario, JK. | Cruz, RC. | Heyrana, PK. | Forbes, LI. | Bolasoc, R. (2022)</small>
-      </div>
+        <span>&copy; <a href="index.php">Discount Application and Alumni Portal</a> (2022)</span>
+        <small>
+            <a href="https://port-seventeen.com/jdelrosario/portfolio/" target="_blank">Del Rosario, JK.</a> |
+            <a href="https://port-seventeen.com/rkcruz/portfolio/" target="_blank">Cruz, RK.</a> | 
+            <a href="https://port-seventeen.com/pkheyrana/portfolio/" target="_blank">Heyrana, PK.</a> | 
+            <a href="https://port-seventeen.com/lforbes/portfolio/" target="_blank">Forbes, LI.</a> |
+            <a href="" target="_blank">Bolasoc, R.</a>
+  </small>
     </div>
   </div>
 </footer>

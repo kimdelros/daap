@@ -76,6 +76,26 @@ html{
   align-items: center;
 }
 
+/* footer section styling */
+footer span a{
+  color: #d000ff;
+  text-decoration: none;
+}
+footer span a:hover{
+  text-decoration: none;
+  color: #d000ff;
+  font-weight: 600;
+}
+footer small a{
+  color: #5c5c5c;
+  text-decoration: none;
+}
+footer small a:hover{
+  text-decoration: none;
+  color: #5e5e5e;
+  font-weight: 600;
+}
+
 /*discount style*/
 
 .discount{

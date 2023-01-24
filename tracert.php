@@ -156,4 +156,18 @@ $view = new view();
     </script>
 </body>
 
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+  <div class="container text-center">
+    <div class="row">
+        <span>&copy; <a href="index.php">Discount Application and Alumni Portal</a> (2022)</span>
+        <small>
+            <a href="https://port-seventeen.com/jdelrosario/portfolio/" target="_blank">Del Rosario, JK.</a> |
+            <a href="https://port-seventeen.com/rkcruz/portfolio/" target="_blank">Cruz, RK.</a> | 
+            <a href="https://port-seventeen.com/pkheyrana/portfolio/" target="_blank">Heyrana, PK.</a> | 
+            <a href="https://port-seventeen.com/lforbes/portfolio/" target="_blank">Forbes, LI.</a> |
+            <a href="" target="_blank">Bolasoc, R.</a>
+  </small>
+    </div>
+  </div>
+</footer>
 </html>
