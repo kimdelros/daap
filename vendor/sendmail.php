@@ -29,7 +29,8 @@ function sendConfirmationEmail($studentName, $studentEmail, $type, $transID){
   <p>Congratulations on applying for the $type.</p>
   <p>Kindly take note of your tracking ID: <b>$transID</b> for your reference.</p>
   <p>We will send you an email once your application has been approved by the Office of the Registrar.<p>
-  <p>You may check the status of your application using our <a href=\"https://port-seventeen.com/daap/status.php\">DAAP Status Checker</a>.</p>
+  <p>You may check the status of your application using our <a href=\"https://ceumnlregistrar.com/daap/status.php\">DAAP Status Checker</a>.</p>
+  <p>If you applied for the Alumni Discount, fill-up this form by clicking this link <a href=\"https://ceumnlregistrar.com/daap/tracert.php\">Alumni Portal Tracert</a>.</p>
   <p><b>This is an auto generated email please do not reply.</b></p>
   <p>Thank you and stay safe.</p>";
 
@@ -55,7 +56,7 @@ function notifyRegistrar($type, $transID){
 
   $body ="<p>Dear Registrar,</p>
   <p>Greetings of peace!</p>
-  <p>This email is to notify you that you have received a new application.</p>
+  <p>This email is to notify you that you have received a <b>new application</b> to be verified.</p>
   <p>Information:</p>
   <p>Tracking ID: <b>$transID</b></p>
   <p>Application Type: <b>$type</b></p>
@@ -65,7 +66,7 @@ function notifyRegistrar($type, $transID){
   try {
       //Server settings
       //Server settings
-      $mail = configureMail($mail, "drjemiahkim@gmail.com");
+      $mail = configureMail($mail, "ceu.mls.daap@gmail.com");
 
        //Content
        $mail->isHTML(true);
